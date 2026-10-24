@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Soft Fork — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Soft Fork</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1298972">Published on <time datetime="2025-12-02">2025-12-02</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>A soft fork is a 51% attack on Bitcoin</h1>
+<p>A 51% attack can happen when a miner gets a majority of hashpower and is able to control the blockchain by refusing to build on valid blocks from other miners. A miner with a majority of hashpower can do this because we expect them to be able to produce a chain with the most work more quickly than the rest of the miners, thus orphaning blocks found by other miners. </p>
+<p>A coalition of miners with a majority of the hash power can achieve the same effect. In fact, this is what happens every time we implement a soft fork.</p>
+<h1>Hard forks vs soft forks</h1>
+<p>You&rsquo;ve probably heard the difference between hard forks and soft forks described like this: hard forks loosen block validation rules while soft forks tighten them. While this is a popular description, it doesn&rsquo;t always help us think about what is actually happening.</p>
+<h1>Your node can enforce a hard fork, even if the majority of the network disagrees with you</h1>
+<p>For a hard fork, nodes that run old software and don&rsquo;t update to the new rules will reject blocks that have transactions following the new rules. This is because the new rules are an expansion: some transactions that weren&rsquo;t previously valid now are. There is no way for old nodes to know about these rules unless they run new software. The choice is update or fork. </p>
+<blockquote>
+<p>Under a hard fork, new nodes think old-style blocks are invalid, and old nodes think new-style blocks are invalid. Thus if old nodes continue creating old blocks, we get a chain of old blocks, and a chain of new blocks. Each community thinks theirs is the one true blockchain. <a href="https://bitcoin.stackexchange.com/questions/75543/why-is-a-softfork-unable-to-divide-the-network">-Nate Eldredge</a></p>
+</blockquote>
+<p>If there is a chain split, it&rsquo;s fairly straightforward: the nodes and miners who like the new rules will end up on one chain and the node and miners who don&rsquo;t like the new rules will end up on another chain.</p>
+<h1>Your node must follow a soft fork if the majority of hashpower enforces it</h1>
+<p>In the case of a soft fork, nodes that don&rsquo;t run updated software with the new rules will still see blocks that follow those rules as valid. Old nodes won&rsquo;t reject blocks on the chain following the soft fork rules because the new rules are a subset of the previous rules. </p>
+<blockquote>
+<p>Under a soft fork, new nodes think old-style blocks are invalid, but old nodes think both types of blocks are valid. New miners, which we assume are in the majority, will create a chain of new blocks only. Old miners may try to create old blocks within this chain, but since new miners won&rsquo;t accept those blocks, they&rsquo;ll get orphaned. The old nodes will think the old miners are just unlucky, and they&rsquo;ll continue to accept the longest chain of blocks which they consider valid. <a href="https://bitcoin.stackexchange.com/questions/75543/why-is-a-softfork-unable-to-divide-the-network">-Nate Eldredge</a></p>
+</blockquote>
+<p>Even if there are miners still producing blocks that follow the old rules, old nodes won&rsquo;t recognize those blocks unless they are also part of the longest chain. So what determines whether a soft fork is implemented is if the majority of hash power enforces it.</p>
+<h1>An op_return soft fork example</h1>
+<p>Imagine there is a soft fork that imposed this new rule: transactions can no longer include op_returns. If you don&rsquo;t run these new rules on your node, you can still stay on the chain that is following the new rules, it may just look like no one is making those kind of transactions anymore. </p>
+<p>But what would happen if you created a transaction with an op_return in it? </p>
+<p>None of the new nodes would relay the transaction because they don&rsquo;t think it&rsquo;s valid. But, perhaps there are still enough old nodes out there for your transaction to make it to a miner (it doesn&rsquo;t take many). </p>
+<p>If the miner is running the new rules of the soft fork, they won&rsquo;t mine your transaction because they don&rsquo;t think transactions can have op_returns in them. But if you reach a miner who hasn&rsquo;t updated their software to the new rules of the soft fork, they very well may include your transaction in a block.</p>
+<p>Now we have a problem: all the nodes that <em>are</em> running the new rules of the soft fork won&rsquo;t accept this block as valid. </p>
+<p>As far as you are concerned, this isn&rsquo;t much of a problem: all nodes can do is reject blocks that don&rsquo;t follow their rules. No skin off your nose. </p>
+<p>But it may be a problem for the miner who mined your transaction. Miners who <em>are</em> running the new rules of the soft fork will throw out the block with your transaction in it because they don&rsquo;t think it&rsquo;s valid. They will keep building on the previous block and if there are enough of them, they&rsquo;ll build new blocks faster than the old miner and the block with your transaction will be orphaned. It all comes down to how many miners are using the new soft fork rules.</p>
+<p>And now it may become a problem for you: if a majority of the hash rate refuse to build on the block containing your op_return transaction, it won&rsquo;t become part of the chain with the most work. Even worse: your node won&rsquo;t think there&rsquo;s anything wrong with this. </p>
+<h1>We need a 51% attack to enforce the soft fork rules</h1>
+<p>For a soft fork to be successful, a majority of the hash power must be enforcing the soft fork. In such a case, the miners who enforce the rules of the soft fork can refuse to build on top of a block that is mined by a miner who isn&rsquo;t following the soft fork.</p>
+<p>This is exactly what a 51% attack looks like: a majority of hash power refusing to build on valid blocks.</p>
+<p><em>I&rsquo;ve been reading <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Cryptoeconomics">Cryptoeconomics</a> again, and this is an attempt to work through the definition of &ldquo;Soft Fork&rdquo; in the Glossary, which I am copying below.</em> </p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#soft-fork">Soft Fork</a></h1>
+<blockquote>
+<p>A <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#fork">Fork</a> that implies a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#split">Split</a> unless <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#enforcement">Enforced</a> by <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#majority-hash-power">Majority Hash Power</a>. Contraction of the set of potentially-<a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#validity">Valid</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#block">Blocks</a>.</p>
+</blockquote>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

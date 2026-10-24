@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local backups
+*.bak
+
+# Editor temporary files
+*~
+*.swp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# local website build script
+/build.py
+

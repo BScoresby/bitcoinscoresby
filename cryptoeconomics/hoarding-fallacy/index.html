@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Hoarding Fallacy — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Hoarding Fallacy</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1272935">Published on <time datetime="2025-11-03">2025-11-03</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>Pay me in bitcoin</h1>
+<p>Right off the bat, let&rsquo;s talk about this: the only time you as a node-running Bitcoiner can enforce the rules of Bitcoin is when you are receiving a payment. When you receive a payment, you can use your node to check if the coins someone gives you follow the rules of Bitcoin as you understand them. If they don&rsquo;t, you can refuse to accept the payment.</p>
+<p>As a Bitcoiner, this is your big moment. This is the first and main reason you might want to run a node. It&rsquo;s pretty awesome to be able to determine the veracity of money someone offers you based on nothing other than the math done by your computer. </p>
+<p>The rest of the time, your node is mostly just checking to see if there are any new payments belonging to your wallet, downloading and validating blocks, and relaying blocks and transactions. But if your power goes out and your node is offline for a while, nobody cares. </p>
+<h1>Nodes don&rsquo;t care about invalid blocks</h1>
+<p>Now let&rsquo;s imagine you are a serious hodler. You have a nice stack but you are not actively acquiring any bitcoin at the moment. All you&rsquo;re doing is running your node, tinkering with your mempool configuration and hodling&hellip;are you enforcing the rules of bitcoin?</p>
+<p>Well, you might say your node is downloading new blocks and deciding whether they are valid, so surely there is some amount of &ldquo;enforcing the rules&rdquo; going on here. If somebody sends your node an invalid block, your node will just throw it in the garbage and move on&hellip;rules enforced!</p>
+<p>I&rsquo;m not so sure. </p>
+<h1>If a fork falls in the forest and no one rejects a payment, does it actually fork?</h1>
+<p>Let&rsquo;s think about the situation where there actually is a fork. Imagine some people decided to add a few rules to Bitcoin and they get some miners to mine blocks with these new rules. For instance, one of the new rules might be that op_returns can be no larger than 84 bytes. </p>
+<p>This sounds like a good rule to you, and so you update your node to run this rule. What happens if some miner who is following the old rules where op_returns could be bigger mines a block with such a transaction? Well, your node will see it as invalid and toss it and keep waiting for a new block that extends the chain and is valid&hellip;rules enforced!</p>
+<p>If a miner mines a new block that does follow the rules for smaller op_returns, there will be a chainsplit; two different chains of blocks will extend from one point. But your node doesn&rsquo;t see any of that. As far as nodes go, forks don&rsquo;t exist. All your node sees is the chain with the blocks it calls valid. The other chain doesn&rsquo;t exist. The same is true for nodes on the other chain with regard to your node. The block data you relay is just garbage to them.</p>
+<p>Merely downloading and validating blocks is a solitary<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> activity. It doesn&rsquo;t affect anyone else. When <em>can</em> your node affect other people? When they try to pay you.</p>
+<h1>What it looks like to try to pay someone on a different fork</h1>
+<p>Here&rsquo;s a thought experiment: how would it look different to nodes on the other side of the fork if your node had crashed right before the block with a bigger op_return came along? </p>
+<p>Now imagine if someone who was using a node that followed the old rules of Bitcoin tried to pay you. Let&rsquo;s pretend this is a while after such a fork happened and they are using coins they received in a block after the fork happened.</p>
+<p>You could give them an address and they could sign a transaction sending coins to it. When this transaction gets mined by miners on their fork, their node will see it as confirmed. </p>
+<p>Your node, on the other hand, will not show you the transaction at all. When it hears about the transaction it throws it out because the utxos don&rsquo;t exist as far as it is concerned. And this is the moment where you tell them that they still haven&rsquo;t paid you. They can holler and scream all they want, but if your node doesn&rsquo;t see the transaction, it doesn&rsquo;t exist and they haven&rsquo;t paid you. Now you are enforcing the rules of Bitcoin.</p>
+<h1>If you can&rsquo;t reject a payment, you can&rsquo;t enforce rules.</h1>
+<p><em>I&rsquo;ve been reading Cryptoeconomics again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Hoarding Fallacy&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Hoarding-Fallacy">Hoarding Fallacy</a></h1>
+<p>There is a theory that an increased level of <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#hoard">hoarding</a> produces an increased level of security in a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#coin">coin</a>. This is the similar to the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Dumping-Fallacy">Dumping Fallacy</a> but is not necessarily based on a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#split">split</a>.</p>
+<p>The presumed security benefit to an elevated level of hoarding stems from the theory that an <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#owner">owner</a> has a say in <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#validation">validation</a> and could act to prevent the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#economy">economy</a> from accepting what the owners collectively consider <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#validity">invalid</a> money. However owners are not acting unless they <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#trade">trade</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#unit">units</a> for something, and in this case it is the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#merchant">merchant</a> who enforces <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#consensus-rules">consensus rules</a>. <strong>The possibility that owners could act in unison does not increase this zero level of control. The theory is therefore invalid.</strong></p>
+<p>An increase can only be described relative to some base level. If a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#person">person</a> can be convinced that there is increased system security in a higher collective hoarding level, the theory holds that the person may decide to hoard more than would otherwise be optimal (i.e. the person&rsquo;s base level). This amounts to an actual individual cost with a presumed socialized benefit. In other words the theory depends on irrational economic behavior, even if the security benefit is actual, and is therefore invalid.</p>
+<p>The theory implies that less trade in the coin will produce greater security. This is the opposite of the case. As shown in <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Qualitative-Security-Model">Qualitative Security Model</a>, consensus rule enforcement requires ongoing trade. The <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#price">price</a> of a unit of the coin <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Inflation-Principle">in another good</a> or money is arbitrary, but rises temporarily if individuals are convinced to engage in the fallacy. The benefit of this increase accrues to existing owners. The theory that price can only rise is a related <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#speculate">speculative</a> error explored in <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Lunar-Fallacy">Lunar Fallacy</a>. Even a provable perpetual general price rise would not validate this theory, as it relates only to a temporary relative increase caused by financially sub-optimal individual decisions.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>It is true that your node relays blocks to other nodes and so it&rsquo;s a not true to say that it is an entirely solitary enterprise, but the spread of information is asymmetrical &ndash; one node can broadcast to thousands &ndash; and your node&rsquo;s little voice in spreading the information is not vital.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

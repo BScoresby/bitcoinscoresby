@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+<title id="title">Gold Bitcoin coin</title>
+<defs>
+ <radialGradient id="gold" cx="38%" cy="33%" r="75%"><stop stop-color="#ffe47c"/><stop offset=".48" stop-color="#ffc32e"/><stop offset=".82" stop-color="#ffb000"/><stop offset="1" stop-color="#e88a05"/></radialGradient>
+ <linearGradient id="edge" x1=".1" y1="0" x2=".85" y2="1"><stop stop-color="#ffd448"/><stop offset=".4" stop-color="#ffed73"/><stop offset=".75" stop-color="#fba410"/><stop offset="1" stop-color="#dc7300"/></linearGradient>
+ <linearGradient id="letter" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#fff0a1"/><stop offset="1" stop-color="#ffd455"/></linearGradient>
+</defs>
+<!-- All artwork is vector paths and gradients, not an embedded bitmap. -->
+<circle cx="256" cy="256" r="245" fill="#e88903"/>
+<circle cx="256" cy="250" r="239" fill="url(#edge)"/>
+<circle cx="256" cy="248" r="223" fill="#ffda44"/>
+<circle cx="256" cy="248" r="209" fill="url(#gold)" stroke="#ed9105" stroke-width="12"/>
+<circle cx="256" cy="248" r="187" fill="none" stroke="#e69203" stroke-width="12"/>
+<path d="M79 184 A195 195 0 0 1 182 72" fill="none" stroke="#fff4b1" stroke-width="15" stroke-linecap="round" opacity=".85"/>
+<g transform="translate(175.2771 364.9819) scale(0.3012048 -0.3012048)">
+ <path d="M156 -98V0H75V714H156V815H216V714H231Q254 714 274 712V815H334V701Q446 667 446 538Q446 474 422.5 432.0Q399 390 357 379V374Q407 360 434.0 320.0Q461 280 461 206Q461 131 427.5 80.0Q394 29 334 10V-98H274V0Q267 0 261 0H216V-98ZM240 420Q287 420 307.5 446.0Q328 472 328 523Q328 614 236 614H191V420ZM191 323V101H250Q298 101 319.5 130.5Q341 160 341 215Q341 266 318.0 294.5Q295 323 246 323Z" fill="url(#letter)" stroke="#e78a00" stroke-width="26" stroke-linejoin="round" paint-order="stroke fill"/>
+</g>
+</svg>

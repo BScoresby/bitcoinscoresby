@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Value Proposition — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Value Proposition</h1>
+  <p class="review-date">Published on <time datetime="2025-10-23">2025-10-23</time></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>What if Bitcoin <em>is</em> for criminals?</h1>
+<p>I have been listening to old episodes of Bitcoin Uncensored lately, and one of the things that Junseth repeatedly says is:</p>
+<blockquote>
+<p>People will iterate Bitcoin up to the point it provides regulatory arbitrage and no further </p>
+</blockquote>
+<p>Unless I&rsquo;m mistaken, he&rsquo;s saying that the main reason Bitcoin exists is to help people get around laws. We spend so much time defending ourselves against FUD like &ldquo;Bitcoin is only used by criminals&rdquo; and &ldquo;It&rsquo;s just for money laundering&rdquo; that we forget what it is that Bitcoin actually does: it eliminates the need for trusted third parties in the monetary system. </p>
+<blockquote>
+<p>What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party. <a href="https://bitcoinscoresby.com/whitepaper/">Whitepaper</a></p>
+</blockquote>
+<p>All this sounds nice and tame unless you really think about it. &ldquo;Transact directly&rdquo; means no one is in the way to stop you &ndash; no one <em>can</em> stop you. That&rsquo;s the innovation of Bitcoin: every part of it is in service of this use-case.</p>
+<h1>Bitcoin is valuable because people want it. But why do people want it?</h1>
+<p>It is good, sometimes, to ask the question &ldquo;Why does anyone want bitcoin anyway?&rdquo; </p>
+<p>The most common answer is probably because people want to make money. But that doesn&rsquo;t tell us much. Money isn&rsquo;t valuable just because it people say it&rsquo;s money. It&rsquo;s valuable because people want it. But why should people want it? What is it useful for?</p>
+<p>Well, because there are only 21 million bitcoins. Nobody can make more bitcoin. Given the $38 trillion dollar US national debt, this does seem like a useful quality; inflation sucks and central bank monetary policy often seems a little whimsical. </p>
+<p>On the surface, I&rsquo;m sure a government could promise to limit the supply of whatever currency they control&hellip;but they just never seem to be able to keep their promise. </p>
+<p>And that&rsquo;s the problem: you have to take their word for it. Even if they aren&rsquo;t printing new dollars today, you don&rsquo;t have any way to know if they will print more dollars tomorrow. </p>
+<h1>But how do we know no one can change Bitcoin&rsquo;s 21 million supply cap?</h1>
+<p>It&rsquo;s in the code. The function that determines how the block reward halving works also sets the limit on Bitcoin&rsquo;s supply. Unchained has <a href="https://www.unchained.com/blog/bitcoin-source-code-21-million">a very nice explainer</a> if you want to learn more about it. But the function is simple enough that even a non-developer like me can understand it. Even better, I can download a program, run it on my laptop, and type one command that will verify the total supply of bitcoin at that exact moment. The code is pretty cool.</p>
+<h1>And how do we know the code won&rsquo;t change?</h1>
+<p>Bitcoin has had a number of forks, the consensus code has changed. What makes us so sure a government won&rsquo;t try to force their own change on the code (or that users won&rsquo;t decide to increase supply)?</p>
+<p>Unlike any other money on Earth, you can verify the rules of Bitcoin (which is to say you can verify the consensus code) every time you receive a coin. </p>
+<p>When someone offers to pay you Bitcoin and you use your own node to verify the transaction in which they send coins to you, you are enforcing the 21 million supply cap and all the other consensus rules of Bitcoin. You can choose to reject the payment if your node doesn&rsquo;t recognize it as following the rules. </p>
+<p>So this is how we know the code won&rsquo;t change: it won&rsquo;t change as long as <em>you</em> won&rsquo;t change it. </p>
+<p>But is that really why Bitcoin has value? </p>
+<p>Running a program on your computer does not seem like it would be very valuable to anyone else.</p>
+<h1>Proof of work makes a program running on one computer valuable to other people</h1>
+<p>Another one of the rules of Bitcoin is that when your node learns about a new block, it must check to see if this block&rsquo;s header has enough proof of work to meet the current network difficulty target.</p>
+<p>This rule may seem like it&rsquo;s not relevant to anything else I&rsquo;ve been saying, but it creates the wonderful property that as long as at least half the mining power in the world is not working together to censor you, you have a good chance of getting your transaction included in a block. </p>
+<p>This is because anyone on Earth who has access to energy and mining equipment can attempt to mine the next block. The only rule is that they need to find a transaction header that will double hash to a number that meets the difficulty target. And if they do this, they get to pick the transactions that will go in their block and everyone else probably should accept that block and start building on top of it if they don&rsquo;t want to be left behind and waste their own hash power.</p>
+<p>So if the existing miners refuse to mine certain kinds of transactions, the people who want to make those transactions can offer higher and higher fees until some miner decides to include them in a block. </p>
+<p>And this is why Bitcoin is censorship resistant: because you can offer to pay anyone on earth to mine your transaction and anyone on earth can decide it is worth it to do so; and you can enforce this dynamic every time you accept bitcoin in trade by making sure that the coins you are accepting have been included in a block in the chain with the most weight. This is the great innovation of Bitcoin. </p>
+<h1>Bitcoin gives you the option to break the law</h1>
+<p>In <a href="https://x.com/btcplusplus/status/1979198284787814502">a recent talk</a>, Matt Corallo shared this thing his friend said:</p>
+<blockquote>
+<p>Bitcoin simply doesn&rsquo;t work unless there&rsquo;s sufficient demand for censorship-resistant transactions in the world.</p>
+</blockquote>
+<p>If only a very few people want the option to break the law, if only a few people want censorship resistant money, it is unlikely this project works. This is because miners only get paid in bitcoin and that bitcoin is only valuable if people will accept it in trade and the only reason you might accept bitcoin instead of any other money is because it has this quality of being a peer to peer money with no trusted third parties &ndash; which is to say, it is censorship resistant.</p>
+<p>Satoshi came up with a system for aligning incentives so that we can route around people who try to censor transactions or control the rules of Bitcoin. All the rules of Bitcoin are dependent on this system &ndash; if it doesn&rsquo;t work, all the other things we like about Bitcoin can trivially be altered.</p>
+<p>So beware (or be less concerned about what the state will prohibit): Bitcoin is black market money and it is already illegal &ndash; your government just hasn&rsquo;t realized it yet.</p>
+<p><em>I&rsquo;ve been reading <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Cryptoeconomics">Cryptoeconomics</a> again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Value Proposition&rdquo; which I am copying below.</em> </p>
+<hr />
+<blockquote>
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Value-Proposition">Value Proposition</a></h1>
+<p>The <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#value">value</a> of Bitcoin over its alternatives derives directly from removing the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#state">state</a> from control over both monetary <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#subsidy">supply</a> and <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#transaction">transaction</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#censorship">censorship</a>. Advantages include freedom from <a href="https://en.m.wikipedia.org/wiki/Seigniorage">seigniorage</a>, foreign exchange <a href="https://en.m.wikipedia.org/wiki/Foreign_exchange_controls">controls</a>, and <a href="https://en.m.wikipedia.org/wiki/Know_your_customer">financial surveillance</a>. These allow the money to be <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#transfer">transferred</a> to any <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#person">person</a>, in any place, at any time, without need for third party permission.</p>
+<p>These advantages represent cost reduction through the avoidance of tax. Seigniorage is directly a tax, while foreign exchange controls limit its evasion. The state itself often claims <a href="https://www.federalreserve.gov/faqs/about_12799.htm">political independence</a> as an objective in the interest of limiting this taxing power. Financial surveillance limits tax evasion more generally. <strong>While Bitcoin cannot eliminate tax, or even necessarily reduce total takings, it represents a change in the nature of taxation.</strong> In any case, for those who consider the state a social good, the option to voluntarily fund it remains.</p>
+<p>It would be an error to assume these advantages flow from the existence of a more efficient technology than employed by <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Money-Taxonomy">monopoly monies</a>. The technology is far <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Scalability-Principle">less efficient</a>, yet it <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Risk-Sharing-Principle">helps people</a> resist state controls. It is this <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Axiom-of-Resistance">resistance</a> that provides the value.</p>
+</blockquote>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

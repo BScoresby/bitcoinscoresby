@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Side Fee Fallacy — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Side Fee Fallacy</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1278899">Published on <time datetime="2025-11-10">2025-11-10</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>Hey kid, you wanna buy some blockspace?</h1>
+<p>You&rsquo;ve probably heard about so-called &ldquo;transaction acceleration services&rdquo; like <a href="https://slipstream.mara.com/">MARA&rsquo;s Slipstream</a> and <a href="https://mempool.space/accelerator">mempool.space&rsquo;s accelerator</a>. Such services allow you to &ldquo;accelerate&rdquo; a transaction by paying the service provider an extra fee to mine your transaction in their next block. </p>
+<p>Pretty much all the big pools except Foundry and Ocean have made such transaction accelerator services available to the public:</p>
+<ul>
+<li><a href="https://www.antpool.com/txAccelerate">Antpool txAccelerate</a></li>
+<li><a href="https://www.spiderpool.com/user/loginEmail?redirect=/txAccelerate">SpiderPool txAccelerate</a></li>
+<li><a href="https://www.viabtc.com/en/tools/txaccelerator">ViaBTC BTC Transaction Accelerator</a></li>
+<li><a href="https://www.f2pool.com/user/tx-acc">f2pool Transaction Accelerator</a></li>
+<li><a href="https://slipstream.mara.com/">Mara Slipstream</a></li>
+<li><a href="https://mempool.space/accelerator">Mempool Accelerator</a></li>
+</ul>
+<p>It&rsquo;s interesting to note that Slipstream is the only acceleration service that actually lets you submit a transaction that has not yet been broadcast. I have a feeling many of these other services would allow something similar, but they don&rsquo;t have it formalized on their websites.</p>
+<h1>Transaction accelerators are bad, &lsquo;mkay</h1>
+<p>In the course of the debate about filters, an increased use of such acceleration services has been suggested as one possible outcome of stricter relay policies. This, in turn, is suggested as a source of increased miner centralization. </p>
+<p>The argument goes that if people find that broadcasting their transaction to the relay network does not result in it getting mined into a block, they may consider using an accelerator. However, small miners may not have the ability to operate a transaction acceleration service, and even if they do, they probably won&rsquo;t have the same kind of reach to get such a service in front of the public, and so widespread use of accelerators could result in large miners collecting even more fees and growing even larger. </p>
+<h1>&ldquo;there would be no harm to system security even if all fees were paid off chain&rdquo;</h1>
+<p>Eric Voskuil has an interesting take on this theory. He argues that such &ldquo;side-fee&rdquo; arrangements (also called &ldquo;out of band&rdquo;) do not change the fee market:</p>
+<blockquote>
+<p>If the arrangement deviates from market rates then either the miner or the merchant is accepting an unnecessary loss. This is no different than the miner confirming transactions with below-market on-chain fees or the merchant overestimating on-chain fees, respectively.</p>
+</blockquote>
+<p>At first, I didn&rsquo;t find this argument very convincing. If use of such accelerators is widespread it could likely resemble consistent &ldquo;overestimation&rdquo; of on-chain fees, which seems to me that it would be a difference in the market. </p>
+<p>However, that may not actually be the case. Imagine you submitted a transaction at 5 sats/vB and it just languishes in mempools and doesn&rsquo;t get confirmed. This implies that new transactions are appearing with higher fee rates and taking up all the space in newly mined blocks&hellip;or that miners are choosing to forgo the
+profit they could make from mining your transaction in order to mine less valuable transactions. </p>
+<p>Nevertheless, you decide to submit your transaction to an accelerator and pay them an extra fee. If this fee, combined with the internal fee of your transaction, is less than the prevailing rate making it into blocks, the miner will clearly be taking a loss. If it is more than the prevailing rate making it into blocks, you probably should just have offered that fee-rate to begin with or RBF&rsquo;d it yourself. </p>
+<p>And if this is the case with one transaction, I don&rsquo;t see why it wouldn&rsquo;t be the case with many. If a &ldquo;prevailing fee rate&rdquo; <em>can</em> be estimated from looking at mempools and previous blocks, then any deviation from this fee rate will likely come at extra cost either to the miner or to the person who wants their transaction confirmed.</p>
+<h1>Prohibition, War on Drugs, Mempool Filters</h1>
+<p>For a transaction accelerator to sustain their service at rates below what they could get by selecting transactions from mempools would pretty quickly result in that miner losing money and not being competitive.</p>
+<p>But the real question is what happens if a transaction accelerator is able to sustain higher than market fee rates collected by their service. </p>
+<p>In the context of the filter debate, transaction accelerators may receive higher than market fee rates because people <em>can&rsquo;t</em> get their transactions confirmed any other way. But this implies that at least 92% of the network is refusing to relay such transactions (https://stacker.news/items/1244876)&hellip;a situation that seems very difficult to maintain for the case of transactions with sustained economic demand.</p>
+<p>Voskuil makes the argument that such a situation is indistinguishable from a state subsidy of mining. He allows that it would distort the mining landscape, but does not see it as a problem inherent to side fee arrangements, but rather to the root cause which makes such a situation possible.</p>
+<p>In our example, sustained above-market fees for certain transactions collected by transaction accelerators are potentially caused by aggressive filtering of transactions by more than 92% of the relay network. This presents, I think, another way of describing the idea of filtering transactions via the relay network: it&rsquo;s a way of subsidizing miners who are willing to mine such transactions. </p>
+<p>Perhaps you recall how the US waged a War on Drugs during the 1990s or the Prohibition Era in the 1920s. These aggressive campaigns to &ldquo;filter&rdquo; things out of society likely had the result of enriching the people who were willing to break the law. </p>
+<p>Think about how it plays out in the competitive world of mining.</p>
+<p><em>I&rsquo;ve been reading Cryptoeconomics again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Side Fee Fallacy&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy">Side Fee Fallacy</a></h1>
+<p>There is a theory that off-<a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#chain">chain</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#fee">fees</a> are illegitimate. The theory holds that a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#merchant">merchant</a> paying a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#miner">miner</a> &ldquo;on the side&rdquo; to <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#confirmation">confirm</a> the merchant&rsquo;s <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#transaction">transactions</a> prevents other merchants&rsquo; transactions from being confirmed, or that it raises the cost of those confirmations.</p>
+<p>One impact of such arrangements is that an average <em>historical</em> fee rate cannot be determined through chain analysis. The apparent rate would be lower than the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#market">market</a> rate. This could of course lead <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#spender">spenders</a> to underestimate a sufficient fee. However there is no aspect of Bitcoin that requires future fees to equal some average of past fees. Estimation necessarily compensates, such as by ignoring &ldquo;free&rdquo; transactions in full <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#block">blocks</a> or using <a href="https://en.wikipedia.org/wiki/Standard_deviation">standard deviation</a> to identify outliers.</p>
+<p>Another impact is that disparate relative fee levels can highlight certain transactions as being associated with such arrangements. This can contribute to <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#taint">taint</a> of the merchant&rsquo;s transaction and/or the miner&rsquo;s <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#coinbase">coinbase</a>. But given the arrangement is a choice made by the creators of these transactions, there is no privacy loss.</p>
+<p>There is no impact on market fee rates or the ability of others to obtain confirmations. If the arrangement deviates from market rates then either the miner or the merchant is accepting an unnecessary loss. This is no different than the miner confirming transactions with below-market on-chain fees or the merchant overestimating on-chain fees, respectively.</p>
+<p>Furthermore, unless the miner&rsquo;s <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#hash-power">hash power</a> is 100%, the merchant is increasing his/her average confirmation times by paying a side-fee at what is otherwise a market rate. This implies that the market rate for side fees is the product of the miner&rsquo;s hash power and the prevailing market rate. In other words, proportionally less than otherwise on-chain market rates. Without this understanding one may misinterpret the actual effective rate in such arrangements.</p>
+<p>Bitcoin provides a mechanism for on-chain fees so that a transaction can compensate <em>any</em> miner without the use of <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#identity">identity</a>. It is a privacy-preserving convenience. <strong>If miners and merchants want to weaken their privacy by performing additional tasks, there is no basis to consider that illegitimate.</strong> This theory is therefore invalid.</p>
+<p>There is a related theory that side fee arrangements constitute a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#pooling">pooling</a> pressure. If fees paid are consistent with the market there can be no effect on pooling. Above market fees are a state subsidy, as we must treat the subsidy is not economically rational. Below market fees are a tax, as we must treat the loss as involuntary. These are <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Glossary#distortion">distortions</a> just like any other state subsidy/tax and are therefore <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Side-Fee-Fallacy/Pooling-Pressure-Risk">not unique</a> to side fees. As such the existence of side fees does not create a new pooling pressure and the theory is therefore invalid.</p>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

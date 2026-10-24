@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Relay Fallacy — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Relay Fallacy</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1442845">Published on <time datetime="2026-02-26">2026-02-26</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>The problem with Bitcoin is that mining pools tend to get bigger</h1>
+<p>In Bitcoin mining, there&rsquo;s a number of reasons to get in a pool. Two of these reasons are variance and latency.</p>
+<ul>
+<li><strong>Variance.</strong> A miner working by themselves has to wait until they find a block to get paid (really, they have to wait until they find a block and then wait another 100 blocks because block subsidies can&rsquo;t be spent immediately). But all along (perhaps long before they actually get any bitcoin), they have to pay power bills and whatever other bills they have. This is called variance. If you work with a pool, maybe you can find blocks more frequently and help each other by splitting the rewards. </li>
+<li><strong>Latency.</strong> Miners also have this problem where the longer it takes them to learn about a new block, the worse off they are. If you have a miner and you&rsquo;re grinding along trying to find a block but you don&rsquo;t know there&rsquo;s already a new block that&rsquo;s been found and all the other miners are building on top of that one, you might be wasting your hash power. You want to be building on a new block as soon as you possibly can. However long it takes you to learn about a block is the size of your disadvantage. If you work with a pool, especially a big one, maybe they can help cut down the latency (every time your pool finds a block, you learn about it very quickly &ndash; the bigger your pool, the more likely they are to find blocks).</li>
+</ul>
+<p>Because of these two reasons, and things like economies of scale, large pools have an advantage over smaller miners operating on their own &ndash; which means smaller miners have an incentive to join pools, which means mining pools tend to get bigger.</p>
+<h1>Big pools are big bad</h1>
+<p>Everybody knows that one of the major risks for Bitcoin is a 51% attack. If one entity gains control of more than half the mining power, the censorship resistant properties of Bitcoin begin to weaken. You have probably seen a chart of the share of hash rate wielded by various pools. Lately it looks like this:</p>
+<p><a href="/assets/cryptoeconomics/relay1.avif"><img alt="" src="/assets/cryptoeconomics/relay1.avif" /></a></p>
+<p>Foundry USA has found just over 30% of the blocks in the last month. You probably also read @0xB10c&rsquo;s <a href="https://b10c.me/observations/12-template-similarity/">report from 2024</a> that a number of other pools seemed to be receiving block templates from Antpool and that this group (Antpool and Friends) may represent an aggregation of hash power rather larger than is represented by the tradition of self-reporting in a coinbase transaction when they find a block. The only solace in the face of this seemingly dire centralization is that at least there are lots of small pools. Maybe other small miners will join them.  </p>
+<h1>Does having more mining pools make things better?</h1>
+<p>While having lots of pools seems like a good thing, if you think about it, it doesn&rsquo;t actually fix the problem. Whether there are three pools or thirty, individual miners still have to work against variance and latency and those miners who join bigger pools will still have an advantage. </p>
+<p>It might be a lovely world where there are ten different mining pools spread across the world each with ten percent of the hash power, but we would expect the same pressure towards centralization in that lovely world as there is in our Foundry-and-Antpool-and-Friends-dominated world. More pools might seem like it is better for censorship resistance, but nothing about having more pools changes the incentives point toward larger pools getting larger. </p>
+<p>Indeed, I would expect more pools to always tend to aggregate into less pools. Maybe local regulations or the proclivities of the mining operators get in the way of this centralization, but one thing that I don&rsquo;t think gets in the way is having more pools to choose from.</p>
+<h1>What if we fix the latency problem?</h1>
+<p>Recently, Localhost Research <a href="https://lclhost.org/blog/fibre-resurrected/">announced</a> that they are reviving the <a href="https://bitcoinfibre.org/">FIBRE network</a> (https://stacker.news/items/1438268/r/Scoresby). The FIBRE network is a special patch to Bitcoin Core nodes that spreads block information using UDP rather than TCP:</p>
+<blockquote>
+<p>Bitcoin Core uses TCP, which delivers an in‑order byte stream. Its reliability depends on ACKs and retransmission, so loss can trigger long tail latencies. Moreover, widely deployed loss‑based congestion control favors shorter‑RTT flows, penalizing long‑haul fiber paths that can contribute to block propagation delays. UDP enables one-way push, eliminating TCP’s ordering and retransmission constraints, enabling FIBRE to deliver blocks with latency bound in fiber rather than transport-layer limitations.</p>
+</blockquote>
+<p>Additionally, FIBRE network nodes don&rsquo;t validate blocks before relaying them, which also results in a hefty reduction in latency. When a new block is shared by the peer-to-peer relay network each node has to validate the block header before it will relay the block to other nodes. This is one of the ways the network protects itself from DoS attacks. But this little bit of validation adds latency to the block&rsquo;s propagation such that a small miner who relies solely on Bitcoin&rsquo;s peer-to-peer relay network may wait a little longer to learn about a new block than a large mining pool that is broadcasting new blocks to all its members.</p>
+<p>While anyone can run a FIBRE network (just like, in theory, anyone can run a mining pool), such a network is most effective at reducing latency if it has nodes that are geographically dispersed and if it has access to lots of large block producers (so it can learn about blocks as soon as they are found).</p>
+<p>The idea is that a small miner could point their node at a FIBRE network node that is nearest to them and learn about blocks as soon as they are found, rather waste time mining on stale tips until they hear about a new block through normal block propagation methods. </p>
+<h1>Is adding a new relay network different than adding a new pool?</h1>
+<p>In the immediate term, this seems like it will reduce the advantage the large pools have over the small pools. Small pool operators (or small individual miners) will able to connect to the FIBRE network and learn about new blocks with very low latency. </p>
+<p>This ought to increase the profitability of these miners and pools. Which ought to allow them to increase their hash rate. </p>
+<p>However, it seems to me that the FIBRE network doesn&rsquo;t really reduce any of the centralization pressure on mining. It just adds a new wedge to the pie chart. </p>
+<p>I don&rsquo;t see a big difference between Antpool and Friends and the various miners who will connect to a specific FIBRE network (FIBRE and Friends?). In both cases we have an entity upon which miners are relying for an efficiency gain, and which the miners  have to trust to some extent in order to realize that efficiency gain.</p>
+<p>The FIBRE website is clear that anyone can run a FIBRE network. And indeed they have made a really good <a href="https://bitcoinfibre.org/setup-guide/">set up guide</a> should you want to do this, however, it&rsquo;s not clear how this actually reduces a miners incentive to join with a larger group &ndash; it&rsquo;s just a new group for the miner to join. </p>
+<p><em>I&rsquo;ve been reading Cryptoeconomics again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Relay Fallacy&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Relay-Fallacy">Relay Fallacy</a></h1>
+<p>The <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#peer-to-peer">peer-to-peer</a> network disseminates <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#block">blocks</a> and <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#unconfirmed">unconfirmed</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#transaction">transactions</a>. The <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#protocol">protocol</a> itself allows <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#node">nodes</a> to protect against <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#denial-of-service">denial of service</a>. Consequently this <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#communication">communication</a> requires no <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#identity">identity</a>. This protection is how the network avoids the need for permission to participate.</p>
+<p>However this protection comes at a cost in terms of <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#announcement">announcement</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#latency">latency</a>, and because of the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Proximity-Premium-Flaw">advantage to proximity</a>, lower latency translates into higher <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#apparent-hash-power">apparent hash power</a>. Therefore <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#miner">miners</a> compete for reduced latency. One way to reduce latency is <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#pooling">pooling</a>, another is to use a more efficient dissemination network. Given that pooling surrenders <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#power">power</a> to the operator, presumably the latter option is preferable.</p>
+<p>One way to improve dissemination is to <em>optimize</em> the peer-to-peer network. The other is to join a distinct network, called a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#relay">relay</a>, that has lower latency due to elimination of denial-of-service protections, for <a href="http://bitcoinfibre.org/">example</a>:</p>
+<blockquote>
+<p>[T]he cmpctblock message format was designed to ensure it fits neatly into a UDP-FEC-based relay mechanism. The only difference is that we send it over UDP with FEC&hellip; This way, extra hops do not introduce more latency. Sadly, due to the nature of our FEC encoding, we cannot know if individual packets are a part of a legitimate, or any, block, and thus only enable this optimization between nodes run by the same group.</p>
+<p><em>bitcoinfibre.org</em></p>
+</blockquote>
+<p>The relay accepts <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#communication">communication</a> from a set of miners, over the peer-to-peer or other protocol. The relay consists of a set of <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#machine">machines</a> under the control of the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#relayer">relayer</a>. It communicates the announcements within its <a href="https://bitcoinmagazine.com/articles/blockstream-satellite-broadcasting-bitcoin-space">internal network</a> and eventually to the joined miners.</p>
+<p>The important security observation is that communication within the relay is under the relayer&rsquo;s control. Due to the removal of denial-of-service protections central control is <em>necessary</em> to the scheme. The relayer can delay certain blocks based on miner, region, <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#signal">signal</a>, non-payment, etc. A relayer sells reduced latency, and is therefore in the mining business. From a security standpoint it matters not if this service is offered for free. Miners may similarly offer <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#grinder">grinders</a> free reduced latency and <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#variance">variance</a>.</p>
+<p>Relays are aggregations of miners and miners are aggregations of grinders. The greater the hash power aggregation, the more profitable is the mine, as is the relay. One may consider that grinders are free to leave mines and miners are free to leave relays, and it is of course possible for a grinder to run his own mine and his own relay. But larger aggregations are more profitable, so leaving the largest relay or mine <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Zero-Sum-Property">increases relative cost</a>.</p>
+<p>A theory holds that relays reduce pooling pressure. This is an error. <strong>Any pooling reduction caused by a relay does not disappear but is transferred to the relay as a pooling increase.</strong> Relay statistics are never presented alongside mining statistics, masking the power transfer. This leads people to believe that mining is less strongly-pooled than is the case. This may lead people to believe that mining is less strongly-pooled than is the case.</p>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

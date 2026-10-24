@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Dumping Fallacy — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Dumping Fallacy</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1417367">Published on <time datetime="2026-01-22">2026-01-22</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>The 20k bitcoin buy that didn&rsquo;t move the market</h1>
+<p>On 20 January 2026, Michael Saylor <a href="https://x.com/saylor/status/2013598074652762294">announced</a> that Strategy had acquired 22,305 bitcoins. He even included that he paid ~$2.13 billion for them, which works out to a price of ~$95,284 per bitcoin. </p>
+<p>As @denlillaapan observed a few days ago (https://stacker.news/items/1416021/r/Scoresby), it&rsquo;s funny that these monster buys don&rsquo;t seem to show up in the price. Seems like somebody buying 20k bitcoins ought to cause at least a little blip.</p>
+<p>Afterall, if some horrible bear was selling that much bitcoin, people would be in the streets, rending their garments, wailing that the end was neigh. In fact, the famous 2014 <a href="https://www.reddit.com/r/Bitcoin/comments/1719ey0/exactly_9_years_ago_the_bitcoin_bearwhale_was/">BearWhale</a> only sold 30k bitcoins &ndash; but people still remark its slaying every October. What gives?</p>
+<p>Perhaps the buys <em>do</em> show up in the price and we just don&rsquo;t recognize it. I decided to give this a test. So I got the price data for Bitcoin during the period when Strategy likely would have been buying all this bitcoin and made a chart.</p>
+<p><a href="/assets/cryptoeconomics/dumping1.avif"><img alt="" src="/assets/cryptoeconomics/dumping1.avif" /></a></p>
+<p>Now, you&rsquo;ll notice something funny about this chart: the y-axis is sats per dollar (well, USDT actually, because I got the data from <a href="https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/6h/">Binance</a> and they don&rsquo;t offer a BTC-USD trading pair). The chart also starts two days before Saylor&rsquo;s previous announcement of a bitcoin buy to give a little buffer for capturing price action when they were acquiring this 20k bitcoin. </p>
+<p>If Strategy can move the market by buying 20k bitcoins, we&rsquo;d expect to see a nice L-shape or U-shape as the price of bitcoin goes up and the number of sats per dollar decreases while Strategy is gobbling up all the bitcoins for sale&hellip;</p>
+<p>And this is what we see! Look at that: you can see Strategy moving the market.</p>
+<h1>Hang on, wait a minute&hellip;</h1>
+<p>Sadly, as you all can probably tell, I am not an economist, nor a statistician. It would be foolish to accept this one cherry-picked little bit of data as proof of anything.</p>
+<p>We meed more data.</p>
+<h1>Strategy&rsquo;s largest purchases of bitcoin in the last year or so</h1>
+<p>Perhaps we can find some kind of correlation if we make a similar chart for each one of these buys and compare them all. So that&rsquo;s what I did.</p>
+<table>
+<thead>
+<tr>
+<th>Dumping period</th>
+<th>Dollar dump</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12 - 20 Jan 2026</td>
+<td><a href="https://x.com/saylor/status/2013598074652762294">$2.13 billion</a></td>
+</tr>
+<tr>
+<td>5 - 12 Jan 2026</td>
+<td><a href="https://x.com/saylor/status/2010698959426105389">$1.25 billion</a></td>
+</tr>
+<tr>
+<td>8 - 15 Dec 2025</td>
+<td><a href="https://x.com/saylor/status/2000552369172701538">$980.3 million</a></td>
+</tr>
+<tr>
+<td>1 - 8 Dec 2025</td>
+<td><a href="https://x.com/saylor/status/1998015666344054815">$962.7 million</a></td>
+</tr>
+<tr>
+<td>10 - 17 Nov 2025</td>
+<td><a href="https://x.com/saylor/status/1990411134009061658">$835.6 million</a></td>
+</tr>
+<tr>
+<td>21 - 29 Jul 2025</td>
+<td><a href="https://x.com/saylor/status/1950286461028217048">$2.46 billion</a></td>
+</tr>
+<tr>
+<td>9 - 16 Jun 2025</td>
+<td><a href="https://x.com/saylor/status/1934582626448236794">$1.05 billion</a></td>
+</tr>
+<tr>
+<td>5 - 12 May 2025</td>
+<td><a href="https://x.com/saylor/status/1921898712801874273">$1.34 billion</a></td>
+</tr>
+<tr>
+<td>21 - 28 Apr 2025</td>
+<td><a href="https://x.com/saylor/status/1916825375155380688">$1.42 billion</a></td>
+</tr>
+<tr>
+<td>24 - 31 Mar 2025</td>
+<td><a href="https://x.com/saylor/status/1906678678714556632">$1.92 billion</a></td>
+</tr>
+<tr>
+<td>18 - 24 Feb 2025</td>
+<td><a href="https://x.com/saylor/status/1894010574494687441">$1.99 billion</a></td>
+</tr>
+<tr>
+<td>21 - 27 Jan 2025</td>
+<td><a href="https://x.com/saylor/status/1883848242376650840">$1.1 billion</a></td>
+</tr>
+<tr>
+<td>13 - 21 Jan 2025</td>
+<td><a href="https://x.com/saylor/status/1881688755096174607">$1.1 billion</a></td>
+</tr>
+</tbody>
+</table>
+<h1>But wait! what&rsquo;s with the sats per dollar?</h1>
+<p>I want to explain why I flipped the chart upside down and showed sats per dollar on the y-axis, rather than the normal way the bitcoin price is charted.</p>
+<p>We&rsquo;re all Bitcoiners here. We hold bitcoin and use bitcoin and so I see no reason why we should think about Strategy&rsquo;s actions as bitcoin buys. As far as us Bitcoiners are concerned, he&rsquo;s dumping dollars. And what I want to know is if Strategy is wrecking the price of the dollar when he sells all his dirty fiat papers for the orange electric money of the future.</p>
+<p>I changed the y-axis because that&rsquo;s how Bitcoiners price things: Saylor is dumping dollars.</p>
+<h1>Is Saylor crashing the price of the dollar?</h1>
+<p>Here is a chart that shows each of Saylor&rsquo;s 13 major dollar dumps between now and 1 January 2025. The chart shows the change in sats per dollar on the y-axis and the number of days since Saylor&rsquo;s previous treasury update on the x-axis. </p>
+<p>I color-coded each line based on the size of the dump. Lighter colored lines mean bigger dumps (biggest dump is $2.46 billion, the smallest is $962.7 million).</p>
+<p>Each line starts two days before Saylor posted a bitcoin treasury update that precedes the announcement of a major dollar dump and extends for two days after the announcement of the dump itself. (So if Saylor announced a major dump on the 27th of July, I looked back through his X feed to see when his previous dump announcement took place and then added two days on each side of this period). </p>
+<p><a href="/assets/cryptoeconomics/dumping2.avif"><img alt="" src="/assets/cryptoeconomics/dumping2.avif" /></a></p>
+<h1>There doesn&rsquo;t seem to be much correlation</h1>
+<p>To demonstrate a correlation between Strategy dumping dollars and the price of dollars falling (in bitcoin terms) we would have seen that the lighter colored lines tend to be on the bottom of the chart &ndash; ideally below the midline (zero change in sats per dollar) and especially light lines should show the greatest dip below zero).</p>
+<p>If you squint, maybe you can see this correlation. Like, it does <em>seem</em> like the light colored lines tend to be lower on the chart, but when I have Chat and Gemini do regressions on the data, they tell me the correlation is not statistically meaningful &ndash; even when accounting for overall trading volume during those periods.</p>
+<p>Another thought that occurred to me was that perhaps we could see evidence of Saylor&rsquo;s dollar dumping activity affecting price if we compared the periods where Saylor was dumping particularly large numbers of dollars with those periods where he was dumping comparatively few dollars.</p>
+<p>In order to do this, I ventured into Saylor&rsquo;s X archives again (pity me! the sheer volume of AI slop featuring a muscular Saylor doing improbable things in various states of undress nearly broke me) and found the occasions where Strategy announced purchases of bitcoin that were smaller than 300 bitcoins.</p>
+<table>
+<thead>
+<tr>
+<th>Dumping period</th>
+<th>Dollar dumps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27 Jan - 03 Feb 2025</td>
+<td><a href="https://x.com/saylor/status/1886400323268345864">0</a></td>
+</tr>
+<tr>
+<td>25 Feb - 03 Mar 2025</td>
+<td><a href="https://x.com/saylor/status/1896547344893788477">0</a></td>
+</tr>
+<tr>
+<td>03 - 17 Mar 2025</td>
+<td><a href="https://x.com/saylor/status/1901606324447646170">$10.7 million</a></td>
+</tr>
+<tr>
+<td>17 - 23 Jun 2025</td>
+<td><a href="https://x.com/saylor/status/1937118945057915061">$26.0 million</a></td>
+</tr>
+<tr>
+<td>01 - 11 Aug 2025</td>
+<td><a href="https://x.com/saylor/status/1954876110891872558">$18.0 million</a></td>
+</tr>
+<tr>
+<td>22 - 29 Sep 2025</td>
+<td><a href="https://x.com/saylor/status/1972632884398989754">$22.1 million</a></td>
+</tr>
+<tr>
+<td>01 - 13 Oct 2025</td>
+<td><a href="https://x.com/saylor/status/1977706632567001430">$27.2 million</a></td>
+</tr>
+<tr>
+<td>14 - 20 Oct 2025</td>
+<td><a href="https://x.com/saylor/status/1980243404937474444">$18.8 million</a></td>
+</tr>
+<tr>
+<td>18 Nov - 01 Dec 2025</td>
+<td><a href="https://x.com/saylor/status/1995479074139988225">$11.7 million</a></td>
+</tr>
+</tbody>
+</table>
+<p>Then I made the chart again with these smaller buys added as shades of blue lines. I&rsquo;ll admit it got a little ugly.</p>
+<p><a href="/assets/cryptoeconomics/dumping3.avif"><img alt="" src="/assets/cryptoeconomics/dumping3.avif" /></a></p>
+<p>If we think dollar dumping causes the sats-per-dollar rate to fall, we should tend to see more negative area above the lines from periods with more dollar dumping and less negative area from periods with less dollar dumping.</p>
+<p>Unfortunately, there doesn&rsquo;t seem to be a correlation here either.</p>
+<h1>So why isn&rsquo;t Saylor crashing the price of dollars by dumping them?</h1>
+<p>The most obvious answer is that if you look at all the things dollars trade against (everything?) Saylor&rsquo;s dump just isn&rsquo;t very big. In fact, it is downright insignificant.</p>
+<p>But another answer is that just as Saylor dumped the dollars, his trading partner(s) dumped their bitcoin. </p>
+<h1>Hello, supply and demand, my old friend / I&rsquo;ve come to talk with you again</h1>
+<p><strong>Supply</strong></p>
+<p>When Saylor dumps his dollars he doesn&rsquo;t change the number of dollars that exist. Apparently, the cool kids call the number of dollars that exist <code>the stock</code> (while our government calls it M3 money supply or M2 if you&rsquo;re small fry like me). </p>
+<p>However, let&rsquo;s do a thought experiment. Imagine that instead of Strategy, we are talking about Tether. In reality, Tether is a respectable company and I&rsquo;m sure they would never do this, but let&rsquo;s pretend that they just minted 2 billion USDT out of thin air and dumped it on the market.</p>
+<p>This USDT-with-no-backing would indeed be an increase to the stock of USDT. But when we say Tether &ldquo;dumps&rdquo; it on the market, we mean they are trading it with someone &ndash; not just setting up a faucet and giving it out for free. They are trading it with people for something.</p>
+<p>When they dump all this USDT, do we expect the price of USDT to go down? Probably not&hellip;in dollar terms (it&rsquo;s a stablecoin, remember? as long as people believe Tether will redeem it for a dollar, we&rsquo;d expect the price to remain at one dollar &ndash; no matter how much they dump), but what about the price in terms of bitcoin? Because that&rsquo;s what I&rsquo;m really interested in.</p>
+<p>Sure, there could be a bank run and a collapse ala Terra-Luna if people started to get worried that the USDT tokens weren&rsquo;t actually backed, but think about what happens before that: does all this newly created USDT mean it will take more USDT to buy 1 bitcoin than it did before?</p>
+<p>Many people seem to think the answer is yes and I agree. But as we said at the top: Saylor can&rsquo;t create new dollars, so he isn&rsquo;t changing the stock.</p>
+<p><strong>Demand</strong></p>
+<p>If Saylor dumps dollars for bitcoins, someone else dumps bitcoins for dollars &ndash; at exactly the same rate as Saylor. Saylor can&rsquo;t get the bitcoins unless someone else agrees to dump them.</p>
+<p>When Saylor announces one of his big dollar dumps like this:</p>
+<p><a href="/assets/cryptoeconomics/dumping4.jpeg"><img alt="" src="/assets/cryptoeconomics/dumping4.jpeg" /></a></p>
+<p>Someone else could just as truthfully be making an announcement like this: </p>
+<p><a href="/assets/cryptoeconomics/dumping5.jpeg"><img alt="" src="/assets/cryptoeconomics/dumping5.jpeg" /></a></p>
+<h1>Which one matters more for where you think the price will go?</h1>
+<p>One other interesting point is that it often feels like Saylor gets a bad deal when he dumps his dollars. It seems like he makes these huge dollar dumps and he ends up getting less bitcoin for his dollars. Isn&rsquo;t this further evidence that dumping dollars crashes the price?</p>
+<p>To check on this, I looked at the average close for the 7 days before any time Saylor announced a major dump, and then compared that average to the amount of bitcoin he got for his dollars. </p>
+<p>When you chart the times his dollars get less bitcoin than what others were getting in the market and the times they get more bitcoin, the answer is pretty clear: when the dollar is trending stronger (sats/dollar increasing), Saylor is likely to get less bitcoin for his dollars. When the dollar is trending weaker (sats/dollar decreasing), he&rsquo;s likely to get more bitcoin for his dollars.</p>
+<p><a href="/assets/cryptoeconomics/dumping6.png"><img alt="" src="/assets/cryptoeconomics/dumping6.png" /></a></p>
+<p>We have this sense that Saylor&rsquo;s choice to dump dollars for bitcoin is a &ldquo;vote&rdquo; of sorts against the dollar and for bitcoin &ndash; and so it feels like the dollar should have just gotten spanked at the polls. If you don&rsquo;t feel this way about Saylor and dollars, consider how you feel about the statement: dumping a fork coin will crash its price.</p>
+<p>To me, at least, this statement feels like a battle call: I will sally forth and dump my fork coins on the market, slaying the vile fork into economic oblivion. But&hellip;</p>
+<h1>Markets aren&rsquo;t democracies</h1>
+<p>A better metaphor is that markets are ecosystems, where everything is fighting for survival. You don&rsquo;t necessarily have to win to survive &ndash; many things find their niche, however small, and find some kind of stability. </p>
+<p>A group of bitcoiners thinking that selling dollars or fork coins will crash their price is like a group of monkeys thinking they can push a certain fruit tree to extinction by refusing to eat its fruit. </p>
+<p>A decision to sell isn&rsquo;t a vote, it&rsquo;s a choice to expend time and energy doing something. Maybe the gamble pays off and you end up with more of what you want than you otherwise would have. But maybe you would have been better off putting your energy elsewhere. You cannot draw a causal relationship between dumping dollars or fork coins and a movement in the market.</p>
+<p>Sure, selling the fork coin might allow you to express more demand for bitcoin&hellip;but you might have been able to express even more demand for bitcoin by using the time and energy to build your business. </p>
+<p>If Saylor can&rsquo;t move the market when he dumps billions of dollars, what makes us think dumping a few fork coins will move the fork coin market?</p>
+<p><em>I&rsquo;ve been reading Cryptoeconomics again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Dumping Fallacy&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Dumping-Fallacy">Dumping Fallacy</a></h1>
+<p>There is a theory that selling <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#unit">units</a> from one side of a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#split">split</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#coin">coin</a> for units of the other reduces the relative <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#utility">utility</a> of the sold coin. However each sale requires a buyer. As a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#trade">trade</a> the action is symmetrical and therefore the theory is invalid.</p>
+<p>There is a related theory that <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#exchange">exchanging</a> units from one side of a split coin constitutes <a href="https://en.m.wikipedia.org/wiki/Dumping_(pricing_policy)">dumping</a> of that coin, which reduces its utility. <strong>The theory simply misrepresents the concept of dumping.</strong> Dumping is <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#state">state</a> <a href="https://en.m.wikipedia.org/wiki/Subsidy">subsidy</a> (not to be confused with Bitcoin <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#subsidy">subsidy</a>) of a product sold in another state. It is a levy on the taxpayers of the subsidizing state, typically applied to establish <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#market">market</a> share for the product. In the case where demand is <a href="https://en.m.wikipedia.org/wiki/Price_elasticity_of_demand">elastic</a>, the subsidy increases sales volume for the product by reducing <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#price">price</a> relative to the otherwise market price. The lower price increases demand, by capturing buyers with lower <a href="https://en.wikipedia.org/wiki/Marginal_utility">marginal utility</a> for the product, until the market clears. In contrast to dumping, trading at market price doesn&rsquo;t reduce price because it is not subsidized.</p>
+<p>Finally, there is a related theory that reduction of <a href="https://en.m.wikipedia.org/wiki/Hoarding_(economics)">hoarding</a> generally reduces exchange prices of the hoarded property. This is <a href="https://mises.org/blog/problem-hoarding">true</a>, however a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#transfer">transfer</a> is not a reduction to hoarding levels unless the buyer of the hoarded property subsequently hoards it less than the seller. It is an error to assume this is the case.</p>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

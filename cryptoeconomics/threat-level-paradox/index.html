@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Threat Level Paradox — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Threat Level Paradox</h1>
+  <p class="review-date"><a href="https://stacker.news/items/861152">Published on <time datetime="2025-01-23">2025-01-23</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>Mining pools can exclude transactions if they want to</h1>
+<p>You may have heard rumblings that some pools are not including OFAC-sanctioned transactions in the blocks they are building. Recently, @0xB10C wrote a very thorough analysis of <a href="https://b10c.me/observations/13-missing-sanctioned-transactions-2024-12/">15 transactions that were not included in blocks</a> when, based on fee rates, we might have expected them to be. While b10c did not conclude that all 15 transactions were censored, it seems likely that at least one pool (F2Pool) was specificaly excluding OFAC-sanctioned transactions.</p>
+<p>This isn&rsquo;t the first time <a href="https://b10c.me/observations/08-missing-sanctioned-transactions/">F2Pool has done this</a>. Indeed, the <a href="https://b10c.me/observations/08-missing-sanctioned-transactions/#update-2023-11-23">pool founder said</a> they &ldquo;have every right&rdquo; to &ldquo;refuse to confirm transactions for those criminals.&rdquo;</p>
+<p>He&rsquo;s right: mining pools can exclude whichever transactions they want from the blocks they build.</p>
+<h1>Mining pool centralization</h1>
+<p>While we&rsquo;re at it, let&rsquo;s talk about another worrying trend in mining: mining pool centralization. Here&rsquo;s a chart of the blocks over the last week and which pool mined them:</p>
+<p><img alt="" src="https://m.stacker.news/74227" /></p>
+<p>In the past there have been mining pools representing larger fractions of the total hashrate, but the current situation certainly isn&rsquo;t something to be happy about, especially if pools find it convenient to work together.</p>
+<p>Speaking of working together, perhaps you remember <a href="https://b10c.me/observations/12-template-similarity/">another article 0xB10C wrote</a> about how a number of pools seemed to be using the same template as AntPool.</p>
+<p>Consolidation of mining pool rewards also seems to indicate centralization among mining pools. @mononautical pointed out that <a href="https://x.com/mononautical/status/1777686545715089605">at least 9 pools were using the same custodian</a> for their coinbase transactions.</p>
+<p>Of course, just as it&rsquo;s up to a pool to decide which transactions they mine, it&rsquo;s up to a hasher to decide which pool they work with.</p>
+<h1>The &ldquo;Hope hashers are nice to us&rdquo; security model</h1>
+<p>So, we have two problems:</p>
+<ol>
+<li>
+<p>Mining pools are following government orders to exclude transactions from blocks.</p>
+</li>
+<li>
+<p>Mining pools seem to be consolidating.</p>
+</li>
+</ol>
+<p>Put together, you might wonder what would happen if a mining pool (or group of pools) that censors gets more than 51% of the hash power.</p>
+<p>More than just excluding transactions from their own blocks, would they refuse to build on top of blocks that included OFAC-sanctioned transactions?</p>
+<p>Another way to phrase the last part of this question is to say that the big CensorPool reorgs the chain<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup> any time another miner produces a block that includes transactions the CensorPool wants to censor. CensorPool only has this ability <a href="https://bitcoin.stackexchange.com/questions/120446/can-the-two-biggest-bitcoin-mining-pools-lock-out-all-others">as long as they maintain majority hashpower</a>. So, usually, people answer the question by saying if such a horrible thing happened, hashrate would leave the big, censoring pool and go to other pools that weren&rsquo;t so big and didn&rsquo;t censor.</p>
+<p>However, we have to assume that hashers were pointing their hash at the big pool because it made the most sense for them. If our pretend CensorPool is only excluding a few transactions here and there, do we really think that enough hashers will leave the pool to make a difference? Especially in the case where it is clear that CensorPool has majority hashpower and defecting hashers only reap a benefit if they break the majority.</p>
+<p>It seems likely that in doing so hashers would be incurring some loss of profit (at least because of switching costs, but likely also due to payout structure or pool size, as well as the increased risk that not enough hashers defect to break CensorPool&rsquo;s majority) and switiching is definitely not in their immediate best interest &ndash; possibly not in their interest at all.  </p>
+<p>Does Bitcoin&rsquo;s security model in this situation rely on nothing more than the altruistic feelings of hashers? Hoping that hashers will do &ldquo;the right thing&rdquo; even when it&rsquo;s contrary to their immediate best interest?</p>
+<h1>The &ldquo;Richie Rich&rdquo; security model</h1>
+<p>But we have missed a vital piece of this puzzle. Those sad little OFAC-sanctioned transactions are still sitting there, feeling like nobody wants to play with them. So sad!</p>
+<p>If your transaction isn&rsquo;t getting confirmed, what do you do? You offer to pay more to get it mined.</p>
+<p>A pool like F2Pool can refuse to include any transaction they like, but if they don&rsquo;t maximize revenue, their payouts will not be as good as the payouts of the pools that do include such higher-fee-rate transactions.</p>
+<p>Once mempools begin to fill up with high-fee-rate transactions, we don&rsquo;t have to rely on the altruistic feelings of hashers anymore; the chance to mine extra-juicy censored transactions definitely makes it in a hasher&rsquo;s interest to switch to a non-censoring pool.</p>
+<h1>Censors fix this</h1>
+<p>Imagine the worst case scenario from up above: a mining pool or consortium of pools controls more than 51% of the hashrate <strong><em>and</em></strong> excludes OFAC-sanctioned transactions from their blocks <strong><em>and</em></strong> they refuse to build on blocks that contain such transactions.</p>
+<p>In theory, here&rsquo;s how it plays out:
+- at first, the transactions might simply sit in mempools.
+- When it&rsquo;s obvious they aren&rsquo;t getting mined, their owners might try increasing the fee-rate of their transactions.
+- Perhaps a minority hashpower mining pool sees some of these higher-fee rate transactions and tries to mine them, but their block is pretty quickly turned into a stale block by CensorPool reorging it.
+- The high-fee-rate transactions really begin to pile up. If enough transactions with high enough fee-rates are just waiting in mempools for everyone to see, the incentive for CensorPool hashers who want to make more money becomes stronger, perhaps strong enough to induce a chunk of them to break away from CensorPool.</p>
+<p>And <em>voila!</em>: in yet another brilliant stroke of genius, Satoshi not only created a system where censorship produces the conditions for its own undoing &ndash; but also simultaneously creates one of the few decentralizing pressures in mining. Any time a mining pool tries to exclude certain kinds of transactions it necessarily produces an incentive for hashrate to leave the pool.</p>
+<p>If we end up with big pools, let&rsquo;s hope they try to censor! Because if they don&rsquo;t, the only defense we have against miner centralization is hoping that hashers &ldquo;do the right thing.&rdquo;</p>
+<h1>A flaw in the brilliance</h1>
+<p>Unfortunately, there is a flaw here: there were only 165 OFAC-sanctioned transactions in 2024, and 378 such transactions in 2023.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup> If such a scenario were to play out today, I&rsquo;m not sure there is enough passed-over fee revenue to incentvize anyone attempting something like breaking away from a pool with dominant hash power.</p>
+<p>For hashers to try to split away from a pool or group of pools with 51% or more of the hashpower, they would need to be pretty confident that the big pool wasn&rsquo;t going to be able to reorg them. The bigger the pot of fees to be gleaned from censored transactions, the stronger such decentralizing pressure becomes.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup></p>
+<p>Strangely enough, <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Threat-Level-Paradox">Bitcoin is stronger when more transactions are censored</a>.</p>
+<p><em>I&rsquo;ve been reading <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Cryptoeconomics">Cryptoeconomics</a> again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Substitution Principle&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Threat-Level-Paradox">Threat Level Paradox</a></h1>
+<p>As implied by the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Zero-Sum-Property">Zero Sum Property</a>, presumably the only way to defeat <a href="https://en.wikipedia.org/wiki/Subsidy">external subsidy</a> is to <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#mine">mine</a> at a capital loss relative to <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#market">market</a> return on capital. Similarly it seems that only way to defeat tax, up to and including a 100% tax (prohibition), is to mine beyond the reach of the taxing authority, such as in secret. As with all <a href="https://en.wikipedia.org/wiki/Black_market">black markets</a> there is an increased cost to <a href="https://www.theatlantic.com/magazine/archive/2017/09/big-in-venezuela/534177">subversive mining</a>. Competing against subsidized mining compounds the cost.</p>
+<p>If one accepts the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Axiom-of-Resistance">Axiom of Resistance</a> one must assume that both tax and subsidy will be used to reduce the cost of <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#power">controlling</a> Bitcoin. Using the power to subsidize mining (via tax revenues), <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#state">states</a> can cause <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#pooling">pooling</a> in the region of the subsidy. Once <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#majority-hash-power">majority hash power</a> is focused the state can use its taxing (regulatory) power in the region to compel <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#censorship">censorship</a>.</p>
+<p>Therefore in order to enjoy the benefits of a hard currency, it would seem that <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#person">people</a> will ultimately have to mine at a loss. However, censorship creates the opportunity for others to mine profitably to the extent that people are willing to offset this cost with <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#fee">fees</a>. This black <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#market">market</a> is Bitcoin&rsquo;s censorship resistance. People pay a higher price for certain transactions, and in order to maintain that higher price the state must also suffer the expense, despite its ineffectiveness.</p>
+<p><strong>Paradoxically, this tool works well when money is under attack and poorly otherwise.</strong> If there was no <em>internal</em> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Pooling-Pressure-Risk">pooling pressure</a> these cases would be balanced. But <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Risk-Sharing-Principle">risk distribution</a> is essential to subversive mining, and pooling pressure works <em>against</em> distribution. So there is ever-expanding <a href="https://en.wikipedia.org/wiki/Attack_surface">attack surface</a> with no pressure to contract unless effective monetary alternatives are suppressed. The <a href="https://en.wikipedia.org/wiki/Foreign_exchange_controls">suppression</a> of alternatives raises <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#reward">reward</a> <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#utility">utility</a> to the miner in the region of suppression. The paradox applies as well to <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Centralization-Risk">centralization pressures</a>.</p>
+<p>The expected consequence is that Bitcoin will not be well prepared for <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#attack">attacks</a> because it is financially disadvantageous for <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#person">people</a> in a low threat environment.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:3">
+<p>In the case where CensorPool has a strong majority of hashpower, this may just look like an increased number of stale blocks; however, it&rsquo;s not like nodes typically keep track of when the abandon a block for a longer chain, and to my knowledge <a href="https://bitcoin.stackexchange.com/questions/80275/data-about-number-of-block-mined-stale-blocks-per-day-in-bitcoin">there is no easy way</a> to make sure we actually notice all the stale blocks that occur. Luckily, there are more obvious tells:there would be a marked increase in transactions that were not making it into blocks even though we might expect them to. In the case of the 15 transactions that 0xBC10 looked at, all of them made it into the next block.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1">
+<p>Once again, @0xBC10 is a huge resource on this. They maintain <a href="https://github.com/0xB10C/ofac-sanctioned-digital-currency-addresses/blob/lists/sanctioned_addresses_XBT.txt">a list of OFAC sanctioned bitcoin addresses</a> so you don&rsquo;t have to download <a href="https://ofac.treasury.gov/sanctions-list-search-tool">the list yourself</a> and sort it for Bitcoin addresses.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>As a side note, it&rsquo;s interesting to think about how mempool filtering (trying to censor transactions at the mempool and relay policy level) fails to produce this same result &ndash; mostly because it just isn&rsquo;t very effective. Even if 70% of listening nodes censor your transaction and refuse to relay it, <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2022-October/021116.html">you still have a 95% chance</a> that at least one of your outbound peers accepts and passses it on. For a censor to effectively censor transactions at the relay level, they would need to be running a vast majority of the nodes on the network. And even in that situation, miners interested in mining such transactions could always advertise a means of direct submission (email, webform, etc&hellip;). If there are miners who want to mine the transactions, it&rsquo;s very difficult to stop them from learning about them. If you have 51% of the hashpower though, it becomes a more realistic project to prevent their inclusion in a block.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>

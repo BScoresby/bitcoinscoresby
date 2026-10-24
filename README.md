@@ -1,35 +1,25 @@
-# BitcoinScoresby — Whitepaper homepage
+# BitcoinScoresby terminal site
 
-A no-build, static HTML/CSS landing page for Cloudflare Pages.
+Pure HTML/CSS static pages with a single 12-line JavaScript file for command navigation. No frameworks or build steps.
 
-- `index.html`: the full **Bitcoin: A Peer-to-Peer Electronic Cash System** in semantic HTML, with accessible, inline monochrome SVG figures and native MathML mathematics.
-- `styles.css`: typography, spacing, mobile layout and scrollable equations/figures.
-- `assets/whale.svg`: whale emoji artwork.
+## Run locally
 
-## View locally
-
-From this directory:
-
-```sh
+```bash
+cd bitcoinscoresby-terminal-site
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000/. No dependencies or JavaScript are required.
+Visit http://localhost:8000/. Type `whitepaper`, `about`, `research`, `ecash`, `history`, or `stacker news` and press Enter.
 
-## Deploy
+## Architecture
 
-Commit the whole directory to a GitHub repository and create a Cloudflare **Pages** Git-integration project. Framework preset **None**; build command blank; build output directory `/`.
+- `/` landing page
+- `/whitepaper/` the existing whitepaper with MathML and inline SVG diagrams
+- `/about/`, `/research/`, `/ecash/`, `/history/` placeholder pages
+- `/forum/` temporary placeholder until the real forum URL is provided
+- `stacker news` command goes to https://stacker.news
+- Emoji navigation: 🐳 home, 📃 whitepaper, 🐋 forum placeholder, ⚡ Stacker News
 
-Once deployed to the project’s `.pages.dev` URL, open **Custom domains** in Pages to connect `bitcoinscoresby.com` and `www.bitcoinscoresby.com`; replace the previous Hosterbox A record via Cloudflare's guided connection process.
+Deploy the contents to the root of your Cloudflare Pages GitHub repository; Pages will serve folder index pages at clean paths. The existing Cloudflare Pages deployment is not changed by this ZIP.
 
-## Reproduction and accuracy
-
-The accompanying PDF supplied by the site owner was used as the primary source. The transcription retains the original paper’s 12 numbered sections, abstract, references, code sample and published numerical examples. Diagrams have been recreated in inline SVG for display, so line positions are not identical to the original typesetting. Math equations are native MathML, not raster images.
-
-The original paper's statements are presented as historical text, including its 2008 computing assumptions and terminology.
-
-## Attribution
-
-Bitcoin whitepaper: Satoshi Nakamoto, 2008. Original PDF: https://bitcoin.org/bitcoin.pdf.
-
-The whale graphic is derived from Twitter's Twemoji artwork, licensed CC BY 4.0. https://github.com/twitter/twemoji — https://creativecommons.org/licenses/by/4.0/.
+Space Mono loads via Google Fonts CSS; the site falls back to a system monospace font when offline. No other external runtime assets are necessary.

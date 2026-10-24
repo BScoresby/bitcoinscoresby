@@ -1,368 +1,61 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="light" name="color-scheme"/>
-<meta content="Weird bitcoin stuff. A complete readable HTML edition of the Bitcoin whitepaper." name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="/assets/whale.svg"><link rel="stylesheet" href="/styles.css"><meta name="description" content="Weird bitcoin stuff from BitcoinScoresby.">
 <title>Weird bitcoin stuff — BitcoinScoresby</title>
-<link href="assets/whale.svg" rel="icon" type="image/svg+xml"/>
-<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
 <main class="page">
-<header class="masthead"><img alt="Blue whale" height="44" src="assets/whale.svg" width="44"/><span>bitcoinscoresby</span></header>
-<div class="intro"><h1>Weird bitcoin stuff</h1>
-<p class="lede">Scoresby has drydocked this site and is working on a new keel.</p></div>
-<article aria-labelledby="paper-title" class="paper">
-<header class="paper-heading">
-<h2 id="paper-title">Bitcoin: A Peer-to-Peer Electronic Cash System</h2>
-<p class="byline">Satoshi Nakamoto</p>
-<p class="source-contact"><a href="mailto:satoshin@gmx.com">satoshin@gmx.com</a> · <a href="https://www.bitcoin.org/">www.bitcoin.org</a> · 2008</p>
+<header class="site-header">
+<a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+  <img src="/assets/whale.svg" alt="">
+  <span class="site-name">BS</span>
+</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/whitepaper" aria-label="Whitepaper">
+    <img src="/assets/paper.svg" alt="">
+  </a>
+
+  <a href="/archive" aria-label="archive">
+    <img src="/assets/folder.svg" alt="">
+  </a>
+
+  <a href="https://stacker.news" aria-label="Stacker News">
+    <img src="/assets/lightning.svg" alt="">
+  </a>
+</nav>
 </header>
-<section class="abstract" id="abstract"><h3>Abstract</h3>
-<p>A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</p>
+<section class="home-intro"><h1>Weird bitcoin stuff.</h1>
+<p>This is a super serious site about the digital history of Bitcoin culture, memeology, and other made-up things.</p>
+<br>
+<p>Some interesting stuff I've looked into include Eric Voskuil's Crypteconomics, every cyberpunk book ever written, an exhaustive timeline of Tether, and how GameKyuubi came up with the word "Hodl." There's other stuff, too.</p>
+<br>
+<p>Where do you want to go?</p>
 </section>
-<section class="section" id="section-1"><h3>1. Introduction</h3>
-<p>Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments. While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model. Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes. The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for non-reversible services. With the possibility of reversal, the need for trust spreads. Merchants must be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.</p>
-<p>What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party. Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers. In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</p>
-</section>
-<section class="section" id="section-2"><h3>2. Transactions</h3>
-<p>We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-transactions" class="figure-svg" height="315" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 760 315" width="760" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-transactions">Chain of digital signatures</title>
-<desc>Three successive transactions: each new owner verifies the previous signature and signs with a private key.</desc>
-<defs><marker id="arrow-transactions" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><rect fill="none" height="193" stroke="#7f7f7f" stroke-width="1" width="172" x="40" y="26"></rect>
-<text font-size="12" text-anchor="start" x="53" y="45"><tspan dy="0" x="53">Transaction</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="140" x="56" y="55"></rect><text font-size="12" text-anchor="middle" x="126.0" y="72.5"><tspan dy="0" x="126.0">Owner 1's</tspan><tspan dy="14" x="126.0">Public Key</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="64" x="94" y="113"></rect><text font-size="12" text-anchor="middle" x="126.0" y="131.0"><tspan dy="0" x="126.0">Hash</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="119" x="67" y="165"></rect><text font-size="12" text-anchor="middle" x="126.5" y="182.5"><tspan dy="0" x="126.5">Owner 0's</tspan><tspan dy="14" x="126.5">Signature</tspan></text>
-<path d="M97 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M134 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M126 141 V163" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="42" stroke="#7f7f7f" stroke-width="1" width="125" x="65" y="253"></rect><text font-size="12" text-anchor="middle" x="127.5" y="271.0"><tspan dy="0" x="127.5">Owner 1's</tspan><tspan dy="14" x="127.5">Private Key</tspan></text>
-<rect fill="none" height="193" stroke="#7f7f7f" stroke-width="1" width="172" x="298" y="26"></rect>
-<text font-size="12" text-anchor="start" x="311" y="45"><tspan dy="0" x="311">Transaction</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="140" x="314" y="55"></rect><text font-size="12" text-anchor="middle" x="384.0" y="72.5"><tspan dy="0" x="384.0">Owner 2's</tspan><tspan dy="14" x="384.0">Public Key</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="64" x="352" y="113"></rect><text font-size="12" text-anchor="middle" x="384.0" y="131.0"><tspan dy="0" x="384.0">Hash</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="119" x="325" y="165"></rect><text font-size="12" text-anchor="middle" x="384.5" y="182.5"><tspan dy="0" x="384.5">Owner 1's</tspan><tspan dy="14" x="384.5">Signature</tspan></text>
-<path d="M355 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M392 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M384 141 V163" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="42" stroke="#7f7f7f" stroke-width="1" width="125" x="323" y="253"></rect><text font-size="12" text-anchor="middle" x="385.5" y="271.0"><tspan dy="0" x="385.5">Owner 2's</tspan><tspan dy="14" x="385.5">Private Key</tspan></text>
-<path d="M212 141 L325 184" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-dasharray="4 4" stroke-width="1.25"></path>
-<text font-size="12" text-anchor="middle" transform="rotate(23 270 143)" x="270" y="143"><tspan dy="0" x="270">Verify</tspan></text>
-<path d="M190 254 L325 207" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-dasharray="4 4" stroke-width="1.25"></path>
-<text font-size="12" text-anchor="middle" transform="rotate(-25 273 240)" x="273" y="240"><tspan dy="0" x="273">Sign</tspan></text>
-<rect fill="none" height="193" stroke="#7f7f7f" stroke-width="1" width="172" x="556" y="26"></rect>
-<text font-size="12" text-anchor="start" x="569" y="45"><tspan dy="0" x="569">Transaction</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="140" x="572" y="55"></rect><text font-size="12" text-anchor="middle" x="642.0" y="72.5"><tspan dy="0" x="642.0">Owner 3's</tspan><tspan dy="14" x="642.0">Public Key</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="64" x="610" y="113"></rect><text font-size="12" text-anchor="middle" x="642.0" y="131.0"><tspan dy="0" x="642.0">Hash</tspan></text>
-<rect fill="none" height="41" stroke="#7f7f7f" stroke-width="1" width="119" x="583" y="165"></rect><text font-size="12" text-anchor="middle" x="642.5" y="182.5"><tspan dy="0" x="642.5">Owner 2's</tspan><tspan dy="14" x="642.5">Signature</tspan></text>
-<path d="M613 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M650 96 V111" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<path d="M642 141 V163" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="42" stroke="#7f7f7f" stroke-width="1" width="125" x="581" y="253"></rect><text font-size="12" text-anchor="middle" x="643.5" y="271.0"><tspan dy="0" x="643.5">Owner 3's</tspan><tspan dy="14" x="643.5">Private Key</tspan></text>
-<path d="M470 141 L583 184" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-dasharray="4 4" stroke-width="1.25"></path>
-<text font-size="12" text-anchor="middle" transform="rotate(23 528 143)" x="528" y="143"><tspan dy="0" x="528">Verify</tspan></text>
-<path d="M448 254 L583 207" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-dasharray="4 4" stroke-width="1.25"></path>
-<text font-size="12" text-anchor="middle" transform="rotate(-25 531 240)" x="531" y="240"><tspan dy="0" x="531">Sign</tspan></text>
-<path d="M16 120 H93" fill="none" marker-end="url(#arrow-transactions)" stroke="#333" stroke-width="1.25"></path></g>
-</svg></figure>
-<p>The problem of course is the payee can't verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.</p>
-<p>We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend. The only way to confirm the absence of a transaction is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.</p>
-</section>
-<section class="section" id="section-3"><h3>3. Timestamp Server</h3>
-<p>The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-timestamp" class="figure-svg" height="185" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 725 185" width="725" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-timestamp">Timestamp-server hash chain</title>
-<desc>Each hash commits to a block of items and the previous timestamp hash.</desc>
-<defs><marker id="arrow-timestamp" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><rect fill="none" height="85" stroke="#7f7f7f" stroke-width="1" width="210" x="165" y="75"></rect>
-<text font-size="13" text-anchor="start" x="179" y="96"><tspan dy="0" x="179">Block</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="180" y="124"></rect><text font-size="12" text-anchor="middle" x="207.0" y="140.5"><tspan dy="0" x="207.0">Item</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="243" y="124"></rect><text font-size="12" text-anchor="middle" x="270.0" y="140.5"><tspan dy="0" x="270.0">Item</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="306" y="124"></rect><text font-size="12" text-anchor="middle" x="333.0" y="140.5"><tspan dy="0" x="333.0">…</tspan></text>
-<rect fill="none" height="35" stroke="#7f7f7f" stroke-width="1" width="65" x="217" y="20"></rect><text font-size="13" text-anchor="middle" x="249.5" y="41.5"><tspan dy="0" x="249.5">Hash</tspan></text>
-<path d="M213 75 V49 H217" fill="none" marker-end="url(#arrow-timestamp)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="85" stroke="#7f7f7f" stroke-width="1" width="210" x="440" y="75"></rect>
-<text font-size="13" text-anchor="start" x="454" y="96"><tspan dy="0" x="454">Block</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="455" y="124"></rect><text font-size="12" text-anchor="middle" x="482.0" y="140.5"><tspan dy="0" x="482.0">Item</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="518" y="124"></rect><text font-size="12" text-anchor="middle" x="545.0" y="140.5"><tspan dy="0" x="545.0">Item</tspan></text>
-<rect fill="none" height="25" stroke="#7f7f7f" stroke-width="1" width="54" x="581" y="124"></rect><text font-size="12" text-anchor="middle" x="608.0" y="140.5"><tspan dy="0" x="608.0">…</tspan></text>
-<rect fill="none" height="35" stroke="#7f7f7f" stroke-width="1" width="65" x="492" y="20"></rect><text font-size="13" text-anchor="middle" x="524.5" y="41.5"><tspan dy="0" x="524.5">Hash</tspan></text>
-<path d="M488 75 V49 H492" fill="none" marker-end="url(#arrow-timestamp)" stroke="#333" stroke-width="1.25"></path>
-<path d="M36 38 H217" fill="none" marker-end="url(#arrow-timestamp)" stroke="#333" stroke-width="1.25"></path>
-<path d="M282 38 H492" fill="none" marker-end="url(#arrow-timestamp)" stroke="#333" stroke-width="1.25"></path>
-<path d="M557 38 H690" fill="none" marker-end="url(#arrow-timestamp)" stroke="#333" stroke-width="1.25"></path></g>
-</svg></figure>
-</section>
-<section class="section" id="section-4"><h3>4. Proof-of-Work</h3>
-<p>To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof-of-work system similar to Adam Back's Hashcash [6], rather than newspaper or Usenet posts. The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits. The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.</p>
-<p>For our timestamp network, we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits. Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work. As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-pow" class="figure-svg" height="175" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 730 175" width="730" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-pow">Proof-of-work block chain</title>
-<desc>A chain of blocks each containing a previous hash, a nonce, and transactions.</desc>
-<defs><marker id="arrow-pow" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><rect fill="none" height="114" stroke="#7f7f7f" stroke-width="1" width="220" x="175" y="35"></rect>
-<text font-size="13" text-anchor="start" x="190" y="56"><tspan dy="0" x="190">Block</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="100" x="193" y="76"></rect><text font-size="12" text-anchor="middle" x="243.0" y="94.0"><tspan dy="0" x="243.0">Prev Hash</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="73" x="305" y="76"></rect><text font-size="12" text-anchor="middle" x="341.5" y="94.0"><tspan dy="0" x="341.5">Nonce</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="205" y="115"></rect><text font-size="12" text-anchor="middle" x="229.0" y="131.0"><tspan dy="0" x="229.0">Tx</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="265" y="115"></rect><text font-size="12" text-anchor="middle" x="289.0" y="131.0"><tspan dy="0" x="289.0">Tx</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="325" y="115"></rect><text font-size="12" text-anchor="middle" x="349.0" y="131.0"><tspan dy="0" x="349.0">…</tspan></text>
-<rect fill="none" height="114" stroke="#7f7f7f" stroke-width="1" width="220" x="442" y="35"></rect>
-<text font-size="13" text-anchor="start" x="457" y="56"><tspan dy="0" x="457">Block</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="100" x="460" y="76"></rect><text font-size="12" text-anchor="middle" x="510.0" y="94.0"><tspan dy="0" x="510.0">Prev Hash</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="73" x="572" y="76"></rect><text font-size="12" text-anchor="middle" x="608.5" y="94.0"><tspan dy="0" x="608.5">Nonce</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="472" y="115"></rect><text font-size="12" text-anchor="middle" x="496.0" y="131.0"><tspan dy="0" x="496.0">Tx</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="532" y="115"></rect><text font-size="12" text-anchor="middle" x="556.0" y="131.0"><tspan dy="0" x="556.0">Tx</tspan></text>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="48" x="592" y="115"></rect><text font-size="12" text-anchor="middle" x="616.0" y="131.0"><tspan dy="0" x="616.0">…</tspan></text>
-<path d="M75 90 H193" fill="none" marker-end="url(#arrow-pow)" stroke="#333" stroke-width="1.25"></path>
-<path d="M395 90 H460" fill="none" marker-end="url(#arrow-pow)" stroke="#333" stroke-width="1.25"></path>
-<path d="M662 90 H710" fill="none" marker-end="url(#arrow-pow)" stroke="#333" stroke-width="1.25"></path></g>
-</svg></figure>
-<p>The proof-of-work also solves the problem of determining representation in majority decision making. If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs. Proof-of-work is essentially one-CPU-one-vote. The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it. If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains. To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes. We will show later that the probability of a slower attacker catching up diminishes exponentially as subsequent blocks are added.</p>
-<p>To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour. If they're generated too fast, the difficulty increases.</p>
-</section>
-<section class="section" id="section-5"><h3>5. Network</h3>
-<p>The steps to run the network are as follows:</p>
-<ol class="network-steps"><li>New transactions are broadcast to all nodes.</li><li>Each node collects new transactions into a block.</li><li>Each node works on finding a difficult proof-of-work for its block.</li><li>When a node finds a proof-of-work, it broadcasts the block to all nodes.</li><li>Nodes accept the block only if all transactions in it are valid and not already spent.</li><li>Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.</li></ol>
-<p>Nodes always consider the longest chain to be the correct one and will keep working on extending it. If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first. In that case, they work on the first one they received, but save the other branch in case it becomes longer. The tie will be broken when the next proof-of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.</p>
-<p>New transaction broadcasts do not necessarily need to reach all nodes. As long as they reach many nodes, they will get into a block before long. Block broadcasts are also tolerant of dropped messages. If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.</p>
-</section>
-<section class="section" id="section-6"><h3>6. Incentive</h3>
-<p>By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them. The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended.</p>
-<p>The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.</p>
-<p>The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
-</section>
-<section class="section" id="section-7"><h3>7. Reclaiming Disk Space</h3>
-<p>Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block's hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-merkle" class="figure-svg" height="358" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 900 358" width="900" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-merkle">Merkle tree before and after pruning</title>
-<desc>On the left, four transactions are hashed into a Merkle root; on the right, spent transactions Tx0, Tx1, and Tx2 have been pruned.</desc>
-<defs><marker id="arrow-merkle" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><rect fill="none" height="314" stroke="#7f7f7f" stroke-width="1" width="418" x="5" y="4"></rect>
-<text font-size="14" text-anchor="start" x="16" y="24"><tspan dy="0" x="16">Block</tspan></text>
-<rect fill="none" height="101" stroke="#7f7f7f" stroke-width="1" width="274" x="79" y="18"></rect>
-<text font-size="13" text-anchor="middle" x="216" y="36"><tspan dy="0" x="216">Block Header (Block Hash)</tspan></text>
-<rect fill="none" height="27" stroke="#7f7f7f" stroke-width="1" width="119" x="99" y="45"></rect><text font-size="12" text-anchor="middle" x="158.5" y="62.5"><tspan dy="0" x="158.5">Prev Hash</tspan></text>
-<rect fill="none" height="27" stroke="#7f7f7f" stroke-width="1" width="92" x="232" y="45"></rect><text font-size="12" text-anchor="middle" x="278.0" y="62.5"><tspan dy="0" x="278.0">Nonce</tspan></text>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="126" x="154" y="82"></rect><text font-size="12" text-anchor="middle" x="217.0" y="99.0"><tspan dy="0" x="217.0">Root Hash</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-width="1" width="111" x="50" y="176"></rect><text font-size="12" text-anchor="middle" x="105.5" y="194.5"><tspan dy="0" x="105.5">Hash01</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-width="1" width="111" x="267" y="176"></rect><text font-size="12" text-anchor="middle" x="322.5" y="194.5"><tspan dy="0" x="322.5">Hash23</tspan></text>
-<path d="M107 175 L192 119" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<path d="M323 175 L240 119" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="86" x="23" y="238"></rect><text font-size="12" text-anchor="middle" x="66.0" y="255.0"><tspan dy="0" x="66.0">Hash0</tspan></text>
-<path d="M66 237 L105 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="56" x="37" y="284"></rect><text font-size="12" text-anchor="middle" x="65.0" y="300.0"><tspan dy="0" x="65.0">Tx0</tspan></text>
-<path d="M66 282 V266" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="86" x="123" y="238"></rect><text font-size="12" text-anchor="middle" x="166.0" y="255.0"><tspan dy="0" x="166.0">Hash1</tspan></text>
-<path d="M166 237 L105 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="56" x="137" y="284"></rect><text font-size="12" text-anchor="middle" x="165.0" y="300.0"><tspan dy="0" x="165.0">Tx1</tspan></text>
-<path d="M166 282 V266" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="86" x="223" y="238"></rect><text font-size="12" text-anchor="middle" x="266.0" y="255.0"><tspan dy="0" x="266.0">Hash2</tspan></text>
-<path d="M266 237 L323 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="56" x="237" y="284"></rect><text font-size="12" text-anchor="middle" x="265.0" y="300.0"><tspan dy="0" x="265.0">Tx2</tspan></text>
-<path d="M266 282 V266" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="86" x="323" y="238"></rect><text font-size="12" text-anchor="middle" x="366.0" y="255.0"><tspan dy="0" x="366.0">Hash3</tspan></text>
-<path d="M366 237 L323 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="56" x="337" y="284"></rect><text font-size="12" text-anchor="middle" x="365.0" y="300.0"><tspan dy="0" x="365.0">Tx3</tspan></text>
-<path d="M366 282 V266" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="314" stroke="#7f7f7f" stroke-width="1" width="418" x="468" y="4"></rect>
-<text font-size="14" text-anchor="start" x="479" y="24"><tspan dy="0" x="479">Block</tspan></text>
-<rect fill="none" height="101" stroke="#7f7f7f" stroke-width="1" width="274" x="542" y="18"></rect>
-<text font-size="13" text-anchor="middle" x="679" y="36"><tspan dy="0" x="679">Block Header (Block Hash)</tspan></text>
-<rect fill="none" height="27" stroke="#7f7f7f" stroke-width="1" width="119" x="562" y="45"></rect><text font-size="12" text-anchor="middle" x="621.5" y="62.5"><tspan dy="0" x="621.5">Prev Hash</tspan></text>
-<rect fill="none" height="27" stroke="#7f7f7f" stroke-width="1" width="92" x="695" y="45"></rect><text font-size="12" text-anchor="middle" x="741.0" y="62.5"><tspan dy="0" x="741.0">Nonce</tspan></text>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="126" x="617" y="82"></rect><text font-size="12" text-anchor="middle" x="680.0" y="99.0"><tspan dy="0" x="680.0">Root Hash</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-width="1" width="111" x="513" y="176"></rect><text font-size="12" text-anchor="middle" x="568.5" y="194.5"><tspan dy="0" x="568.5">Hash01</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-dasharray="3 3" stroke-width="1" width="111" x="730" y="176"></rect><text font-size="12" text-anchor="middle" x="785.5" y="194.5"><tspan dy="0" x="785.5">Hash23</tspan></text>
-<path d="M570 175 L655 119" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<path d="M786 175 L703 119" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-width="1" width="80" x="690" y="238"></rect><text font-size="12" text-anchor="middle" x="730.0" y="255.0"><tspan dy="0" x="730.0">Hash2</tspan></text>
-<path d="M730 237 L786 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="26" stroke="#7f7f7f" stroke-dasharray="3 3" stroke-width="1" width="80" x="792" y="238"></rect><text font-size="12" text-anchor="middle" x="832.0" y="255.0"><tspan dy="0" x="832.0">Hash3</tspan></text>
-<path d="M832 237 L786 206" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="24" stroke="#7f7f7f" stroke-width="1" width="55" x="807" y="284"></rect><text font-size="12" text-anchor="middle" x="834.5" y="300.0"><tspan dy="0" x="834.5">Tx3</tspan></text>
-<path d="M834 282 V266" fill="none" marker-end="url(#arrow-merkle)" stroke="#333" stroke-width="1.25"></path>
-<text font-size="15" text-anchor="middle" x="215" y="345"><tspan dy="0" x="215">Transactions Hashed in a Merkle Tree</tspan></text>
-<text font-size="15" text-anchor="middle" x="680" y="345"><tspan dy="0" x="680">After Pruning Tx0–2 from the Block</tspan></text></g>
-</svg></figure>
-<p>A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore's Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</p>
-</section>
-<section class="section" id="section-8"><h3>8. Simplified Payment Verification</h3>
-<p>It is possible to verify payments without running a full network node. A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he's convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it's timestamped in. He can't check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-spv" class="figure-svg" height="375" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 850 375" width="850" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-spv">Simplified payment verification</title>
-<desc>A transaction is linked through a Merkle branch to a block header in the longest proof-of-work chain.</desc>
-<defs><marker id="arrow-spv" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><text font-size="14" text-anchor="start" x="8" y="21"><tspan dy="0" x="8">Longest Proof-of-Work Chain</tspan></text>
-<rect fill="none" height="114" stroke="#7f7f7f" stroke-width="1" width="248" x="18" y="34"></rect>
-<text font-size="13" text-anchor="start" x="30" y="53"><tspan dy="0" x="30">Block Header</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="122" x="38" y="72"></rect><text font-size="12" text-anchor="middle" x="99.0" y="90.0"><tspan dy="0" x="99.0">Prev Hash</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="71" x="175" y="72"></rect><text font-size="12" text-anchor="middle" x="210.5" y="90.0"><tspan dy="0" x="210.5">Nonce</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="101" x="91" y="110"></rect><text font-size="12" text-anchor="middle" x="141.5" y="128.0"><tspan dy="0" x="141.5">Merkle Root</tspan></text>
-<rect fill="none" height="114" stroke="#7f7f7f" stroke-width="1" width="248" x="296" y="34"></rect>
-<text font-size="13" text-anchor="start" x="308" y="53"><tspan dy="0" x="308">Block Header</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="122" x="316" y="72"></rect><text font-size="12" text-anchor="middle" x="377.0" y="90.0"><tspan dy="0" x="377.0">Prev Hash</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="71" x="453" y="72"></rect><text font-size="12" text-anchor="middle" x="488.5" y="90.0"><tspan dy="0" x="488.5">Nonce</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="101" x="369" y="110"></rect><text font-size="12" text-anchor="middle" x="419.5" y="128.0"><tspan dy="0" x="419.5">Merkle Root</tspan></text>
-<rect fill="none" height="114" stroke="#7f7f7f" stroke-width="1" width="248" x="574" y="34"></rect>
-<text font-size="13" text-anchor="start" x="586" y="53"><tspan dy="0" x="586">Block Header</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="122" x="594" y="72"></rect><text font-size="12" text-anchor="middle" x="655.0" y="90.0"><tspan dy="0" x="655.0">Prev Hash</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="71" x="731" y="72"></rect><text font-size="12" text-anchor="middle" x="766.5" y="90.0"><tspan dy="0" x="766.5">Nonce</tspan></text>
-<rect fill="none" height="28" stroke="#7f7f7f" stroke-width="1" width="101" x="647" y="110"></rect><text font-size="12" text-anchor="middle" x="697.5" y="128.0"><tspan dy="0" x="697.5">Merkle Root</tspan></text>
-<path d="M0 86 H37" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<path d="M266 86 H316" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<path d="M544 86 H594" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<path d="M822 86 H848" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-width="1" width="95" x="330" y="195"></rect><text font-size="13" text-anchor="middle" x="377.5" y="213.5"><tspan dy="0" x="377.5">Hash01</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-dasharray="3 3" stroke-width="1" width="95" x="482" y="195"></rect><text font-size="13" text-anchor="middle" x="529.5" y="213.5"><tspan dy="0" x="529.5">Hash23</tspan></text>
-<path d="M421 194 L418 139" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<path d="M522 194 L418 139" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-width="1" width="95" x="452" y="260"></rect><text font-size="13" text-anchor="middle" x="499.5" y="278.5"><tspan dy="0" x="499.5">Hash2</tspan></text>
-<rect fill="none" height="29" stroke="#7f7f7f" stroke-dasharray="3 3" stroke-width="1" width="95" x="567" y="260"></rect><text font-size="13" text-anchor="middle" x="614.5" y="278.5"><tspan dy="0" x="614.5">Hash3</tspan></text>
-<path d="M498 259 L530 225" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<path d="M615 259 L530 225" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="70" x="581" y="318"></rect><text font-size="13" text-anchor="middle" x="616.0" y="337.0"><tspan dy="0" x="616.0">Tx3</tspan></text>
-<path d="M616 317 V290" fill="none" marker-end="url(#arrow-spv)" stroke="#333" stroke-width="1.25"></path>
-<text font-size="14" text-anchor="start" x="682" y="255"><tspan dy="0" x="682">Merkle Branch</tspan></text>
-<text font-size="14" text-anchor="start" x="682" y="273"><tspan dy="0" x="682">for Tx3</tspan></text></g>
-</svg></figure>
-<p>As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.</p>
-</section>
-<section class="section" id="section-9"><h3>9. Combining and Splitting Value</h3>
-<p>Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer. To allow value to be split and combined, transactions contain multiple inputs and outputs. Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-combine" class="figure-svg" height="186" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 580 186" width="580" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-combine">Combining and splitting transaction value</title>
-<desc>A transaction combines several inputs and generates payment and change outputs.</desc>
-<defs><marker id="arrow-combine" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><rect fill="none" height="151" stroke="#7f7f7f" stroke-width="1" width="178" x="205" y="17"></rect>
-<text font-size="14" text-anchor="middle" x="294" y="40"><tspan dy="0" x="294">Transaction</tspan></text>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="52" x="234" y="55"></rect><text font-size="13" text-anchor="middle" x="260.0" y="74.0"><tspan dy="0" x="260.0">In</tspan></text>
-<path d="M125 70 H233" fill="none" marker-end="url(#arrow-combine)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="52" x="234" y="96"></rect><text font-size="13" text-anchor="middle" x="260.0" y="115.0"><tspan dy="0" x="260.0">In</tspan></text>
-<path d="M125 111 H233" fill="none" marker-end="url(#arrow-combine)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="52" x="234" y="137"></rect><text font-size="13" text-anchor="middle" x="260.0" y="156.0"><tspan dy="0" x="260.0">…</tspan></text>
-<path d="M125 152 H233" fill="none" marker-end="url(#arrow-combine)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="48" x="316" y="55"></rect><text font-size="13" text-anchor="middle" x="340.0" y="74.0"><tspan dy="0" x="340.0">Out</tspan></text>
-<path d="M364 70 H467" fill="none" marker-end="url(#arrow-combine)" stroke="#333" stroke-width="1.25"></path>
-<rect fill="none" height="30" stroke="#7f7f7f" stroke-width="1" width="48" x="316" y="97"></rect><text font-size="13" text-anchor="middle" x="340.0" y="116.0"><tspan dy="0" x="340.0">…</tspan></text>
-<path d="M364 112 H467" fill="none" marker-end="url(#arrow-combine)" stroke="#333" stroke-width="1.25"></path></g>
-</svg></figure>
-<p>It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here. There is never the need to extract a complete standalone copy of a transaction's history.</p>
-</section>
-<section class="section" id="section-10"><h3>10. Privacy</h3>
-<p>The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party. The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous. The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone. This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the "tape", is made public, but without telling who the parties were.</p>
-<figure class="figure"><svg aria-labelledby="fig-title-privacy" class="figure-svg" height="238" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 800 238" width="800" xmlns="http://www.w3.org/2000/svg">
-<title id="fig-title-privacy">Traditional and new privacy models</title>
-<desc>The traditional model includes a trusted third party, while the new model exposes transactions publicly without identifying owners.</desc>
-<defs><marker id="arrow-privacy" markerheight="7" markerunits="userSpaceOnUse" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"></path></marker></defs>
-<g fill="currentColor" font-family="Arial, Helvetica, sans-serif"><text font-size="14" text-anchor="start" x="8" y="20"><tspan dy="0" x="8">Traditional Privacy Model</tspan></text>
-<rect fill="none" height="53" stroke="#7f7f7f" stroke-width="1" width="116" x="15" y="43"></rect><text font-size="13" text-anchor="middle" x="73.0" y="73.5"><tspan dy="0" x="73.0">Identities</tspan></text>
-<rect fill="none" height="53" stroke="#7f7f7f" stroke-width="1" width="132" x="164" y="43"></rect><text font-size="13" text-anchor="middle" x="230.0" y="73.5"><tspan dy="0" x="230.0">Transactions</tspan></text>
-<rect fill="none" height="53" stroke="#7f7f7f" stroke-width="1" width="133" x="330" y="43"></rect><text font-size="13" text-anchor="middle" x="396.5" y="66.5"><tspan dy="0" x="396.5">Trusted</tspan><tspan dy="14" x="396.5">Third Party</tspan></text>
-<rect fill="none" height="53" stroke="#7f7f7f" stroke-width="1" width="133" x="500" y="43"></rect><text font-size="13" text-anchor="middle" x="566.5" y="73.5"><tspan dy="0" x="566.5">Counterparty</tspan></text>
-<rect fill="none" height="53" stroke="#7f7f7f" stroke-width="1" width="105" x="677" y="43"></rect><text font-size="13" text-anchor="middle" x="729.5" y="73.5"><tspan dy="0" x="729.5">Public</tspan></text>
-<path d="M131 70 H164" fill="none" stroke="#333" stroke-width="1.25"></path>
-<path d="M296 70 H329" fill="none" marker-end="url(#arrow-privacy)" stroke="#333" stroke-width="1.25"></path>
-<path d="M463 70 H499" fill="none" marker-end="url(#arrow-privacy)" stroke="#333" stroke-width="1.25"></path>
-<path d="M633 70 H650" fill="none" stroke="#333" stroke-width="1.25"></path>
-<path d="M652 42 V97" fill="none" stroke="#333" stroke-width="1.25"></path>
-<path d="M665 42 V97" fill="none" stroke="#333" stroke-width="1.25"></path>
-<text font-size="14" text-anchor="start" x="8" y="147"><tspan dy="0" x="8">New Privacy Model</tspan></text>
-<rect fill="none" height="52" stroke="#7f7f7f" stroke-width="1" width="119" x="15" y="169"></rect><text font-size="13" text-anchor="middle" x="74.5" y="199.0"><tspan dy="0" x="74.5">Identities</tspan></text>
-<rect fill="none" height="52" stroke="#7f7f7f" stroke-width="1" width="156" x="204" y="169"></rect><text font-size="13" text-anchor="middle" x="282.0" y="199.0"><tspan dy="0" x="282.0">Transactions</tspan></text>
-<rect fill="none" height="52" stroke="#7f7f7f" stroke-width="1" width="116" x="440" y="169"></rect><text font-size="13" text-anchor="middle" x="498.0" y="199.0"><tspan dy="0" x="498.0">Public</tspan></text>
-<path d="M360 195 H438" fill="none" marker-end="url(#arrow-privacy)" stroke="#333" stroke-width="1.25"></path></g>
-</svg></figure>
-<p>As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner. Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p>
-</section>
-<section class="section" id="section-11"><h3>11. Calculations</h3>
-<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.</p>
-<p>The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker's chain being extended by one block, reducing the gap by -1.</p>
-<p>The probability of an attacker catching up from a given deficit is analogous to a Gambler's Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:</p>
-<dl class="probability-definitions"><div><dt><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></dt><dd>probability an honest node finds the next block</dd></div><div><dt><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></dt><dd>probability the attacker finds the next block</dd></div><div><dt><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>q</mi><mi>z</mi></msub></math></dt><dd>probability the attacker will ever catch up from z blocks behind</dd></div></dl>
-<div aria-label="q sub z equals one if p is less than or equal to q; otherwise the ratio q over p raised to z" class="equation" role="group"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>q</mi><mi>z</mi></msub><mo>=</mo><mo stretchy="true">{</mo><mtable columnalign="left left" rowspacing="0.6em"><mtr><mtd><mn>1</mn></mtd><mtd><mrow><mtext>if </mtext><mi>p</mi><mo>≤</mo><mi>q</mi></mrow></mtd></mtr><mtr><mtd><msup><mrow><mo>(</mo><mfrac><mi>q</mi><mi>p</mi></mfrac><mo>)</mo></mrow><mi>z</mi></msup></mtd><mtd><mrow><mtext>if </mtext><mi>p</mi><mo>&gt;</mo><mi>q</mi></mrow></mtd></mtr></mtable></mrow></math></div>
-<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn't make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.</p>
-<p>We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can't change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.</p>
-<p>The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.</p>
-<p>The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn't know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker's potential progress will be a Poisson distribution with expected value:</p>
-<div aria-label="lambda equals z times q over p" class="equation" role="group"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo>=</mo><mi>z</mi><mfrac><mi>q</mi><mi>p</mi></mfrac></mrow></math></div>
-<p>To get the probability the attacker could still catch up now, we multiply the Poisson density for each amount of progress he could have made by the probability he could catch up from that point:</p>
-<div aria-label="sum from k equals zero to infinity of the Poisson probability times the conditional catch-up probability" class="equation" role="group"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>∞</mi></munderover><mfrac><mrow><msup><mi>λ</mi><mi>k</mi></msup><msup><mi>e</mi><mrow><mo>−</mo><mi>λ</mi></mrow></msup></mrow><mrow><mi>k</mi><mo>!</mo></mrow></mfrac><mo>·</mo><mo stretchy="true">{</mo><mtable columnalign="left left" rowspacing="0.45em"><mtr><mtd><msup><mrow> <mo>(</mo><mfrac><mi>q</mi><mi>p</mi></mfrac><mo>)</mo></mrow><mrow><mi>z</mi><mo>−</mo><mi>k</mi></mrow></msup></mtd><mtd><mrow><mtext>if </mtext><mi>k</mi><mo>≤</mo><mi>z</mi></mrow></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mrow><mtext>if </mtext><mi>k</mi><mo>&gt;</mo><mi>z</mi></mrow></mtd></mtr></mtable></mrow></math></div>
-<p>Rearranging to avoid summing the infinite tail of the distribution...</p>
-<div aria-label="one minus the sum from k equals zero to z of the Poisson probability times one minus q over p raised to z minus k" class="equation" role="group"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mo>−</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>z</mi></munderover><mfrac><mrow><msup><mi>λ</mi><mi>k</mi></msup><msup><mi>e</mi><mrow><mo>−</mo><mi>λ</mi></mrow></msup></mrow><mrow><mi>k</mi><mo>!</mo></mrow></mfrac><mo>(</mo><mn>1</mn><mo>−</mo><msup><mrow> <mo>(</mo><mfrac><mi>q</mi><mi>p</mi></mfrac><mo>)</mo></mrow><mrow><mi>z</mi><mo>−</mo><mi>k</mi></mrow></msup><mo>)</mo></mrow></math></div>
-<p>Converting to C code...</p>
-<pre class="code-example"><code>#include &lt;math.h&gt;
-double AttackerSuccessProbability(double q, int z)
-{
-    double p = 1.0 - q;
-    double lambda = z * (q / p);
-    double sum = 1.0;
-    int i, k;
-    for (k = 0; k &lt;= z; k++)
-    {
-        double poisson = exp(-lambda);
-        for (i = 1; i &lt;= k; i++)
-            poisson *= lambda / i;
-        sum -= poisson * (1 - pow(q / p, z - k));
-    }
-    return sum;
-}</code></pre>
-<p>Running some results, we can see the probability drop off exponentially with z.</p>
-<pre class="probability-results">q=0.1
-z=0    P=1.0000000
-z=1    P=0.2045873
-z=2    P=0.0509779
-z=3    P=0.0131722
-z=4    P=0.0034552
-z=5    P=0.0009137
-z=6    P=0.0002428
-z=7    P=0.0000647
-z=8    P=0.0000173
-z=9    P=0.0000046
-z=10   P=0.0000012</pre>
-<pre class="probability-results">q=0.3
-z=0    P=1.0000000
-z=5    P=0.1773523
-z=10   P=0.0416605
-z=15   P=0.0101008
-z=20   P=0.0024804
-z=25   P=0.0006132
-z=30   P=0.0001522
-z=35   P=0.0000379
-z=40   P=0.0000095
-z=45   P=0.0000024
-z=50   P=0.0000006</pre>
-<p>Solving for P less than 0.1%...</p>
-<pre class="probability-results">P &lt; 0.001
-q=0.10   z=5
-q=0.15   z=8
-q=0.20   z=11
-q=0.25   z=15
-q=0.30   z=24
-q=0.35   z=41
-q=0.40   z=89
-q=0.45   z=340</pre>
-</section>
-<section class="section" id="section-12"><h3>12. Conclusion</h3>
-<p>We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
-</section>
-<section class="references" id="references"><h3>References</h3><ol>
-<li>W. Dai, "b-money," http://www.weidai.com/bmoney.txt, 1998.</li>
-<li>H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure timestamping service with minimal trust requirements," In 20th Symposium on Information Theory in the Benelux, May 1999.</li>
-<li>S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.</li>
-<li>D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.</li>
-<li>S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings of the 4th ACM Conference on Computer and Communications Security, pages 28-35, April 1997.</li>
-<li>A. Back, "Hashcash - a denial of service counter-measure," http://www.hashcash.org/papers/hashcash.pdf, 2002.</li>
-<li>R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, April 1980.</li>
-<li>W. Feller, "An introduction to probability theory and its applications," 1957.</li>
-</ol></section>
-</article>
-<footer>BitcoinScoresby · <a href="https://bitcoin.org/bitcoin.pdf">Original whitepaper PDF</a> · <a href="https://github.com/twitter/twemoji">Whale emoji: Twemoji</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)</footer>
+<form class="terminal" id="command-form" autocomplete="off">
+<label for="command">&gt;</label>
+<span class="command-field">
+<input 
+id="command"
+    type="text"
+    autocomplete="off"
+    spellcheck="false"
+    aria-label="Enter a destination"
+    autofocus
+  >
+  <span class="block-cursor" aria-hidden="true"></span>
+  <span class="cursor-measure" aria-hidden="true"></span>
+</span>
+</form>
+<p id="terminal-error" role="status" aria-live="polite"></p>
+<noscript><p class="terminal-note">Typing commands requires JavaScript. You can still use the links above.</p></noscript>
+
+<script src="/assets/review-destinations.js" defer></script>
+<script src="/assets/article-destinations.js" defer></script>
+<script src="/terminal.js" defer></script>
 </main>
-</body></html>
+</body>
+</html>
+

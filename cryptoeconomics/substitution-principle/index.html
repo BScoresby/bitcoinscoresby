@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Substitution Principle — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+<header class="site-header">
+  <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+    <img src="/assets/whale.svg" alt="">
+    <span class="site-name">BS</span>
+  </a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/whitepaper" aria-label="Whitepaper">
+      <img src="/assets/paper.svg" alt="">
+    </a>
+    <a href="/archive" aria-label="archive">
+      <img src="/assets/folder.svg" alt="">
+    </a>
+    <a href="https://stacker.news" aria-label="Stacker News">
+      <img src="/assets/lightning.svg" alt="">
+    </a>
+  </nav>
+</header>
+
+
+<article class="archive-article">
+  <h1>Substitution Principle</h1>
+  <p class="review-date"><a href="https://stacker.news/items/1286449">Published on <time datetime="2025-11-19">2025-11-19</time></a></p>
+
+  <hr class="review-divider">
+
+  <div class="review-content">
+    <h1>The more people who use bitcoin, the less useful it becomes</h1>
+<p>This may not sound right to you, but let&rsquo;s think it through: in order to use bitcoin (even if your use case is hodling in cold storage) you need to acquire bitcoin. This means someone must make a transaction that transfers bitcoin to you and this transaction must be confirmed in a block on the chain with the most proof of work. </p>
+<p>In order to do that, someone is going to have to pay a transaction fee. It doesn&rsquo;t matter if you are buying bitcoin from a stranger in an alley or from a kyc&rsquo;d exchange, the fee must come from the sender. But it&rsquo;s likely they will pass that fee on as a cost to you. </p>
+<p>Clearly, there are fee rates at which it no longer makes sense for you to buy the amount of bitcoin you were planning on buying. Because bitcoin fees are not based on the number of sats transferred, but the number of bytes required by the transaction, you might decide to wait to make your purchase of bitcoin until you can buy more sats. There may even be a fee level at which you decide it&rsquo;s not worth it to buy bitcoin at all.</p>
+<p>Bitcoin is unique among moneys for this property that it costs more to use as more people try to use it.</p>
+<h1>What stops somebody from just copying the code and starting another bitcoin?</h1>
+<p>When something gets expensive in a free market, there is an incentive for people to make an alternative that is cheaper. </p>
+<p>One of the earliest (and most unthoughtful) gotchas people have thrown at Bitcoin is that since the code is open source &ldquo;there&rsquo;s no reason somebody can&rsquo;t just start a new one.&rdquo; </p>
+<p>While it is true that many people <em>have</em> started new coins, it&rsquo;s also become clear why this doesn&rsquo;t work very well: Bitcoin has a massive infrastructure built around it (hash rate, wallets and other tools, lightning, and a well developed network of users) and any new coin that wants to fulfill a similar utility &ndash; even as a cheaper substitute &ndash; has to overcome very high startup costs. </p>
+<p>It&rsquo;s not very easy to jumpstart a new coin. This is why so many altcoins are shitcoins.</p>
+<h1>If things like Ark, Spark, Liquid, and ecash aren&rsquo;t BTC, they must be altcoins</h1>
+<p>We&rsquo;ve all struggled with describing the new payment solutions that have been showing up in Bitcoin the last few years. Mostly, I&rsquo;ve seen people comparing them to Lightning: calling them layer twos and talking about how they have slightly different trust assumptions. </p>
+<p>For instance, it is clear that ecash has no unilateral exit to bitcoin &ndash; if the mint doesn&rsquo;t want to give you bitcoin for your ecash tokens, there&rsquo;s really nothing you can do about it. </p>
+<p>Spark has the possibility of unilateral exit to bitcoin &ndash; but only if you have enough bitcoin to pay the on chain fees and leave yourself with a worthwhile UTXO. And if you want to use it with Lightning, it seems like you are trusting the channel owner at some point. Ark is similar.</p>
+<p>These trade-offs have led to a lot of confusion: is a vUTXO the same as bitcoin? Are sats in Spark the same as sats on Lightning?</p>
+<p>I wonder if we wouldn&rsquo;t do a better job of explaining these things and understanding them ourselves if we just called them altcoins and accepted that they are a market response to the cost of transacting on bitcoin. </p>
+<h1>Stablecoins pegged to bitcoin</h1>
+<p>Except, they aren&rsquo;t <em>just</em> altcoins &ndash; ecash tokens are supposed to have the same value as sats and the same goes for vUTXOs in Ark. So, really, what we are working with is a stablecoin that is pegged to bitcoin. </p>
+<p>Like a stablecoin issuer, mint operators and Spark entities are promising to &ldquo;back&rdquo; the tokens they give you with bitcoin at a 1 to 1 ratio. You have some assurances that this will be the case (indeed, much better than the assurances afforded by stablecoins that attempt to be pegged to fiat currencies), but it&rsquo;s not a guarantee. </p>
+<h1>Does this apply to Lightning?</h1>
+<p>I don&rsquo;t think so. Lightning duplicates most of the assurances of bitcoin. In order to use Lightning, you need to open a channel. Anyone can open a channel, and in opening a channel, you have strong protections to get your sats back onchain.  </p>
+<p>To use ecash or Ark or Spark, you don&rsquo;t have to run a mint or an ark or a Spark entity &ndash; but this also means that there is a fundamental difference between these things and Lightning: we&rsquo;ve shifted from a permissionless protocol to a permissioned protocol.</p>
+<p><em>I&rsquo;ve been reading <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Cryptoeconomics">Cryptoeconomics</a> again, and this is an attempt to work through some of the ideas in the chapter called &ldquo;Substitution Principle&rdquo; which I am copying below.</em></p>
+<hr />
+<h1>Cryptoeconomics: <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Substitution-Principle">Substitution Principle</a></h1>
+<p>A <a href="https://en.m.wikipedia.org/wiki/Substitute_good">substitute good</a> is one that can be used in place of another. As the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#price">price</a> of a product rises, at some level <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#person">people</a> either move to substitutes or cease use altogether.</p>
+<p>While a substitute would be less desirable at the same price as the original product, its lower price offsets this preference. In this manner the presence of substitutes reduces demand for the original good. The substitute competes with the original just as does increased <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#supply">supply</a> of the original.</p>
+<p>Given that a <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#coin">coin</a> has fixed supply, it is commonly assumed that no supply side increase can reduce upward price pressure. As shown in <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Stability-Property">Stability Property</a>, Bitcoin integrates transfer <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#fee">fees</a> which necessarily rise with use. This unique characteristic creates downward price pressure by reducing demand. <strong>But this rising cost also makes substitutes viable, creating downward price pressure by effectively increasing supply.</strong></p>
+<p>There is nothing preventing the evolution of multiple similar coins. It is possible for these to exhibit nearly indistinguishable monetary properties, minimizing the substitution tradeoff. As shown in <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Consolidation-Principle">Consolidation Principle</a>, there is always pressure toward a single money, as this eliminates the <a href="https://github.com/libbitcoin/libbitcoin-system/wiki/Glossary#exchange">exchange</a> cost. However this pressure is at odds with rising costs, and at some level of use must give way to substitution (or disuse).</p>
+<p>There is a theory that since creation of new coins costs nothing, the substitution principle implies that Bitcoin must become worthless due to unlimited free supply. This ignores the fact that Bitcoin requires people pay to use it. This is as true for a second coin as it is for the first.</p>
+<p>And increasing supply relieves demand. At some point demand is not sufficient to produce/secure more supply, and as such the theory is invalid. This is the same relationship that holds with commodity monies and indeed all products.</p>
+  </div>
+
+  <p><a href="/cryptoeconomics/">← Back to Cryptoeconomics</a></p>
+</article>
+
+</main>
+</body>
+</html>
