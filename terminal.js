@@ -13,9 +13,14 @@ const destinations = {
     'bitcoin'
   ],
 
-
-  '/history': [
-    'history'
+  '/memeology': [
+    'memes',
+    'memeology',
+    'meme',
+    'history',
+    'culture',
+    'Bitcoin history',
+    'Bitcoin culture'
   ],
 
   'https://stacker.news': [
