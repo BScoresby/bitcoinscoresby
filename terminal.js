@@ -122,7 +122,7 @@ if (helpCommands.includes(command.toLowerCase().trim())) {
 
   error.textContent =
     'Enter a topic, article title, book title, or author name. ' +
-    'Try: archive, bitcoin history, cryptoeconomics, ' +
+    'Try: memeology, whitepaper, cryptoeconomics, ' +
     'cyberpunk, or neuromancer.';
 
   commandInput.value = '';
