@@ -1,3 +1,4 @@
+
 // BitcoinScoresby — terminal navigation
 // Add destinations and alternative phrases below.
 
@@ -27,28 +28,30 @@ const destinations = {
     'stacker news',
     'stacker'
   ],
-  
+
   '/cyberpunk': [
-  // General phrases
-  'cyberpunk',
-  'cyberpunk books',
-  'cyberpunk book reviews',
-  'book reviews',
-  'book review',
-  'review',
-  'reviews',
-],
+    // General phrases
+    'cyberpunk',
+    'cyberpunk books',
+    'cyberpunk book reviews',
+    'book reviews',
+    'book review',
+    'review',
+    'reviews'
+  ],
 
   '/cryptoeconomics': [
-  'cryptoeconomics',
-  'libbitcoin',
-  'voskuil',
-  'eric voskuil',
-  'libbitcoin system',
- ],
+    'cryptoeconomics',
+    'libbitcoin',
+    'voskuil',
+    'eric voskuil',
+    'libbitcoin system'
+  ],
 
-...window.reviewDestinations,
-...window.articleDestinations
+  // Generated destinations for reviews, articles, posters
+  ...window.reviewDestinations,
+  ...window.articleDestinations,
+  ...window.posterDestinations
 };
 
 
@@ -60,16 +63,17 @@ const destinations = {
 // - Ignore capitalization
 // - Remove leading/trailing spaces
 // - Collapse repeated spaces
-// - Treat curly apostrophes like straight apostrophes
+// - Ignore apostrophes and punctuation (straight or curly)
 
 function normalizeCommand(value) {
   return value
     .trim()
     .toLowerCase()
-    .replace(/[‘’]/g, "'")
-    .replace(/\s+/g, ' ');
+    .replace(/[‘’']/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
-
 
 // Find the destination matching a command.
 
@@ -84,7 +88,9 @@ function findDestination(command) {
 }
 
 
-// Handle terminal submission.
+// ==================================================
+// FORM SUBMISSION
+// ==================================================
 
 const form = document.getElementById('command-form');
 const commandInput = document.getElementById('command');
@@ -92,59 +98,65 @@ const commandInput = document.getElementById('command');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const command = normalizeCommand(commandInput.value);
+  const rawCommand = commandInput.value.trim();
+  if (!rawCommand) return;
 
-  if (!command) return;
+  const command = normalizeCommand(rawCommand);
+  const output = document.getElementById('terminal-error');
 
-  // Check whether the command matches a known destination.
+  function clearInput() {
+    commandInput.value = '';
+    commandInput.focus();
+    commandInput.dispatchEvent(new Event('input'));
+  }
+
+  // Check help before normalization removes '?' and '--'.
+  const helpCommands = [
+    'help',
+    '?',
+    'man',
+    'man scoresby',
+    '--help'
+  ];
+
+  if (helpCommands.includes(rawCommand.toLowerCase())) {
+    output.textContent =
+      'Enter a topic, article title, book title, or author name. ' +
+      'You can also try movie titles, famous quotes, or "random poster". ' +
+      'Examples: memeology, cryptoeconomics, cyberpunk, neuromancer, terminator.';
+
+    clearInput();
+    return;
+  }
+
+  // Let visitors explore the poster collection
+  // without knowing its aliases.
+  if (command === 'random poster' || command === 'surprise me') {
+    const posters = Object.keys(window.posterDestinations || {});
+
+    if (posters.length) {
+      const randomIndex = Math.floor(Math.random() * posters.length);
+      window.location.assign(posters[randomIndex]);
+    } else {
+      output.textContent = 'No posters available yet.';
+      clearInput();
+    }
+
+    return;
+  }
+
+  // Look up commands and generated aliases
+  // using the same normalization.
   const destination = findDestination(command);
 
   if (destination) {
     window.location.assign(destination);
     return;
   }
-  
-  function normalizeCommand(value) {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/[‘’]/g, "'")
-    .replace(/[.!?,:;']/g, '')
-    .replace(/\s+/g, ' ');
-}
 
-// Terminal help commands
-const helpCommands = [
-  'help',
-  '?',
-  'man',
-  'man scoresby',
-  '--help'
-];
-
-if (helpCommands.includes(command.toLowerCase().trim())) {
-  const error = document.getElementById('terminal-error');
-
-  error.textContent =
-    'Enter a topic, article title, book title, or author name. ' +
-    'Try: memeology, whitepaper, cryptoeconomics, ' +
-    'cyberpunk, or neuromancer.';
-
-  commandInput.value = '';
-  commandInput.focus();
-  commandInput.dispatchEvent(new Event('input'));
-  return;
-}
-
-  // Fallback: treat unknown commands as local page names.
-  // Example: "contact" becomes /contact
-  // Only one path segment is allowed.
-
-const error = document.getElementById('terminal-error');
-error.textContent = `Command not found: ${command}`;
-commandInput.value = '';
-commandInput.focus();
-commandInput.dispatchEvent(new Event('input'));
+  // Display unknown commands safely as text, not HTML.
+  output.textContent = `Command not found: ${rawCommand}`;
+  clearInput();
 });
 
 

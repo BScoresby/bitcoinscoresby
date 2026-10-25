@@ -375,6 +375,45 @@ footer { margin-top:6rem; font-size:.78rem; color:var(--muted); line-height:1.8;
   margin: 2.5rem auto;
 }
 
+/* Poster pages */
+
+.page:has(.poster-page) > .site-header {
+  margin-bottom: 2.5rem;
+}
+
+.poster-page {
+  text-align: center;
+}
+
+.poster-link {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.poster-artwork {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Accessible page title, visually hidden */
+
+.poster-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Terminal cursor animation stays isolated from article styles. */
 @keyframes terminal-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
