@@ -28,20 +28,25 @@ window.posterDestinations = {
   ],
   "/posters/amityville-horror/": [
     "Amityville Horror",
+    "Amityville printer",
+    "the amityville printer",
     "the amityville horror",
     "amityville",
     "get out of the house"
   ],
   "/posters/apocalipsis-canibal/": [
     "Apocalipsis Canibal",
+    "Banker Apocalypse",
     "cannibal apocalypse",
     "cannibal apocalypse movie"
   ],
   "/posters/apocalypse-now/": [
     "Apocalypse Now",
+    "Apocalypse BTC",
     "charlie dont surf",
     "charlie don t surf",
     "i love the smell of napalm in the morning",
+    "I love the smell of fiat in the morning",
     "kilgore",
     "colonel kurtz",
     "the horror the horror"
@@ -57,6 +62,7 @@ window.posterDestinations = {
   "/posters/armageddon/": [
     "Armageddon",
     "Heads up",
+    "fun while it lasted",
     "asteroid movie",
     "bruce willis asteroid",
     "dont wanna miss a thing"
@@ -65,6 +71,7 @@ window.posterDestinations = {
     "Astro Zombies1",
     "Astro Zombies 1",
     "astro zombies",
+    "astrozombies",
     "the astro zombies",
     "astro zombies poster 1"
   ],
@@ -72,17 +79,23 @@ window.posterDestinations = {
     "Astro Zombies2",
     "Astro Zombies 2",
     "astro zombies poster 2",
+    "zombie banking",
+    "berserk central bankers",
     "astro zombies variant 2"
   ],
   "/posters/astro-zombies3/": [
     "Astro Zombies3",
     "Astro Zombies 3",
+    "even the fixes make it worse",
+    "wage inflation",
+    "zombie money",
     "astro zombies poster 3",
     "astro zombies variant 3"
   ],
   "/posters/astro-zombies4/": [
     "Astro Zombies4",
     "Astro Zombies 4",
+    "fiat zombies",
     "astro zombies poster 4",
     "astro zombies variant 4"
   ],
@@ -93,17 +106,24 @@ window.posterDestinations = {
     "marty mcfly",
     "88 miles per hour",
     "flux capacitor",
-    "where were going we dont need roads"
+    "where were going we dont need roads",
+    "where were going we dont need third parties",
+    "where were going we dont need middlemen"
   ],
   "/posters/barbarella/": [
     "Barbarella",
     "barbarella queen of the galaxy",
+    "queen of the galaxy",
     "jane fonda barbarella",
-    "durand durand"
+    "durand durand",
+    "Excessive Machine",
+    "positronic ray gun",
+    "positronic ray"
   ],
   "/posters/barbarian-queen/": [
     "Barbarian Queen",
     "barbarian queen movie",
+    "self custody",
     "lana clarkson"
   ],
   "/posters/bay-of-blood/": [
@@ -146,8 +166,8 @@ window.posterDestinations = {
   ],
   "/posters/bride-of-frankenstein/": [
     "Bride Of Frankenstein",
-    "the bride of frankenstein",
-    "frankensteins bride",
+    "elsa lanchester",
+    "romance",
     "elsa lanchester bride"
   ],
   "/posters/carmen-baby/": [
@@ -165,8 +185,7 @@ window.posterDestinations = {
     "Life is better",
     "he who walks behind the rows",
     "malachai",
-    "isaac chroner",
-    "outlander"
+    "isaac chroner"
   ],
   "/posters/cobra/": [
     "Cobra",
@@ -177,6 +196,8 @@ window.posterDestinations = {
   ],
   "/posters/conan-the-barbarian/": [
     "Conan The Barbarian",
+    "What is best in life",
+    "What is good in life",
     "By Crom",
     "crush your enemies",
     "hear the lamentations of their women",
@@ -185,6 +206,7 @@ window.posterDestinations = {
   ],
   "/posters/conan/": [
     "Conan",
+    "barbarian",
     "Crom",
     "conan movie",
     "conan the cimmerian"
@@ -211,6 +233,10 @@ window.posterDestinations = {
   ],
   "/posters/deathstalker-2/": [
     "Deathstalker 2",
+    "Hold your own keys",
+    "How to be sexy",
+    "How do I get hot",
+    "I want to be sexy",
     "deathstalker ii",
     "deathstalker ii duel of the titans"
   ],
@@ -221,6 +247,8 @@ window.posterDestinations = {
   ],
   "/posters/die-hard/": [
     "Die Hard",
+    "Cry hard",
+    "Cryhard",
     "yippee ki yay",
     "yippee ki yay motherfucker",
     "john mcclane",
@@ -229,6 +257,8 @@ window.posterDestinations = {
   ],
   "/posters/die-harder/": [
     "Die Harder",
+    "Cry Harder",
+    "Cry Hard 2",
     "die hard 2",
     "die hard 2 die harder",
     "die harder movie",
@@ -253,6 +283,7 @@ window.posterDestinations = {
   ],
   "/posters/et/": [
     "Et",
+    "beeteecee",
     "e t the extra terrestrial",
     "e.t.",
     "et phone home",
@@ -261,6 +292,7 @@ window.posterDestinations = {
   ],
   "/posters/evil-dead-2/": [
     "Evil Dead 2",
+    "Evil Dollar 2",
     "evil dead ii",
     "evil dead two",
     "dead by dawn",
@@ -269,6 +301,7 @@ window.posterDestinations = {
   ],
   "/posters/evil-dead/": [
     "Evil Dead",
+    "Evil Dollar",
     "the evil dead",
     "the evil dead 1981",
     "book of the dead",
@@ -282,6 +315,8 @@ window.posterDestinations = {
   "/posters/fistful-of-dollars/": [
     "Fistful Of Dollars",
     "a fistful of dollars",
+    "fistful of satoshis",
+    "A fistful of sats",
     "man with no name",
     "clint eastwood fistful"
   ],
@@ -299,6 +334,9 @@ window.posterDestinations = {
   ],
   "/posters/frankenstein-1958/": [
     "Frankenstein 1958",
+    "How to kill a monster",
+    "How to print lots of money",
+    "How to print money",
     "frankenstein 1958 film",
     "hammer frankenstein 1958"
   ],
@@ -310,6 +348,7 @@ window.posterDestinations = {
   ],
   "/posters/friday-the-31st/": [
     "Friday The 31St",
+    "Whitepaper Day",
     "Friday the 13th",
     "Freaky Friday",
     "Jason",
@@ -325,6 +364,7 @@ window.posterDestinations = {
   "/posters/gappa/": [
     "Gappa",
     "gappa the triphibian monster",
+    "triphibian",
     "monster from a prehistoric planet",
     "gappa monster"
   ],
@@ -351,6 +391,9 @@ window.posterDestinations = {
   ],
   "/posters/good-morning-vietnam/": [
     "Good Morning Vietnam",
+    "fiatnam",
+    "Good morning fiatnam",
+    "GM",
     "adrian cronauer",
     "robin williams vietnam"
   ],
@@ -371,6 +414,7 @@ window.posterDestinations = {
   ],
   "/posters/home-alone/": [
     "Home Alone",
+    "Bank Alone",
     "kevin mccallister",
     "keep the change ya filthy animal",
     "merry christmas ya filthy animal",
@@ -393,6 +437,7 @@ window.posterDestinations = {
   ],
   "/posters/i-spit-on-your-grave/": [
     "I Spit On Your Grave",
+    "I spit on your printer",
     "day of the woman",
     "i spit on your grave 1978",
     "jennifer hills"
@@ -435,12 +480,14 @@ window.posterDestinations = {
     "Jaws",
     "youre gonna need a bigger boat",
     "you re gonna need a bigger boat",
+    "keep on swimming little dollar",
     "chief brody",
     "quint jaws",
     "amity island shark"
   ],
   "/posters/jurassic-park/": [
     "Jurassic Park",
+    "Jurassic Money",
     "clever girl",
     "life finds a way",
     "welcome to jurassic park",
@@ -450,6 +497,9 @@ window.posterDestinations = {
   ],
   "/posters/kill-bill-vol-1/": [
     "Kill Bill Vol 1",
+    "Kill Bill",
+    "Kill dollar bill",
+    "will bitcoin kill bill",
     "kill bill volume 1",
     "the bride kill bill",
     "beatrix kiddo",
@@ -457,22 +507,25 @@ window.posterDestinations = {
   ],
   "/posters/king-kong-1931/": [
     "King Kong 1931",
-    "king kong 1931 film",
-    "kong 1931 poster"
+    "king kong film",
+    "king kong poster",
+    "kong 1931 poster",
+    "kong",
+    "giant gorilla"
   ],
   "/posters/king-kong-1933/": [
     "King Kong 1933",
     "king kong 1933 film",
+    "king kong movie",
     "it was beauty killed the beast",
-    "kong empire state building"
+    "kong empire state building",
+    "king kong"
   ],
   "/posters/lord-of-the-rings/": [
     "Lord Of The Rings",
     "one ring to rule them all",
-    "you shall not pass",
-    "frodo baggins",
-    "gandalf",
-    "middle earth"
+    "one coin to rule them all",
+    "frodo baggins"
   ],
   "/posters/mr-unbelieveable/": [
     "Mr Unbelieveable",
@@ -491,18 +544,24 @@ window.posterDestinations = {
     "National Lampoons Vacation",
     "walley world",
     "clark griswold vacation",
-    "holiday road"
+    "holiday road",
+    "even clark griswold",
+    "clark griswold",
+    "national lampoon"
   ],
   "/posters/night-of-the-living-dead/": [
     "Night Of The Living Dead",
     "theyre coming to get you barbara",
     "night of the living dead 1968",
-    "george romero zombies"
+    "george romero zombies",
+    "they're coming for you barbara"
   ],
   "/posters/not-of-this-earth/": [
     "Not Of This Earth",
     "not of this earth 1957",
-    "roger corman alien"
+    "roger corman alien",
+    "I don't have enough bitcoin",
+    "not enough bitcoin"
   ],
   "/posters/perfect-storm/": [
     "Perfect Storm",
@@ -515,7 +574,8 @@ window.posterDestinations = {
     "plan nine from outer space",
     "ed wood plan 9",
     "bela lugosi plan 9",
-    "worst movie ever made"
+    "worst movie ever made",
+    "plan 9 to save the banks"
   ],
   "/posters/poltergeist/": [
     "Poltergeist",
@@ -536,7 +596,8 @@ window.posterDestinations = {
     "Reanimator",
     "re animator",
     "herbert west",
-    "reanimator movie"
+    "reanimator movie",
+    "rehypothicator"
   ],
   "/posters/reptilicus/": [
     "Reptilicus",
@@ -559,8 +620,7 @@ window.posterDestinations = {
     "Running Man",
     "the running man",
     "running man 1987",
-    "ben richards",
-    "ill be back running man"
+    "ben richards"
   ],
   "/posters/scream-and-scream/": [
     "Scream And Scream",
@@ -611,21 +671,26 @@ window.posterDestinations = {
     "the sound of music",
     "the hills are alive",
     "do re mi",
-    "julie andrews sound of music"
+    "julie andrews sound of music",
+    "the sound of fuck you money",
+    "frankenmoney"
   ],
   "/posters/soylent-green/": [
     "Soylent Green",
     "soylent green is people",
     "soylent is people",
     "charlton heston soylent",
-    "make room movie"
+    "make room movie",
+    "the secret of fiat money",
+    "what's the secret of fiat money",
+    "what is the secret of fiat money",
+    "inflation is your savings"
   ],
   "/posters/star-wars-a-new-hope/": [
     "Star Wars A New Hope",
     "star wars episode iv",
     "star wars episode 4",
     "a new hope",
-    "may the force be with you",
     "these are not the droids youre looking for",
     "help me obi wan kenobi"
   ],
@@ -650,6 +715,7 @@ window.posterDestinations = {
     "terminator two",
     "terminator 2 judgment day",
     "t2 judgment day",
+    "judgment day",
     "hasta la vista baby",
     "no problemo",
     "the t 1000"
@@ -669,12 +735,17 @@ window.posterDestinations = {
     "exorcist",
     "the power of christ compels you",
     "your mother sucks cocks in hell",
-    "father merrin"
+    "father merrin",
+    "the inflationist"
   ],
   "/posters/the-good-the-bad-the-ugly3/": [
     "The Good The Bad The Ugly3",
-    "good bad ugly version 3",
-    "the good the bad and the ugly version 3",
+    "you dig",
+    "dig",
+    "two kinds of people",
+    "tuco",
+    "angel eyes",
+    "blondie",
     "blondie tuco angel eyes"
   ],
   "/posters/the-good-the-bad-the-ugly6/": [
@@ -686,8 +757,7 @@ window.posterDestinations = {
     "The Grinch Jim Carrey",
     "how the grinch stole christmas",
     "jim carrey grinch",
-    "grinch stole christmas",
-    "cindy lou who"
+    "Jim Carrey"
   ],
   "/posters/them/": [
     "Them",
@@ -700,21 +770,22 @@ window.posterDestinations = {
     "i drink your milkshake",
     "daniel plainview",
     "drainage eli",
-    "there will be blood movie"
+    "there will be blood movie",
+    "there will be bitcoin"
   ],
   "/posters/they-live/": [
     "They Live",
     "i have come here to chew bubblegum and kick ass",
     "out of bubblegum",
-    "rowdy roddy piper",
-    "obey",
-    "consume"
+    "all out of bubblegum",
+    "rowdy roddy piper"
   ],
   "/posters/they-live2/": [
     "They Live2",
-    "they live alternative poster",
-    "they live version 2",
-    "they live 2 poster"
+    "consume",
+    "obey",
+    "conform",
+    "dead wrong"
   ],
   "/posters/toxic-avenger/": [
     "Toxic Avenger",
@@ -726,16 +797,21 @@ window.posterDestinations = {
   "/posters/universal-bride-of-frankenstein/": [
     "Universal Bride Of Frankenstein",
     "universal monsters bride",
+    "monsters bride",
     "universal bride of frankenstein poster"
   ],
   "/posters/universal-creature-from-the-black-lagoon/": [
     "Universal Creature From The Black Lagoon",
     "creature from the black lagoon",
     "gill man",
-    "universal creature black lagoon"
+    "universal creature black lagoon",
+    "black lagoon",
+    "black lagoon creature"
   ],
   "/posters/universal-dracula/": [
     "Universal Dracula",
+    "dracula",
+    "bela lugosi dracula",
     "dracula bela lugosi",
     "universal dracula 1931",
     "i never drink wine"
@@ -743,18 +819,21 @@ window.posterDestinations = {
   "/posters/universal-invisible-man/": [
     "Universal Invisible Man",
     "the invisible man",
+    "invisible man",
     "claude rains invisible man",
     "universal invisible man 1933"
   ],
   "/posters/universal-mummy/": [
     "Universal Mummy",
     "the mummy 1932",
+    "mummy",
     "boris karloff mummy",
     "imhotep the mummy"
   ],
   "/posters/universal-wolf-man/": [
     "Universal Wolf Man",
     "the wolf man",
+    "wolf man",
     "lon chaney jr wolf man",
     "larry talbot"
   ],
@@ -765,20 +844,24 @@ window.posterDestinations = {
   ],
   "/posters/v-for-vendetta/": [
     "V For Vendetta",
-    "remember remember the fifth of november",
-    "remember the fifth of november",
     "guy fawkes mask",
-    "v vendetta"
+    "guy fawkes",
+    "fawkes",
+    "anonymous"
   ],
   "/posters/v-for-vendetta2/": [
     "V For Vendetta2",
-    "v for vendetta version 2",
-    "v for vendetta alternative 2"
+    "5th of november",
+    "november 5th",
+    "remember remember the fifth of november",
+    "remember the fifth of november",
+    "remember remember"
   ],
   "/posters/v-for-vendetta7/": [
     "V For Vendetta7",
-    "v for vendetta version 7",
-    "v for vendetta alternative 7"
+    "v",
+    "v vendetta",
+    "vendetta"
   ],
   "/posters/war-of-the-gargantuas/": [
     "War Of The Gargantuas",
@@ -788,18 +871,21 @@ window.posterDestinations = {
   ],
   "/posters/werewolf-vs-vampire-woman6/": [
     "Werewolf Vs Vampire Woman6",
-    "werewolf versus vampire woman 6",
-    "werewolf vs vampire woman version 6"
+    "Werewolf Vs Vampire Woman",
+    "werewolf versus vampire woman"
   ],
   "/posters/werewolf-vs-vampire-woman7/": [
     "Werewolf Vs Vampire Woman7",
-    "werewolf versus vampire woman 7",
-    "werewolf vs vampire woman version 7"
+    "vintage wine",
+    "share it with someone you hate",
+    "hate",
+    "money for enemies",
+    "enemy"
   ],
   "/posters/white-zombie/": [
     "White Zombie",
-    "white zombie 1932",
     "bela lugosi white zombie",
-    "murder legendre"
+    "murder legendre",
+    "legendre"
   ]
 };

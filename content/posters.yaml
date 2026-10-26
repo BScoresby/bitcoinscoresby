@@ -44,6 +44,8 @@ posters:
   alt: Poster artwork titled Amityville Horror
   aliases:
   - Amityville Horror
+  - Amityville printer
+  - the amityville printer
   - the amityville horror
   - amityville
   - get out of the house
@@ -53,6 +55,7 @@ posters:
   alt: Poster artwork titled Apocalipsis Canibal
   aliases:
   - Apocalipsis Canibal
+  - Banker Apocalypse
   - cannibal apocalypse
   - cannibal apocalypse movie
 - slug: apocalypse-now
@@ -61,9 +64,11 @@ posters:
   alt: Poster artwork titled Apocalypse Now1
   aliases:
   - Apocalypse Now
+  - Apocalypse BTC
   - charlie dont surf
   - charlie don t surf
   - i love the smell of napalm in the morning
+  - I love the smell of fiat in the morning
   - kilgore
   - colonel kurtz
   - the horror the horror
@@ -84,6 +89,7 @@ posters:
   aliases:
   - Armageddon
   - Heads up
+  - fun while it lasted
   - asteroid movie
   - bruce willis asteroid
   - dont wanna miss a thing
@@ -94,6 +100,7 @@ posters:
   aliases:
   - Astro Zombies 1
   - astro zombies
+  - astrozombies
   - the astro zombies
   - astro zombies poster 1
 - slug: astro-zombies2
@@ -103,6 +110,8 @@ posters:
   aliases:
   - Astro Zombies 2
   - astro zombies poster 2
+  - zombie banking
+  - berserk central bankers
   - astro zombies variant 2
 - slug: astro-zombies3
   title: Astro Zombies3
@@ -110,6 +119,9 @@ posters:
   alt: Poster artwork titled Astro Zombies3
   aliases:
   - Astro Zombies 3
+  - even the fixes make it worse
+  - wage inflation
+  - zombie money
   - astro zombies poster 3
   - astro zombies variant 3
 - slug: astro-zombies4
@@ -118,6 +130,7 @@ posters:
   alt: Poster artwork titled Astro Zombies4
   aliases:
   - Astro Zombies 4
+  - fiat zombies
   - astro zombies poster 4
   - astro zombies variant 4
 - slug: back-to-the-future
@@ -132,6 +145,8 @@ posters:
   - 88 miles per hour
   - flux capacitor
   - where were going we dont need roads
+  - where were going we dont need third parties
+  - where were going we dont need middlemen
 - slug: barbarella
   title: Barbarella
   image: /assets/posters/barbarella.webp
@@ -139,8 +154,12 @@ posters:
   aliases:
   - Barbarella
   - barbarella queen of the galaxy
+  - queen of the galaxy
   - jane fonda barbarella
   - durand durand
+  - Excessive Machine
+  - positronic ray gun
+  - positronic ray
 - slug: barbarian-queen
   title: Barbarian Queen
   image: /assets/posters/barbarian-queen.webp
@@ -148,6 +167,8 @@ posters:
   aliases:
   - Barbarian Queen
   - barbarian queen movie
+  - self custody
+  - self-custody
   - lana clarkson
 - slug: bay-of-blood
   title: Bay Of Blood
@@ -213,9 +234,8 @@ posters:
   image: /assets/posters/bride-of-frankenstein.webp
   alt: Poster artwork titled Bride Of Frankenstein
   aliases:
-  - Bride Of Frankenstein
-  - the bride of frankenstein
-  - frankensteins bride
+  - elsa lanchester
+  - romance
   - elsa lanchester bride
 - slug: carmen-baby
   title: Carmen Baby
@@ -243,7 +263,6 @@ posters:
   - he who walks behind the rows
   - malachai
   - isaac chroner
-  - outlander
 - slug: cobra
   title: Cobra
   image: /assets/posters/cobra.webp
@@ -260,6 +279,8 @@ posters:
   alt: Poster artwork titled Conan The Barbarian
   aliases:
   - Conan The Barbarian
+  - What is best in life
+  - What is good in life
   - By Crom
   - crush your enemies
   - hear the lamentations of their women
@@ -271,6 +292,7 @@ posters:
   alt: Poster artwork titled Conan
   aliases:
   - Conan
+  - barbarian
   - Crom
   - conan movie
   - conan the cimmerian
@@ -312,6 +334,10 @@ posters:
   alt: Poster artwork titled Deathstalker 2
   aliases:
   - Deathstalker 2
+  - Hold your own keys
+  - How to be sexy
+  - How do I get hot
+  - I want to be sexy
   - deathstalker ii
   - deathstalker ii duel of the titans
 - slug: diabolik
@@ -328,6 +354,8 @@ posters:
   alt: Poster artwork titled Die Hard
   aliases:
   - Die Hard
+  - Cry hard
+  - Cryhard
   - yippee ki yay
   - yippee ki yay motherfucker
   - john mcclane
@@ -339,6 +367,8 @@ posters:
   alt: Poster artwork titled Die Harder
   aliases:
   - Die Harder
+  - Cry Harder
+  - Cry Hard 2
   - die hard 2
   - die hard 2 die harder
   - die harder movie
@@ -375,6 +405,7 @@ posters:
   alt: Poster artwork titled Et
   aliases:
   - Et
+  - beeteecee
   - e t the extra terrestrial
   - e.t.
   - et phone home
@@ -386,6 +417,7 @@ posters:
   alt: Poster artwork titled Evil Dead 2
   aliases:
   - Evil Dead 2
+  - Evil Dollar 2
   - evil dead ii
   - evil dead two
   - dead by dawn
@@ -397,6 +429,7 @@ posters:
   alt: Poster artwork titled Evil Dead
   aliases:
   - Evil Dead
+  - Evil Dollar
   - the evil dead
   - the evil dead 1981
   - book of the dead
@@ -416,6 +449,8 @@ posters:
   aliases:
   - Fistful Of Dollars
   - a fistful of dollars
+  - fistful of satoshis
+  - A fistful of sats
   - man with no name
   - clint eastwood fistful
 - slug: forbidden-planet
@@ -442,6 +477,9 @@ posters:
   alt: Poster artwork titled Frankenstein 1958
   aliases:
   - Frankenstein 1958
+  - How to kill a monster
+  - How to print lots of money
+  - How to print money
   - frankenstein 1958 film
   - hammer frankenstein 1958
 - slug: frankenstein-warhol
@@ -459,6 +497,7 @@ posters:
   alt: Poster artwork titled Friday The 31St
   aliases:
   - Friday The 31St
+  - Whitepaper Day
   - Friday the 13th
   - Freaky Friday
   - Jason
@@ -480,6 +519,7 @@ posters:
   aliases:
   - Gappa
   - gappa the triphibian monster
+  - triphibian
   - monster from a prehistoric planet
   - gappa monster
 - slug: gator-bait
@@ -518,6 +558,9 @@ posters:
   alt: Poster artwork titled Good Morning Vietnam
   aliases:
   - Good Morning Vietnam
+  - fiatnam
+  - Good morning fiatnam
+  - GM
   - adrian cronauer
   - robin williams vietnam
 - slug: gremlins
@@ -547,6 +590,7 @@ posters:
   alt: Poster artwork titled Home Alone
   aliases:
   - Home Alone
+  - Bank Alone
   - kevin mccallister
   - keep the change ya filthy animal
   - merry christmas ya filthy animal
@@ -581,6 +625,7 @@ posters:
   alt: Poster artwork titled I Spit On Your Grave
   aliases:
   - I Spit On Your Grave
+  - I spit on your printer
   - day of the woman
   - i spit on your grave 1978
   - jennifer hills
@@ -644,6 +689,7 @@ posters:
   - Jaws
   - youre gonna need a bigger boat
   - you re gonna need a bigger boat
+  - keep on swimming little dollar
   - chief brody
   - quint jaws
   - amity island shark
@@ -653,6 +699,7 @@ posters:
   alt: Poster artwork titled Jurassic Park
   aliases:
   - Jurassic Park
+  - Jurassic Money
   - clever girl
   - life finds a way
   - welcome to jurassic park
@@ -665,6 +712,9 @@ posters:
   alt: Poster artwork titled Kill Bill Vol 1
   aliases:
   - Kill Bill Vol 1
+  - Kill Bill
+  - Kill dollar bill
+  - will bitcoin kill bill
   - kill bill volume 1
   - the bride kill bill
   - beatrix kiddo
@@ -675,8 +725,11 @@ posters:
   alt: Poster artwork titled King Kong 1931
   aliases:
   - King Kong 1931
-  - king kong 1931 film
+  - king kong film
+  - king kong poster
   - kong 1931 poster
+  - kong
+  - giant gorilla
 - slug: king-kong-1933
   title: King Kong 1933
   image: /assets/posters/king-kong-1933.webp
@@ -684,8 +737,10 @@ posters:
   aliases:
   - King Kong 1933
   - king kong 1933 film
+  - king kong movie
   - it was beauty killed the beast
   - kong empire state building
+  - king kong
 - slug: lord-of-the-rings
   title: Lord Of The Rings
   image: /assets/posters/lord-of-the-rings.webp
@@ -693,10 +748,8 @@ posters:
   aliases:
   - Lord Of The Rings
   - one ring to rule them all
-  - you shall not pass
+  - one coin to rule them all
   - frodo baggins
-  - gandalf
-  - middle earth
 - slug: mr-unbelieveable
   title: Mr Unbelieveable
   image: /assets/posters/mr-unbelieveable.webp
@@ -725,6 +778,9 @@ posters:
   - walley world
   - clark griswold vacation
   - holiday road
+  - even clark griswold
+  - clark griswold
+  - national lampoon
 - slug: night-of-the-living-dead
   title: Night Of The Living Dead
   image: /assets/posters/night-of-the-living-dead.webp
@@ -734,6 +790,7 @@ posters:
   - theyre coming to get you barbara
   - night of the living dead 1968
   - george romero zombies
+  - they're coming for you barbara
 - slug: not-of-this-earth
   title: Not Of This Earth
   image: /assets/posters/not-of-this-earth.webp
@@ -742,6 +799,9 @@ posters:
   - Not Of This Earth
   - not of this earth 1957
   - roger corman alien
+  - I don't have enough bitcoin
+  - not enough bitcoin
+  - i dont have enough bitcoin
 - slug: perfect-storm
   title: Perfect Storm
   image: /assets/posters/perfect-storm.webp
@@ -761,6 +821,7 @@ posters:
   - ed wood plan 9
   - bela lugosi plan 9
   - worst movie ever made
+  - plan 9 to save the banks
 - slug: poltergeist
   title: Poltergeist
   image: /assets/posters/poltergeist.webp
@@ -791,6 +852,7 @@ posters:
   - re animator
   - herbert west
   - reanimator movie
+  - rehypothicator
 - slug: reptilicus
   title: Reptilicus
   image: /assets/posters/reptilicus.webp
@@ -826,7 +888,6 @@ posters:
   - the running man
   - running man 1987
   - ben richards
-  - ill be back running man
 - slug: scream-and-scream
   title: Scream And Scream
   image: /assets/posters/scream-and-scream.webp
@@ -905,6 +966,8 @@ posters:
   - the hills are alive
   - do re mi
   - julie andrews sound of music
+  - the sound of fuck you money
+  - frankenmoney
 - slug: soylent-green
   title: Soylent Green
   image: /assets/posters/soylent-green.webp
@@ -915,6 +978,10 @@ posters:
   - soylent is people
   - charlton heston soylent
   - make room movie
+  - the secret of fiat money
+  - what's the secret of fiat money
+  - what is the secret of fiat money
+  - inflation is your savings
 - slug: star-wars-a-new-hope
   title: Star Wars A New Hope
   image: /assets/posters/star-wars-a-new-hope.webp
@@ -924,7 +991,6 @@ posters:
   - star wars episode iv
   - star wars episode 4
   - a new hope
-  - may the force be with you
   - these are not the droids youre looking for
   - help me obi wan kenobi
 - slug: starcrash
@@ -961,6 +1027,7 @@ posters:
   - terminator two
   - terminator 2 judgment day
   - t2 judgment day
+  - judgment day
   - hasta la vista baby
   - no problemo
   - the t 1000
@@ -987,14 +1054,18 @@ posters:
   - the power of christ compels you
   - your mother sucks cocks in hell
   - father merrin
+  - the inflationist
 - slug: the-good-the-bad-the-ugly3
   title: The Good The Bad The Ugly3
   image: /assets/posters/the-good-the-bad-the-ugly3.webp
   alt: Poster artwork titled The Good The Bad The Ugly3
   aliases:
-  - The Good The Bad The Ugly3
-  - good bad ugly version 3
-  - the good the bad and the ugly version 3
+  - you dig
+  - dig
+  - two kinds of people
+  - tuco
+  - angel eyes
+  - blondie
   - blondie tuco angel eyes
 - slug: the-good-the-bad-the-ugly6
   title: The Good The Bad The Ugly6
@@ -1012,8 +1083,7 @@ posters:
   - The Grinch Jim Carrey
   - how the grinch stole christmas
   - jim carrey grinch
-  - grinch stole christmas
-  - cindy lou who
+  - Jim Carrey
 - slug: them
   title: Them
   image: /assets/posters/them.webp
@@ -1033,6 +1103,7 @@ posters:
   - daniel plainview
   - drainage eli
   - there will be blood movie
+  - there will be bitcoin
 - slug: they-live
   title: They Live
   image: /assets/posters/they-live.webp
@@ -1041,18 +1112,17 @@ posters:
   - They Live
   - i have come here to chew bubblegum and kick ass
   - out of bubblegum
+  - all out of bubblegum
   - rowdy roddy piper
-  - obey
-  - consume
 - slug: they-live2
   title: They Live2
   image: /assets/posters/they-live2.webp
   alt: Poster artwork titled They Live2
   aliases:
-  - They Live2
-  - they live alternative poster
-  - they live version 2
-  - they live 2 poster
+  - consume
+  - obey
+  - conform
+  - dead wrong
 - slug: toxic-avenger
   title: Toxic Avenger
   image: /assets/posters/toxic-avenger.webp
@@ -1070,8 +1140,8 @@ posters:
   aliases:
   - Universal Bride Of Frankenstein
   - universal monsters bride
+  - monsters bride
   - universal bride of frankenstein poster
-  - bride of Frankenstein
 - slug: universal-creature-from-the-black-lagoon
   title: Universal Creature From The Black Lagoon
   image: /assets/posters/universal-creature-from-the-black-lagoon.webp
@@ -1081,6 +1151,8 @@ posters:
   - creature from the black lagoon
   - gill man
   - universal creature black lagoon
+  - black lagoon
+  - black lagoon creature
 - slug: universal-dracula
   title: Universal Dracula
   image: /assets/posters/universal-dracula.webp
@@ -1088,6 +1160,7 @@ posters:
   aliases:
   - Universal Dracula
   - dracula
+  - bela lugosi dracula
   - dracula bela lugosi
   - universal dracula 1931
   - i never drink wine
@@ -1134,27 +1207,28 @@ posters:
   image: /assets/posters/v--for-vendetta.webp
   alt: Poster artwork titled V For Vendetta
   aliases:
-  - V For Vendetta
-  - remember remember the fifth of november
-  - remember the fifth of november
   - guy fawkes mask
-  - v vendetta
+  - guy fawkes
+  - fawkes
+  - anonymous
 - slug: v-for-vendetta2
   title: V For Vendetta2
   image: /assets/posters/v-for-vendetta2.webp
   alt: Poster artwork titled V For Vendetta2
   aliases:
-  - V For Vendetta2
-  - v for vendetta version 2
-  - v for vendetta alternative 2
+  - 5th of november
+  - november 5th
+  - remember remember the fifth of november
+  - remember the fifth of november
+  - remember remember
 - slug: v-for-vendetta7
   title: V For Vendetta7
   image: /assets/posters/v-for-vendetta7.webp
   alt: Poster artwork titled V For Vendetta7
   aliases:
-  - V For Vendetta7
-  - v for vendetta version 7
-  - v for vendetta alternative 7
+  - v
+  - v vendetta
+  - vendetta
 - slug: war-of-the-gargantuas
   title: War Of The Gargantuas
   image: /assets/posters/war-of-the-gargantuas.webp
@@ -1169,23 +1243,26 @@ posters:
   image: /assets/posters/werewolf-vs-vampire-woman6.webp
   alt: Poster artwork titled Werewolf Vs Vampire Woman6
   aliases:
-  - Werewolf Vs Vampire Woman6
-  - werewolf versus vampire woman 6
-  - werewolf vs vampire woman version 6
+  - Werewolf Vs Vampire Woman
+  - werewolf versus vampire woman
+  - werewolf vs vampire woman
 - slug: werewolf-vs-vampire-woman7
   title: Werewolf Vs Vampire Woman7
   image: /assets/posters/werewolf-vs-vampire-woman7.webp
   alt: Poster artwork titled Werewolf Vs Vampire Woman7
   aliases:
-  - Werewolf Vs Vampire Woman7
-  - werewolf versus vampire woman 7
-  - werewolf vs vampire woman version 7
+  - vintage wine
+  - share it with someone you hate
+  - hate
+  - money for enemies
+  - enemy
 - slug: white-zombie
   title: White Zombie
   image: /assets/posters/white-zombie.webp
   alt: Poster artwork titled White Zombie
   aliases:
   - White Zombie
-  - white zombie 1932
+  - white zombie 
   - bela lugosi white zombie
   - murder legendre
+  - legendre
