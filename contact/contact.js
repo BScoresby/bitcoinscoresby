@@ -365,6 +365,7 @@ invoiceButton.addEventListener('click', async () => {
     const metadata = await metadataResp.json();
     if (!metadataResp.ok) throw Error(metadata.error || 'LNURL metadata failed');
     if (metadata.allowsNostr !== true || metadata.nostrPubkey?.toLowerCase() !== EXPECTED_PROVIDER) throw Error('Unexpected Rizful NIP-57 metadata');
+    if (metadata.lnurl_url !== 'https://rizful.com/.well-known/lnurlp/scoresby') { throw Error('Missing or unexpected Rizful LNURL URL');}
     if (!(metadata.minSendable <= AMOUNT && AMOUNT <= metadata.maxSendable)) throw Error('21 sats outside provider limits');
     const request = await signedZapRequest(metadata, started.nonce);
     const invoiceResp = await fetch(`${API}/invoice`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ attempt_id: started.attempt_id, request }) });

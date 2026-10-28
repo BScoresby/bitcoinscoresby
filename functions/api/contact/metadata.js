@@ -21,7 +21,7 @@ export async function onRequestGet() {
         !validCallback(info.callback)) throw new Error('Unexpected Rizful LNURL metadata');
     return Response.json({ok:true, allowsNostr:true, nostrPubkey:SIGNER,
       minSendable:info.minSendable, maxSendable:info.maxSendable,
-      lnurl_url:URL, callback:info.callback},{headers:HEADERS});
+      lnurl_url:LNURL_URL, callback:info.callback},{headers:HEADERS});
   } catch (error) {
     console.error('Contact metadata test:', error);
     return Response.json({ok:false,error:'Rizful metadata unavailable or changed'},{status:502,headers:HEADERS});
