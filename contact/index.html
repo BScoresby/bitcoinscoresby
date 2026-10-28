@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/contact/contact.css">
+<meta name="description" content="Weird bitcoin stuff from BitcoinScoresby.">
+<title>Contact — BitcoinScoresby</title>
+</head>
+<body>
+<main class="page">
+<header class="site-header">
+<a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+  <img src="/assets/whale.svg" alt="">
+  <span class="site-name">BS</span>
+</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/whitepaper" aria-label="Whitepaper">
+    <img src="/assets/paper.svg" alt="">
+  </a>
+
+  <a href="/archive" aria-label="archive">
+    <img src="/assets/folder.svg" alt="">
+  </a>
+
+  <a href="https://stacker.news" aria-label="Stacker News">
+    <img src="/assets/lightning.svg" alt="">
+  </a>
+</nav>
+</header>
+    <h1>Contact</h1>
+    <p class="intro">Send a private message over Nostr.</p>
+    <form id="contact-form">
+      <label for="message">&gt; message</label>
+      <textarea id="message" rows="6" maxlength="2000" required placeholder="Type your message here..."></textarea>
+      <label for="reply">&gt; reply address <span class="muted">(optional)</span></label>
+      <input id="reply" maxlength="200" placeholder="npub or email">
+      <div class="contact-actions">
+        <span id="count">0 / 2000</span>
+        <button type="button" id="create-invoice">Request 21-sat invoice</button>
+      </div>
+      <div id="invoice-area" hidden>
+        <p class="invoice-instructions">Scan to pay 21 sats, or copy the invoice.</p>
+        <div id="invoice-qr" aria-live="polite"></div>
+        <label for="invoice">&gt; BOLT11 invoice</label>
+        <textarea id="invoice" rows="3" readonly spellcheck="false"></textarea>
+        <button type="button" id="copy-invoice">Copy invoice</button>
+        <button type="button" id="cancel-invoice" hidden>Cancel invoice / edit message</button>
+      </div>
+      <div class="contact-actions contact-send-row">
+        <span class="muted">Send unlocks after verified payment.</span>
+        <button type="submit" id="send" disabled>Send message</button>
+      </div>
+      <p id="status" aria-live="polite" role="status"></p>
+    </form>
+    <details class="contact-debug"><summary>Payment and relay diagnostics</summary><pre id="debug-log"></pre></details>
+    <p class="contact-note">LOCAL EXPERIMENT ONLY — this browser-side payment check is not secure against bypass. Do not deploy publicly.</p>
+  </main>
+  <script type="module" src="/contact/contact.js"></script>
+</body>
+</html>
