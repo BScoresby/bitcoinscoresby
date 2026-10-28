@@ -11,7 +11,7 @@ function validCallback(value) {
 }
 export async function onRequestGet() {
   try {
-    const response = await fetch(URL, {headers: {'Accept': 'application/json'}, redirect: 'error', signal: AbortSignal.timeout(10000)});
+    const response = await fetch(URL, {headers: {'Accept': 'application/json'}, redirect: 'manual', signal: AbortSignal.timeout(10000)});
     if (!response.ok) throw new Error(`Rizful returned HTTP ${response.status}`);
     const info = await response.json();
     if (info.tag !== 'payRequest' || info.allowsNostr !== true ||
