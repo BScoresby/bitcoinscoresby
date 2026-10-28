@@ -215,3 +215,5 @@ export async function validateZapReceipt(receipt, row) {
   if (invoice.descriptionHash !== hex(await sha(bytes(desc)))) throw Error('Invoice description hash mismatch');
   return { receipt_id: receipt.id.toLowerCase(), request_id: original.id.toLowerCase() };
 }
+
+export { verifyEvent as verifyNostrEvent };

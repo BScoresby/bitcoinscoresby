@@ -250,6 +250,7 @@ let attempt = null;
 let sockets = [];
 let paid = false;
 let sending = false;
+let pendingWrap = null;
 let verifiedReceiptId = null;
 let seenReceiptIds = new Set();
 
@@ -270,6 +271,7 @@ function stopWatching() {
 function resetPayment() {
   stopWatching();
   attempt = null;
+  pendingWrap = null;
   paid = false;
   verifiedReceiptId = null;
   seenReceiptIds = new Set();
@@ -289,23 +291,33 @@ async function onReceipt(receipt, relay) {
   if (!attempt || paid || receipt?.kind !== 9735 || receipt.pubkey !== attempt.providerKey) return;
   if (seenReceiptIds.has(receipt.id)) return;
   const description = receipt.tags?.find(t => Array.isArray(t) && t[0] === 'description')?.[1];
-  if (!description || typeof description !== 'string') return;
+  if (typeof description !== 'string') return;
   try {
-    const req = JSON.parse(description);
-    if (req?.id !== attempt.request.id) return;
+    const original = JSON.parse(description);
+    if (original.id !== attempt.request.id) return;
     seenReceiptIds.add(receipt.id);
-    log(`Candidate receipt ${receipt.id} from ${relay}`);
-    const result = await verifyReceipt(receipt, attempt);
-    for (const [check, ok] of Object.entries(result.checks)) log(` ${ok ? 'PASS' : 'FAIL'} ${check}`);
-    if (!result.valid) { report('A matching receipt failed cryptographic verification.', true); return; }
+    log(`Checking receipt ${receipt.id} with Cloudflare (${relay})`);
+    const resp = await fetch(`${API}/verify`, {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({attempt_id: attempt.id, receipt})
+    });
+    const result = await resp.json();
+    if (!resp.ok || !result.ok || result.state !== 'paid') {
+      log(`Server rejected receipt: ${result.error || resp.status}`);
+      // Network/server failure may be temporary. Allow the candidate to be checked again.
+      if (resp.status >= 500) seenReceiptIds.delete(receipt.id);
+      return;
+    }
     paid = true;
-    verifiedReceiptId = receipt.id;
+    verifiedReceiptId = result.receipt_id;
     sendButton.disabled = false;
-    report('21-sat postage verified. You can now send your encrypted message.');
-    log('Verified Rizful receipt. Send unlocked (local prototype only).');
+    cancelButton.hidden = true;
+    report('21-sat postage verified by server. You can now send your encrypted message.');
+    log('Cloudflare confirmed payment in D1.');
     stopWatching();
-  } catch (error) {
-    log(`Receipt verification error: ${error.message || String(error)}`);
+  } catch(error) {
+    seenReceiptIds.delete(receipt.id);
+    log(`Server receipt verification error: ${error.message || String(error)}`);
   }
 }
 function watchReceipts() {
@@ -369,7 +381,7 @@ invoiceButton.addEventListener('click', async () => {
     const registered = await regResp.json();
     if (!regResp.ok || !registered.ok) throw Error(registered.error || 'Could not register invoice');
     log(`Cloudflare registered payment attempt ${started.attempt_id}`);
-    attempt = { request, providerKey: EXPECTED_PROVIDER, invoice };
+    attempt = { id: started.attempt_id, request, providerKey: EXPECTED_PROVIDER, invoice };
     invoiceField.value = invoice;
     try {
       qrContainer.replaceChildren(invoiceQR(invoice));
@@ -391,7 +403,7 @@ invoiceButton.addEventListener('click', async () => {
   }
 });
 cancelButton.addEventListener('click', () => {
-  if (sending) return;
+  if (sending || paid) return;
   resetPayment();
   report('Invoice abandoned. Unpaid invoices cannot be reused.');
 });
@@ -400,66 +412,41 @@ copyButton.addEventListener('click', async () => {
   catch { invoiceField.select(); document.execCommand('copy'); report('Invoice selected/copied. Waiting for payment...'); }
 });
 
-// Send the standard NIP-17 gift wrap to the two relays already proven to work.
-function publish(relay, event, timeoutMs = 12000) {
-  return new Promise(resolve => {
-    let ws, done = false;
-    const start = performance.now();
-    const timer = setTimeout(() => finish(false, 'Timed out'), timeoutMs);
-    function finish(ok, detail) {
-      if (done) return;
-      done = true;
-      clearTimeout(timer);
-      if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) ws.close();
-      resolve({ relay, ok, detail, ms: Math.round(performance.now() - start) });
-    }
-    try {
-      ws = new WebSocket(relay);
-      ws.onopen = () => ws.send(JSON.stringify(['EVENT', event]));
-      ws.onmessage = ({data}) => {
-        try {
-          const arr = JSON.parse(data);
-          if (arr[0] === 'OK' && arr[1] === event.id) finish(arr[2] === true, String(arr[3] || (arr[2] ? 'Accepted' : 'Rejected')));
-          else if (arr[0] === 'NOTICE') log(`${relay} NOTICE: ${arr[1]}`);
-          else if (arr[0] === 'AUTH') log(`${relay} requested authentication`);
-        } catch (e) { log(`${relay} response error: ${e.message}`); }
-      };
-      ws.onerror = () => log(`${relay} WebSocket error`);
-      ws.onclose = e => finish(false, `Closed (${e.code}) before acknowledgment`);
-    } catch (error) { finish(false, error.message); }
-  });
-}
 form.addEventListener('submit', async event => {
   event.preventDefault();
   if (!paid || !verifiedReceiptId || !attempt || sending) {
-    report('Payment has not yet been verified.', true);
+    report('Payment has not yet been verified by Cloudflare.', true);
     return;
   }
   sending = true;
   sendButton.disabled = true;
-  report('Encrypting and publishing your message...');
+  report('Encrypting and sending your message through Cloudflare...');
   try {
-    const text = messageField.value.trim();
-    if (!text) throw Error('Message is empty');
-    const address = replyField.value.trim();
-    const content = address ? `${text}\n\nReply address: ${address}` : text;
-    const wrap = await giftWrap(content, decodeNpub(RECIPIENT_NPUB));
-    const results = await Promise.all(RELAYS.map(relay => publish(relay, wrap)));
-    for (const r of results) log(`${r.relay}: ${r.ok ? 'ACCEPTED' : 'FAILED'} (${r.ms} ms): ${r.detail}`);
-    if (!results.some(r => r.ok)) {
-      report('Neither relay confirmed delivery. You can retry sending with the same payment.', true);
-      sendButton.disabled = false;
-      return;
+    if (!pendingWrap) {
+      const text = messageField.value.trim();
+      if (!text) throw Error('Message is empty');
+      const address = replyField.value.trim();
+      const content = address ? `${text}\n\nReply address: ${address}` : text;
+      pendingWrap = await giftWrap(content, decodeNpub(RECIPIENT_NPUB));
     }
-    // Local-only one-use UI; server-side single-use enforcement is required for production.
-    report(`Message published to ${results.filter(r => r.ok).length}/${RELAYS.length} relays. Check Amethyst.`);
-    log(`Published NIP-17 event ${wrap.id}; matched zap receipt ${verifiedReceiptId}`);
+    // Retain the same encrypted event across retries: D1 permits no substitutions.
+    const response = await fetch(`${API}/send`, {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({attempt_id:attempt.id,event:pendingWrap})
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) {
+      throw Error(result.error || `Server returned HTTP ${response.status}`);
+    }
+    log(`Server sent NIP-17 event ${pendingWrap.id}`);
+    for (const relay of result.relays || []) log(`${relay.relay}: ${relay.ok ? 'ACK' : 'NO ACK'} (${relay.reason})`);
+    report('Encrypted message accepted by a Nostr relay.');
     resetPayment();
     messageField.value = '';
     replyField.value = '';
     countEl.textContent = '0 / 2000';
-  } catch (error) {
-    report(`Send error: ${error.message || String(error)}`, true);
+  } catch(error) {
+    report(`Delivery pending: ${error.message || String(error)} Keep this tab open and retry Send after 40 seconds. Do not change the draft.`, true);
     sendButton.disabled = false;
   } finally { sending = false; }
 });
