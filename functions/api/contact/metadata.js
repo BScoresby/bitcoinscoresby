@@ -14,6 +14,7 @@ export async function onRequestGet() {
     const response = await fetch(URL, {headers: {'Accept': 'application/json'}, redirect: 'manual', signal: AbortSignal.timeout(10000)});
     if (!response.ok) throw new Error(`Rizful returned HTTP ${response.status}`);
     const info = await response.json();
+    console.log('Rizful metadata received:', JSON.stringify(info));
     if (info.tag !== 'payRequest' || info.allowsNostr !== true ||
         info.nostrPubkey?.toLowerCase() !== SIGNER ||
         !Number.isFinite(info.minSendable) || !Number.isFinite(info.maxSendable) ||
