@@ -11,7 +11,7 @@ const tag = (ev,key) => ev.tags.filter(t=>Array.isArray(t)&&t[0]===key);
 const hex = bytes=>Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
 const validCallback = value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&(u.hostname==='rizful.com'||u.hostname.endsWith('.rizful.com'));}catch{return false;}};
 async function jsonFetch(url){
- const response=await fetch(url,{headers:{Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(12000)});
+ const response=await fetch(url,{headers:{Accept:'application/json'},redirect:'manual',signal:AbortSignal.timeout(12000)});
  if(!response.ok)throw Error(`Rizful HTTP ${response.status}`);
  return response.json();
 }
