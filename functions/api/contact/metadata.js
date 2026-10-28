@@ -1,5 +1,5 @@
 // Preview test: public Rizful LNURL metadata. No wallet credentials.
-const URL = 'https://rizful.com/.well-known/lnurlp/scoresby';
+const LNURL_URL = 'https://rizful.com/.well-known/lnurlp/scoresby';
 const SIGNER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
 const HEADERS = { 'Cache-Control': 'no-store' };
 function validCallback(value) {
@@ -11,10 +11,9 @@ function validCallback(value) {
 }
 export async function onRequestGet() {
   try {
-    const response = await fetch(URL, {headers: {'Accept': 'application/json'}, redirect: 'manual', signal: AbortSignal.timeout(10000)});
+    const response = await fetch(LNURL_URL, {headers: {'Accept': 'application/json'}, redirect: 'manual', signal: AbortSignal.timeout(10000)});
     if (!response.ok) throw new Error(`Rizful returned HTTP ${response.status}`);
     const info = await response.json();
-    console.log('Rizful metadata received:', JSON.stringify(info));
     if (info.tag !== 'payRequest' || info.allowsNostr !== true ||
         info.nostrPubkey?.toLowerCase() !== SIGNER ||
         !Number.isFinite(info.minSendable) || !Number.isFinite(info.maxSendable) ||
