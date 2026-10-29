@@ -47,7 +47,7 @@ const destinations = {
     'eric voskuil',
     'libbitcoin system'
   ],
-  
+
   '/contact': [
     'contact',
     'message',
@@ -60,7 +60,7 @@ const destinations = {
     'how do I reach you',
     'mail'
   ],
-  
+
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
   ...window.articleDestinations,
