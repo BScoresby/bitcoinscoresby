@@ -339,7 +339,7 @@ async function onReceipt(receipt, relay) {
     cancelButton.hidden = true;
     invoiceDetails.open = false;
     invoiceSummary.textContent = 'Payment received · Show invoice';
-    report('Payment received. Your message is ready to send.');
+    report('');
     log('Cloudflare confirmed payment in D1.');
     stopWatching();
   } catch(error) {
