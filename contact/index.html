@@ -62,10 +62,16 @@
       </div>
       <p id="status" aria-live="polite" role="status"></p>
     </form>
-    <section id="contact-success" hidden role="status">
-      <h2>Message sent. ⚡ ✉️</h2>
-      <button type="button" id="new-message">Write another message</button>
-    </section>
+<section id="contact-success" hidden role="status">
+  <h2>
+    Message sent.
+    <span class="success-emoji" aria-hidden="true">
+      <img src="/contact/images/26a1.svg" alt="">
+      <img src="/contact/images/1fad9.svg" alt="">
+    </span>
+  </h2>
+  <button type="button" id="new-message">Write another message</button>
+  </section>
     <details class="contact-debug"><summary>Payment and relay diagnostics</summary><pre id="debug-log"></pre></details>
     
   </main>

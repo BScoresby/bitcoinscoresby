@@ -201,3 +201,36 @@
 #new-message:hover {
   color: #fff;
 }
+
+/* Twemoji confirmation icons */
+.success-emoji {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  vertical-align: -0.15em;
+  white-space: nowrap;
+}
+
+.success-emoji img {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+/* Clearly indicate the restart action is clickable */
+#new-message {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+#new-message:hover,
+#new-message:focus-visible {
+  color: #fff;
+  text-decoration-thickness: 2px;
+}
+
+#new-message:focus-visible {
+  outline: 1px solid #aaa;
+  outline-offset: 5px;
+}
