@@ -31,32 +31,40 @@
 </nav>
 </header>
     <h1>Contact</h1>
-    <p class="intro">Send a private message over Nostr.</p>
+    <p class="intro">Send a message. Postage: 21 sats.</p>
     <form id="contact-form">
-      <label for="message">&gt; message</label>
-      <textarea id="message" rows="6" maxlength="2000" required placeholder="Type your message here..."></textarea>
-      <label for="reply">&gt; reply address <span class="muted">(optional)</span></label>
-      <input id="reply" maxlength="200" placeholder="npub or email">
+      <label for="message">&gt; your message</label>
+      <div class="terminal-message" id="terminal-message">
+        <textarea id="message" rows="6" maxlength="2000" required placeholder="" aria-describedby="message-hint"></textarea>
+        <span class="terminal-block" aria-hidden="true"></span>
+      </div>
+      <p class="field-hint" id="message-hint">Write anything you'd like to say.</p>
+      <label for="reply">&gt; how can I reply? <span class="muted">(optional)</span></label>
+      <input id="reply" maxlength="200" autocomplete="off" placeholder="email or npub" aria-describedby="reply-hint">
+      <p class="field-hint reply-hint" id="reply-hint">Please leave an email address or npub if you'd like a response. Otherwise I won't be able to reach you.</p>
       <div class="contact-actions">
         <span id="count">0 / 2000</span>
-        <button type="button" id="create-invoice">Request 21-sat invoice</button>
+        <button type="button" id="create-invoice">Request postage</button>
       </div>
       <div id="invoice-area" hidden>
+        <details id="invoice-details" open>
+          <summary id="invoice-summary">Payment · 21 sats</summary>
         <p class="invoice-instructions">Scan to pay 21 sats, or copy the invoice.</p>
         <div id="invoice-qr" aria-live="polite"></div>
         <label for="invoice">&gt; BOLT11 invoice</label>
         <textarea id="invoice" rows="3" readonly spellcheck="false"></textarea>
         <button type="button" id="copy-invoice">Copy invoice</button>
         <button type="button" id="cancel-invoice" hidden>Cancel invoice / edit message</button>
+        </details>
       </div>
       <div class="contact-actions contact-send-row">
-        <span class="muted">Send unlocks after verified payment.</span>
+        <span class="muted">21 sats to send.</span>
         <button type="submit" id="send" disabled>Send message</button>
       </div>
       <p id="status" aria-live="polite" role="status"></p>
     </form>
     <details class="contact-debug"><summary>Payment and relay diagnostics</summary><pre id="debug-log"></pre></details>
-    <p class="contact-note">PREVIEW EXPERIMENT — server authorization is enabled, but the cryptography and delivery behavior are not yet production-audited. Do not publish publicly.</p>
+    
   </main>
   <script type="module" src="/contact/contact.js"></script>
 </body>

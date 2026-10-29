@@ -239,6 +239,9 @@ const replyField = document.querySelector('#reply');
 const statusEl = document.querySelector('#status');
 const countEl = document.querySelector('#count');
 const invoiceBox = document.querySelector('#invoice-area');
+const invoiceDetails = document.querySelector('#invoice-details');
+const invoiceSummary = document.querySelector('#invoice-summary');
+const messageShell = document.querySelector('#terminal-message');
 const invoiceField = document.querySelector('#invoice');
 const qrContainer = document.querySelector('#invoice-qr');
 const invoiceButton = document.querySelector('#create-invoice');
@@ -276,6 +279,8 @@ function resetPayment() {
   verifiedReceiptId = null;
   seenReceiptIds = new Set();
   invoiceBox.hidden = true;
+  invoiceDetails.open = true;
+  invoiceSummary.textContent = 'Payment · 21 sats';
   qrContainer.replaceChildren();
   invoiceButton.disabled = false;
   sendButton.disabled = true;
@@ -284,9 +289,14 @@ function resetPayment() {
   invoiceField.value = '';
   cancelButton.hidden = true;
 }
+function updateMessageCursor() {
+  messageShell.classList.toggle('has-text', messageField.value.length > 0);
+}
 messageField.addEventListener('input', () => {
   countEl.textContent = `${messageField.value.length} / 2000`;
+  updateMessageCursor();
 });
+updateMessageCursor();
 async function onReceipt(receipt, relay) {
   if (!attempt || paid || receipt?.kind !== 9735 || receipt.pubkey !== attempt.providerKey) return;
   if (seenReceiptIds.has(receipt.id)) return;
@@ -312,7 +322,9 @@ async function onReceipt(receipt, relay) {
     verifiedReceiptId = result.receipt_id;
     sendButton.disabled = false;
     cancelButton.hidden = true;
-    report('21-sat postage verified by server. You can now send your encrypted message.');
+    invoiceDetails.open = false;
+    invoiceSummary.textContent = 'Payment received · Show invoice';
+    report('Payment received. Your message is ready to send.');
     log('Cloudflare confirmed payment in D1.');
     stopWatching();
   } catch(error) {
@@ -354,7 +366,7 @@ invoiceButton.addEventListener('click', async () => {
   resetPayment();
   invoiceButton.disabled = true;
   logArea.textContent = '';
-  report('Requesting a 21-sat zap invoice...');
+  report('Preparing your invoice...');
   try {
     // Start a server-controlled payment attempt.
     const startResp = await fetch(`${API}/start`, {method:'POST'});
@@ -391,12 +403,14 @@ invoiceButton.addEventListener('click', async () => {
       report('Invoice created, but QR could not be generated. Use Copy invoice.', true);
     }
     invoiceBox.hidden = false;
+    invoiceDetails.open = true;
+    invoiceSummary.textContent = 'Payment · 21 sats';
     cancelButton.hidden = false;
     // Freeze draft while payment is pending so the visitor knows which draft is being sent.
     messageField.readOnly = true;
     replyField.readOnly = true;
     watchReceipts();
-    report('Invoice ready. Pay 21 sats, then the Send button will unlock automatically.');
+    report('Pay the invoice to enable Send.');
     log(`Created request ${request.id}`);
   } catch (error) {
     report(`Invoice error: ${error.message || String(error)}`, true);
@@ -421,7 +435,7 @@ form.addEventListener('submit', async event => {
   }
   sending = true;
   sendButton.disabled = true;
-  report('Encrypting and sending your message through Cloudflare...');
+  report('Sending your message...');
   try {
     if (!pendingWrap) {
       const text = messageField.value.trim();
@@ -441,7 +455,7 @@ form.addEventListener('submit', async event => {
     }
     log(`Server sent NIP-17 event ${pendingWrap.id}`);
     for (const relay of result.relays || []) log(`${relay.relay}: ${relay.ok ? 'ACK' : 'NO ACK'} (${relay.reason})`);
-    report('Encrypted message accepted by a Nostr relay.');
+    report('Message sent.');
     resetPayment();
     messageField.value = '';
     replyField.value = '';
@@ -452,4 +466,4 @@ form.addEventListener('submit', async event => {
   } finally { sending = false; }
 });
 resetPayment();
-report('Write a message to begin. Postage: 21 sats.');
+report('Write your message, then request an invoice.');
