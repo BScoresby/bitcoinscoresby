@@ -47,7 +47,20 @@ const destinations = {
     'eric voskuil',
     'libbitcoin system'
   ],
-
+  
+  '/contact': [
+    'contact',
+    'message',
+    'get in touch',
+    'email',
+    'phone',
+    'DM',
+    'direct message',
+    'how do I contact you',
+    'how do I reach you',
+    'mail'
+  ],
+  
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
   ...window.articleDestinations,
@@ -95,6 +108,22 @@ function findDestination(command) {
 const form = document.getElementById('command-form');
 const commandInput = document.getElementById('command');
 
+// Escalating responses for consecutive unknown commands.
+let failedCommands = 0;
+
+const errorMessages = [
+  'Command not found.',
+  'Close, but no banana.',
+  'Still no banana.',
+  'No cigar',
+  'No nothing.',
+  'ERROR: User persistence exceeds system expectations.',
+  'Consulting the whale...',
+  'The whale has declined to comment.',
+  'You need --help',
+  '404: Meaning not found.'
+];
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -103,7 +132,6 @@ form.addEventListener('submit', (event) => {
 
   const command = normalizeCommand(rawCommand);
   const output = document.getElementById('terminal-error');
-
   function clearInput() {
     commandInput.value = '';
     commandInput.focus();
@@ -120,6 +148,7 @@ form.addEventListener('submit', (event) => {
   ];
 
   if (helpCommands.includes(rawCommand.toLowerCase())) {
+    failedCommands = 0;
     output.textContent =
       'Enter a topic, article title, book title, or author name. ' +
       'You can also try movie titles, famous quotes, or "random poster". ' +
@@ -131,7 +160,8 @@ form.addEventListener('submit', (event) => {
 
   // Let visitors explore the poster collection
   // without knowing its aliases.
-  if (command === 'random poster' || command === 'surprise me') {
+  if (command === 'random poster' || command === 'surprise me' || command === 'random') {
+    failedCommands = 0;
     const posters = Object.keys(window.posterDestinations || {});
 
     if (posters.length) {
@@ -150,13 +180,21 @@ form.addEventListener('submit', (event) => {
   const destination = findDestination(command);
 
   if (destination) {
+    failedCommands = 0;
     window.location.assign(destination);
     return;
   }
 
-  // Display unknown commands safely as text, not HTML.
-  output.textContent = `Command not found: ${rawCommand}`;
-  clearInput();
+// Escalate consecutive unrecognized commands.
+const messageIndex = Math.min(
+  failedCommands,
+  errorMessages.length - 1
+);
+
+output.textContent = errorMessages[messageIndex];
+
+failedCommands++;
+clearInput();
 });
 
 
