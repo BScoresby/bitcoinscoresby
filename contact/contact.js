@@ -252,7 +252,10 @@ const sendButton = document.querySelector('#send');
 const cancelButton = document.querySelector('#cancel-invoice');
 const logArea = document.querySelector('#debug-log');
 let attempt = null;
-let sockets = [];
+let sockets = new Map();
+let reconnectTimers = new Map();
+let reconnectAttempts = new Map();
+let watchGeneration = 0;
 let paid = false;
 let sending = false;
 let pendingWrap = null;
@@ -268,10 +271,15 @@ function log(text) {
   console.info('[contact]', text);
 }
 function stopWatching() {
-  for (const ws of sockets) {
+  // Invalidate callbacks from previous sockets and cancel pending retries.
+  watchGeneration++;
+  for (const timer of reconnectTimers.values()) clearTimeout(timer);
+  reconnectTimers.clear();
+  reconnectAttempts.clear();
+  for (const ws of sockets.values()) {
     if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) ws.close();
   }
-  sockets = [];
+  sockets.clear();
 }
 function resetPayment() {
   stopWatching();
@@ -321,12 +329,14 @@ async function onReceipt(receipt, relay) {
     const original = JSON.parse(description);
     if (original.id !== attempt.request.id) return;
     seenReceiptIds.add(receipt.id);
+    const checkingAttemptId = attempt.id;
     log(`Checking receipt ${receipt.id} with Cloudflare (${relay})`);
     const resp = await fetch(`${API}/verify`, {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({attempt_id: attempt.id, receipt})
     });
     const result = await resp.json();
+    if (!attempt || attempt.id !== checkingAttemptId || paid) return;
     if (!resp.ok || !result.ok || result.state !== 'paid') {
       log(`Server rejected receipt: ${result.error || resp.status}`);
       // Network/server failure may be temporary. Allow the candidate to be checked again.
@@ -349,33 +359,95 @@ async function onReceipt(receipt, relay) {
     log(`Server receipt verification error: ${error.message || String(error)}`);
   }
 }
-function watchReceipts() {
-  if (!attempt) return;
-  stopWatching();
-  for (const relay of RELAYS) {
-    let ws;
-    try { ws = new WebSocket(relay); } catch (e) { log(`${relay}: ${e.message}`); continue; }
-    sockets.push(ws);
-    const subId = 'scoresby-' + crypto.randomUUID().slice(0, 12);
-    ws.onopen = () => {
-      log(`Connected to receipt relay ${relay}`);
-      ws.send(JSON.stringify(['REQ', subId, {
-        kinds: [9735], authors: [attempt.providerKey],
-        '#p': [decodeNpub(RECIPIENT_NPUB)], since: attempt.request.created_at - 60, limit: 100
-      }]));
-    };
-    ws.onmessage = ({data}) => {
-      try {
-        const arr = JSON.parse(data);
-        if (arr[0] === 'EVENT' && arr[1] === subId) void onReceipt(arr[2], relay);
-        if (arr[0] === 'NOTICE') log(`${relay} NOTICE: ${arr[1]}`);
-        if (arr[0] === 'CLOSED') log(`${relay} CLOSED: ${arr[2]}`);
-      } catch (e) { log(`Receipt message parsing error: ${e.message}`); }
-    };
-    ws.onerror = () => log(`Receipt relay WebSocket error: ${relay}`);
-    ws.onclose = e => { if (!paid) log(`${relay} disconnected: ${e.code}`); };
-  }
+function shouldWatchReceipts() {
+  return Boolean(attempt && !paid);
 }
+
+function scheduleRelayReconnect(relay, generation) {
+  if (generation !== watchGeneration || !shouldWatchReceipts() ||
+      document.visibilityState === 'hidden' || reconnectTimers.has(relay)) return;
+  const n = reconnectAttempts.get(relay) || 0;
+  const delay = Math.min(30000, 1000 * 2 ** Math.min(n, 5));
+  reconnectAttempts.set(relay, n + 1);
+  log(`${relay}: reconnecting in ${delay / 1000}s`);
+  reconnectTimers.set(relay, setTimeout(() => {
+    reconnectTimers.delete(relay);
+    connectReceiptRelay(relay, generation);
+  }, delay));
+}
+
+function connectReceiptRelay(relay, generation) {
+  if (generation !== watchGeneration || !shouldWatchReceipts() ||
+      document.visibilityState === 'hidden') return;
+  const previous = sockets.get(relay);
+  if (previous && (previous.readyState === WebSocket.OPEN ||
+                   previous.readyState === WebSocket.CONNECTING)) return;
+
+  let ws;
+  try { ws = new WebSocket(relay); }
+  catch (e) {
+    log(`${relay}: connection failed: ${e.message}`);
+    scheduleRelayReconnect(relay, generation);
+    return;
+  }
+  sockets.set(relay, ws);
+  const subId = 'scoresby-' + crypto.randomUUID().slice(0, 12);
+  const currentAttempt = attempt;
+  ws.onopen = () => {
+    if (generation !== watchGeneration || !shouldWatchReceipts() ||
+        attempt !== currentAttempt) { ws.close(); return; }
+    reconnectAttempts.set(relay, 0);
+    log(`Connected to receipt relay ${relay}`);
+    // This REQ fetches already-published receipts as well as new ones.
+    ws.send(JSON.stringify(['REQ', subId, {
+      kinds: [9735], authors: [currentAttempt.providerKey],
+      '#p': [decodeNpub(RECIPIENT_NPUB)],
+      since: currentAttempt.request.created_at - 60, limit: 100
+    }]));
+  };
+  ws.onmessage = ({data}) => {
+    if (generation !== watchGeneration || !shouldWatchReceipts() ||
+        attempt !== currentAttempt) return;
+    try {
+      const arr = JSON.parse(data);
+      if (arr[0] === 'EVENT' && arr[1] === subId) void onReceipt(arr[2], relay);
+      if (arr[0] === 'NOTICE') log(`${relay} NOTICE: ${arr[1]}`);
+      if (arr[0] === 'CLOSED') log(`${relay} CLOSED: ${arr[2]}`);
+    } catch (e) { log(`Receipt message parsing error: ${e.message}`); }
+  };
+  ws.onerror = () => log(`Receipt relay WebSocket error: ${relay}`);
+  ws.onclose = e => {
+    // Only the currently registered socket may schedule its successor.
+    if (sockets.get(relay) !== ws) return;
+    sockets.delete(relay);
+    if (generation !== watchGeneration || !shouldWatchReceipts()) return;
+    log(`${relay} disconnected: ${e.code}`);
+    scheduleRelayReconnect(relay, generation);
+  };
+}
+
+function watchReceipts() {
+  if (!shouldWatchReceipts()) return;
+  stopWatching();
+  const generation = watchGeneration;
+  for (const relay of RELAYS) connectReceiptRelay(relay, generation);
+}
+
+// Mobile operating systems can suspend WebSockets while the wallet is open.
+// Recreate them on return, including sockets that still appear OPEN but are stale.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && shouldWatchReceipts()) {
+    log('Page visible again: reconnecting receipt relays');
+    watchReceipts();
+  }
+});
+window.addEventListener('pageshow', event => {
+  if (event.persisted && shouldWatchReceipts()) {
+    log('Page restored: reconnecting receipt relays');
+    watchReceipts();
+  }
+});
+
 invoiceButton.addEventListener('click', async () => {
   if (sending || attempt || invoiceButton.disabled || !messageField.value.trim()) {
     report('Write a message before requesting postage.', true); return;
