@@ -283,7 +283,9 @@ function resetPayment() {
   invoiceSummary.textContent = 'Payment · 21 sats';
   qrContainer.replaceChildren();
   invoiceButton.disabled = false;
+  invoiceButton.hidden = false;
   sendButton.disabled = true;
+  sendButton.hidden = true;
   messageField.readOnly = false;
   replyField.readOnly = false;
   invoiceField.value = '';
@@ -321,6 +323,8 @@ async function onReceipt(receipt, relay) {
     paid = true;
     verifiedReceiptId = result.receipt_id;
     sendButton.disabled = false;
+    sendButton.hidden = false;
+    invoiceButton.hidden = true;
     cancelButton.hidden = true;
     invoiceDetails.open = false;
     invoiceSummary.textContent = 'Payment received · Show invoice';
@@ -366,7 +370,7 @@ invoiceButton.addEventListener('click', async () => {
   resetPayment();
   invoiceButton.disabled = true;
   logArea.textContent = '';
-  report('Preparing your invoice...');
+  report('Preparing payment...');
   try {
     // Start a server-controlled payment attempt.
     const startResp = await fetch(`${API}/start`, {method:'POST'});
@@ -410,7 +414,7 @@ invoiceButton.addEventListener('click', async () => {
     messageField.readOnly = true;
     replyField.readOnly = true;
     watchReceipts();
-    report('Pay the invoice to enable Send.');
+    report('');
     log(`Created request ${request.id}`);
   } catch (error) {
     report(`Invoice error: ${error.message || String(error)}`, true);
@@ -466,4 +470,4 @@ form.addEventListener('submit', async event => {
   } finally { sending = false; }
 });
 resetPayment();
-report('Write your message, then request an invoice.');
+report('');

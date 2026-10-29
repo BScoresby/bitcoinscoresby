@@ -33,18 +33,20 @@
     <h1>Contact</h1>
     <p class="intro">Send a message. Postage: 21 sats.</p>
     <form id="contact-form">
-      <label for="message">&gt; your message</label>
       <div class="terminal-message" id="terminal-message">
-        <textarea id="message" rows="6" maxlength="2000" required placeholder="" aria-describedby="message-hint"></textarea>
+        <label for="message" class="terminal-prompt">&gt;</label>
+        <textarea id="message" rows="6" maxlength="2000" required aria-label="Your message"></textarea>
         <span class="terminal-block" aria-hidden="true"></span>
       </div>
-      <p class="field-hint" id="message-hint">Write anything you'd like to say.</p>
-      <label for="reply">&gt; how can I reply? <span class="muted">(optional)</span></label>
-      <input id="reply" maxlength="200" autocomplete="off" placeholder="email or npub" aria-describedby="reply-hint">
-      <p class="field-hint reply-hint" id="reply-hint">Please leave an email address or npub if you'd like a response. Otherwise I won't be able to reach you.</p>
+      <div class="terminal-reply">
+        <label for="reply" class="terminal-reply-prompt">&gt; reply address:</label>
+        <input id="reply" maxlength="200" autocomplete="off" aria-describedby="reply-hint">
+      </div>
+      <p class="field-hint reply-hint" id="reply-hint">If you'd like a reply, leave an email address or npub.</p>
       <div class="contact-actions">
         <span id="count">0 / 2000</span>
         <button type="button" id="create-invoice">Request postage</button>
+        <button type="submit" id="send" hidden disabled>Send message</button>
       </div>
       <div id="invoice-area" hidden>
         <details id="invoice-details" open>
@@ -56,10 +58,6 @@
         <button type="button" id="copy-invoice">Copy invoice</button>
         <button type="button" id="cancel-invoice" hidden>Cancel invoice / edit message</button>
         </details>
-      </div>
-      <div class="contact-actions contact-send-row">
-        <span class="muted">21 sats to send.</span>
-        <button type="submit" id="send" disabled>Send message</button>
       </div>
       <p id="status" aria-live="polite" role="status"></p>
     </form>

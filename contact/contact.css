@@ -75,3 +75,61 @@
 #invoice-area[hidden] {display:none;}
 #status { margin-top:12px; }
 @media(max-width:520px){#contact-form #message{font-size:15px;min-height:160px}.reply-hint{margin-bottom:25px}}
+
+/* Minimal terminal form refinements. */
+#contact-form .terminal-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65em;
+  position: relative;
+  margin: 0 0 14px;
+}
+#contact-form .terminal-prompt {
+  flex: 0 0 auto;
+  font: 16px/1.75 'Space Mono', monospace;
+  color: #f5f5f5;
+  cursor: text;
+}
+#contact-form #message {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 170px;
+}
+/* Position the synthetic cursor at the very beginning of the input. */
+#contact-form .terminal-message .terminal-block {
+  left: 1.65em;
+  top: 5px;
+}
+#contact-form .terminal-reply {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65em;
+  width: 100%;
+}
+#contact-form .terminal-reply-prompt {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font: 15px/1.7 'Space Mono', monospace;
+  color: #f5f5f5;
+  cursor: text;
+}
+#contact-form #reply {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+}
+#contact-form #reply:focus { border-bottom-color: #555; }
+#contact-form .reply-hint { margin: 0 0 26px; }
+#contact-form #create-invoice[hidden],
+#contact-form #send[hidden] { display: none; }
+#contact-form .contact-actions { margin-top: 3px; }
+@media (max-width:520px) {
+  #contact-form .terminal-prompt {font-size: 15px;}
+  #contact-form .terminal-reply-prompt {font-size: 12px;}
+  #contact-form #reply {font-size: 13px;}
+  #contact-form .contact-actions {flex-direction: row; align-items:center;}
+}
