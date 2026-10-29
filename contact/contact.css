@@ -1,0 +1,236 @@
+.contact-page { max-width:680px; margin:0 auto; padding:36px 24px 80px; color:#f5f5f5; font-family:'Space Mono', monospace; }
+.contact-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:78px; }
+.contact-header a {color:#aaa; text-decoration:none; font-size:13px;}
+.contact-header a:hover {color:#fff;}
+.contact-whale {width:44px;height:44px;object-fit:contain;}
+.contact-page h1 {font-size:32px;font-weight:700;margin:0 0 16px;}
+.contact-page .intro {color:#aaa;line-height:1.7;margin-bottom:52px;}
+#contact-form {display:flex;flex-direction:column;gap:12px;}
+#contact-form label {font-size:14px;color:#ddd;}
+#contact-form textarea,#contact-form input {box-sizing:border-box;width:100%;border:1px solid #3b3b3b;background:#000;color:#f5f5f5;border-radius:0;padding:15px;font:14px/1.7 'Space Mono',monospace;outline:none;}
+#contact-form textarea {resize:vertical;min-height:150px;margin-bottom:20px;}
+#contact-form textarea:focus,#contact-form input:focus {border-color:#aaa;}
+#contact-form input {margin-bottom:12px;}
+#contact-form ::placeholder {color:#777;opacity:1;}
+.contact-actions {display:flex;gap:18px;align-items:center;justify-content:space-between;}
+.contact-actions span,.muted,.contact-note {color:#777;font-size:12px;}
+#send {border:1px solid #e5e5e5;color:#000;background:#e5e5e5;font:14px 'Space Mono',monospace;padding:12px 18px;cursor:pointer;}
+#send:hover {background:#fff;}
+#send:disabled {opacity:.4;cursor:not-allowed;}
+#status {color:#aaa;min-height:2em;line-height:1.6;overflow-wrap:anywhere;}
+#status.error {color:#ffb0b0;}
+.contact-note {margin-top:35px;line-height:1.8;}
+@media(max-width:520px){.contact-page{padding:24px 18px 60px}.contact-header{margin-bottom:56px}.contact-page h1{font-size:28px}.contact-actions{align-items:flex-start;flex-direction:column-reverse}}
+#status { white-space:pre-line; }
+
+/* Contact-specific postage controls */
+#create-invoice, #copy-invoice, #cancel-invoice {border:1px solid #777;background:#000;color:#f5f5f5;font:14px 'Space Mono',monospace;padding:12px 18px;cursor:pointer;}
+#create-invoice:disabled {opacity:.45;cursor:not-allowed;}
+#invoice-area {margin:18px 0 28px;}
+#invoice-area[hidden] {display:none;}
+#invoice-area textarea {margin-top:12px;min-height:90px;overflow-wrap:anywhere;}
+.contact-send-row {margin-top:20px;}
+.contact-debug {margin-top:32px;color:#888;font-size:12px;}
+.contact-debug summary {cursor:pointer;}
+#debug-log {white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.7 'Space Mono',monospace;}
+
+/* Locally generated Lightning invoice QR */
+.invoice-instructions { color:#aaa; font-size:14px; margin:0 0 16px; }
+#invoice-qr { display:flex; justify-content:center; align-items:center; margin:18px 0 26px; }
+#invoice-qr svg { display:block; width:min(100%, 300px); height:auto; background:#fff; image-rendering:pixelated; }
+#copy-invoice:hover { color:#fff; border-color:#fff; }
+
+#cancel-invoice {margin-left:12px;}
+#cancel-invoice[hidden] {display:none;}
+@media (max-width:520px) {#cancel-invoice {margin:12px 0 0;}}
+
+/* Contact terminal composition — intentionally no input frames. */
+#contact-form { gap: 10px; }
+#contact-form label { color: #f5f5f5; font-weight: 400; }
+#contact-form .terminal-message { position:relative; margin: 4px 0 0; }
+#contact-form #message {
+  display:block; width:100%; min-height:180px; resize:vertical;
+  border:0; border-radius:0; box-shadow:none; outline:0;
+  background:transparent; padding:0; margin:0;
+  font: 16px/1.75 'Space Mono', monospace; caret-color:#fff;
+}
+#contact-form #message:focus { border:0; outline:0; }
+#contact-form .terminal-message:not(.has-text) #message:focus { caret-color:transparent; }
+.terminal-block { display:none; position:absolute; left:0; top:5px;
+  width:.65em; height:1.2em; background:#fff;
+  pointer-events:none; animation:terminal-blink 1s steps(1,end) infinite; }
+.terminal-message:not(.has-text):focus-within .terminal-block { display:block; }
+@keyframes terminal-blink { 50% {opacity:0;} }
+@media(prefers-reduced-motion:reduce) { .terminal-block {animation:none;} }
+#contact-form #reply { background:transparent; border:0; border-bottom:1px solid #555;
+  border-radius:0; padding:8px 0; margin:0; font:15px/1.7 'Space Mono',monospace; }
+#contact-form #reply:focus { border-bottom-color:#ddd; outline:0; }
+.field-hint { font-size:12px; color:#777; line-height:1.7; margin:0 0 26px; }
+.reply-hint { margin:0 0 34px; max-width:42rem; }
+#invoice-details { margin:0; }
+#invoice-details > summary { cursor:pointer; color:#ddd; font-size:13px; padding:10px 0; }
+#invoice-details > summary:hover { color:#fff; }
+#invoice-details > summary:focus-visible {outline:2px solid #aaa;outline-offset:4px;}
+#invoice-area { margin:12px 0 24px; }
+#invoice-area[hidden] {display:none;}
+#status { margin-top:12px; }
+@media(max-width:520px){#contact-form #message{font-size:15px;min-height:160px}.reply-hint{margin-bottom:25px}}
+
+/* Minimal terminal form refinements. */
+#contact-form .terminal-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65em;
+  position: relative;
+  margin: 0 0 14px;
+}
+#contact-form .terminal-prompt {
+  flex: 0 0 auto;
+  font: 16px/1.75 'Space Mono', monospace;
+  color: #f5f5f5;
+  cursor: text;
+}
+#contact-form #message {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 170px;
+}
+/* Position the synthetic cursor at the very beginning of the input. */
+#contact-form .terminal-message .terminal-block {
+  left: 1.65em;
+  top: 5px;
+}
+#contact-form .terminal-reply {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65em;
+  width: 100%;
+}
+#contact-form .terminal-reply-prompt {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font: 15px/1.7 'Space Mono', monospace;
+  color: #f5f5f5;
+  cursor: text;
+}
+#contact-form #reply {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+}
+#contact-form #reply:focus { border-bottom-color: #555; }
+#contact-form .reply-hint { margin: 0 0 26px; }
+#contact-form #create-invoice[hidden],
+#contact-form #send[hidden] { display: none; }
+#contact-form .contact-actions { margin-top: 3px; }
+@media (max-width:520px) {
+  #contact-form .terminal-prompt {font-size: 15px;}
+  #contact-form .terminal-reply-prompt {font-size: 12px;}
+  #contact-form #reply {font-size: 13px;}
+  #contact-form .contact-actions {flex-direction: row; align-items:center;}
+}
+
+/* Final terminal refinements: borderless return address and blinking block. */
+#contact-form .terminal-reply { align-items: center; }
+#contact-form .terminal-reply-input {
+  display: block;
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+#contact-form .terminal-reply-input #reply,
+#contact-form .terminal-reply-input #reply:focus {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 0;
+  box-shadow: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+#contact-form .terminal-reply-input:not(.has-text) #reply:focus { caret-color: transparent; }
+#contact-form .terminal-reply-block {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: .2em;
+  width: .65em;
+  height: 1.15em;
+  background: #fff;
+  pointer-events: none;
+  animation: terminal-blink 1s steps(1,end) infinite;
+}
+#contact-form .terminal-reply-input:not(.has-text):focus-within .terminal-reply-block { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  #contact-form .terminal-reply-block { animation: none; }
+}
+#contact-form .contact-actions { justify-content: flex-end; }
+
+#contact-form[hidden],
+#contact-success[hidden] {
+  display: none;
+}
+
+#contact-success {
+  margin-top: 64px;
+  text-align: left;
+}
+
+#contact-success h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 32px;
+}
+
+#new-message {
+  font: 13px 'Space Mono', monospace;
+  background: transparent;
+  color: #999;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#new-message:hover {
+  color: #fff;
+}
+
+/* Twemoji confirmation icons */
+.success-emoji {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  vertical-align: -0.15em;
+  white-space: nowrap;
+}
+
+.success-emoji img {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+/* Clearly indicate the restart action is clickable */
+#new-message {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+#new-message:hover,
+#new-message:focus-visible {
+  color: #fff;
+  text-decoration-thickness: 2px;
+}
+
+#new-message:focus-visible {
+  outline: 1px solid #aaa;
+  outline-offset: 5px;
+}

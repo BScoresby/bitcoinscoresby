@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/contact/contact.css">
+<meta name="description" content="Weird bitcoin stuff from BitcoinScoresby.">
+<title>Contact — BitcoinScoresby</title>
+</head>
+<body>
+<main class="page">
+<header class="site-header">
+<a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+  <img src="/assets/whale.svg" alt="">
+  <span class="site-name">BS</span>
+</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/whitepaper" aria-label="Whitepaper">
+    <img src="/assets/paper.svg" alt="">
+  </a>
+
+  <a href="/archive" aria-label="archive">
+    <img src="/assets/folder.svg" alt="">
+  </a>
+
+  <a href="https://stacker.news" aria-label="Stacker News">
+    <img src="/assets/lightning.svg" alt="">
+  </a>
+</nav>
+</header>
+    <h1>Contact</h1>
+    <p class="intro">Send a message. Postage: 21 sats.</p>
+    <form id="contact-form">
+      <div class="terminal-message" id="terminal-message">
+        <label for="message" class="terminal-prompt">&gt;</label>
+        <textarea id="message" rows="6" maxlength="2000" required aria-label="Your message"></textarea>
+        <span class="terminal-block" aria-hidden="true"></span>
+      </div>
+      <div class="terminal-reply">
+        <label for="reply" class="terminal-reply-prompt">&gt; return address:</label>
+        <span class="terminal-reply-input" id="terminal-reply-input">
+          <input id="reply" maxlength="200" autocomplete="off" aria-label="Return address">
+          <span class="terminal-reply-block" aria-hidden="true"></span>
+        </span>
+      </div>
+      <div class="contact-actions">
+        <button type="button" id="create-invoice">Request postage</button>
+        <button type="submit" id="send" hidden disabled>Send message</button>
+      </div>
+      <div id="invoice-area" hidden>
+        <details id="invoice-details" open>
+          <summary id="invoice-summary">Payment · 21 sats</summary>
+        <p class="invoice-instructions">Scan to pay 21 sats, or copy the invoice.</p>
+        <div id="invoice-qr" aria-live="polite"></div>
+        <label for="invoice">&gt; BOLT11 invoice</label>
+        <textarea id="invoice" rows="3" readonly spellcheck="false"></textarea>
+        <button type="button" id="copy-invoice">Copy invoice</button>
+        <button type="button" id="cancel-invoice" hidden>Cancel invoice / edit message</button>
+        </details>
+      </div>
+      <p id="status" aria-live="polite" role="status"></p>
+    </form>
+<section id="contact-success" hidden role="status">
+  <h2>
+    Message sent.
+    <span class="success-emoji" aria-hidden="true">
+      <img src="/contact/images/26a1.svg" alt="">
+      <img src="/contact/images/1fad9.svg" alt="">
+    </span>
+  </h2>
+  <button type="button" id="new-message">Write another message</button>
+  </section>
+    <details class="contact-debug"><summary>Payment and relay diagnostics</summary><pre id="debug-log"></pre></details>
+    
+  </main>
+  <script type="module" src="/contact/contact.js"></script>
+</body>
+</html>
