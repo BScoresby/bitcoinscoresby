@@ -234,6 +234,8 @@ async function verifyReceipt(receipt, attempt) {
 
 // LOCAL END-TO-END TEST ONLY. Browser-side payment checks are bypassable.
 const form = document.querySelector('#contact-form');
+const successScreen = document.querySelector('#contact-success');
+const newMessageButton = document.querySelector('#new-message');
 const messageField = document.querySelector('#message');
 const replyField = document.querySelector('#reply');
 const statusEl = document.querySelector('#status');
@@ -472,18 +474,44 @@ form.addEventListener('submit', async event => {
     if (!response.ok || !result.ok) {
       throw Error(result.error || `Server returned HTTP ${response.status}`);
     }
-    log(`Server sent NIP-17 event ${pendingWrap.id}`);
-    for (const relay of result.relays || []) log(`${relay.relay}: ${relay.ok ? 'ACK' : 'NO ACK'} (${relay.reason})`);
-    report('Message sent.');
+        log(`Server sent NIP-17 event ${pendingWrap.id}`);
+
+    for (const relay of result.relays || []) {
+      log(`${relay.relay}: ${relay.ok ? 'ACK' : 'NO ACK'} (${relay.reason})`);
+    }
+
+    // Delivery succeeded. Clear the completed payment and draft.
     resetPayment();
     messageField.value = '';
     replyField.value = '';
     updateMessageCursor();
     updateReplyCursor();
+    report('');
+
+    // Replace the contact form with the confirmation screen.
+    form.hidden = true;
+    successScreen.hidden = false;
   } catch(error) {
     report(`Delivery pending: ${error.message || String(error)} Keep this tab open and retry Send after 40 seconds. Do not change the draft.`, true);
     sendButton.disabled = false;
   } finally { sending = false; }
 });
+
+newMessageButton.addEventListener('click', () => {
+  // Hide the confirmation and restore a fresh form.
+  successScreen.hidden = true;
+  form.hidden = false;
+
+  resetPayment();
+
+  messageField.value = '';
+  replyField.value = '';
+  updateMessageCursor();
+  updateReplyCursor();
+
+  report('');
+  messageField.focus();
+});
+
 resetPayment();
 report('');

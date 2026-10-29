@@ -171,3 +171,33 @@
   #contact-form .terminal-reply-block { animation: none; }
 }
 #contact-form .contact-actions { justify-content: flex-end; }
+
+#contact-form[hidden],
+#contact-success[hidden] {
+  display: none;
+}
+
+#contact-success {
+  margin-top: 64px;
+  text-align: left;
+}
+
+#contact-success h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 32px;
+}
+
+#new-message {
+  font: 13px 'Space Mono', monospace;
+  background: transparent;
+  color: #999;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#new-message:hover {
+  color: #fff;
+}
