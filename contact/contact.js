@@ -237,11 +237,11 @@ const form = document.querySelector('#contact-form');
 const messageField = document.querySelector('#message');
 const replyField = document.querySelector('#reply');
 const statusEl = document.querySelector('#status');
-const countEl = document.querySelector('#count');
 const invoiceBox = document.querySelector('#invoice-area');
 const invoiceDetails = document.querySelector('#invoice-details');
 const invoiceSummary = document.querySelector('#invoice-summary');
 const messageShell = document.querySelector('#terminal-message');
+const replyShell = document.querySelector('#terminal-reply-input');
 const invoiceField = document.querySelector('#invoice');
 const qrContainer = document.querySelector('#invoice-qr');
 const invoiceButton = document.querySelector('#create-invoice');
@@ -294,11 +294,22 @@ function resetPayment() {
 function updateMessageCursor() {
   messageShell.classList.toggle('has-text', messageField.value.length > 0);
 }
-messageField.addEventListener('input', () => {
-  countEl.textContent = `${messageField.value.length} / 2000`;
-  updateMessageCursor();
-});
+messageField.addEventListener('input', updateMessageCursor);
 updateMessageCursor();
+function updateReplyCursor() {
+  replyShell.classList.toggle('has-text', replyField.value.length > 0);
+}
+replyField.addEventListener('input', updateReplyCursor);
+updateReplyCursor();
+// Keep the existing 2000-character limit, but explain rejected oversize pastes.
+messageField.addEventListener('paste', event => {
+  const pasted = event.clipboardData?.getData('text') || '';
+  const selected = messageField.selectionEnd - messageField.selectionStart;
+  if (messageField.value.length - selected + pasted.length > messageField.maxLength) {
+    event.preventDefault();
+    report('Message is too long (maximum 2000 characters).', true);
+  }
+});
 async function onReceipt(receipt, relay) {
   if (!attempt || paid || receipt?.kind !== 9735 || receipt.pubkey !== attempt.providerKey) return;
   if (seenReceiptIds.has(receipt.id)) return;
@@ -366,6 +377,10 @@ function watchReceipts() {
 invoiceButton.addEventListener('click', async () => {
   if (sending || attempt || invoiceButton.disabled || !messageField.value.trim()) {
     report('Write a message before requesting postage.', true); return;
+  }
+  if (messageField.value.length > 2000) {
+    report('Message is too long (maximum 2000 characters).', true);
+    return;
   }
   resetPayment();
   invoiceButton.disabled = true;
@@ -463,7 +478,8 @@ form.addEventListener('submit', async event => {
     resetPayment();
     messageField.value = '';
     replyField.value = '';
-    countEl.textContent = '0 / 2000';
+    updateMessageCursor();
+    updateReplyCursor();
   } catch(error) {
     report(`Delivery pending: ${error.message || String(error)} Keep this tab open and retry Send after 40 seconds. Do not change the draft.`, true);
     sendButton.disabled = false;

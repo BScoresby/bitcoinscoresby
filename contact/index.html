@@ -39,12 +39,13 @@
         <span class="terminal-block" aria-hidden="true"></span>
       </div>
       <div class="terminal-reply">
-        <label for="reply" class="terminal-reply-prompt">&gt; reply address:</label>
-        <input id="reply" maxlength="200" autocomplete="off" aria-describedby="reply-hint">
+        <label for="reply" class="terminal-reply-prompt">&gt; return address:</label>
+        <span class="terminal-reply-input" id="terminal-reply-input">
+          <input id="reply" maxlength="200" autocomplete="off" aria-label="Return address">
+          <span class="terminal-reply-block" aria-hidden="true"></span>
+        </span>
       </div>
-      <p class="field-hint reply-hint" id="reply-hint">If you'd like a reply, leave an email address or npub.</p>
       <div class="contact-actions">
-        <span id="count">0 / 2000</span>
         <button type="button" id="create-invoice">Request postage</button>
         <button type="submit" id="send" hidden disabled>Send message</button>
       </div>
