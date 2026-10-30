@@ -1,0 +1,229 @@
+
+/* Tether outline — BitcoinScoresby */
+
+/* Match the standard site container */
+.tether-page .page {
+  width: min(calc(100% - 44px), 790px);
+  max-width: 790px;
+  margin: 0 auto;
+  padding: 42px 0 90px;
+  min-width: 0;
+}
+
+/* Match the site's whitepaper header spacing */
+.tether-page .site-header {
+  margin-bottom: clamp(65px, 9vw, 100px);
+}
+
+/* Typography */
+.tether-page {
+  background: #000;
+  color: #f5f5f5;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+
+.tether-page .document-title {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+  margin: 0 0 3rem;
+}
+
+/* Links */
+.tether-page .document a,
+.tether-page .outline-number {
+  color: #e2b84e;
+  text-underline-offset: 3px;
+}
+
+.tether-page a:hover {
+  color: #ffe09a;
+}
+
+/* Table of contents */
+.tether-page .contents {
+  border-top: 3px solid #555;
+  border-bottom: 0px solid #555;
+  margin: 2rem 0 5rem;
+  padding: 1.6rem 0;
+}
+
+.tether-page .contents h2 {
+  font-size: 1rem;
+  color: #aaa;
+  letter-spacing: 0.08em;
+}
+
+.tether-page .contents ol {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.tether-page .contents li {
+  break-inside: avoid;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+/* Align wrapped chapter titles after their numbers */
+.tether-page .contents li a {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0;
+  align-items: start;
+}
+
+.tether-page .contents li span {
+  grid-column: 1;
+  margin-right: 0;
+}
+
+.tether-page .contents a {
+  text-decoration: none;
+}
+
+.tether-page .contents span {
+  color: #e2b84e;
+}
+
+/* Chapter headings */
+.tether-page .document h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.35;
+  border-top: 3px solid #555;
+  padding-top: 2rem;
+  margin: 5rem 0 2rem;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 2rem;
+}
+
+.tether-page .document h3 {
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+}
+
+/* Two-column outline */
+.tether-page .outline-entry {
+  display: grid;
+  grid-template-columns: 75px minmax(0, 1fr);
+  gap: 1.25rem;
+  margin: 0 0 2rem;
+  scroll-margin-top: 1.5rem;
+  border-left: 2px solid transparent;
+}
+
+.tether-page .outline-number {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-decoration: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tether-page .outline-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.tether-page .outline-text p {
+  margin: 0;
+}
+
+/* Highlight entry when linked directly */
+.tether-page .outline-entry:target {
+  background: #272315;
+  border-left-color: #e2b84e;
+  padding: 0.5rem;
+}
+
+/* Other Markdown elements */
+.tether-page .document img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tether-page .document pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tether-page .document blockquote {
+  border-left: 3px solid #555;
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.tether-page .document table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.tether-page .document th,
+.tether-page .document td {
+  border: 1px solid #555;
+  padding: 0.5rem;
+}
+
+/* Footer */
+.tether-page footer {
+  border-top: 0px solid #555;
+  padding-top: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tether-page {
+    font-size: 15px;
+  }
+
+  .tether-page .page {
+    width: calc(100% - 36px);
+    padding: 25px 0 65px;
+  }
+
+  .tether-page .document-title {
+    font-size: 1.7rem;
+    line-height: 1.35;
+    margin-bottom: 2.5rem;
+  }
+
+  .tether-page .contents ol {
+    columns: 1;
+  }
+
+  .tether-page .outline-entry {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .tether-page .outline-number {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .tether-page .outline-text {
+    font-size: 1rem;
+  }
+
+  .tether-page .document h2 {
+    margin-top: 3.5rem;
+  }
+}
+
+.tether-page .document p,
+.tether-page .document .outline-text {
+  color: #aaa;
+}

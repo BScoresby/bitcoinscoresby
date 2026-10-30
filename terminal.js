@@ -60,6 +60,17 @@ const destinations = {
     'how do I reach you',
     'mail'
   ],
+  
+  '/tether': [
+    'tether',
+    'bitfinex',
+    'usdt',
+    'stablecoin',
+    'fun',
+    'fun unbelievable details',
+    'stables',
+    'stable'
+    ],
 
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
