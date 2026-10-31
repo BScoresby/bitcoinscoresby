@@ -33,7 +33,7 @@ a:focus-visible { outline:2px solid #fff; outline-offset:4px; }
 .paper ol { padding-left:1.55rem; }
 .paper li { padding-left:.35rem; margin-bottom:.55rem; }
 .figure { max-width:100%; overflow-x:auto; overflow-y:hidden; margin:2rem 0 2.5rem; scrollbar-width:thin; }
-.figure-svg { display:block; max-width:none; width:auto; height:auto; color:var(--ink); }
+.figure-svg { display:block; max-width:100%; width:auto; height:auto; color:var(--ink); }
 .figure-svg rect { vector-effect:non-scaling-stroke; }
 /* Original diagrams use hardcoded dark strokes/arrows, which disappear on black. */
 .figure-svg [stroke="#333"] { stroke:var(--ink); }
