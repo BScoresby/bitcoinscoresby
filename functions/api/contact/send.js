@@ -1,9 +1,13 @@
 import { validateGiftWrap } from './send-validation.js';
 
 const fail = (status, error, extra = {}) => Response.json({ok:false,error,...extra},{status,headers:{'Cache-Control':'no-store'}});
-const RELAYS = ['wss://relay.damus.io','wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
 function publish(relay, event, timeoutMs = 8500) {
   return new Promise(resolve => {
     let socket, finished = false;
@@ -29,7 +33,6 @@ function publish(relay, event, timeoutMs = 8500) {
     } catch (error) { finish(false,'connection failed'); }
   });
 }
-
 export async function onRequestPost({request,env}) {
   if(!env.CONTACT_DB) return fail(503,'Database unavailable');
   const size=Number(request.headers.get('content-length')||0);
@@ -38,7 +41,11 @@ export async function onRequestPost({request,env}) {
   try {const raw=await request.text(); if(raw.length>15000)return fail(413,'Request too large');body=JSON.parse(raw);}catch{return fail(400,'Invalid JSON');}
   const id=body?.attempt_id, event=body?.event;
   if(typeof id!=='string'||!uuidPattern.test(id))return fail(400,'Invalid attempt ID');
-  if(!await validateGiftWrap(event))return fail(400,'Invalid NIP-17 gift wrap');
+  const inboxPubkey = typeof env.CONTACT_INBOX_PUBKEY === 'string'
+    ? env.CONTACT_INBOX_PUBKEY.trim().toLowerCase()
+    : '';
+  if (!/^[0-9a-f]{64}$/.test(inboxPubkey)) return fail(503, 'Contact inbox not configured');
+  if(!await validateGiftWrap(event, inboxPubkey))return fail(400,'Invalid NIP-17 gift wrap');
   const eventJSON=JSON.stringify(event);
   const now=Math.floor(Date.now()/1000);
   let row;
@@ -49,7 +56,6 @@ export async function onRequestPost({request,env}) {
   if(row.state!=='paid'&&row.state!=='sending')return fail(409,'Payment not verified');
   if(row.delivery_event_id && row.delivery_event_id!==event.id)return fail(409,'Payment is bound to another message');
   if(row.state==='sending' && Number(row.send_started_at||0)>now-40)return fail(409,'Delivery already in progress',{retry_after_seconds:40});
-
   // A single atomic UPDATE reserves the payment for precisely this event ID.
   // When retrying, the event must be byte-for-byte identical to the originally pinned event.
   let claim;
@@ -63,7 +69,6 @@ export async function onRequestPost({request,env}) {
     `).bind(event.id,eventJSON,now,id,now-40,event.id,eventJSON).run();
   }catch(error){console.error('Contact send claim:',error);return fail(503,'Could not claim payment');}
   if(claim.meta?.changes!==1)return fail(409,'Payment already claimed or event differs');
-
   const results=await Promise.all(RELAYS.map(r=>publish(r,event)));
   const delivered=results.some(r=>r.ok);
   if(delivered){

@@ -1,7 +1,12 @@
 // PREVIEW-ONLY: provisional registration. Does NOT authorize paid messages.
-const RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64'; // replaced dynamically below
+const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
 const AMOUNT = '21000';
-const ALLOWED_RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const MAX_BODY = 16000;
 const HEADERS = {'Cache-Control': 'no-store'};
 function fail(status, error) { return Response.json({ok:false,error},{status,headers:HEADERS}); }
@@ -24,8 +29,8 @@ export async function onRequestPost({request,env}) {
     return fail(400,'Invalid zap request structure');
   if (typeof invoice!=='string'||invoice.length>10000||!/^(lnbc|LNBC)/.test(invoice)) return fail(400,'Invalid invoice format');
   if (invoice.toLowerCase()===invoice.toUpperCase()) return fail(400,'Invalid invoice');
-  if (tag(zap,'amount')?.[1]!==AMOUNT || tag(zap,'p')?.[1]?.toLowerCase()!==RECIPIENT ||
-      JSON.stringify(tag(zap,'relays')?.slice(1))!==JSON.stringify(ALLOWED_RELAYS))
+  if (tag(zap,'amount')?.[1]!==AMOUNT || tag(zap,'p')?.[1]?.toLowerCase()!==PAYMENT_RECIPIENT ||
+      JSON.stringify(tag(zap,'relays')?.slice(1))!==JSON.stringify(RELAYS))
     return fail(400,'Unexpected zap request tags');
   const hash=await eventHash(zap);
   if (hash!==zap.id.toLowerCase()) return fail(400,'Zap event ID mismatch');
@@ -36,7 +41,7 @@ export async function onRequestPost({request,env}) {
     if (!row) return fail(404,'Unknown payment attempt');
     if (row.state!=='created') return fail(409,'Attempt already registered');
     if (row.expires_at<=now) return fail(410,'Attempt expired');
-    if (!zap.content.includes(row.nonce)) return fail(400,'Request does not contain issued nonce');
+    if (!(zap.content === row.nonce || zap.content === `BitcoinScoresby postage test ${row.nonce}`)) return fail(400,'Request does not contain issued nonce');
     if (Math.abs(zap.created_at-row.created_at)>300) return fail(400,'Request timestamp not in attempt window');
     const result=await env.CONTACT_DB.prepare(`UPDATE contact_attempts SET zap_request_id=?, invoice=?, state='invoiced' WHERE id=? AND state='created' AND expires_at>?`)
       .bind(zap.id.toLowerCase(),invoice,attempt_id,now).run();

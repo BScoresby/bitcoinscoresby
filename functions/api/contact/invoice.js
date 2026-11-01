@@ -2,8 +2,13 @@
 // Not proof of payment; does not authorize Nostr publication.
 const LNURL = 'https://rizful.com/.well-known/lnurlp/scoresby';
 const SIGNER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
-const RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
-const RELAYS = ['wss://relay.damus.io','wss://relay.primal.net'];
+const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const HEADERS = {'Cache-Control':'no-store'};
 const fail = (status,error) => Response.json({ok:false,error},{status,headers:HEADERS});
 const isHex = (value,n) => typeof value==='string' && new RegExp(`^[0-9a-f]{${n}}$`,'i').test(value);
@@ -26,7 +31,7 @@ export async function onRequestPost({request,env}) {
    !Number.isInteger(ev.created_at)||typeof ev.content!=='string'||ev.content.length>512||!Array.isArray(ev.tags)||ev.tags.length>15)
    return fail(400,'Invalid zap request');
  const one=(key)=>tag(ev,key).length===1?tag(ev,key)[0]:null;
- if(one('amount')?.[1]!=='21000'||one('p')?.[1]?.toLowerCase()!==RECIPIENT||
+ if(one('amount')?.[1]!=='21000'||one('p')?.[1]?.toLowerCase()!==PAYMENT_RECIPIENT||
    JSON.stringify(one('relays')?.slice(1))!==JSON.stringify(RELAYS)||!one('lnurl')||
    tag(ev,'e').length||tag(ev,'a').length)return fail(400,'Unexpected zap tags');
  const computed=hex(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify([0,ev.pubkey,ev.created_at,ev.kind,ev.tags,ev.content])))));
@@ -38,7 +43,7 @@ export async function onRequestPost({request,env}) {
  if(!row)return fail(404,'Unknown attempt');
  if(row.state!=='created')return fail(409,'Attempt is not new');
  if(row.expires_at<=now)return fail(410,'Attempt expired');
- if(!ev.content.includes(row.nonce)||Math.abs(ev.created_at-row.created_at)>300)return fail(400,'Zap request not bound to attempt');
+ if(!(ev.content===row.nonce || ev.content===`BitcoinScoresby postage test ${row.nonce}`)||Math.abs(ev.created_at-row.created_at)>300)return fail(400,'Zap request not bound to attempt');
  try{
    const info=await jsonFetch(LNURL);
    if(info.tag!=='payRequest'||info.allowsNostr!==true||info.nostrPubkey?.toLowerCase()!==SIGNER||

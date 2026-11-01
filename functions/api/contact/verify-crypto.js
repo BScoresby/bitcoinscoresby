@@ -2,9 +2,14 @@
 const hex = data => Array.from(data, b => b.toString(16).padStart(2, '0')).join('');
 const bytes = text => new TextEncoder().encode(text);
 const sha = async data => new Uint8Array(await crypto.subtle.digest('SHA-256', data));
-const RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
+const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
 const SIGNER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
-const RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const AMOUNT = 21000;
 const LNURL = 'https://rizful.com/.well-known/lnurlp/scoresby';
 function encodeLnurl(url) {
@@ -200,10 +205,13 @@ export async function validateZapReceipt(receipt, row) {
   const original = JSON.parse(desc);
   if (original.kind !== 9734 || !(await verifyEvent(original))) throw Error('Invalid zap request signature');
   if (!equalsHex(original.id, row.zap_request_id)) throw Error('Zap request does not match registration');
-  if (original.content !== `BitcoinScoresby postage test ${row.nonce}`) throw Error('Nonce missing or incorrect');
+  if (original.content !== row.nonce &&
+      original.content !== `BitcoinScoresby postage test ${row.nonce}`) {
+    throw Error('Nonce missing or incorrect');
+  }
   if (Math.abs(original.created_at - Number(row.created_at)) > 300) throw Error('Zap request created outside attempt window');
   if (onlyTag(original.tags, 'amount') !== String(AMOUNT)) throw Error('Wrong zap amount');
-  if (!equalsHex(onlyTag(original.tags, 'p'), RECIPIENT) || !equalsHex(onlyTag(receipt.tags, 'p'), RECIPIENT)) throw Error('Wrong recipient');
+  if (!equalsHex(onlyTag(original.tags, 'p'), PAYMENT_RECIPIENT) || !equalsHex(onlyTag(receipt.tags, 'p'), PAYMENT_RECIPIENT)) throw Error('Wrong recipient');
   if (onlyTag(original.tags, 'lnurl') !== encodeLnurl(LNURL)) throw Error('Incorrect LNURL');
   const relayTags = original.tags.filter(t=>Array.isArray(t) && t[0] === 'relays');
   if (relayTags.length !== 1 || JSON.stringify(relayTags[0].slice(1)) !== JSON.stringify(RELAYS)) throw Error('Incorrect relays');

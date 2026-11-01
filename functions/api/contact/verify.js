@@ -7,6 +7,10 @@ const fail = (status, error) => Response.json({ ok: false, error }, { status, he
 // signatures, the invoice description commitment and the D1 attempt binding.
 export async function onRequestPost({ request, env }) {
   if (!env.CONTACT_DB) return fail(503, 'Database unavailable');
+  const inboxPubkey = typeof env.CONTACT_INBOX_PUBKEY === 'string'
+    ? env.CONTACT_INBOX_PUBKEY.trim().toLowerCase()
+    : '';
+  if (!/^[0-9a-f]{64}$/.test(inboxPubkey)) return fail(503, 'Contact inbox not configured');
   if (Number(request.headers.get('content-length') || 0) > 25000) return fail(413, 'Request too large');
   let input;
   try {
@@ -56,5 +60,10 @@ export async function onRequestPost({ request, env }) {
     console.error('Contact verify D1 update:', error);
     return fail(409, 'Receipt already used or database update failed');
   }
-  return Response.json({ ok: true, state: 'paid', receipt_id: valid.receipt_id }, { headers });
+  return Response.json({
+    ok: true,
+    state: 'paid',
+    receipt_id: valid.receipt_id,
+    inbox_pubkey: inboxPubkey
+  }, { headers });
 }
