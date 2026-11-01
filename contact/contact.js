@@ -1,7 +1,7 @@
 import { invoiceQR } from './qrcode.js';
 // NIP-57 test helpers derived from the verified local zap tester.
 import { giftWrap, decodeNpub, __test } from './nostr-crypto.js';
-const RECIPIENT_NPUB = 'npub1w3adlr5sxmkh3dr7efmzh7qtcsd0xn0kmfaagjrkeukj0e4hm4jqrjfxmp';
+const PAYMENT_NPUB = 'npub1w3adlr5sxmkh3dr7efmzh7qtcsd0xn0kmfaagjrkeukj0e4hm4jqrjfxmp';
 const RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
 const EXPECTED_PROVIDER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
 const AMOUNT = 21000;
@@ -43,13 +43,13 @@ function encodeLnurl(url) {
 async function signedZapRequest(metadata, issuedNonce) {
   const secret = __test.randomSecret();
   const pubkey = hex(__test.publicKey(secret));
-  const recipient = decodeNpub(RECIPIENT_NPUB);
+  const recipient = decodeNpub(PAYMENT_NPUB);
   const sessionId = issuedNonce;
   const event = {
     kind: 9734,
     created_at: Math.floor(Date.now()/1000),
     pubkey,
-    content: `BitcoinScoresby postage test ${sessionId}`,
+    content: sessionId,
     tags: [
       ['relays', ...RELAYS],
       ['amount', String(AMOUNT)],
@@ -213,7 +213,7 @@ function exactlyOneTag(tags,name) {
 async function verifyReceipt(receipt, attempt) {
   const desc = exactlyOneTag(receipt.tags, 'description');
   const original = JSON.parse(desc);
-  const receiver = decodeNpub(RECIPIENT_NPUB);
+  const receiver = decodeNpub(PAYMENT_NPUB);
   const bolt11 = exactlyOneTag(receipt.tags, 'bolt11');
   const invoice = decodeBolt11(bolt11);
   const checks = {
@@ -260,6 +260,7 @@ let paid = false;
 let sending = false;
 let pendingWrap = null;
 let verifiedReceiptId = null;
+let contactInboxPubkey = null;
 let seenReceiptIds = new Set();
 
 function report(text, error = false) {
@@ -282,6 +283,7 @@ function stopWatching() {
   sockets.clear();
 }
 function resetPayment() {
+  contactInboxPubkey = null;
   stopWatching();
   attempt = null;
   pendingWrap = null;
@@ -345,6 +347,15 @@ async function onReceipt(receipt, relay) {
     }
     paid = true;
     verifiedReceiptId = result.receipt_id;
+    // The destination is disclosed only in a successful paid response.
+    if (typeof result.inbox_pubkey !== 'string' ||
+        !/^[0-9a-f]{64}$/i.test(result.inbox_pubkey)) {
+      stopWatching();
+      report('Payment verified, but the contact inbox is unavailable. Do not pay again.', true);
+      log('Payment verified, but Cloudflare did not return a usable inbox public key.');
+      return;
+    }
+    contactInboxPubkey = result.inbox_pubkey.toLowerCase();
     sendButton.disabled = false;
     sendButton.hidden = false;
     invoiceButton.hidden = true;
@@ -401,7 +412,7 @@ function connectReceiptRelay(relay, generation) {
     // This REQ fetches already-published receipts as well as new ones.
     ws.send(JSON.stringify(['REQ', subId, {
       kinds: [9735], authors: [currentAttempt.providerKey],
-      '#p': [decodeNpub(RECIPIENT_NPUB)],
+      '#p': [decodeNpub(PAYMENT_NPUB)],
       since: currentAttempt.request.created_at - 60, limit: 100
     }]));
   };
@@ -535,7 +546,10 @@ form.addEventListener('submit', async event => {
       if (!text) throw Error('Message is empty');
       const address = replyField.value.trim();
       const content = address ? `${text}\n\nReply address: ${address}` : text;
-      pendingWrap = await giftWrap(content, decodeNpub(RECIPIENT_NPUB));
+      if (!contactInboxPubkey) {
+        throw Error('Contact inbox unavailable. Do not pay again.');
+      }
+      pendingWrap = await giftWrap(content, contactInboxPubkey);
     }
     // Retain the same encrypted event across retries: D1 permits no substitutions.
     const response = await fetch(`${API}/send`, {
