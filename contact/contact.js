@@ -2,7 +2,12 @@ import { invoiceQR } from './qrcode.js';
 // NIP-57 test helpers derived from the verified local zap tester.
 import { giftWrap, decodeNpub, __test } from './nostr-crypto.js';
 const PAYMENT_NPUB = 'npub1w3adlr5sxmkh3dr7efmzh7qtcsd0xn0kmfaagjrkeukj0e4hm4jqrjfxmp';
-const RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const EXPECTED_PROVIDER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
 const AMOUNT = 21000;
 // Same-origin API calls: use on the Cloudflare Pages preview, not localhost.

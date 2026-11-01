@@ -1,7 +1,12 @@
 import { validateGiftWrap } from './send-validation.js';
 
 const fail = (status, error, extra = {}) => Response.json({ok:false,error,...extra},{status,headers:{'Cache-Control':'no-store'}});
-const RELAYS = ['wss://relay.damus.io','wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 function publish(relay, event, timeoutMs = 8500) {
   return new Promise(resolve => {

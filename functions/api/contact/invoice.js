@@ -3,7 +3,12 @@
 const LNURL = 'https://rizful.com/.well-known/lnurlp/scoresby';
 const SIGNER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
 const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
-const RELAYS = ['wss://relay.damus.io','wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const HEADERS = {'Cache-Control':'no-store'};
 const fail = (status,error) => Response.json({ok:false,error},{status,headers:HEADERS});
 const isHex = (value,n) => typeof value==='string' && new RegExp(`^[0-9a-f]{${n}}$`,'i').test(value);

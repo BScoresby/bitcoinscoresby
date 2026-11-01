@@ -1,7 +1,12 @@
 // PREVIEW-ONLY: provisional registration. Does NOT authorize paid messages.
 const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
 const AMOUNT = '21000';
-const ALLOWED_RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const MAX_BODY = 16000;
 const HEADERS = {'Cache-Control': 'no-store'};
 function fail(status, error) { return Response.json({ok:false,error},{status,headers:HEADERS}); }

@@ -4,7 +4,12 @@ const bytes = text => new TextEncoder().encode(text);
 const sha = async data => new Uint8Array(await crypto.subtle.digest('SHA-256', data));
 const PAYMENT_RECIPIENT = '747adf8e9036ed78b47eca762bf80bc41af34df6da7bd44876cf2d27e6b7dd64';
 const SIGNER = 'a8661b3474e11b0e45b273dcaccc2661d7cba4df957c33335ad51bccdc5a37ee';
-const RELAYS = ['wss://relay.damus.io', 'wss://relay.primal.net'];
+const RELAYS = [
+  'wss://relay.damus.io',
+  'wss://relay.primal.net',
+  'wss://nostr.oxtr.dev',
+  'wss://nostr.bitcoiner.social'
+];
 const AMOUNT = 21000;
 const LNURL = 'https://rizful.com/.well-known/lnurlp/scoresby';
 function encodeLnurl(url) {
