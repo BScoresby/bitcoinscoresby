@@ -30,7 +30,7 @@ export async function onRequestPost({request,env}) {
   if (typeof invoice!=='string'||invoice.length>10000||!/^(lnbc|LNBC)/.test(invoice)) return fail(400,'Invalid invoice format');
   if (invoice.toLowerCase()===invoice.toUpperCase()) return fail(400,'Invalid invoice');
   if (tag(zap,'amount')?.[1]!==AMOUNT || tag(zap,'p')?.[1]?.toLowerCase()!==PAYMENT_RECIPIENT ||
-      JSON.stringify(tag(zap,'relays')?.slice(1))!==JSON.stringify(ALLOWED_RELAYS))
+      JSON.stringify(tag(zap,'relays')?.slice(1))!==JSON.stringify(RELAYS))
     return fail(400,'Unexpected zap request tags');
   const hash=await eventHash(zap);
   if (hash!==zap.id.toLowerCase()) return fail(400,'Zap event ID mismatch');
