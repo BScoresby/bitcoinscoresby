@@ -70,7 +70,15 @@ const destinations = {
     'fun unbelievable details',
     'stables',
     'stable'
-    ],
+  ],
+
+  '/transaction-costs': [
+    'transaction costs',
+    'micropayments',
+    'mental transaction costs',
+    'transaction costs of micropayments'
+  ],
+
 
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
