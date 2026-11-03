@@ -1,5 +1,28 @@
 {
   "version": 1,
-  "include": ["/api/contact/*"],
-  "exclude": []
+  "include": [
+    "/api/contact/*",
+    "/archive",
+    "/archive/",
+    "/cryptoeconomics",
+    "/cryptoeconomics/*",
+    "/cyberpunk",
+    "/cyberpunk/*",
+    "/cypherpunks",
+    "/cypherpunks/*",
+    "/memeology",
+    "/memeology/*",
+    "/tether",
+    "/tether/",
+    "/transaction-costs",
+    "/transaction-costs/",
+    "/whitepaper",
+    "/whitepaper/"
+  ],
+  "exclude": [
+    "/contact",
+    "/contact/*",
+    "/posters",
+    "/posters/*"
+  ]
 }

@@ -19,3 +19,5 @@ Thumbs.db
 # local website build script
 /build.py
 
+
+.wrangler/
