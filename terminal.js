@@ -60,7 +60,7 @@ const destinations = {
     'how do I reach you',
     'mail'
   ],
-  
+
   '/tether': [
     'tether',
     'bitfinex',
@@ -79,7 +79,7 @@ const destinations = {
     'transaction costs of micropayments'
   ],
 
-  '/cypherpunks': {
+  '/cypherpunks': [
      'cypherpunks',
      'Tim May',
      'cypherpunk',
