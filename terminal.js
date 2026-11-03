@@ -79,6 +79,15 @@ const destinations = {
     'transaction costs of micropayments'
   ],
 
+  '/cypherpunks': {
+     'cypherpunks',
+     'Tim May',
+     'cypherpunk',
+     'Timothy May',
+     'Crypto Anarchist Manifesto',
+     'Manifesto',
+     'Crypto Anarchist'
+  ],
 
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
