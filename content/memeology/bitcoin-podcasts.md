@@ -3,11 +3,11 @@ title: "Bitcoin podcasts"
 date: "2026-06-11"
 source_url: "https://stacker.news/items/1506460"
 aliases: 
-  - 40HPW
   - podcaster
+  - podcast
+  - podcasts
+  - bitcoin podcasts
   - bitcoin podcast
-  - forty hours per week
-  - 40 hours per week
   - podcasting
   - V4V
   - value for value

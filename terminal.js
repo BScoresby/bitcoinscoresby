@@ -89,6 +89,12 @@ const destinations = {
      'Crypto Anarchist'
   ],
 
+  '/memeology/bitcoin-podcast-directory/': [
+    '40HPW',
+    'Forty hours per week',
+    '40 hours per week'
+  ],
+
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
   ...window.articleDestinations,

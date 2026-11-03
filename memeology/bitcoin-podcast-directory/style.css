@@ -1,0 +1,157 @@
+/* Bitcoin podcast directory: minimal two-line chronology/timeline. */
+
+/* Limit the header override to this page only. */
+.podcast-directory-page .site-header {
+  margin-bottom: clamp(36px, 5vw, 55px);
+}
+
+.podcast-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.podcast-page > p:first-child {
+  margin-bottom: 0.6rem;
+}
+
+.podcast-page h1 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  margin: 0 0 2rem;
+}
+
+.podcast-timeline {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.timeline-year + .timeline-year {
+  margin-top: 2.1rem;
+}
+
+.podcast-page .timeline-year h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--ink, #fff);
+  font-weight: 700;
+}
+
+/* Year-specific rail and tiny dot beside each podcast. */
+.timeline-list {
+  list-style: none;
+  border-left: 1px solid #666;
+  margin: 0 0 0 0.42rem;
+  padding: 0 0 0.05rem 1.25rem;
+}
+
+.timeline-entry {
+  position: relative;
+  padding: 0 0 1rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.timeline-entry:last-child {
+  padding-bottom: 0.15rem;
+}
+
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 3.5px);
+  top: 0.61rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink, #eee);
+}
+
+.podcast-page .timeline-name,
+.podcast-page .timeline-meta {
+  margin: 0;
+}
+
+.podcast-page .timeline-name {
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--ink, #fff);
+}
+
+.podcast-page .timeline-name a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.podcast-page .timeline-meta {
+  margin-top: 0.1rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted, #aaa);
+}
+
+.podcast-page .timeline-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.timeline-separator {
+  white-space: pre-wrap;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.podcast-back-link {
+  margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  .podcast-directory-page .site-header {
+    margin-bottom: 32px;
+  }
+
+  .podcast-page h1 {
+    margin-bottom: 1.55rem;
+  }
+
+  .podcast-page .timeline-year h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .timeline-list {
+    padding-left: 1rem;
+    margin-left: 0.35rem;
+  }
+
+  .timeline-entry::before {
+    left: calc(-1rem - 3.5px);
+    top: 0.53rem;
+  }
+
+  .timeline-entry {
+    padding-bottom: 0.95rem;
+  }
+
+  .podcast-page .timeline-name {
+    font-size: 0.96rem;
+  }
+
+  .podcast-page .timeline-meta {
+    font-size: 0.82rem;
+  }
+}
