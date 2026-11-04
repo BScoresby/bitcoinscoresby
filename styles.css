@@ -1,6 +1,21 @@
-/* BitcoinScoresby — monochrome, Space Mono, dark-only. No JavaScript. */
-/* The font loads through Google Fonts CSS; monospace is the fallback. */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+/* BitcoinScoresby — self-hosted Space Mono */
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/space-mono-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/space-mono-bold.woff2') format('woff2');
+}
+
 :root { color-scheme: dark; --paper: #000; --ink: #f5f5f5; --muted: #aaa; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
