@@ -227,3 +227,25 @@
 .tether-page .document .outline-text {
   color: #aaa;
 }
+
+
+/* Original Stacker News publication note */
+
+.tether-page .document-title {
+  margin-bottom: 0.75rem;
+}
+
+.tether-page .publication-note {
+  color: #aaa;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.tether-page .publication-note p {
+  margin: 0;
+}
+
+.tether-page .publication-note a {
+  color: #e2b84e;
+}
+

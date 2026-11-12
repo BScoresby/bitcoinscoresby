@@ -91,9 +91,29 @@ def transform(source):
         i += 1
     return '\n'.join(output), chapters, len(seen)
 
-
 def build(source, title, css_path):
-    prepared, chapters, entries = transform(source)
+    lines = source.splitlines(keepends=True)
+
+    first_chapter = next(
+        (i for i, line in enumerate(lines) if CHAPTER_RE.match(line)),
+        None
+    )
+
+    if first_chapter is not None:
+        intro_source = ''.join(lines[:first_chapter]).strip()
+        outline_source = ''.join(lines[first_chapter:])
+    else:
+        intro_source = ''
+        outline_source = source
+
+    intro_html = (
+        '<aside class="publication-note" aria-label="Publication history">'
+        + markdown.markdown(intro_source, extensions=['extra'])
+        + '</aside>'
+        if intro_source else ''
+    )
+
+    prepared, chapters, entries = transform(outline_source)
     md = markdown.Markdown(extensions=['extra', 'toc', 'sane_lists'], extension_configs={'toc': {'permalink': False}})
     article = md.convert(prepared)
     # Only numbered chapters appear in the TOC.
@@ -132,6 +152,7 @@ def build(source, title, css_path):
       </nav>
     </header>
     <h1 class="document-title">{html.escape(title)}</h1>
+    {intro_html}
     <nav class="contents" aria-label="Chapters">
       <h2>CONTENTS_</h2>
       {toc}

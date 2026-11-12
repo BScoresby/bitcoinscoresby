@@ -1,3 +1,5 @@
+Originally published as a series on Stacker News: [Part I](https://stacker.news/items/1042943) - [Part II](https://stacker.news/items/1059310) - [Part III](https://stacker.news/items/1115791) - [Part IV](https://stacker.news/items/1410689) - [Part V](https://stacker.news/items/1613156)
+
 # 1 PREFACE
 
 1.0 &emsp; Holders of USDT do not earn interest.
