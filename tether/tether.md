@@ -2234,3 +2234,419 @@ Ivan Manuel Molina Lee lists the Block article from October 6 as one of the reas
 17.92 &emsp; On 13 November 2022, Stacy Herbert [posts](https://x.com/stacyherbert/status/1591893834706862082) pictures of Paolo Ardoino and Max Keiser embracing on the tarmac in El Salvador.
 
 17.921 &emsp; "Best welcome ever 🇸🇻🇸🇻🇸🇻🇸🇻🇸🇻" [-Paolo Ardoino](https://x.com/paoloardoino/status/1591895471735603200)
+
+# 18 EL SALVADOR
+
+18.1 &emsp; El Salvador [announces](https://blockstream.com/press-releases/2021-11-21-el-salvador-to-issue-bitcoin-bond-a-1b-tokenized-bond-issuance-on-the-liquid-network/) that it will issue a $1B "Bitcoin Bond."
+
+18.11 &emsp; iFinex Inc [announces](https://www.bitfinex.com/posts/741) that it has entered into an agreement with the government of El Salvador on 19 November 2021.
+
+18.12 &emsp; "iFinex will be tasked with bringing its years of expertise operating a digital asset exchange, and various activities in the cryptocurrency economy. iFinex will help the El Salvador Government to create and implement appropriately balanced cryptocurrency laws, regulations, rules, and guidelines, particularly as they relate to digitized financial instruments in order to promote the growth of the cryptocurrency sector in El Salvador."
+
+18.121 &emsp; "El Salvador to issue $1 billion through a bitcoin bond via Blockstream's @Liquid_BTC & traded on @BFXSecurities. Proceeds go to: 50% ES mining infrastructure, 50% BTC purchase. 1Oy duration, pays 6.5% interest." [-Tuur Demeester](https://x.com/TuurDemeester/status/1462282327531343879)
+
+18.1211 &emsp;  "(not financial advice)" [-Tuur Demeester](https://x.com/TuurDemeester/status/1462282327531343879)
+
+18.122 &emsp; "I'm wonderingy why any institutional bond investor would buy this?...because it's got a 6.5% yield and your yield on your current bonds of El Salvador that come due in ten years is 13%" [-Caroline Hyde, Bloomberg TV](https://x.com/BloombergTV/status/1462941957198647301)
+
+18.1221 &emsp; "But this bond has a bitcoin component and that is why it is called a bitcoin bond." [-Samson Mow](https://x.com/BloombergTV/status/1462941957198647301) 
+
+18.13 &emsp; "PREDICTION: The El Salvador bitcoin bond will be ridiculously oversubscribed" [-Anthony Pompliano](https://x.com/APompliano/status/1462952681446719488)
+
+18.131 &emsp; "I'm really excited to build on #Bitcoin in 🇸🇻 with @nayibbukele @bitfinex @Blockstream @Excellion @adam3us @bitcoinlawyer 🌋" [-Paolo Ardoino](https://x.com/paoloardoino/status/1462275095452397570)
+
+18.132 &emsp; "Here's @nayibbukele announcing the Bitcoin City project for El Salvador. A city with 0 income tax, 0 CGT, 0 property tax, 0 payroll tax" [-Stephan Livera](https://x.com/stephanlivera/status/1462275584977952769)
+
+18.2 &emsp; "The link between Bitfinex and the Government was a friend of Ardoino: Samson Mow" [-ElFaro](https://elfaro.net/es/202201/el_salvador/25924/El-br%C3%B3ker-de-los-criptobonos-%E2%80%9CHabl%C3%A9-con-Yusef-Bukele-sobre-el-plan-para-los-bonos-Bitcoin%E2%80%9D.htm)
+
+18.21 &emsp; “I spoke with Yusef Bukele about what it takes to start building a plan” [-Elfaro](https://elfaro.net/es/202201/el_salvador/25924/El-br%C3%B3ker-de-los-criptobonos-%E2%80%9CHabl%C3%A9-con-Yusef-Bukele-sobre-el-plan-para-los-bonos-Bitcoin%E2%80%9D.htm)
+
+18.22 &emsp; The [2021-2022 Salvadoran Vice Presidency report](https://www.presidencia.gob.sv/wp-content/uploads/2022/08/memoria_vicepresidencia_pub.pdf) includes a picture of Max Keiser and Stacy Herbert and says "Mr. Félix Ulloa Jr., Vice President of El Salvador, met with Mr. Max Keiser and Ms. Stacy Herbert, both advocates for Bitcoin in El Salvador. They expressed their intention to reside in El Salvador to support the Bitcoin initiative promoted by the administration of President Nayib Bukele. Furthermore, they discussed an investment project involving "volcano bonds," sustainable mining, and the training of future professionals in the field of computer programming."
+
+18.221 &emsp; "Special thanks to @maxkeiser for inspiring #VolcanoBonds 🌋🇸🇻" [-Nayib Bukele](https://x.com/nayibbukele/status/1462513741795315718)
+
+18.222 &emsp; As early as 10 June 2021, Max Keiser [tweeted](https://x.com/maxkeiser/status/1403023717429559299) ".@novogratz - What about you guys floating a $1 billion in "Volcano Bonds" (backed by future #BTC mining output) for El Salvador to pay off the IMF (@IMFNews) loan - so they can tell the IMF to beat it."
+
+18.2221 &emsp; Later that day, *blocdesk* [runs an article](https://archive.is/TubTv) entitled "Bitcoin community planning to give El Salvador $1 billion?"
+
+18.223 &emsp; The *Wall Street Journal* [says](https://archive.is/i5AuB#selection-379.0-379.121) "Mr. Keiser brought Bitfinex on board as a financial technology provider for the planned $1 billion Volcano Token offering."
+
+18.23 &emsp; Max Keiser's Bitcoin Capital [participates](https://www.prweb.com/releases/shapeshift_completes_1_6m_funding_round/prweb12948518.htm) in a ShapeShift investment round with Bitfinex.
+
+18.231 &emsp; Max Keiser [tweets](https://x.com/maxkeiser/status/1084217038120325126) that everything his crypto VC fund invested in is up 10 - 100x...including Bitfinex.
+
+18.232 &emsp; As early as 22 April 2018, Crowdfund Insider [describes](https://www.crowdfundinsider.com/2018/04/132354-max-keiser-and-stacy-herbert-espouse-the-global-urgency-of-bitcoin/) Max Keiser and Stacy Herbert as investors in Bitfinex.
+
+18.233 &emsp; In February of 2022, Max Keiser and Stacy Herbert [announce](https://bitcoinmagazine.com/business/el-zonte-capital-hyperbitcoinization-firm-launches) the formation of a new venture capital fund called El Zonte Capital.
+
+18.2331 &emsp; aka the [EZCAP Cult of Psychos](https://x.com/maxkeiser/status/1518661013150879745)
+
+18.2332 &emsp; Max and Stacy [post](https://x.com/stacyherbert/status/1492174493132804098) a bunch of pictures of themselves with Nayib Bukele.
+
+18.234 &emsp; Diario El Salvador [reports](https://elsalvadorinenglish.com/2022/02/15/el-zonte-capital-the-investment-firm-launched-by-max-keiser-and-stacy-herbert-for-hyperbitcoinization/): "EZ Cap will begin with a $5 million committed capital seed-stage fund. Keiser and Herbert are the firm’s general partners (GPs), along with the founder of Swan Bitcoin and Bitcoiner Ventures, Cory Klippsten." 
+
+18.235 &emsp; El Zonte Capital [announces](https://www.criptonoticias.com/negocios/fondo-salvador-max-keiser-stacy-herbert-recibe-inversion-bitfinex/) a "big investment" from Bitfinex.
+
+18.2351 &emsp; On a [23 May 2022 episode](https://open.spotify.com/episode/7v2WwaZ0OLbI1iFvXa693N) of Bitcoin Cafe, Max Keiser says "Bitfinex and I have been working very closely over the past few months in El Salvador. We have been working together on several initiatives, including creating an educational initiative. People have probably seen that there is a lot of Bitcoin education in El Salvador, even with MiPrimer, a Bitcoin 101 course taught in high schools in El Salvador. There's also ‘Toro Hora Dev’, an intensive mid-level bootcamp for programmers. I'm doing something with Jimmy Song for advanced and elite coders. We want to build a base in El Salvador and Bitfinex is helping us build it." 
+
+18.236 &emsp; "In 500 years from now, President Bukele's transformation of this society will be taught alongside those of the Renaissance, the Enlightenment, Ancient Rome and Ancient Greece." [-Stacy Herbert](https://x.com/stacyherbert/status/1621687440665616387)
+
+18.24 &emsp; "it is intended that iFinex will be granted its [first licence](https://x.com/Excellion/status/1462322224749330435)" and that Bitfinex Securities will [process and list](https://x.com/bitfinex/status/1462295196507557891) the bond issuance.
+
+18.241 &emsp; "This first one will be the Volcano Bond" [-Samson Mow](https://x.com/Excellion/status/1462275180416442368)
+
+18.242 &emsp; Nayib Bukele includes an initial [termsheet](https://x.com/bradmillscan/status/1462485730962325508/photo/1) for the bond in his presentation at Bitcoin week in El Salvador.
+
+18.2421 &emsp; Coupon: 6.50% 
+
+18.2422 &emsp; Duration: 10 years 
+
+18.2423 &emsp; Maturation: 2032 
+
+18.2424 &emsp; Interest on notes: Payable annually in January
+
+18.2425 &emsp; Bitcoin lock-up: 5 years
+
+18.2426 &emsp; Bitcoin investment distribution: 50% of Bitcoin investment proceeds returned to investors once initial $500M Bitcoin investment is recovered
+
+18.2427 &emsp; Interest on Bitcoin investment proceeds: Payable in January, post achievement of $500M threshold
+
+18.2428 &emsp; Issuance protocol: Liquid Network
+
+18.2429 &emsp; Issuer: The Republic of El Salvador
+
+18.2430 &emsp; Funding currencies: USD, USDT, BTC
+
+18.2431 &emsp; Minimum subscription amount: $100
+
+18.2432 &emsp; Nominal value: $100 (one unit of EBB1 is $100)
+
+18.2433 &emsp; Citizenship by investment qualification: investments >= $100,000 will qualify investors for citizenship-by-investment applications after a five year term.
+
+18.244 &emsp; $500 million from the bond will be used to help construct energy infrastructure, while the other $500 will be used to buy bitcoin.
+
+18.245 &emsp; One of the infrastructure projects will be ["Bitcoin City"](https://www.reuters.com/markets/rates-bonds/el-salvador-plans-first-bitcoin-city-backed-by-bitcoin-bonds-2021-11-21/)
+
+18.2451 &emsp; "Bitcoin City will be a full-fledged metropolis with residential and commercial areas, restaurants, an airport as well as a port and rail service. The city will be laid out in a circle (like a coin) and in the city center will be a plaza that will be host to a huge bitcoin symbol. The city will have no income, property, capital gains or payroll taxes." [-CoinDesk](https://archive.is/9s61O)
+
+18.2452 &emsp; "This is a fully ecological city that works and is energized by a volcano." [-Nayib Bukele](https://www.reuters.com/markets/rates-bonds/el-salvador-plans-first-bitcoin-city-backed-by-bitcoin-bonds-2021-11-21/)
+
+18.2453 &emsp; "This is going to make El Salvador the financial center of the world." [-Samson Mow](https://www.reuters.com/markets/rates-bonds/el-salvador-plans-first-bitcoin-city-backed-by-bitcoin-bonds-2021-11-21/)
+
+18.2454 &emsp; "Think about dubai investment corporation and the civil construction of the modern city of dubai 🇦🇪. takes a lot of capital. next up bitcoin city, el salvador." [-Adam Back](https://x.com/adam3us/status/1464348491468189701)
+
+18.25 &emsp; Bloomberg's Matt Levine [points out](https://archive.is/CLO0Z) that the Bitcoin Bond is not a very good deal.
+
+18.251 &emsp; "This is market segmentation by slapping a cool name — “Volcano Bond” — on a bond that is strictly worse than a readily available alternative." [-Matt Levine](https://archive.is/CLO0Z#selection-3615.183-3619.2)
+
+18.252 &emsp; Many Bitcoiners are [also skeptical](https://bitcointalk.org/index.php?topic=5377037.0).
+
+18.253 &emsp; Hashtag: BitcoinBond 🌋🇸🇻
+
+18.254 &emsp; 25 February 2022: "Volanco bonds fix this." [-Liquid Network](https://x.com/Liquid_BTC/status/1497303247249416194)
+
+18.255 &emsp; 24 March 2022: "Heading to Volcano Bond country, El Salvador." [-Max Keiser](https://x.com/maxkeiser/status/1507100846139580419)
+
+18.26 &emsp; In early March 2022, El Salvador [announces](https://www.reuters.com/technology/el-salvador-says-could-launch-bitcoin-sovereign-bond-between-march-15-20-2022-03-11/) that the Bitcoin bond may be delayed because of the war in Ukraine.
+
+18.261 &emsp; "We believe that between March 15 and 20 is the right timing, we have the tools almost finished. But the international context will tell us ... I didn't expect the war in Ukraine" [-Alejandro Zelaya, El Salvador's finance minister](https://www.reuters.com/technology/el-salvador-says-could-launch-bitcoin-sovereign-bond-between-march-15-20-2022-03-11/)
+
+18.262 &emsp; "Almost everything is ready, the thing is there is also a timing issue." [-Alejandro Zelaya, El Salvador's finance minister](https://www.reuters.com/technology/el-salvador-says-could-launch-bitcoin-sovereign-bond-between-march-15-20-2022-03-11/)
+
+18.27 &emsp; The Financial Times [reports](https://archive.is/3BrGW) that the $1 billion volcano bond will be issued by "state thermal energy company La Geo," not the government of El Salvador.
+
+18.271 &emsp; Frank Muci [reports](https://frankmuci.substack.com/p/el-salvadors-volcano-bond-will-be) that "LaGeo produces 204MW or about 22% of El Salvador's electicity with geo-thermal plants."
+
+18.2711 &emsp; Frank Muci [adds](https://frankmuci.substack.com/p/el-salvadors-volcano-bond-will-be): "El Salvador has just 6.5 million people" and "consumes about as much electricity as India on a per-capita basis."
+
+18.2712 &emsp; According their [financial statements](https://www.bolsadevalores.com.sv/index.php/participantes-del-mercado/emisores/directorio?view=finandocs&ID=285), LaGeo's revenue was $136 million in 2021 and it had $773 million in total assets.
+
+18.2713 &emsp; "Basically, the volcano bonds will generate $65 million in annual interest payments (6.5% coupon x $1 billion), which is about half of LaGeo’s total revenue. The company’s annual interest expenses would jump from $15 million per year to $80 million per year (+430%), turning its healthy profit of around $35 million into a loss of $30 million. LaGeo’s long-term debt would also rise from $200 million to $1.2 billion (+500%)." [-Frank Muci](https://frankmuci.substack.com/p/el-salvadors-volcano-bond-will-be)
+
+18.2714 &emsp; There is still no volcano bond prospectus (other than pictures of Bukele's power point slides from when it was first introduced.
+
+18.2715 &emsp; "The bond is supposed to be issued this week but I can’t find any official documentation anywhere. LaGeo’s website, LaGeo’s page on El Salvador’s securities exchange, bitfinex’s webpage and blockstream’s website don’t have any documents." [-Frank Muci](https://frankmuci.substack.com/p/el-salvadors-volcano-bond-will-be)
+
+18.3 &emsp; El Salvador's parliament [approves](https://www.aljazeera.com/news/2022/3/28/el-salvador-invokes-state-of-emergency-after-62-killings-in-a-day) a state of emergency that temporarily suspends some constitutional protections on 28 March 2022. 
+
+18.31 &emsp; "The measures to be taken will be implemented by the relevant institutions and announced only when necessary. For the vast majority of people, life continues normal. God bless us all" [-Nayib Bukele](https://www.aljazeera.com/news/2022/3/28/el-salvador-invokes-state-of-emergency-after-62-killings-in-a-day)
+
+18.32 &emsp; In 2022, Elfaro [reports](https://elfaro.net/en/202203/el_salvador/26058/%E2%80%9CMerlin-the-Magician%E2%80%9D-The-Crypto-Kingpin-That-Will-Issue-El-Salvador%E2%80%99s-Bitcoin-Bonds.htm): "At the legislative session on Feb. 8, the Bitcoin Bond architect Samson Mow and other foreigners posed in a photo with eight Nuevas Ideas deputies including the chair of the Finance Committee, Dania González, and the head of the Nuevas Ideas party, Christian Guevara. In the background was Giancarlo Devasini. Unlike other figures in the cryptocurrency world, Devasini posted nothing about his visit to El Salvador on social media and was not tagged in any posts. Tether did not respond to this newspaper’s February 22 request for comment on the visit, and Devasini did not respond to an interview request." 
+
+18.321 &emsp; "Bitfinex and Tether have set up a relief fund to help the families of the people affected by the pandillas in El Salvador." [-Paolo Ardoino](https://x.com/paoloardoino/status/1513208195371737098)
+
+18.3211 &emsp; "Both companies once again stand with the disadvantaged and have donated 25 #bitcoin (~1M USD equiv now) to bootstrap this initiative (tx: 16dfd73fb9e9fe1e1c47eaf9e55e15066a80936a9c80cfc507b7555effdb2ce"
+
+18.322 &emsp; 16 April 2022: "Btifinex hopes El Salvador's 'bitcoin bond' will be just one of many" [-Bitfinex](https://x.com/bitfinex/status/1515318844994338824)
+
+18.323 &emsp; Max Keiser and Stacy Herbert [meet](https://dev.diarioelsalvador.com/dedinero/bitcoineros-donan-250000-a-familias-y-emprendedores-de-ilopango/236479) "with the mayor of the municipality, José María Chicas, to deliver funds donated by the Bitfinex exchange house and anonymous bitcoiners to families and entrepreneurs." 
+
+18.324 &emsp; In July, Bitfinex [donates](https://blog.bitfinex.com/announcements/bitfinex-donates-36-bitcoin-btc-us600000-tether-tokens-usdt-in-aid-for-small-businesses-in-el-salvador/) 36 Bitcoin (BTC), US$600,000 Tether tokens (USDt) in Aid for Small Businesses in El Salvador.
+
+18.3241 &emsp; The announcement [also says](https://blog.bitfinex.com/announcements/bitfinex-donates-36-bitcoin-btc-us600000-tether-tokens-usdt-in-aid-for-small-businesses-in-el-salvador/) "iFinex Inc., the parent company of Bitfinex, is also collaborating with the Government of El Salvador to create a digital assets and securities regulatory framework to regulate, issue, and operate digitized financial instruments in El Salvador, as well as assist in creating and implementing balanced cryptocurrency legislation and regulation on digitized financial instruments as they promote the growth of the cryptocurrency industry in El Salvador."
+
+18.33 &emsp; In collaboration with Mi Primer Bitcoin, Bitfinex [announces](https://blog.bitfinex.com/announcements/bitfinex-doubles-down-on-commitment-to-global-bitcoin-education/) the launch of a new Bitcoin education initiative in El Salvador
+
+18.34 &emsp; El Salvador and the city of Lugano, Switzerland [sign](https://tether.io/news/tether-applauds-el-salvador-city-of-lugano-for-signing-memorandum-of-understanding-on-economic-cooperation/) a memorandum of understanding on economic cooperation. 
+
+18.4 &emsp; Bitfinex is "the main [whale sponsor](https://x.com/bitfinex/status/1575493173996298241)" of the 2022 Adopting Bitcoin conference that [takes place](https://x.com/AdoptingBTC/status/1592480966584717318) on the 15th-17th November in El Salvador. 
+
+18.41 &emsp; 5 August 2022: "The volcano bond  Prepare for liftoff  LFG 🌋🚀🇸🇻" [-Stacy Herbert](https://x.com/stacyherbert/status/1555628381621915649)
+
+18.42 &emsp; 21 September 2022: "Anyone out there still think the volcano bond ain't gonna happen?" [-Stacy Herbert](https://x.com/stacyherbert/status/1572703002666078210)
+
+18.43 &emsp; On 16 November 2022 the president of El Salvador and his family [host](https://x.com/paoloardoino/status/1593298288568049664) the Bitfinex leadership. 
+
+18.431 &emsp; The day before, Bitfinex [announces](https://blog.bitfinex.com/announcements/bitfinex-unveils-freedom-manifesto-at-adopting-bitcoin-conference-in-el-salvador/) the [release](https://blog.bitfinex.com/announcements/the-bitfinex-freedom-manifesto/) of the Bitfinex Freedom Manifesto.
+
+18.432 &emsp; The day after, El Salvador [announces](https://www.diariooficial.gob.sv/seleccion/30887) the creation of its National Bitcoin Office.
+
+18.4321 &emsp; The Bitcoin Office is responsible for "coordinating periodic meetings with various domestic individuals or legal entities investing in Bitcoin," "managing and evaluating requests from all individuals or legal entities seekign meetings with the President of the Republic for the purpose of implementing Bitcoin, blockchain, and cryptocurrencies in El Salvador," serving as "a liason, coordinator, and facilitator in the management and implementation of" international cooperation programs and playing "an active role in El Salvador's participation in various international forums concerning Bitcoin, blockchain, and cryptocurrencies."
+
+18.4322 &emsp; "Honored to be involved in setting up the Bitcoin Office for President Bukele." [-Stacy Herbert](https://x.com/stacyherbert/status/1596120657179205632)
+
+18.43221 &emsp; Stacy Herbert [clarifies](https://x.com/stacyherbert/status/1596131868273184769) that she will receive no salary, "nor any contracts from either El Salvador or any private company."
+
+18.43222 &emsp; She [says](https://x.com/stacyherbert/status/1596131868273184769), "I am doing this for President Bukele." 
+
+18.43223 &emsp; Max Keiser [says](https://www.foxbusiness.com/financials/couple-behind-el-salvadors-bitcoin-experiment), "We don’t get remunerated in any way," Mr. Keiser told an interviewer on a Salvadoran YouTube channel last week. "I would say it’s just really an act of love." 
+
+18.433 &emsp; Stacy Herbert [may be](https://www.elsalvador.com/h-noticias/h-negocios/bitcoiner-stacy-herbert-funcionaria-oficina-bitcoin-el-salvador-gobierno-bukele/1051170/2023/) the director of the National Bitcoin Office.
+
+18.44 &emsp; 22 November 2022: "BREAKING: 🇸🇻 El Salvador submits bill to enable launch of the #Bitcoin volcano bonds 🙌" [-Bitcoin Magazine](https://x.com/BitcoinMagazine/status/1595245985856475138)
+
+18.441 &emsp; 27 November 2022: "Volcano bond is coming 🌋🚀🇸🇻" [-Stacy Herbert](https://x.com/stacyherbert/status/1596994662782230528)
+
+18.442 &emsp; 29 November 2022: "Wen Volcano Bonds?" [-Nayib Bukele](https://x.com/nayibbukele/status/1597671872547946496)
+
+18.45 &emsp; &emsp; "Foreign Direct Investment (FDI) flows closed with a negative balance in 2022, for the first time in a decade, and the reasons are mainly due to the "legal uncertainty" caused by the political climate in the country, explained economic experts." [-La Prensa Grafica](https://www.laprensagrafica.com/economia/Flujos-de-inversion-extranjera-con-saldo-negativo-por-primera-vez-en-una-decada-20230416-0076.html)
+
+18.46 &emsp; 30 January 2023: "@Bitfinex expects El Salvador 🇸🇻  to issue its “volcano” token this year" [-Paolo Ardoino](https://x.com/paoloardoino/status/1620065152447172610)
+
+18.47 &emsp; 21 February 2023: "Volcano Bonds will stun doubters (and make them cry)" [-Max Keiser](https://x.com/maxkeiser/status/1628164454360788992)
+
+18.48 &emsp; "On March 20, 2023, the Executive Board of the International Monetary Fund concluded the consideration of the 2023 Article IV of El Salvador. Under Article IV of its Articles of Agreement, the IMF has a mandate to exercise surveillance over the economic, financial and exchange rate policies of its members in order to ensure the effective operation of the international monetary system. The IMF’s appraisal of such policies involves a comprehensive analysis of the general economic situation and policy strategy of each member country. IMF economists visit the member country, usually once a year, to collect and analyze data and hold discussions with government and central bank officials. Upon its return, the staff submits a report to the IMF’s Executive Board for discussion. The Board’s views are subsequently summarized and transmitted to the country authorities....The authorities [have not consented](https://web.archive.org/web/20230727150033/https://www.imf.org/en/Countries/SLV) to publication of the staff report and the related press release." 
+
+18.5 &emsp; Bitfinex Securities El Salvador [is granted](https://blog.bitfinex.com/announcements/bitfinex-securities-el-salvador-granted-el-salvadors-first-ever-digital-assets-license/) El Salvador's first-ever Digital Assets License on 11 April 2023.
+
+18.51 &emsp; 29 May 2023: "🌋🔌 is coming." [-Max Keiser](https://x.com/maxkeiser/status/1663318783107145732)
+
+18.52 &emsp; On 3 June 2023, something called Volcano Energy [posts](https://x.com/Volcano_Energy/status/1665712606311600128) "Wait is over! The power of @Volcano_Energy is here🌋🔌" 
+
+18.521 &emsp; Volcano Energy [says]((https://x.com/Volcano_Energy/status/1665712606311600128)) they are constructing a pathway to a their geothermal future "with a focus on a debt-free approach." 
+
+18.522 &emsp; "Volcano Energy represents one of the most ground-breaking and strategic initiatives we are investing in and we look forward to working alongside Josue Lopez and his team to make El Salvador a global force in renewable energy production." [-Paolo Ardoino, Tether CTO](https://tether.io/news/tether-participates-in-1-billion-investment-to-build-the-worlds-largest-bitcoin-mining-farm-in-el-salvador/)
+
+18.523 &emsp; "But this also means that investors in the $1 billion initiative, which already have received $250 million in investments, had to dilute their equity to share a part with the local government, which was supposed to get 23% preferred equity participation."
+
+18.524 &emsp; "This project will fulfill President Nayib Bukele's plans for a volcano bond, but with a twist." [-Javier Bastardo, "Renewable Bitcoin Mining Project Tweaks El Salvador's Bonds Proposal to Raise $1 Billion"](https://www.forbes.com/sites/digital-assets/2023/06/11/renewable-bitcoin-mining-project-tweaks-el-salvadors-bonds-proposal-to-raise-1-billion/)
+
+18.5241 &emsp; "The reason behind this change is that after looking closely at the economics of our model, we realized that the potential benefits for all stakeholders were much greater doing equity funding, rather than debt" [-Josué López, CEO of Volcano Energy](https://www.forbes.com/sites/digital-assets/2023/06/11/renewable-bitcoin-mining-project-tweaks-el-salvadors-bonds-proposal-to-raise-1-billion/)
+
+18.53 &emsp; Volcano Energy and Luxor [launch](https://bitcoinmagazine.com/business/volcano-energy-bitcoin-mining-pool-goes-live) Lava Pool, El Salvador's inaugural mining pool on [4 October 2023](https://x.com/Volcano_Energy/status/1709592045805789449).
+
+18.531 &emsp; But before the domain was El Salvador's Bitcoin mining pool, it was a [Cardano mining pool](https://web.archive.org/web/20220122063538/https://www.lavapool.io/).
+
+18.532 &emsp; mining.lavapool.io is no longer reachable.
+
+18.54 &emsp; "El Salvador’s new volcano #bitcoin mining program will be one of the “top 10 most powerful bitcoin mining operations in the world." [- Stacy Herbert](https://x.com/TheBitcoinConf/status/1665805000348450817)
+
+18.55 &emsp; 54 Salvadorans [participate](https://www.cuboplus.academy/pages/cubo2023) in the first CUBO+ Bitcoin and Lightning education course.
+
+18.56 &emsp; In 2023, iFinex Inc [paid](https://web.archive.org/web/20230819161323/https://www.opensecrets.org/federal-lobbying/firms/summary?cycle=2023&id=F327913) DMM Consulting $60,000 to lobby on behalf of Tether Operations.
+
+18.561 &emsp; Damien Merlo [is the manager](https://bisprofiles.com/fl/dmm-consulting-l13000057217) of DMM consulting.
+
+18.562 &emsp; Damien Merlo [says](https://www.americasquarterly.org/article/letter-to-the-editor-a-bukele-aide-defends-the-security-crackdown/) he is an advisor to President Bukele in the byline to a letter to the editor of the Americas Quarterly Journal
+
+18.6 &emsp; Bitfinex Securities [becomes](https://crypto.news/bitfinex-completes-el-salvador-licence-set-across-three-markets/) "the first platform approved under El Salvador’s Digital Assets Issuance Law. CNAD’s registry lists the securities entity under PSAD-0001, with a registration date of Oct. 24, 2023."
+
+18.61 &emsp; "Lovely chat and dinner with @nayibbukele" [-Paolo Ardoino](https://x.com/paoloardoino/status/1722360029108408368)
+
+18.611 &emsp; 11 December 2023: "Wen volcano bond? 🥺" [-Nayib Bukele](https://x.com/nayibbukele/status/1734378704518750656)
+
+18.612 &emsp; 11 December 2023: "The Volcano Bond has just received regulatory approval." [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1734366450616336622)
+
+18.613 &emsp; 12 December 2023: "El Salvador's Bitcoin 'Volcano Bond' could be issued early next year." [-Fortune](https://x.com/FortuneMagazine/status/1734800888194089020)
+
+18.614 &emsp; 16 December 2023: "El Salvador #Bitcoin Volcano Bond project coming back online again." [-Simon Dixon](https://x.com/SimonDixonTwitt/status/1736087445030969579)
+
+18.615 &emsp; 17 December 2023: "ICYMI Get ready for Volcano Bond in Q1/2024! 🌋🚀" [-Stacy Herbert](https://x.com/stacyherbert/status/1736595935252099159)
+
+18.62 &emsp; Tether and El Salvador [launch](https://tether.io/news/others/tether-powers-el-salvadors-visionary-freedom-visa-program-through-technology-support/) the "Adopting El Salvador Freedom Visa Program" 
+
+18.621 &emsp; "Eligibility for the program prioritizes visionary individuals, including high-net-worth investors, who aspire to contribute significantly to societal progress." [-Tether](https://tether.io/news/others/tether-powers-el-salvadors-visionary-freedom-visa-program-through-technology-support/)
+
+18.7 &emsp; Bitfinex Securities officially [launches](https://blog.bitfinex.com/announcements/bitfinex-securities-opens-for-business-in-el-salvador/) in El Salvador.
+
+18.71 &emsp; "Tether and Bitfinex have registered, from 2022 to date, at least 9 companies in El Salvador, according to a review of the Commercial Registry. Both companies are led by Italians Paolo Ardoino and Giancarlo Devasini, they have six licenses from the National Digital Assets Commission (CNAD)." [-El Diario de Hoy](https://www.elsalvador.com/h-noticias/h-negocios/bitfinex-y-tether-han-inscrito-9-companias-en-el-salvador/1199424/2025/)
+
+18.72 &emsp; In February, 2024, Tether Holdings and Zettahash Inc [register](https://www.cnr.gob.sv/documentos/rc/enero_febrero_2024/Escrituras-de-Constitucion-de-Sociedades-%28Extractos%29%2C-enero-febrero-2024.pdf) Moon Gold NA and Moon Gold El Salvador in El Salvador.
+
+18.721 &emsp; Jean-Louis van der Velde [is certified]((https://www.cnr.gob.sv/documentos/rc/enero_febrero_2024/Escrituras-de-Constitucion-de-Sociedades-%28Extractos%29%2C-enero-febrero-2024.pdf)) the disclosure as sole director. 
+
+18.73 &emsp; On 11 February 2024, Paolo Ardoino [posts](https://x.com/paoloardoino/status/1756795744856559872) a picture of a beach in El Salvador and says "A new home 🇸🇻"
+
+18.731 &emsp; "Ardoino bought two plots of land totaling 1,569.93 square meters in the district of San José Villanueva." [-Elfaro](https://elfaro.net/bitcoiners-new-owners-el-zonte/)
+
+18.7311 &emsp; "Both Ardoino and Lagorio are naturalized Salvadorans and have DUI cards, according to the public deed of sale." [-Elfaro](https://elfaro.net/bitcoiners-new-owners-el-zonte/)
+
+18.732 &emsp; "On Mar. 6, 2024, Devasini bought a 2000 square-meter house in San Salvador for $2 million." [-Elfaro](https://elfaro.net/bitcoiners-new-owners-el-zonte/)
+
+18.7321 &emsp; "Devasini bought that house together with Valentina Picozzi, a Bitcoin artist who designed a giant mural with Bukele's face in Colonia Zacamil. Devasini and Picozzi own 50 percent each of the property." [-Elfaro](https://elfaro.net/bitcoiners-new-owners-el-zonte/)
+
+18.733 &emsp; 14 March 2024: "Volcano Bonds on tap" [-Max Keiser](https://x.com/maxkeiser/status/1768445203038220379)
+
+18.734 &emsp; "🌋 Volcano Energy!!!" [-Max Keiser](https://x.com/maxkeiser/status/1816989762584014880)
+
+18.74 &emsp; "Giancarlo Devasini has registered 15 companies in El Salvador. 11 of these 15 companies are listed at the same address: Office 6, floor 11, World Trade Center, San Salvador." [-Elfaro](https://elfaro.net/bitcoiners-new-owners-el-zonte/)
+
+18.741 &emsp; [Dentons Centroamérica](https://www.dentons.com/es/global-presence/latin-america-and-the-caribbean/el-salvador/san-salvador), a law firm, may have offices at the same address.
+
+18.7411 &emsp; "Tether has retained the legal services of Dentons El Salvador to navigate the intricate landscape of local laws and regulations effectively. Dentons is a well-established and registered law firm known for its legal compliance and guidance expertise."
+
+18.742 &emsp; "Factum found four properties acquired by Devasini and two others cryptoinvestors -Max Keiser and Raymond Friddell, all close to Nayib Bukele's government - in the most touristy area of the historic center, buildings and houses near the three emblematic squares of the capital: Barrios, Morazán and Libertad." [-Revista Factum](https://www.revistafactum.com/ciudad-dorada-ss/)
+
+18.7421 &emsp; "The purchases total $7 million 475 thousand dollars. One of these four buildings - the Veiga building - has been proposed as a relevant monument, according to the List of inventoried properties with cultural value in San Salvador." [-Revista Factum](https://www.revistafactum.com/ciudad-dorada-ss/)
+
+18.7422 &emsp; "The crypto investors they purchased the properties after the approval of the Law Creating the Planning Authority of the Historic Center of San Salvador (Aplan), which since May 17, 2023 exempted investors in the area from taxes." [-Revista Factum](https://www.revistafactum.com/ciudad-dorada-ss/) 
+
+18.75 &emsp; Bitfinex Securities [launches](https://blog.bitfinex.com/announcements/bitfinex-securities-launches-tokenised-debt-for-airport-hotel-in-el-salvador/) the tokenized debt issue for the construction of a new Hampton by Hilton hotel complex at El Savlador International Airport.
+
+18.751 &emsp; "Inversiones Laguardia S.A. de C.V. (HILSV), which has been operational in El Salvador since 2017, seeks to raise $6.25 million. It offers a 10% coupon over a five-year term with a minimum investment threshold of $1,000." [-Bitfinex press release](https://blog.bitfinex.com/announcements/bitfinex-securities-launches-tokenised-debt-for-airport-hotel-in-el-salvador/)
+
+18.752 &emsp; "Unique to this offering, investors can receive incentives such as free hotel nights, varying with the size of their investment. The HILSV tokens will be issued on the Liquid Network(opens in a new tab), a sidechain of Bitcoin, which is leveraging Blockstream AMP(opens in a new tab) technology, and will trade against US dollars and Tether tokens." [-Bitfinex press release](https://blog.bitfinex.com/announcements/bitfinex-securities-launches-tokenised-debt-for-airport-hotel-in-el-salvador/)
+
+18.753 &emsp; The offering is not very popular: "The offering hoped to raise $6.25 million in 30 days, however, over halfway through, only $342,000 has been raised, according to the Bitfinex Securities website." [-Protos](https://protos.com/hampton-hotel-flops-on-bitfinex-securities/)
+
+18.7531 &emsp; "Investors in Bitfinex’s Hampton Hotel securities offering are reportedly entitled to a refund after its fundraiser failed to meet its $500,000 goal to build a hotel near El Salvador’s airport." [-Protos](https://protos.com/investors-can-get-a-refund-on-bitfinexs-failed-el-salvador-hotel-offering/)
+
+18.76 &emsp; Tether [launches](https://tether.io/news/tether-announces-launch-of-alloy-by-tether-a-new-digital-asset-backed-by-tether-gold/) Alloy.
+
+18.761 &emsp; "This digital currency is designed to track the value of one US dollar. What makes aUSD₮ unique is that it is over-collateralized by Tether Gold (XAU₮), which means it is supported by real physical gold stored in Switzerland." [-Tether press release](https://tether.io/news/tether-announces-launch-of-alloy-by-tether-a-new-digital-asset-backed-by-tether-gold/)
+
+18.762 &emsp; "Users can create aUSD₮ tokens using Tether Gold (XAU₮) as collateral." [-Tether press release](https://tether.io/news/tether-announces-launch-of-alloy-by-tether-a-new-digital-asset-backed-by-tether-gold/)
+
+18.763 &emsp; "This is a very useful and innovative combination" [-Tether press release](https://tether.io/news/tether-announces-launch-of-alloy-by-tether-a-new-digital-asset-backed-by-tether-gold/)
+
+18.764 &emsp; "Alloy by Tether $aUSDT is now available on @bitfinex" [-Bitfinex](https://x.com/Alloy_tether/status/1803450927350730901)
+
+18.765 &emsp; "Existing users will continue to be able to return their aUSD₮ and remove their XAU₮ for the next three months, subject to the applicable Alloy by Tether Terms of Use. Starting on 17 September 2026, customers who have not returned their aUSD₮ will no longer be able to recover their XAU₮ through the platform." [-Tether press release](https://tether.io/news/tether-updates-users-on-strategic-changes-to-its-product-support-offering/)
+
+18.77 &emsp; Bitfinex [partners](https://blog.bitfinex.com/bitfinex-securities/pioneering-tokenised-markets-the-nexbridge-capital-raise/) with El Salvador digital asset issuer NExBridge to launch USTBL, "a tokenized US Treasury Bill offering."
+
+18.771 &emsp; "USTBL was offered on Blockstream’s Liquid Network(opens in a new tab), raising $30 million during its initial public issuance through Bitfinex Securities. NexBridge states it has plans to scale the issuance to $200 million." [-Bitfinex press release](https://blog.bitfinex.com/bitfinex-securities/pioneering-tokenised-markets-the-nexbridge-capital-raise/)
+
+18.78 &emsp; Bitfinex Securities [launches](https://blog.bitfinex.com/bitfinex-securities/bitfinex-securities-launches-express-onboarding-for-salvadoran-residents/) express onboarding for Salvadoran residents.
+
+18.781 &emsp; "Democratising access to investment opportunities is one of the fundamental benefits of bringing capital markets on-chain, and is a principle very much supported by El Salvador’s policymakers." [-Jesse Knutson](https://blog.bitfinex.com/bitfinex-securities/bitfinex-securities-launches-express-onboarding-for-salvadoran-residents/)
+
+18.8 &emsp; "President Bukele [announces](https://x.com/nayibbukele/status/1768425845163503738) "We've decided to transfer a big chunk of our #Bitcoin to a cold wallet, and store that cold wallet in a physical vault within our national territory."
+
+18.81 &emsp; "You can call it our first #Bitcoin piggy bank" [says](https://x.com/nayibbukele/status/1768425845163503738) Bukele.
+
+18.811 &emsp; Bukele identifies [32ixEdVJWo3kmvJGMTZq5jAQVZZeuwnqzo](https://www.blockchain.com/explorer/addresses/btc/32ixEdVJWo3kmvJGMTZq5jAQVZZeuwnqzo) as the address of El Salvador's cold wallet.
+
+18.82 &emsp; According to analysis by [El Salvador News](https://www.elsalvador.com/h-noticias/h-negocios/bitcoin-criptomonedas-el-salvador-nayib-bukele/1129858/2024/) and [Protos](https://protos.com/el-salvador-leans-on-bitfinex-for-daily-bitcoin-buy/) "80% of these funds do not come from the Chivo Wallet government wallet ecosystem, but from one belonging to the Bitfinex company"
+
+18.821 &emsp; "Most of the bitcoin held in that wallet came from Bitfinex, according to Arkham Intelligence." [-CoinDesk](https://www.coindesk.com/policy/2024/03/15/el-salvador-has-thousands-more-bitcoins-than-previously-known)
+
+18.822 &emsp; Later analysis [concludes](https://www.elsalvador.com/h-noticias/h-negocios/el-salvador-bitcoin-nayib-bukele-fmi/1205982/2025/) "6,111 of the 6,114 Bitcoins that make up the alleged strategic reserve in this cryptocurrency of the Government of El Salvador have come from a wallet of Bitfinex"
+
+18.823 &emsp; El Dario de Hoy [says](https://www.elsalvador.com/h-noticias/h-negocios/bitcoin-criptomonedas-el-salvador-nayib-bukele/1129858/2024/) "it was found that only 20% of the Bitcoin that was transferred to that address came from the Chivo Wallet ecosystem, that is, 1,121. The rest came from a Bitfinex wallet, almost exclusively from a single address that appears to be the center of that company's activity as an exchange (see images and explanation below)."
+
+18.8231 &emsp; [Also that](https://www.elsalvador.com/h-noticias/h-negocios/bitcoin-criptomonedas-el-salvador-nayib-bukele/1129858/2024/) "The address published by Bukele was created on March 12, 2024, that is, 2 days before the announcement. The first transaction he recorded was that of those 1,121 Bitcoin coming from Chivo Wallet that, however, did not arrive directly, but rather through a bridge shipment to another address of an unknown owner. This was done that same March 12."
+
+18.8232 &emsp; [And that](https://www.elsalvador.com/h-noticias/h-negocios/bitcoin-criptomonedas-el-salvador-nayib-bukele/1129858/2024/) "Then, there were 5 other transactions that Bitfinex wallet sent its 4,569 Bitcoin with. The first, of just 1 Bitcoin, was recorded on March 13 at 3:04 p.m. The last one, which brings together almost the entire total with 4,008 Bitcoin, was on March 14 at 3:32 in the afternoon, that is, just two hours before Nayib Bukele made his announcement on X, at 5:50 in the afternoon."
+
+18.83 &emsp; 2 September 2024: "The Statue of Liberty is now a volcano." [-Max Keiser](https://x.com/BuildInES/status/1830664476879949928)
+
+18.84 &emsp; "El Salvador’s first BITCOIN BANK is being prepped now. The impact on the 🇸🇻 economy will be 10x what the current iteration of the Volcano Bond might be." [-Max Keiser](https://x.com/maxkeiser/status/1846554940719968732)
+
+18.85 &emsp; 25 November 2024: "El Salvador’s rent-a-volcano to mine Bitcoin will put 🇸🇻 in the lead in the global Bitcoin per capita (BPC) race." [-Max Keiser](https://x.com/maxkeiser/status/1860958386432487819)
+
+18.86 &emsp; 4 December 2024: "🎄VOLCANO COFFEE: A VERY UNIQUE, ABSOLUTELY BEAUTIFUL CHRISTMAS GIFT IDEA!" [-Stacy Herbert](https://x.com/stacyherbert/status/1864296534382153926)
+
+18.87 &emsp; "The proposal to tokenize a sovereign bond on a blockchain is now officially dead." [-Frank Muci, "El Salvador's Volcano Bond, RIP](https://frankmuci.substack.com/p/el-salvadors-volcano-bond-rip)
+
+18.871 &emsp; "It is a little hard to believe that any of this was real, and of course in an important sense it wasn’t." [-Matt Levine](https://archive.is/92MRX#selection-5447.0-5447.104)
+
+18.872 &emsp; 18 December 2024: "Bonds don’t do well in such an environment." [-Max Keiser](https://x.com/maxkeiser/status/1869524004593430554)
+
+18.873 &emsp; 30 January 2025: "Never launched." [-Simon Dixon](https://x.com/maxkeiser/status/1628164454360788992)
+
+18.88 &emsp; "Cheap and clean volcano energy from the balls of the Mother Earth's own testicals, exploding in a jism of free power that's going to make us all fucking rich down here!" [-Max Keiser](https://x.com/JoeNakamoto/status/1588540682620108802)
+
+18.9 &emsp; "please note that Tether International Limited has redomiciled from the British Virgin Islands to the Republic of El Salvador, and is now named Tether International, S.A. de C.V." [-Tether terms of service](https://tether.to/en/legal/)
+
+18.91 &emsp; Bitfinex Derivatives [secures](https://blog.bitfinex.com/announcements/bitfinex-derivatives-secures-license-in-el-salvador/) license in El Salvador.
+
+18.92 &emsp; On 13 January 2025, Tether [announces](https://tether.io/news/tether-licensed-in-el-salvador-strengthening-focus-on-emerging-markets-and-innovation/) that "Tether and its subsidiaries are about to complete all formalities to relocate to El Salvador, following the successful acquisition of a Digital Asset Service Provider (DASP) license and as a stablecoin issuer"
+
+18.921 &emsp; "This move to El Salvador will be the first time we're going ot have also a physical headquarters." [-Paolo Ardoino](https://www.reuters.com/technology/crypto-firm-tether-its-founders-finalising-move-el-salvador-2025-01-13/)
+
+18.93 &emsp; Tether [hosts](https://tether.io/news/tethers-plan-b-forum-el-salvador-concludes-with-a-sold-out-crowd-and-key-bitcoin-discussions/) Plan B Forum in El Salvador
+
+18.931 &emsp; 29 January 2025 - [Bitfinex Securities Day](https://www.bitfinex.com/securities/events/el-salvador-2025/) at Plan B Forum "Join an exclusive gathering of regulators, issuers, investors, and thought leaders as we explore the transformative power of tokenisation and security token offerings in modern capital markets. Through engaging panel discussions and invaluable networking opportunities, gain actionable insights into this innovative financial frontier."
+
+18.932 &emsp; Tether [announces](https://tether.io/news/tether-brings-usdt-to-bitcoins-lightning-network-ushering-in-a-new-era-of-unstoppable-technology/) USDT on the Lightning Network using Taproot Assets.
+
+18.933 &emsp; On 25 February 2025, Paolo Ardoino [says](https://x.com/paoloardoino/status/1894372064783487172), "USDt is the most succesful tool for US Dollar hegemony and distribution across emerging markets."
+
+18.94 &emsp; IMF Executive Board [approves](https://web.archive.org/web/20250301073402/http://www.imf.org/en/news/articles/2025/02/26/pr25043-el-salvador-imf-approves-new-40-month-us1-bn-eff-arr) new 40-month US$1.4 billion extended fund facility arrangement for El Salvador.
+
+18.941 &emsp; "The program also addresses risks arising from the Bitcoin project, including by making acceptance of Bitcoin voluntary and by confining public sector engagement in Bitcoin-related activities and transactions in and purchases of Bitcoins." [-IMF Executive Board]((https://web.archive.org/web/20250301073402/http://www.imf.org/en/news/articles/2025/02/26/pr25043-el-salvador-imf-approves-new-40-month-us1-bn-eff-arr))
+
+18.942 &emsp; "Prior actions include legal reforms that have made acceptance of Bitcoin by the private sector voluntary and ensured that tax payments are made only in U.S. dollars. Transparency of the public crypto e-wallet has been strengthened, and the government plans to gradually unwind its participation in the e-wallet. Going forward, program commitments will confine government engagement in Bitcoin-related economic activities, as well as government transactions in and purchases of Bitcoin." [-IMF Executive Board]((https://web.archive.org/web/20250301073402/http://www.imf.org/en/news/articles/2025/02/26/pr25043-el-salvador-imf-approves-new-40-month-us1-bn-eff-arr))
+
+18.943 &emsp; Two days earlier, Bitcoin Magazine [reports](https://x.com/BitcoinMagazine/status/1894114294091985010) that El Salvador bought another 7 bitcoin for their strategic bitcoin reserve. 
+
+18.95 &emsp; Tether International, S.A. de C.V. [registers])(https://statecraftencyclopedia.org/entries/tether/) on 19 May 2025 with CNAD as stablecoin issuer EME-0003.
+
+18.951 &emsp; On 20 February 2026, Tether [publishes](https://tether.to/public/Relevant_Information_Document_-_Tether_International%2C_S.A._de_C.V..pdf) a Relevant Information Document under El Salvador's Digital Asset Issuance Law.
+
+18.952 &emsp; The document specifies that Tether tokens are issued by "Tether International Sociedad Anonima De Capital Variable (“Tether International” or “Tether International, S.A. de C.V.”) a company incorporated and in effect under the Laws of El Salvador, whose registered address is Edificio Torre Futura, Oficina 6, Nivel 11, entre 87 y 89 avenida norte, Colonia Escalón, San Salvador, El Salvador" [-Tether RID](https://tether.to/public/Relevant_Information_Document_-_Tether_International%2C_S.A._de_C.V..pdf)
+
+18.953 &emsp; The document also specifies that "Tether International is wholly owned by Tether Global Investment Fund, Sociedad de Inversión de Capital Fijo, Sociedad Anónima (“Tether Global Investment Fund, SICAF, S.A.)” and Tether Operations Sociedad Anonima De Capital Variable (“Tether Operations” or “Tether Operations, S.A. de C.V.”); both incorporated and in effect under the Laws of El Salvador." [-Tether RID](https://tether.to/public/Relevant_Information_Document_-_Tether_International%2C_S.A._de_C.V..pdf)
+
+18.954 &emsp; On 12 May 2026, Bitfinex secures license and [completes](https://blog.bitfinex.com/announcements/bitfinex-secures-licence-in-el-salvador/) its regulated footprint in El Salvador.
+
+18.96 &emsp; The International Monetary Fund, Western Hemisphere Department [determines](https://www.elibrary.imf.org/view/journals/002/2025/190/article-A001-en.xml?tab_body=fulltext) that El Salvador's public sector is not accumulating more bitcoin.
+
+18.961 &emsp; "despite adherence to the commitment not to voluntarily accumulate Bitcoin, the continuous QPC on voluntary Bitcoin accumulation was missed with minor margins on account of temporary fluctuations in Chivo clients' deposits denominated in Bitcoin." [-International Monetary Fund, Western Hemisphere Department](https://www.elibrary.imf.org/view/journals/002/2025/190/article-A001-en.xml?tab_body=fulltext)
+
+18.962 &emsp; "El Salvador Strategic Bitcoin Reserve absolutely rockets past $750M USD value." [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1944605634168594508)
+
+18.963 &emsp; "JUST IN: El Salvador bought more bitcoin for our Strategic Bitcoin Reserve. Total SBR holdings: 6271.18 BTC" [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1956844380578537801)
+
+18.964 &emsp; "JUST IN: El Salvador bought more bitcoin for its Strategic Bitcoin Reserve." [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1961235523642822754)
+
+18.965 &emsp; "El Salvador bought more bitcoin today. Strategic Bitcoin Reserve holdings: 6285.18 BTC" [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1961963210002596217)
+
+18.966 &emsp; "JUST IN: 🇸🇻 El Salvador bought more #bitcoin today for their strategic reserve 🚀 Buying the dip 👏" [-Bitcoin Magazine](https://x.com/BitcoinMagazine/status/1957916616995319941)
+
+18.967 &emsp; "Buying 21 bitcoin for Bitcoin Day" [-Nayib Bukele](https://x.com/nayibbukele/status/1964774115405070742) 
+
+18.968 &emsp; "JUST IN: El Salvador buys more bitcoin for its Strategic Bitcoin Reserve. 6319.18 BTC" [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1966988640225292742)
+
+18.969 &emsp; "EL SALVADOR BUYS MORE BITCOIN FOR ITS STRATEGIC BITCOIN RESERVE" [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1971709158304239708)
+
+18.9691 &emsp; "The ownership and operational control of the government’s e-wallet have been transferred to a private operator, and no public resources have been used for Bitcoin accumulation." [-IMF Press release no. 26/285](https://www.imf.org/en/news/articles/2026/09/03/pr26285-el-salvador-imf-reaches-sla-on-combined-2nd-and-3rd-rev-under-eff-arrangement)
+
+18.9692 &emsp; "Documentation has been provided verifying that Bitcoin accumulation since the first review reflects private donations and that no public resources were used. Understandings were also reached on steps to modernize the legal, regulatory, and supervisory framework for digital assets and to further strengthen the governance and risk-management arrangements for public-sector crypto-asset holdings. Going forward, no further Bitcoin accumulation beyond the documented donations is expected." [-IMF Press release no. 26/285](https://www.imf.org/en/news/articles/2026/09/03/pr26285-el-salvador-imf-reaches-sla-on-combined-2nd-and-3rd-rev-under-eff-arrangement)
+
+18.9693 &emsp; "NEW: El Salvador bought another BTC for its Strategic Bitcoin Reserve today. They now own 7762BTC!" [-Bitcoin Magazine](https://x.com/BitcoinMagazine/status/2094896032911921632)
+
+18.97 &emsp; "I'm going to get ahead of myself: they are going to build their own tower, a skyscraper." [-Nayib Bukele](https://diario.elmundo.sv/economia/tether-construira-un-rascacielos-en-el-salvador-segun-presidente)
+
+18.971 &emsp; El Mundo [reports](https://diario.elmundo.sv/economia/ceo-de-tether-dice-que-revisan-diseno-para-construccion-de-torre-en-el-salvador) that as of 26 June 2025, Tether is reviewing construction design of the tower.
+
+18.972 &emsp; Bitfinex [releases](https://blog.bitfinex.com/announcements/bitfinex-launches-documentary-celebrating-el-salvadors-bitcoin-journey/) Financial Freedom Tour El Salvador Episode 1 [on YouTube](https://www.youtube.com/watch?v=gdFlN0ojzIw).
+
+18.98 &emsp; On 10 January 2025, Rumble [announces](https://www.rum.group/blog/rumble-announces-cloud-agreement-with-government-of-el-salvador/) a cloud agreement with the government of El Salvador
+
+18.981 &emsp; "Like El Salvador, Rumble has also embraced and defended these ideals. It is natural for us to partner with them and we look forward to a long and mutually beneficial relationship" [-Stacy Herbert](https://www.rum.group/blog/rumble-announces-cloud-agreement-with-government-of-el-salvador/)
+
+18.982 &emsp; "Now that Tether is officially one of the largest shareholders of Rumble, its time to get VERY aggressive with the Rumble eco-system vs Google." [-Chris Pavlovski](https://x.com/chrispavlovski/status/1890425279014736020)
+
+18.983 &emsp; "Rumble Everything🔥" [-Paolo Ardoino](https://x.com/paoloardoino/status/1890464600987996390)
