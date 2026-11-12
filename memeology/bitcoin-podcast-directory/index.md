@@ -103,6 +103,7 @@
 | [2022 DEC 03](https://www.pod256.org/episodepage/001-hashrate-down-14-from-ath-hashprice-at-atl-territory-new-gen-asics-at-atl-valuations-voells-month-in-review-compute-north-bankruptcy-asset-sale_638913284213320353) | [POD256](https://www.pod256.org/) | econoalchemist, skot9000, and Tyler Stevens |
 | [2022 DEC 10](https://www.thetransformationofvalue.com/episodes/bitcoin-in-new-zealand-how-do-we-make-it-happen) | [The Transformation of Value](https://www.thetransformationofvalue.com/) | Cody Ellingham |
 | [2022 DEC 22](https://antihashed.xyz/podcast/episode_001/) | [Antihashed Podcast](https://antihashed.xyz/) | fiatjaf and Constant |
+| [2023 JAN 25](https://podcasts.apple.com/us/podcast/1-a-mintgreen-heats-homes-and-ages-whiskey-w-c-sullivan/id1618893758?i=1000596640754) | [HashrateUP](https://podcasts.apple.com/us/podcast/hashrateup-a-bitcoin-mining-podcast/id1618893758) | Jesse Hodl |
 | [2023 FEB 26](https://podcasts.apple.com/us/podcast/episode-1-maiden-voyage/id1692452166?i=1000616915530) | [The Merkle Treehouse](https://podcasts.apple.com/us/podcast/the-merkle-treehouse-with-audrey-merkle/id1692452166) | Aubrey Merkle |
 | [2023 APR 03](https://www.youtube.com/watch?v=53LUsFGjhds) | [Bitcoin University](https://www.bitcoinuniversity.com/) | Matthew Kratter |
 | [2023 APR 14](https://youtu.be/ha_BdkdbuMo?si=vwZmJ_hNBk7PUUhF) | [Gday Bitcoin](https://www.youtube.com/@gdaybitcoin/videos) | Sean Clarke |

@@ -12,6 +12,8 @@
     "/cypherpunks/*",
     "/memeology",
     "/memeology/*",
+    "/manifesto",
+    "/manifesto/*",
     "/tether",
     "/tether/",
     "/transaction-costs",
