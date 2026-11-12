@@ -85,7 +85,6 @@ const destinations = {
      'cypherpunk',
      'Timothy May',
      'Crypto Anarchist Manifesto',
-     'Manifesto',
      'Crypto Anarchist'
   ],
 
@@ -93,6 +92,14 @@ const destinations = {
     '40HPW',
     'Forty hours per week',
     '40 hours per week'
+  ],
+
+  '/manifesto/': [
+    'Eric Hughes',
+    'Manifesto',
+    'Cypherpunk manifesto',
+    'A Cypherpunks manifesto',
+    'cypherpunks write code'
   ],
 
   // Generated destinations for reviews, articles, posters
