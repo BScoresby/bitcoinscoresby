@@ -1,4 +1,4 @@
-Originally published as a series on Stacker News: [Part I](https://stacker.news/items/1042943) - [Part II](https://stacker.news/items/1059310) - [Part III](https://stacker.news/items/1115791) - [Part IV](https://stacker.news/items/1410689) - [Part V](https://stacker.news/items/1613156)
+Originally published as a series on Stacker News: [Part I](https://stacker.news/items/1042943) - [Part II](https://stacker.news/items/1059310) - [Part III](https://stacker.news/items/1115791) - [Part IV](https://stacker.news/items/1410689) - [Part V](https://stacker.news/items/1613156) - [Part VI](https://stacker.news/items/1617443)
 
 # 1 PREFACE
 
@@ -2652,3 +2652,232 @@ Ivan Manuel Molina Lee lists the Block article from October 6 as one of the reas
 18.982 &emsp; "Now that Tether is officially one of the largest shareholders of Rumble, its time to get VERY aggressive with the Rumble eco-system vs Google." [-Chris Pavlovski](https://x.com/chrispavlovski/status/1890425279014736020)
 
 18.983 &emsp; "Rumble Everything🔥" [-Paolo Ardoino](https://x.com/paoloardoino/status/1890464600987996390)
+
+# 19 CANTOR FITZGERALD
+
+19.1 &emsp; On 1 December 2021, Rumble Inc., [announces](https://www.cantor.com/rumble-inc-the-neutral-video-platform-to-go-public-through-combination-with-cantor-fitzgeralds-cf-acquisition-corp-vi-nasdaq-cfvi/) it will go public through combination with Cantor Fitzgerald's CF Acquisition Corp. VI.
+
+19.11 &emsp; "Rumble is designed to be the rails and independent infrastructure that is immune to cancel culture. We are a movement that does not stifle, censor, or punish creativity and believe everyone benefits from access to a neutral network with diverse ideas and opinions. We are on a mission to restore the internet to its roots by making it free and open once again. The transaction we announced today will provide Rumble with the additional capital necessary to continue to scale our business and carry out our mission." [-Chris Pavlovski, Founder and CEO of Rumble](https://www.cantor.com/rumble-inc-the-neutral-video-platform-to-go-public-through-combination-with-cantor-fitzgeralds-cf-acquisition-corp-vi-nasdaq-cfvi/)
+
+19.111 &emsp; "The CF VI Board has unanimously approved and adopted the Business Combination Agreement and unanimously recommends that our stockholders vote “FOR” each of the Proposals presented to CF VI Stockholders." [-Amendment No. 1 to Form 2-4 Registration Statement under the Securities Act of 1933 for CF Acquisition Corp. VI](https://www.sec.gov/Archives/edgar/data/1830081/000121390022026101/fs42022a1_cfacquisition6.htm)
+
+19.12 &emsp; Howard Lutnick [says](https://www.cantor.com/rumble-inc-the-neutral-video-platform-to-go-public-through-combination-with-cantor-fitzgeralds-cf-acquisition-corp-vi-nasdaq-cfvi/) "Rumble is the most exciting social media and video distribution platform in the market today."
+
+19.13 &emsp; "Today Rumble enters a new era. We partnered with Tether, a company that exports American values to the entire world, and who are major advocates for free speech." [-Chris Pavlovski](https://x.com/chrispavlovski/status/1870249250241511654)
+
+19.131 &emsp; Rumble [announces](https://www.sec.gov/Archives/edgar/data/1830081/000121390024111298/ea022562201ex99-1_rumble.htm) $775 million strategic investment from Tether.
+
+19.132 &emsp; "Most people don't realize Tether is a Bitcoin company that happens to do other things like Ai, energy, and stablecoins." [-Samson Mow](https://x.com/Excellion/status/1870577229367005648)
+
+19.133 &emsp; "Beyond our initial shareholder stake, Tether intends to drive towards a meaningful advertising, cloud, and crypto payment solutions relationship with Rumble." [-Paolo Ardoino](https://www.rum.group/blog/rumble-announces-775-million-strategic-investment-from-tether/)
+
+19.134 &emsp; "Tether deeply believes in the fundamental values of freedom of speech and financial freedom." [-Paolo Ardoino](https://x.com/paoloardoino/status/1870231681497538759)
+
+19.135 &emsp; Rumble [closes](https://www.sec.gov/Archives/edgar/data/1830081/000121390025011371/ea023027801ex99-1_rumble.htm) the $775 million strategic investment from Tether on 7 February 2025. 
+
+19.14 &emsp; Tether's 2023 Q4 attestation [reports](https://tether.io/news/tethers-2023-q4-attestation/) $2.85 billion in profit.
+
+19.2 &emsp; "There's a company that I like called Tether." [-Howard Lutnick](https://www.bloomberg.com/news/videos/2024-01-16/lutnick-the-fed-is-staying-higher-for-longer-video)
+
+19.21 &emsp; "I manage many, many of their assets. And Tether Holdings is the name of the group, And the group, from what we've seen, and we did a lot of work, they have the money they say they have. In the last attestation they said they had $86 billion of assets and $83 billion of liabilities, and I've seen and the firm has seen a whole lot and they have the money. So there's always been a lot of talk saying 'Do they have it or not?' so I'm with you guys saying, 'We've seen it. And they have it.'" [-Howard Lutnick](https://www.bloomberg.com/news/videos/2024-01-16/lutnick-the-fed-is-staying-higher-for-longer-video)
+
+19.211 &emsp; "I basically told him the movie line. I said, ‘Show me the money,’" Lutnick told a crypto conference in July. "And we found every penny, and they had every penny, but they had it in what I would call pretty godforsaken places," he said, noting Tether’s holdings of short-term loans to Chinese companies, known as commercial paper. [-Howard Lutnick in *The Wall Street Journal*](https://archive.is/rSRx1#selection-5681.0-5681.330)
+
+19.2111 &emsp; On 10 February 2023, The Wall Street Journal [reports](https://archive.is/4wyww) that Cantor Fitzgerald helps oversee Tether's $39 billion in Treasury holdings.
+
+19.212 &emsp; The Wall Street Journal also [reports](https://archive.is/4wyww) that Tether "began moving its reserves into the Wall Street brokerage in late 2021, around the time it reached a settlement with a regulator, one of the people said."
+
+19.2121 &emsp; And [that](https://archive.is/4wyww) Cantor is one of the 25 so-called primary dealers for the U.S. Treasurys market, a status that allows them to trade directly with the Federal Reserve Bank of New York and underwrite sales of U.S. government debt. 
+
+19.213 &emsp; "Tether and Cantor had established a relationship in 2021 when Cantor began acting as a custodian and trading partner for a portion of the U.S. treasuries backing Tether’s stablecoin reserves. In late November and early December 2024, representatives of Cantor and Tether, also representing Bitfinex, had ordinary course meetings to discuss various topics, including their existing relationship, where they also engaged in discussions regarding the formation and operation of a public company that would include holding and acquiring Bitcoin as part of its business operations, including the contribution by each of Tether and Bitfinex of 10,000 Bitcoin to such a business. Cantor advised Tether that it would explore the various ways to bring such a company public and present a proposed structure to Tether." [-Proxy Statement for Extraordinary General Meeting of Shareholders of Cantor Equity Partners, Inc. and Prospectus for up to 315,116,673 shares of Class A common stock of Twenty One Capital, Inc.](https://www.cstproxy.com/cantorequitypartners/2025/proxy/images/Cantor_Equity_Partners_Inc-EGMProxy2025.pdf)
+
+19.214 &emsp; In 2021, Tether "secured an account with Cantor Fitzgerald, and started converting its commercial paper assets to U.S. Treasury bills. Cantor had existing ties to Tether through its sister firm, BGC Partners, a trading desk that had bought and sold large volumes of Tether, according to a source with knowledge of the relationship." [-Forbes](https://archive.is/KU9ap)
+
+19.2141 &emsp; "Tether and Cantor had established a relationship in 2021 when Cantor began acting as a custodian and trading partner for a portion of the U.S. treasuries backing." [-Twenty One Capital, Inc. Draft Registration Statement on Form S-4](https://www.sec.gov/Archives/edgar/data/2070457/000000000025008030/filename1.pdf)
+
+19.2142 &emsp; "Tether has additionally been using New York financial services giant Cantor Fitzgerald as a custodian of U.S. Treasury bills, three sources said." [-Forbes](https://www.forbes.com/sites/davidjeans/2023/02/10/tether-reserves-cantor-capital-union-ansbacher/)
+
+19.2143 &emsp; "Cantor Fitzgerald has been a Tether custodian since late 2021, Tether CEO Paolo Ardoino told The Block." [-The Block](https://www.theblock.co/news/markets/2024-01-16-cantor-fitzgerald-ceo-tether-reserves-272893)
+
+19.2144 &emsp; "Cantor custodies "the vast vast majority" of Tether's reserves, a person with direct knowledge of the matter told The Block." [-The Block](https://www.theblock.co/news/markets/2024-01-16-cantor-fitzgerald-ceo-tether-reserves-272893)
+
+19.22 &emsp; "Devasini has credited [Richard] Heathcote with playing a key part in establishing the relationship with Cantor, a person with knowledge of the matter said. Heathcote acknowledged helping to connect the two firms while at Marlin Capital, adding that Lutnick was personally involved in the grueling due diligence process. Cantor started managing Tether’s reserves in 2021, media reports have said." [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.221 &emsp; "Heathcote helped build Tether’s giant T-bill operation into an entity almost on autopilot: Buy bills with on average below 90 days duration at auction, hold until maturity, then repeat. 'It’s really not rocket science,' he said." [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.222 &emsp; "Heathcote also played a key role nurturing Tether’s increasingly close relationship with Cantor Fitzgerald LP." [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.223 &emsp; "HEATHCOTE, a graduate of Newcastle University, joined Tether as CIO in January 2023, succeeding Silvano di Stefano. He first met Tether Chief Executive Officer Paolo Ardoino and Chairman Giancarlo Devasini around 2018 while working as head of trading at Bahamas-based Deltec Bank & Trust, one of Tether’s banks." [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/) 
+
+19.224 &emsp; "He left Deltec in 2019 and later set up fund-management and advisory firm Marlin Capital Partners, bringing Tether as a client with him." [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.2241 &emsp; "Previously, he was the Chief Executive Officer at BankPro Limited, where he was responsible for the overall management and launch of the digital banking and investment products. Prior to BankPro, Richard was the Head of Trading at Deltec Bank and Trust. Whilst there he rebuilt the bank’s multi-asset trading business culminating in over $20bn of flow in 2019. He also co-led the building of the bank’s capitalized Institutional Asset Management business with desk peak assets of $4bn. Prior to Deltec, Richard spent 10 years working as a trader at London funds Villay Asset Management and Amerro Asset Management." [-Marlin Capital Partners Limited](https://web.archive.org/web/20230214172512/https://www.marlincapitalpartners.com/?page_id=44)
+
+19.23 &emsp; Marlin Capital Partners Limited is [operated by](https://www.scb.gov.bs/wp-content/uploads/2021/12/SIA-Firms-as-at-30-November-2021.pdf) Richard Heathcote and Zachary Lyons.
+
+19.231 &emsp; Heathcote was CIO at Tether until 12 March 2026 when Tether announced "Zachary Lyons, who has worked closely alongside Heathcote as deputy CIO within Tether’s investment team and has been deeply involved in evaluating and executing many of the firm’s strategic investments, will step into the role of Chief Investment Officer." [-Tether press release](https://tether.io/news/tether-names-zachary-lyons-as-cio-richard-heathcote-transitions-to-advisory-role-after-guiding-investment-expansion/)
+
+19.24 &emsp; It was Lutnick—then Cantor’s chief executive—who helped ease lingering doubts about the assets underpinning USDT, which briefly lost its dollar peg in 2022 during a crypto rout. Cantor is a Tether investor through a convertible bond, and the two firms are partners in at least two business ventures. [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.241 &emsp; "Cantor vouching for Tether 'throws all the questions away,' said Raagulan Pathy, co-founder of stablecoin payments firm Kast. 'That, I think, was the biggest thing for Tether.'" [-Bloomberg](https://businessmirror.com.ph/2025/05/13/tethers-150b-cio-proved-himself-getting-cantor-backing/)
+
+19.242 &emsp; "I have never suggested to anyone that I would do anything improper with respect to Tether." [-Howard Lutnick, written answers to questions for the record before the Senate Committee on Commerce, Science, and Transportation](https://web.archive.org/web/20250308230144/https://www.commerce.senate.gov/services/files/01C4706D-6E4A-4869-8785-D9166C796DE7)
+
+19.3 &emsp; "Cantor Fitzgerald made a convertible debt investment in the holding company that owns the Tether stablecoin business in April 2024." [-Howard Lutnick, testimony before the Senate Committee on Commerce, Science and Transportation, 29 January 2025](https://www.commerce.senate.gov/wp-content/uploads/media/doc/2.2.25%20Lutnick_DEM%20QFRs%20%28finalized%20responses%29.pdf)
+
+19.31 &emsp; Tether's Q1 2024 attestation [reports](https://tether.io/news/tether-releases-q1-2024-attestation-reports-record-breaking-4-52-billion-profit-highest-treasury-bill-ownership-percentage-ever-total-group-equity-of-11-37-billion/) $4.52 billion profit.
+
+19.311 &emsp; "Cantor’s relationship with Tether deepened when the trading firm struck a deal to invest in the crypto giant, Lutnick and Devasini have each told business associates. Under the agreement, which was made in the past year, Cantor stood to receive about a 5% ownership interest in Tether. The interest, which hasn’t been previously reported, was valued by Cantor at as much as $600 million, according to some of the business associates." [-Wall Street Journal](https://archive.is/IbjWg)
+
+19.32 &emsp; "the New York investment bank paid more than $600 million for a convertible bond in Tether that entitles it to 5% equity, according to a person with details on the matter." [-Bloomberg](https://news.bloomberglaw.com/crypto/lutnicks-cantor-eyes-a-25-billion-fortune-on-tether-fundraise)
+
+19.33 &emsp; "He personally negotiated the investment in Tether, some of the business associates said. It wasn’t common practice for Cantor to buy an ownership interest in a client, they added." [-Angus Berwick, Ben Foldy, Jenny Strasburg, and Eliot Brown, "Howard Lutnick's Other Top Client: Crypto Giant Tether" *The Wall Street Journal* 23 November 2024](https://archive.is/rSRx1#selection-5709.0-5709.179)
+
+19.34 &emsp; "Minority staff asked if Cantor Fitzgerald owned 5% of Tether. The answer is no. I was, am, and will remain transparent with Congress." [-Howard Lutnick, testimony before the Senate Committee on Commerce, Science and Transportation, 29 January 2025](https://www.commerce.senate.gov/wp-content/uploads/media/doc/2.2.25%20Lutnick_DEM%20QFRs%20%28finalized%20responses%29.pdf)
+
+19.35 &emsp; "President Bukele met last night with the CEO of Cantor Fitzgerald." [-The Bitcoin Office](https://x.com/bitcoinofficesv/status/1757816402285633649)
+
+19.4 &emsp; On 21 February 2022, Paolo Ardoino [announces](https://x.com/paoloardoino/status/1495712744917635072) "We at @tether and the Administration of the City of Lugano🇨🇭 have been tirelessly working together to prepare Lugano's Plan B!"
+
+19.41 &emsp; Tether [says](https://x.com/tether/status/1495709553010397185): "#bitcoin and stablecoins are revolutionizing the financial sector #tether and The City of Lugano🇨🇭 @luganomycity are teaming up to transform Lugano into the European #bitcoin capital."
+
+19.42 &emsp; "#lugano #planb announced #bitcoin #tether and #luga (CHF stablecoin) as legal tender." [-Paolo Ardoino](https://x.com/paoloardoino/status/1499472211232571395)
+
+19.421 &emsp; "President @nayibbukele 🇸🇻 is the leader, Lugano is the first follower" [-Stacy Herbert](https://x.com/stacyherbert/status/1500120138967924738)
+
+19.43 &emsp; "Along with a consortium of committed partners, Tether is setting up a 100M+ Swiss Franc investment pool for startups to develop blockchain and bitcoin technology as well as to promote the relocation of existing businesses that will bring expertise, know-how and people to Lugano." [-planb.lugano.ch](https://web.archive.org/web/20220522035325/https://planb.lugano.ch/)
+
+19.44 &emsp; "GM Today I started testing #bitcoin #LightningNetwork ⚡ payments with @gabbandomi at his restaurant in Lugano 🇨🇭" [-Paolo Ardoino](https://x.com/paoloardoino/status/1506028986790522882)
+
+19.441 &emsp; "@gabbandomi is the king of food in the city." [-Paolo Ardoino](https://x.com/paoloardoino/status/1501568351885266950)
+
+19.45 &emsp; "⚡📱 Check out Lightning payments via the #Bitfinex mobile app, in action, at last week's PlanB event in Lugano."https://x.com/bitfinex/status/1501920979869736962)
+
+19.451 &emsp; "#Tether hit over $125 billion in trading volume over the last 24h🚀" [-Tether](https://x.com/tether/status/1523902704111738883)
+
+19.46 &emsp; Paolo Ardoino [gets](https://x.com/paoloardoino/status/1531224752181825537) a Cointelegraph hat from Joe Nakamoto at Davos in 2022.
+
+19.47 &emsp; In 2023, Ardoino [says](https://x.com/paoloardoino/status/1615334341927641088): "I could not go to #Davos feasting at the table of the wannabe Rulers of the World 🤣 I traveled to meet communities in El Salvador 🇸🇻, Uruguay 🇺🇾 and Paraguay 🇵🇾 that are leveraging #bitcoin and #tether to build for financial freedom and freedom of comms. Amazing experience." 
+
+19.5 &emsp; "And that's where like Newmark and the commercial real estate services people, remember, they don't own real estate. They're going to help the bank sell it like we did with, you know, Newmark liquidated the Signature Bank." [-Howard Lutnick](https://podscripts.co/podcasts/closing-bell/closing-bell-overtime-howard-lutnick-on-why-hes-expecting-one-cut-this-year-doordash-cfo-on-the-quarter-consumer-spending-5124)
+
+19.51 &emsp; "#tether doesn't have any exposure to Signature Bank." [-Paolo Ardoino](https://x.com/paoloardoino/status/1635046393357426689)
+
+19.511 &emsp; "According to an April 4 report from Bloomberg, citing people with knowledge of the situation, Tether instructed its crypto clients to pay for its USDT stablecoins by sending U.S. dollars to Bahamas-based Capital Union Bank through Signature’s Signet payments platform." [-Unchained Crypto](https://unchainedcrypto.com/tether-used-signature-banks-signet-to-access-us-financial-system-report/)
+
+19.512 &emsp; On 10 February 2023, Forbes reported: "Tether began moving a bulk of its assets from Deltec to Capital Union Bank, located across the street from Deltec in Nassau, which maintained trading relationships with multiple U.S. banks." [-Forbes](https://archive.is/KU9ap)
+
+19.513 &emsp; "Tether moved $37 billion of its reserves to an offshore bank called Capital Union in 2021, according to internal documents." [-Forbes](https://archive.is/KU9ap)
+
+19.6 &emsp; The U.S. Senate [confirms](https://thecensusproject.org/2025/02/19/new-commerce-secretary-lutnick-confirmed-by-u-s-senate/) Howard Lutnick to be Secretary of the Commerce Department on 18 February 2025.
+
+19.61 &emsp; Donald Trump [nominated](https://www.wboi.org/npr-news/2024-11-19/trump-picks-wall-street-investor-howard-lutnick-as-commerce-secretary) Lutnick the previous November.
+
+19.611 &emsp; Lutnick [was previously](https://www.bbc.com/news/articles/c9371zk1q6vo) co-chair of Trump's transition team.
+
+19.612 &emsp; 21 February 2025 "Today was epic. I was sworn in as the 41st US Secretary of Commerce with President Trump in the Oval Office. Our great VP JD Vance presided over the official oath as my wife held the Bible. My 4 kids, sister, and brothers in law couldn’t have been more supportive as I join the greatest administration in American history. Thank you President Trump for delivering hope and dignity to the American people." [-Howard Lutnick](https://x.com/howardlutnick/status/1893176941668130866)
+
+19.613 &emsp; The same day, Cointelegraph [reports](https://x.com/Cointelegraph/status/1891830022287262070) that Tether plans to acquire a 51% stake in South American energy and agriculture firm, Adecoagro.
+
+19.614 &emsp; Tether investments [announces](https://tether.io/news/tether-investments-announces-strategic-minority-stake-in-juventus-football-club/) strategic minority stake in Juventus Football Club.
+
+19.615 &emsp; "Tether USDt is the best ally to the US Dollar hegemony." [-Paolo Ardoino](https://x.com/paoloardoino/status/1890396041381290421)
+
+19.62 &emsp; Also the same day, Brandon Lutnick [is named](https://www.cantor.com/howard-lutnick-confirmed-as-41st-united-states-secretary-of-commerce-steps-down-from-his-positions-at-cantor-fitzgerald-l-p/) Chairman and Kyle Lutnick named Executive Vice Chairman of Cantor Fitzgerald, L.P., the group holding company.
+
+19.621 &emsp; "Most recently, Mr. Lutnick worked as an Executive at Cantor Fitzgerald, driving the firm’s corporate strategy and overseeing projects related to the company and its affiliates. He also serves as the Chairman and Chief Executive Officer for Cantor Fitzgerald’s Special Purpose Acquisition Companies, including Cantor Equity Partners, Inc. and Cantor Equity Partners I, Inc. Mr. Lutnick joined Cantor in 2022 in equity sales and trading. He began his career as a credit analyst at Oak Hill Advisors." [Cantor press release](https://www.cantor.com/howard-lutnick-confirmed-as-41st-united-states-secretary-of-commerce-steps-down-from-his-positions-at-cantor-fitzgerald-l-p/)
+
+19.622 &emsp; In 2024, The Wall Street Journal [had reported](https://archive.is/rSRx1) that "Lutnick’s son Brandon Lutnick had an internship with Tether in 2023 in the Swiss town of Lugano, where Devasini partly resides and maintains some of Tether’s operations. Brandon counted the gold bars that Tether holds in a vault buried inside a mountain to back a separate $660 million token called Tether Gold, some of the business associates said."
+
+19.6221 &emsp; Brandon Lutnick's first post on X is: "Proud to play a role in the extraordinary partnership between @tether and @SoftBank - two visionary companies shaping the future. Twenty One, which will combine with $CEP, was formed to tap into the accelerating global demand for Bitcoin and its growing institutional adoption. Couldn’t be happier to have @jackmallers at the helm. Congratulations to @paoloardoino, @masason and the @official_Cantor team." https://x.com/Brandonlutnick/status/1915126414468354107
+
+19.623 &emsp; "But you know, some certain newspapers said that you have been my intern at Tether. Well, of course, I, being your boss, I deserve to be dressed a little bit more casual. And you know, if you know, after just with few months of being my intern, you became the chairman of Cantor Fitzgerald, then Tether must be very, very good at hiring." [-Paolo Ardoino, from a fireside chat with Brandon Lutnick and Paolo Ardoino at Bitcoin 2025 Conference in Las Vegas](https://www.sec.gov/Archives/edgar/data/1865602/000121390025049578/ea0244139-425_cantor.htm)
+
+19.624 &emsp; Brandon Lutnick: "It's a very coveted internship. I'll tell you that much. No, but I owe a lot to you and the whole Tether team. Really orange pilling me. You know, my time spent with you guys in Switzerland, not an internship, but..." [-Brandon Lutnick, from a fireside chat with Brandon Lutnick and Paolo Ardoino at Bitcoin 2025 Conference in Las Vegas](https://www.sec.gov/Archives/edgar/data/1865602/000121390025049578/ea0244139-425_cantor.htm)
+
+19.625 &emsp; Paolo Ardoino: "True not an internship" [-Paolo Ardoino, from a fireside chat with Brandon Lutnick and Paolo Ardoino at Bitcoin 2025 Conference in Las Vegas](https://www.sec.gov/Archives/edgar/data/1865602/000121390025049578/ea0244139-425_cantor.htm)
+
+19.63 &emsp; Suvashree Ghosh [reports](https://www.linkedin.com/posts/suvashree-ghosh-85097121_a-bloomberg-newsletter-about-a-power-backed-share-7381540227636535298-w9jy/) for Bloomberg that Brandon Lutnick said, “I had the privilege of spending months with Paolo on the team in Lugano,” he said. “They really taught me everything I know.” 
+
+19.631 &emsp; "So in July, 2020, the OCC stated that banks would be able to custody crypto assets or assets of crypto companies, excuse me, and we realized that we knew nothing about the space. So we decided to go out and meet everyone we possibly could, and that included the good, the great and the bad. And in meeting all those companies, we ended up in front of Tether. And at that point, there were a lot of rumors and speculation about the firm, you know, they didn't have the assets that they said they did. But we, when we met Tether, realized what a truly special company they were and the real world value they could bring. So we said, you know, open up your books. And we did two years of gruesome diligence. I personally checked a lot of their reserves, and we proved all those rumors wrong. Again, Cantor's a primary dealer, and all those assets sit at Cantor." [-Brandon Lutnick](https://www.sec.gov/Archives/edgar/data/1865602/000121390025044410/ea0242474-425_cantor.htm)
+
+19.632 &emsp; "Lugano has become a second home to me, because of you [Paolo Ardoino]." [-Brandon Lutnick, Fireside chat with Paolo Ardoino and Brandon Lutnick at Lugano Plan B on 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A)
+
+19.6321 &emsp; "I think I have no choice but to say Gabani as the best restaurant in Lugano...I've probably had steak with you there maybe over 100 times." [-Brandon Lutnick, Fireside chat with Paolo Ardoino and Brandon Lutnick at Lugano Plan B on 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A)
+
+19.6322 &emsp; "I came here years ago when I actually knew nothing about the digital world. And I came here to learn about you, came here to meet Paolo and hang out with Paolo, you know, learn from his brilliant Tether team." [-Brandon Lutnick, "Fireside chat with Paolo Ardoino and Brandon Lutnick" Lugano Plan B, 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A)
+
+19.6323 &emsp; "My goal was to learn about Tether." [-Brandon Lutnick, "Fireside chat with Paolo Ardoino and Brandon Lutnick" Lugano Plan B, 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A)
+
+19.6324 &emsp; "Paolo said to me, you don't really need to know about Tether yet. You just need to understand Bitcoin. And that was all we did. Everyone, the whole team taught me Bitcoin, taught me Bitcoin and really orange pilled me." [-Brandon Lutnick, "Fireside chat with Paolo Ardoino and Brandon Lutnick" Lugano Plan B, 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A) 
+
+19.6325 &emsp; Brandon Lutnick [states](www.youtube.com/watch?v=b6-aH0UBG7A) that he had been out to dinner with Ardoino in Lugano "over 100 times."
+https://www.youtube.com/watch?v=b6-aH0UBG7A
+
+19.6326 &emsp; Brandon Lutnick [states](www.youtube.com/watch?v=b6-aH0UBG7A) that he had known "nothing about the digital world" prior ot going to Lugano but then had met Ardoino and was able to "learn from his brilliant Tether team." 
+
+19.6327 &emsp; "The goal was to learn about Tether." [-Brandon Lutnick, "Fireside chat with Paolo Ardoino and Brandon Lutnick" Lugano Plan B, 21 November 2025](https://www.youtube.com/watch?v=b6-aH0UBG7A)
+
+19.6328 &emsp; "'I’m very lucky to call Paolo, you Jesse, everyone with Tether, a close friend,' [Lutnick said](https://www.linkedin.com/posts/suvashree-ghosh-85097121_a-bloomberg-newsletter-about-a-power-backed-share-7381540227636535298-w9jy/), making reference to Jesse Spiro, Tether’s head of government affairs."
+
+19.64 &emsp; Brandon Lutnick: "I did learn a lot about crypto from the Tether guys. They "orange pilled" me." [-Brandon Lutnick, 14 May 2025](https://www.sec.gov/Archives/edgar/data/1865602/000121390025044410/ea0242474-425_cantor.htm)
+
+19.641 &emsp; "I don't think they orange pilled me enough. I'm still sitting here in a suit, but they definitely orange pilled me." [-Brandon Lutnick](https://www.sec.gov/Archives/edgar/data/1865602/000121390025044410/ea0242474-425_cantor.htm)
+
+19.7 &emsp; On 28 April 2025, Pirate Wires [publishes](https://www.piratewires.com/p/the-most-profitable-business-per-employee-in-the-world) an article about Tether. 
+
+19.71 &emsp; Pirate Wires [reports](https://www.piratewires.com/p/the-most-profitable-business-per-employee-in-the-world): "The secret sauce of the partnership lies in the fact that Cantor is a primary dealer: one of just 24 US firms that is able to do business directly with the Federal Reserve. In practical terms this means that if a flood of users tries to redeem USDT for dollars, Tether can meet the demand right away, because the Federal Reserve relies on Cantor, as a primary dealer, to help keep the governmnet bond market liquid. This status gives Cantor a direct line to the Fed: when Tether needs cash, Cantor can sell US Treasuries straight to the central bank. No delays, no intermediaries.
+
+19.72 &emsp; The article [is called](https://www.piratewires.com/p/the-most-profitable-business-per-employee-in-the-world) "The Most Profitable Business Per Employee in the World"
+
+19.73 &emsp; Chris Pavlovski also first [teases](https://x.com/chrispavlovski/status/1916915302136484225) Rumble Wallet on 28 April 2025: "Coming later this year."
+
+19.74 &emsp; Tether's Q2 2024 attestation [reports](https://tether.io/news/tether-q2-2024-attestation-reports-record-breaking-5-2-billion-profit-in-first-half-of-2024-highest-treasury-bill-ownership-ever-largest-ever-group-consolidated-equity-at-almost-12-billion/) $5.2 billion profit.
+
+19.8 &emsp; On 19 May 2025, Howard Lutnick [agrees to transfer](https://www.businesswire.com/news/home/20250519432705/en/BGC-Announces-Repurchase-of-More-Than-16.4-Million-Shares-from-Howard-W.-Lutnick-United-States-Secretary-of-Commerce-the-Companys-Former-Chairman-and-CEO) his ownership interest in Cantor Fitzgerald to trusts for the benefit of Brandon G Lutnick, Kyle S Lutnick, and his other adult children. 
+
+19.81 &emsp; Brandon Lutnick [is the controlling trustee](https://www.businesswire.com/news/home/20250519432705/en/BGC-Announces-Repurchase-of-More-Than-16.4-Million-Shares-from-Howard-W.-Lutnick-United-States-Secretary-of-Commerce-the-Companys-Former-Chairman-and-CEO) of such trusts. 
+
+19.811 &emsp; "Mr. Lutnick has entered into agreements to forgo all economic benefits in BGC as of May 16, 2025. These transactions divest his ownership, voting, and economic interests in the Company, complying with Mr. Lutnick's U.S. government ethics agreement."  [-BGC press release](https://www.businesswire.com/news/home/20250519432705/en/BGC-Announces-Repurchase-of-More-Than-16.4-Million-Shares-from-Howard-W.-Lutnick-United-States-Secretary-of-Commerce-the-Companys-Former-Chairman-and-CEO)
+
+19.812 &emsp; These sales are completed on 6 October 2025: "Mr. Howard W. Lutnick, the U.S. Secretary of Commerce and Newmark Group, Inc.’s (the “Company”) former Executive Chairman and former Chairman of the Company’s Board of Directors (the “Board”), has completed his previously announced divestiture of his holdings in the Company in connection with his appointment as the U.S. Secretary of Commerce. Mr. Howard W. Lutnick no longer has any voting or dispositive power over any of the securities of the Company and filed today an amendment to his prior reports on Schedule 13D of his beneficial ownership of the equity securities of the Company to reflect his zero ownership." [US SEC Form 8-K from 6 October 2025](https://www.sec.gov/Archives/edgar/data/1690680/000121390025096624/ea0260090-8k_newmark.htm)
+
+19.813 &emsp; "The purchase by trusts controlled by Mr. Brandon G. Lutnick (“Purchaser Trusts”) from Mr. Howard W. Lutnick, in his capacity as trustee of a trust, of all of the voting shares of CF Group Management, Inc., a New York corporation (“CFGM”), which is the managing general partner of Cantor Fitzgerald, L.P., a Delaware limited partnership (“CFLP”), for an aggregate purchase price of $200,000, using cash on hand at the Purchaser Trusts." [US SEC Form 8-K from 6 October 2025](https://www.sec.gov/Archives/edgar/data/1690680/000121390025096624/ea0260090-8k_newmark.htm)
+ 
+19.814 &emsp; "The purchase by certain other trusts controlled by Mr. Brandon G. Lutnick from Mr. Howard W. Lutnick, in his capacity as trustee of certain trusts, of certain interests, including all outstanding equity interests in Tangible Benefits, LLC, a Delaware limited liability company, and KBCR Management Partners, LLC, a Delaware limited liability company, that each hold shares of the Company, for an aggregate purchase price of $13,096,795.70, using cash on hand at the purchasing trust." [US SEC Form 8-K from 6 October 2025](https://www.sec.gov/Archives/edgar/data/1690680/000121390025096624/ea0260090-8k_newmark.htm)
+
+19.815 &emsp; Tether's Q3 2024 attestation [reports](https://tether.io/news/tether-hits-7-7-billion-2024-nine-month-profits-102-5-billion-in-u-s-treasury-holdings-almost-120-billion-usd%e2%82%ae-circulation-and-an-over-6-billion-reserve-buffer-in-q3-2024-attestation/) $7.7 billion in profit.
+
+19.8151 &emsp; It also [reports](https://tether.io/news/tether-hits-7-7-billion-2024-nine-month-profits-102-5-billion-in-u-s-treasury-holdings-almost-120-billion-usd%e2%82%ae-circulation-and-an-over-6-billion-reserve-buffer-in-q3-2024-attestation/) $102.5 billion in U.S. Treasury holdings.
+
+19.82 &emsp; "At about the same time, one of the trusts did something unusual. “Dynasty Trust A,” which benefits all four children, borrowed an undisclosed sum from Tether, the stablecoin issuer." [-David Kocieniewski, Anthony Cormier, and Todd Gillespie, "As Lutnick Sold Cantor to His children, Tether Gave Them a Loan" Bloomberg](https://archive.is/bTTB8)
+
+19.821 &emsp; "A credit document filed in New York state on Oct. 7 shows that the loan was secured by “all assets” held by the trust, including any it might acquire later. A Cantor executive familiar with the deal said the loan was specifically backed by a convertible bond that entitles the company to a 5% stake in Tether." [-David Kocieniewski, Anthony Cormier, and Todd Gillespie, "As Lutnick Sold Cantor to His children, Tether Gave Them a Loan" Bloomberg](https://archive.is/bTTB8)
+
+19.822 &emsp; "Dynasty Trust A’s assets include more than half the equity in Cantor Fitzgerald, according to a recent filing by the financial services company." [-David Kocieniewski, Anthony Cormier, and Todd Gillespie, "As Lutnick Sold Cantor to His children, Tether Gave Them a Loan" Bloomberg](https://archive.is/bTTB8)
+
+19.83 &emsp; According to Cantor spokesperson Stan Neve, "Control of the firm, via a separate management entity, “is held entirely by the next generation of the Lutnick family and has never been pledged." [-David Kocieniewski, Anthony Cormier, and Todd Gillespie, "As Lutnick Sold Cantor to His children, Tether Gave Them a Loan" Bloomberg](https://archive.is/bTTB8)
+
+19.831 &emsp; "Percentage of Ownership: 50% but less than 75%" [-FINRA filing regarding Dynasty Trust A's indirect ownership of Cantor Fitzgerald, L.P.](https://files.brokercheck.finra.org/firm/firm_134.pdf)
+
+19.832 &emsp; "Does this owner direct the management or policies of the firm? No." [-FINRA filing regarding Dynasty Trust A's indirect ownership of Cantor Fitzgerald, L.P.](https://files.brokercheck.finra.org/firm/firm_134.pdf)
+
+19.84 &emsp; "Since the President’s return to office, Cantor Fitzgerald’s five percent stake in Tether has increased in value from $600 million to an estimated $10 billion, in addition to the tens of millions of dollars the company collects every year from the assets it holds for Tether." [-Elizabeth Warren and Ron Wyden, 29 April 2026 letter to Howard Lutnick](https://www.banking.senate.gov/imo/media/doc/20260429warrenwydenlettertolutnickretethercantorfitzgeraldloan.pdf)
+
+19.841 &emsp; "We are writing to request information regarding reports that the foreign stablecoin company Tether provided a loan to one of your family trusts to finance your divestiture of Cantor Fitzgerald." [-Elizabeth Warren and Ron Wyden, 29 April 2026 letter to Howard Lutnick](https://www.banking.senate.gov/imo/media/doc/20260429warrenwydenlettertolutnickretethercantorfitzgeraldloan.pdf)
+
+19.842 &emsp; "On October 6, 2025, after serving nearly eight months as Secretary of the Commerce Department, you finally divested your multi-billion dollar stake in Cantor Fitzgerald by selling your portion of the company to your children. Recent Bloomberg reporting found that on the very next day, October 7, a credit document was filed in New York revealing that Tether lent an undisclosed amount to a trust called “Dynasty Trust A.” Your four children are the trust’s beneficiaries. The loan is reportedly secured by “all assets” held by the trust, including “more than half the equity in Cantor Fitzgerald.” This document raises questions about whether Tether may have helped provide your children with the capital needed to purchase your stake in Cantor Fitzgerald, and in return, secured an interest in your children’s assets." [-Elizabeth Warren and Ron Wyden, 29 April 2026 letter to Howard Lutnick](https://www.banking.senate.gov/imo/media/doc/20260429warrenwydenlettertolutnickretethercantorfitzgeraldloan.pdf)
+
+19.843 &emsp; "Please provide all records relating to the terms of any loan or other provision extended to Howard Lutnick or the Lutnick Family by Tether that enabled him to transfer his ownership stake to his children." [-Richard Blumenthal, US Senate Committee on Homeland Security and Governmental Affairs, Permanent Subcommittee on Investigations October 8 2026 letter to Brandon Lutnick](https://www.hsgac.senate.gov/wp-content/uploads/2026-10-08-Letter-from-Sen-Blumenthal-to-Chairman-Lutnick.pdf)  
+
+19.85 &emsp; During the same period, i.e., June and July 2025, and prior to the transfer of now Secretary Lutnick's assets to the Dynasty Trust A, Congress was engaged in final consideration of the GENIUS Act, a stablecoin law that benefited Tether and received final passage and presidential approval in July 205. Now Secretary Lutnick was involved in consideration and enactment of the GENIUS Act as Secretary of Commerce and a member of the President's Council on Digital Assets. [Discovery memorandum in re ex parte application of Electric Solidus INC. D/B/A Swan Bitcoin for an order to take discovery](https://www.scribd.com/document/1017419099/2026-03-23-002-Memo-of-Law-ISO-1782-App)
+
+19.86 &emsp; "Question 53: Have you ever told Devasini, or anyone else affiliated with Tether, that you would seek to undermine any bills, proposed legislation, or other legislative or regulatory efforts to regulate Tether? Answer: I have repeatedly conveyed my belief that the U.S. Congress should be careful not to undermine dollar hegemony on blockchain through legislation." [-Senate Committee on Commerce, Science, and Transportation, full committee nomination hearing for Howard Lutnick, 29 January 2025](https://www.commerce.senate.gov/wp-content/uploads/media/doc/2.2.25%20Lutnick_DEM%20QFRs%20(finalized%20responses).pdf) 
+
+19.861 &emsp; "Devasini said privately earlier this year that Lutnick will use his political clout to try to defuse threats facing Tether, according to business associates of the two men." [-Angus Berwick, Ben Foldy, Jenny Strasburg, and Eliot Brown, "Howard Lutnick's Other Top Client: Crypto Giant Tether" *The Wall Street Journal*, 23 November 2024](https://archive.is/rSRx1)
+
+19.87 &emsp; "In a statement sent before Lutnick’s selection as commerce secretary, the Tether spokesperson said that 'Tether’s relationship with Cantor is entirely professional, based on managing reserves. The claim that Lutnick’s involvement in a transition team somehow translates to influence over regulatory actions is laughable.'" [-Angus Berwick, Ben Foldy, Jenny Strasburg, and Eliot Brown, "Howard Lutnick's Other Top Client: Crypto Giant Tether" *The Wall Street Journal*, 23 November 2024](https://archive.is/rSRx1)
+
+19.9 &emsp; "Cantor is a true friend of Bitcoin" [-Paolo Ardoino](https://x.com/paoloardoino/status/1900596637979853185)
+
+19.91 &emsp; Tether's Q4 2024 attestation [reports](https://tether.io/news/tether-hits-13-billion-profits-for-2024-and-all-time-highs-in-u-s-treasury-holdings-usdt-circulation-and-reserve-buffer-in-q4-2024-attestation/) $13 billion in profit.
