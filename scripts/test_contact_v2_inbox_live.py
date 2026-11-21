@@ -43,7 +43,11 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 opener = urllib.request.build_opener(NoRedirect)
 
 def request(bearer=None, query='?after=0&limit=1'):
-    headers = {'Accept': 'application/json', 'cf-access-token': access_token}
+    headers = {
+    'Accept': 'application/json',
+    'cf-access-token': access_token,
+    'User-Agent': 'BitcoinScoresby-Inbox-Test/1.0'
+}
     if bearer is not None:
         headers['Authorization'] = 'Bearer ' + bearer
     req = urllib.request.Request(root + '/api/contact-v2/inbox' + query, headers=headers)
