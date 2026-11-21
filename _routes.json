@@ -25,6 +25,8 @@
   "exclude": [
     "/contact",
     "/contact/*",
+    "/contact-v2",
+    "/contact-v2/*",
     "/posters",
     "/posters/*"
   ]

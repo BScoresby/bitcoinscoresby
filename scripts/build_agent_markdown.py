@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://bitcoinscoresby.com"
 EXCLUDED = {
     ".git", ".venv", "node_modules", "functions", "scripts", "assets",
-    "contact", "posters", "tests", ".github", "__pycache__",
+    "contact", "contact-v2",  "posters", "tests", ".github", "__pycache__",
 }
 
 
