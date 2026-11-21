@@ -53,7 +53,8 @@ function fakeDb(state = 'paid', overrides = {}) {
             messages.set(id, { seq, event_id, event_json, accepted_at });
             attempt.state = 'accepted';
             inserts++;
-            return { meta: { changes: 1 } };
+            // D1 includes the trigger's payment-state UPDATE in total_changes.
+            return { meta: { changes: 2 } };
           } };
         } };
       }
@@ -90,7 +91,7 @@ test('paid with no paid_at rejected', async () => {
   assert.equal((await run(db)).status, 409);
   assert.equal(db.messages.size, 0);
 });
-test('paid attempt can store one event and becomes accepted', async () => {
+test('new insert returns 201 even when D1 counts its AFTER INSERT trigger', async () => {
   const db = fakeDb();
   const response = await run(db);
   assert.equal(response.status, 201);
