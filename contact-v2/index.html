@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/contact/contact.css">
+  <link rel="stylesheet" href="/contact-v2/contact-v2.css">
+  <meta name="description" content="Send BitcoinScoresby an encrypted message for 21 sats.">
+  <title>Contact (v2 preview) — BitcoinScoresby</title>
+</head>
+<body>
+<main class="page">
+  <header class="site-header">
+    <a class="site-logo" href="/" aria-label="BitcoinScoresby home"><img src="/assets/whale.svg" alt=""><span class="site-name">BS</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/whitepaper" aria-label="Whitepaper"><img src="/assets/paper.svg" alt=""></a>
+      <a href="/archive" aria-label="Archive"><img src="/assets/folder.svg" alt=""></a>
+      <a href="https://stacker.news" aria-label="Stacker News"><img src="/assets/lightning.svg" alt=""></a>
+    </nav>
+  </header>
+  <p class="stage-marker">CONTACT V2 — PRIVATE PREVIEW</p>
+  <h1>Contact</h1>
+  <p class="intro">Send an anonymous, encrypted message. Postage: <strong>21 sats</strong>.</p>
+  <form id="contact-form">
+    <div class="terminal-message" id="terminal-message">
+      <label for="message" class="terminal-prompt">&gt;</label>
+      <textarea id="message" rows="6" maxlength="2000" required aria-label="Your message" autocomplete="off" spellcheck="false"></textarea>
+      <span class="terminal-block" aria-hidden="true"></span>
+    </div>
+    <div class="terminal-reply">
+      <label for="reply" class="terminal-reply-prompt">&gt; return address:</label>
+      <span class="terminal-reply-input" id="terminal-reply-input">
+        <input id="reply" maxlength="200" autocomplete="off" aria-label="Optional return address" spellcheck="false">
+        <span class="terminal-reply-block" aria-hidden="true"></span>
+      </span>
+    </div>
+    <p class="field-hint reply-hint">Optional. Your message is encrypted in your browser before an invoice is requested.</p>
+    <div class="contact-actions"><button type="submit" id="create-invoice">Request postage · 21 sats</button></div>
+  </form>
+
+  <section id="payment-area" hidden aria-label="Payment">
+    <details id="invoice-details" open>
+      <summary>Lightning invoice · 21 sats</summary>
+      <p class="invoice-instructions">Scan to pay or copy the invoice. Keep this browser's saved payment attempt until the message is accepted.</p>
+      <div id="invoice-qr" aria-live="polite"></div>
+      <label for="invoice">&gt; BOLT11 invoice</label>
+      <textarea id="invoice" rows="3" readonly spellcheck="false"></textarea>
+      <div class="payment-actions">
+        <button type="button" id="copy-invoice">Copy invoice</button>
+        <button type="button" id="check-payment">Check payment / Retry delivery</button>
+      </div>
+    </details>
+    <p class="field-hint">A reload restores this encrypted draft and invoice in the same browser and on the same preview hostname. Do not pay a second invoice if delivery is interrupted.</p>
+    <button type="button" id="abandon-attempt" hidden>Abandon this payment attempt</button>
+  </section>
+
+  <p id="status" role="status" aria-live="polite"></p>
+  <section id="contact-success" hidden role="status">
+    <h2>Message securely accepted.</h2>
+    <p>Cloudflare has stored your encrypted message. This does not mean it has been read.</p>
+    <p id="accepted-id" class="accepted-id"></p>
+    <button type="button" id="new-message">Write another message</button>
+  </section>
+  <p class="field-hint privacy-note">Payment is required before message ciphertext reaches the server. No Nostr account is needed. Payment and your IP address may still create metadata.</p>
+</main>
+<script type="module" src="/contact-v2/contact-v2.js"></script>
+</body>
+</html>

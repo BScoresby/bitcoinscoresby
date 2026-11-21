@@ -1,0 +1,21 @@
+/* Extra styling only for the isolated Contact v2 preview. */
+.stage-marker { color:#777; font-size:11px; letter-spacing:.08em; margin:0 0 20px; }
+#contact-form .field-hint {margin: 5px 0 24px;}
+#payment-area[hidden], #contact-form[hidden], #contact-success[hidden], #abandon-attempt[hidden] {display:none;}
+#payment-area { margin-top:25px; }
+#payment-area #invoice {box-sizing:border-box;width:100%;border:1px solid #444;background:#000;color:#f5f5f5;padding:12px;word-break:break-all;font:13px/1.6 'Space Mono',monospace;resize:vertical;}
+#payment-area #invoice-qr { margin:18px auto; }
+#payment-area #invoice-qr svg { max-width:min(300px,100%); }
+#payment-area .invoice-instructions {line-height:1.65;}
+.payment-actions {display:flex;flex-wrap:wrap;gap:12px;margin:14px 0 18px;}
+#payment-area button, #create-invoice {font:13px/1.6 'Space Mono',monospace;padding:10px 14px;border:1px solid #777;color:#fff;background:transparent;cursor:pointer;}
+#payment-area button:hover, #create-invoice:hover {border-color:#fff;}
+#payment-area button:disabled, #create-invoice:disabled {opacity:.45;cursor:wait;}
+#payment-area #abandon-attempt {font-size:12px;color:#aaa;border-color:#555;margin-top:4px;}
+#status {min-height:2em;white-space:pre-line;overflow-wrap:anywhere;line-height:1.6;}
+#status.error {color:#ffb0b0;}
+#contact-success {margin-top:32px;}
+#contact-success p {color:#aaa;}
+.accepted-id {font-size:11px;overflow-wrap:anywhere;}
+.privacy-note {margin-top:45px;}
+@media(max-width:520px){.payment-actions{align-items:stretch;flex-direction:column;}}
