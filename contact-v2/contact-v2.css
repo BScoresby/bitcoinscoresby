@@ -16,6 +16,4 @@
 #status.error {color:#ffb0b0;}
 #contact-success {margin-top:32px;}
 #contact-success p {color:#aaa;}
-.accepted-id {font-size:11px;overflow-wrap:anywhere;}
-.privacy-note {margin-top:45px;}
 @media(max-width:520px){.payment-actions{align-items:stretch;flex-direction:column;}}

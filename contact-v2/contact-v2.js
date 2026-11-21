@@ -21,7 +21,6 @@ const checkButton = $('#check-payment');
 const abandonButton = $('#abandon-attempt');
 const statusEl = $('#status');
 const successArea = $('#contact-success');
-const acceptedId = $('#accepted-id');
 const newMessageButton = $('#new-message');
 
 let session = null;
@@ -103,7 +102,7 @@ function renderPayment() {
   // unsettled invoice. Never offer a normal way to discard a paid attempt.
   abandonButton.hidden = true;
 }
-function accepted(eventId, seq) {
+function accepted() {
   stopTimer();
   session = null;
   try { localStorage.removeItem(STORAGE_KEY); }
@@ -111,7 +110,6 @@ function accepted(eventId, seq) {
   form.hidden = true;
   paymentArea.hidden = true;
   successArea.hidden = false;
-  acceptedId.textContent = `Encrypted event: ${eventId}${Number.isSafeInteger(seq) ? ` · Inbox sequence: ${seq}` : ''}`;
   status('');
 }
 
@@ -155,7 +153,7 @@ async function submitEncrypted() {
     if (result.state !== 'accepted' || result.event_id !== savedEvent.id) {
       throw Error('Server returned a mismatched acceptance record.');
     }
-    accepted(savedEvent.id, result.seq);
+    accepted();
   } catch (error) {
     if (!session) return;
     if (error.status === 409 || error.status === 400 || error.status === 413) {
