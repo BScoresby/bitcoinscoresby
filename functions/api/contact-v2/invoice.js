@@ -107,7 +107,8 @@ async function limitedJson(url) {
   return data;
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context;
   // Development safeguard: this first endpoint is only enabled deliberately.
   if (env.CONTACT_V2_INVOICE_ENABLED !== 'true') {
     return json(404, { ok: false, error: 'Endpoint disabled' });
@@ -131,6 +132,26 @@ export async function onRequestPost({ request, env }) {
         ok: false,
         error: 'Too many invoice requests. Try again later.'
       });
+    }
+    // Opportunistically remove stale rate-limit counters.
+    // This runs on approximately 1% of permitted invoice requests.
+    if (Math.random() < 0.01) {
+      context.waitUntil(
+        env.CONTACT_DB.prepare(`
+          DELETE FROM contact_v2_invoice_rate_limits
+          WHERE client_hash IN (
+            SELECT client_hash
+            FROM contact_v2_invoice_rate_limits
+            WHERE window_start < ?
+            LIMIT 100
+          )
+        `)
+        .bind(now - 86400)
+        .run()
+        .catch(error =>
+          console.error('Rate-limit cleanup failed:', error?.message)
+        )
+      );
     }
 
     // No caller-provided username, callback, amount, or verification URL.
