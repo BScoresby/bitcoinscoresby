@@ -1,5 +1,4 @@
 import { encryptEnvelope, hashEnvelope, validRecipient } from './envelope.mjs';
-import { invoiceQR } from '/contact/qrcode.js';
 import {
   STORAGE_KEY, composeMessage, createSession,
   loadSession, saveSession
@@ -105,11 +104,18 @@ function renderPayment() {
   successArea.hidden = true;
   invoiceField.value = session.invoice;
   qrArea.replaceChildren();
-  try { qrArea.replaceChildren(invoiceQR(session.invoice)); }
-  catch { status('Invoice QR unavailable; use Copy invoice.'); }
-  // Abandonment is offered only after Lexe explicitly reports an expired,
-  // unsettled invoice. Never offer a normal way to discard a paid attempt.
-  abandonButton.hidden = true;
+  // The QR module is only needed once an invoice exists. Guard its asynchronous
+  // result so an abandoned invoice cannot redraw itself on the compose screen.
+  const attemptId = session.attempt_id;
+  void import('/contact/qrcode.js').then(({ invoiceQR }) => {
+    if (!session || session.attempt_id !== attemptId || paymentArea.hidden) return;
+    qrArea.replaceChildren(invoiceQR(session.invoice));
+  }).catch(() => {
+    if (session?.attempt_id === attemptId) status('Invoice QR unavailable; use Copy invoice.', true);
+  });
+  // Allow an explicitly unpaid attempt to be discarded at any time, including
+  // during verification cooldown. Never discard a confirmed paid attempt.
+  abandonButton.hidden = session.phase === 'paid';
 }
 function accepted() {
   stopTimer();
@@ -198,7 +204,7 @@ async function checkPayment() {
         abandonButton.hidden = false;
         status('This invoice has expired and Lexe currently reports it as unpaid. Do not pay it now. You can check again or explicitly abandon this attempt.', true);
       } else {
-        abandonButton.hidden = true;
+        abandonButton.hidden = false;
         status('Awaiting the 21-sat payment. This page checks automatically while visible.');
         schedule(32000);
       }
@@ -229,16 +235,24 @@ copyButton.addEventListener('click', async () => {
   catch { invoiceField.focus(); invoiceField.select(); status('Invoice selected. Copy it manually.'); }
 });
 abandonButton.addEventListener('click', () => {
-  if (busy || !session) return;
-  const warning = 'Abandon this invoice and its encrypted draft? If it was paid, or later settles, recovery may become impossible. This action cannot be undone. Continue ONLY if you are certain it was not paid.';
+  if (busy || !session || session.phase !== 'invoiced') return;
+  const warning = 'Only cancel if you have NOT paid this invoice. This does not cancel the Lightning invoice itself. If payment was made or later settles, discarding this encrypted draft could permanently prevent message delivery. Delete this unpaid attempt and start over?';
   if (!window.confirm(warning)) return;
-  try { localStorage.removeItem(STORAGE_KEY); }
-  catch { status('Could not clear the saved payment. Do not start another attempt yet.', true); return; }
+  // No server-side cancellation: it could race with a genuine settlement.
+  // Forget only the local unpaid attempt and stop future browser polling.
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    if (localStorage.getItem(STORAGE_KEY) !== null) throw Error('Storage did not clear');
+  } catch {
+    status('Could not clear the saved payment. Do not start another attempt yet.', true);
+    return;
+  }
+  stopTimer();
   session = null;
   stopped = false;
-  stopTimer();
   renderDraft();
-  status('Attempt abandoned. Write a new message before requesting another invoice.');
+  status('Unpaid invoice discarded. You can write a new message.');
+  messageField.focus();
 });
 newMessageButton.addEventListener('click', () => {
   stopped = false;

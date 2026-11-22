@@ -54,7 +54,8 @@
       </div>
     </details>
     <p class="field-hint">A reload restores this encrypted draft and invoice in the same browser and on the same preview hostname. Do not pay a second invoice if delivery is interrupted.</p>
-    <button type="button" id="abandon-attempt" hidden>Abandon this payment attempt</button>
+    <p class="field-hint">Didn’t pay? You can start over. This only discards the invoice and encrypted draft saved in this browser; it does not cancel the Lightning invoice. If you paid, keep this attempt for recovery.</p>
+    <button type="button" id="abandon-attempt" hidden>Cancel unpaid invoice · Start over</button>
   </section>
 
   <p id="status" role="status" aria-live="polite"></p>
