@@ -13,15 +13,17 @@ if not migration.exists():
 db = sqlite3.connect(':memory:')
 db.row_factory = sqlite3.Row
 db.executescript(migration.read_text())
+db.executescript((migration.parent / '0002_invoice_rate_limit.sql').read_text())
+db.executescript((migration.parent / '0003_envelope_and_verify_cooldown.sql').read_text())
 now = int(time.time())
 
 def attempt(state, suffix):
     attempt_id = str(uuid.uuid4())
     db.execute('''INSERT INTO contact_v2_attempts
-        (id,state,invoice,payment_hash,verify_url,amount_msat,created_at,invoice_expires_at,paid_at)
-        VALUES (?,?,?,?,?,?,?,?,?)''', (attempt_id, state, 'lnbc' + suffix,
+        (id,state,invoice,payment_hash,verify_url,amount_msat,created_at,invoice_expires_at,paid_at,envelope_hash)
+        VALUES (?,?,?,?,?,?,?,?,?,?)''', (attempt_id, state, 'lnbc' + suffix,
         suffix * 64, 'https://lexe.app/fake/' + suffix, 21000, now, now + 900,
-        now if state == 'paid' else None))
+        now if state == 'paid' else None, (suffix * 64) if state == 'paid' else None))
     return attempt_id
 
 unpaid = attempt('invoiced', 'a')
@@ -29,8 +31,7 @@ paid1 = attempt('paid', 'b')
 paid2 = attempt('paid', 'c')
 
 def message(attempt_id, eventid):
-    event = dict(id=eventid, kind=1059, pubkey='f'*64, sig='f'*128,
-        created_at=now, tags=[['p', 'd'*64]], content='encrypted')
+    event = dict(v=1, recipient='A'*43, epk='B'*43, salt='C'*22, nonce='D'*16, ct='E'*32)
     db.execute('INSERT INTO contact_v2_messages(attempt_id,event_id,event_json,accepted_at) VALUES (?,?,?,?)',
                (attempt_id, eventid, json.dumps(event), now))
 

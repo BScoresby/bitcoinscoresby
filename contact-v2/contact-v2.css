@@ -1,4 +1,4 @@
-/* Extra styling only for the isolated Contact v2 preview. */
+/* Minimal additional styling for the encrypted, payment-gated contact form. */
 .stage-marker { color:#777; font-size:11px; letter-spacing:.08em; margin:0 0 20px; }
 #contact-form .field-hint {margin: 5px 0 24px;}
 #payment-area[hidden], #contact-form[hidden], #contact-success[hidden], #abandon-attempt[hidden] {display:none;}

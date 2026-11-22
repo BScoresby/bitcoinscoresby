@@ -9,7 +9,7 @@ DO NOT replace your existing _routes.json or contact Functions.
 2. Generate:
      /tmp/bs-agent-md-venv/bin/python scripts/build_agent_markdown.py
    This creates index.md next to public article index.html files and adds their
-   exact URLs to your existing _routes.json, preserving /api/contact/*.
+   exact URLs to your existing _routes.json, preserving /api/contact-v2/*.
 3. Test with:
      npx wrangler pages dev .
    In another terminal:
@@ -24,4 +24,4 @@ Optional: Add source.md beside an index.html to override automatic conversion
 with original Markdown. For tether, tether.md works as a source override too.
 
 The function runs only on exact document URLs included in _routes.json.
-The /contact/ page is excluded and /api/contact/* stays functional.
+The /contact/ page uses the v2 encrypted form; only /api/contact-v2/* is routed to Functions.

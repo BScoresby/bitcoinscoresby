@@ -75,11 +75,11 @@ assert isinstance(data.get('messages'), list)
 assert isinstance(data.get('next_after'), int)
 assert isinstance(data.get('has_more'), bool)
 assert all(m['seq'] <= data['next_after'] for m in data['messages'])
-assert all(m['event']['kind'] == 1059 and m['event']['id'] == m['event_id'] for m in data['messages'])
+assert all(m['envelope']['v'] == 1 and len(m['message_id']) == 64 for m in data['messages'])
 assert all('attempt_id' not in m and 'invoice' not in m for m in data['messages'])
 print(f"PASS authenticated encrypted inbox GET (returned {len(data['messages'])} record(s), next_after={data['next_after']}, has_more={data['has_more']})")
 for m in data['messages']:
-    print('  encrypted event:', m['seq'], m['event_id'])
+    print('  encrypted envelope:', m['seq'], m['message_id'])
 status, d = request(token, '?after=' + str(data['next_after']) + '&limit=1')
 assert status == 200 and d.get('ok') is True
 assert all(m['seq'] > data['next_after'] for m in d['messages'])

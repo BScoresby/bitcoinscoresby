@@ -1,7 +1,6 @@
 {
   "version": 1,
   "include": [
-    "/api/contact/*",
     "/api/contact-v2/*",
     "/archive",
     "/archive/",

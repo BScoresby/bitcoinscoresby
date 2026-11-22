@@ -1,7 +1,8 @@
 import { decodeBolt11 } from '../../../lib/contact-v2/bolt11.js';
+import { validRecipient } from '../../../contact-v2/envelope.mjs';
 
 const AMOUNT_MSAT = 21000;
-const NO_STORE = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' };
+const NO_STORE = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' };
 const json = (status, data) => Response.json(data, { status, headers: NO_STORE });
 const validUsername = value => typeof value === 'string' && /^[a-zA-Z0-9_-]{1,64}$/.test(value);
 
@@ -107,23 +108,56 @@ async function limitedJson(url) {
   return data;
 }
 
+// Public, cache-disabled recipient key: the browser never hardcodes an independent key.
+export function onRequestGet({env}) {
+  if (env.CONTACT_V2_INVOICE_ENABLED !== 'true') return json(404, {ok:false,error:'Endpoint disabled'});
+  if (!validRecipient(env.CONTACT_V2_RECIPIENT_PUBLIC_KEY)) return json(503, {ok:false,error:'Recipient key not configured'});
+  return json(200, {ok:true,version:1,recipient_public_key:env.CONTACT_V2_RECIPIENT_PUBLIC_KEY});
+}
+
+async function readCommitment(request) {
+  if (request.headers.get('content-type')?.split(';')[0].trim().toLowerCase() !== 'application/json') throw Error('JSON required');
+  const length = request.headers.get('content-length');
+  if (length !== null && (!/^\d+$/.test(length) || Number(length) > 256)) throw Error('Request too large');
+  if (!request.body) throw Error('Request body required');
+  const reader = request.body.getReader();
+  const chunks = []; let total = 0;
+  try {
+    while (true) {
+      const {done,value} = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > 256) {await reader.cancel().catch(() => {}); throw Error('Request too large');}
+      chunks.push(value);
+    }
+  } finally {reader.releaseLock();}
+  const bytes = new Uint8Array(total); let offset = 0;
+  for (const part of chunks) { bytes.set(part,offset); offset += part.byteLength; }
+  const body = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));
+  if (!body || typeof body !== 'object' || Array.isArray(body) ||
+      Object.keys(body).join(',') !== 'envelope_hash' ||
+      typeof body.envelope_hash !== 'string' || !/^[0-9a-f]{64}$/.test(body.envelope_hash)) throw Error('Invalid envelope hash');
+  return body.envelope_hash;
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   // Development safeguard: this first endpoint is only enabled deliberately.
   if (env.CONTACT_V2_INVOICE_ENABLED !== 'true') {
     return json(404, { ok: false, error: 'Endpoint disabled' });
   }
-  if (!env.CONTACT_DB || !validUsername(env.LEXE_USERNAME)) {
+  if (!env.CONTACT_DB || !validUsername(env.LEXE_USERNAME) ||
+      !validRecipient(env.CONTACT_V2_RECIPIENT_PUBLIC_KEY)) {
     return json(503, { ok: false, error: 'Payment service not configured' });
   }
   const origin = request.headers.get('origin');
   if (origin && origin !== new URL(request.url).origin) {
     return json(403, { ok: false, error: 'Cross-origin request rejected' });
   }
-  if (Number(request.headers.get('content-length') || 0) > 1024) {
-    return json(413, { ok: false, error: 'Request too large' });
-  }
-    const now = Math.floor(Date.now() / 1000);
+  let envelopeHash;
+  try { envelopeHash = await readCommitment(request); }
+  catch { return json(400, {ok:false,error:'Invalid encrypted-message commitment'}); }
+  const now = Math.floor(Date.now() / 1000);
   try {
     const allowed = await checkInvoiceRateLimit(request, env, now);
 
@@ -175,13 +209,13 @@ export async function onRequestPost(context) {
     const attemptId = crypto.randomUUID();
     await env.CONTACT_DB.prepare(`
       INSERT INTO contact_v2_attempts
-        (id, state, invoice, payment_hash, verify_url, amount_msat, created_at, invoice_expires_at)
-      VALUES (?, 'invoiced', ?, ?, ?, ?, ?, ?)
+        (id, state, invoice, payment_hash, verify_url, amount_msat, created_at, invoice_expires_at, envelope_hash)
+      VALUES (?, 'invoiced', ?, ?, ?, ?, ?, ?, ?)
     `).bind(attemptId, invoice, parsed.payment_hash,
-      verify.toString(), AMOUNT_MSAT, now, parsed.invoice_expires_at).run();
+      verify.toString(), AMOUNT_MSAT, now, parsed.invoice_expires_at, envelopeHash).run();
     return json(201, { ok: true, attempt_id: attemptId,
       invoice, amount_msat: AMOUNT_MSAT,
-      invoice_expires_at: parsed.invoice_expires_at });
+      invoice_expires_at: parsed.invoice_expires_at, envelope_hash: envelopeHash });
   } catch (error) {
     // Don't return Lexe internals or database exception messages to clients.
     console.error('Contact v2 invoice failed:', error?.message);

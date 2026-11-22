@@ -14,7 +14,7 @@ function fakeDb(overrides = {}) {
     id: ID, state: 'invoiced', invoice: INVOICE, payment_hash: HASH,
     verify_url: URL, amount_msat: 21000,
     invoice_expires_at: Math.floor(Date.now() / 1000) + 900,
-    paid_at: null, ...overrides
+    paid_at: null, next_verify_at:0, ...overrides
   };
   let updates = 0;
   return {
@@ -26,6 +26,13 @@ function fakeDb(overrides = {}) {
           assert.equal(id, ID);
           return { async first() { return row; } };
         } };
+      }
+      if (/UPDATE contact_v2_attempts SET next_verify_at/.test(sql)) {
+        return {bind(next,id,now){return {async first(){
+          assert.equal(id,ID);
+          if(row.state!=='invoiced'||row.next_verify_at>now)return null;
+          row.next_verify_at=next;return {id};
+        }};}};
       }
       if (/UPDATE contact_v2_attempts SET state = 'paid'/i.test(sql)) {
         return { bind(paid_at, id, amount, inv, hash) {
@@ -172,5 +179,24 @@ test('missing attempt returns 404 without contacting Lexe', async () => {
       CONTACT_DB:{prepare(){return {bind(){return {async first(){return null;}};}};}}
     }});
     assert.equal(response.status, 404);
+  });
+});
+
+test('repeated unpaid verification is throttled before a second Lexe call',async()=>{
+ const db=fakeDb();let calls=0;
+ await withFetch(()=>{calls++;return Response.json({status:'OK',settled:false,pr:INVOICE});},async()=>{
+   assert.equal((await onRequestPost({request:req(),env:env(db)})).status,200);
+   const second=await onRequestPost({request:req(),env:env(db)});
+   assert.equal(second.status,429);
+   assert.equal(second.headers.get('retry-after'),'30');
+   assert.equal(calls,1);
+ });
+});
+
+test('very old unverified invoice cannot cause any more Lexe calls',async()=>{
+  const db=fakeDb({invoice_expires_at:Math.floor(Date.now()/1000)-5*86400});let calls=0;
+  await withFetch(()=>{calls++;throw Error('Lexe must not be contacted');},async()=>{
+    const r=await onRequestPost({request:req(),env:env(db)});
+    assert.equal(r.status,410);assert.equal(calls,0);
   });
 });

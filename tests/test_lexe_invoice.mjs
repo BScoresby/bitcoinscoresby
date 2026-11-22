@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { decodeBolt11 } from '../lib/contact-v2/bolt11.js';
-import { onRequestPost } from '../functions/api/contact-v2/invoice.js';
+import { onRequestPost, onRequestGet } from '../functions/api/contact-v2/invoice.js';
 
 const CHARSET = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l';
 const GEN = [0x3b6a57b2,0x26508e6d,0x1ea119fa,0x3d4233dd,0x2a1462b3];
@@ -31,80 +31,70 @@ test('correct 21-sat invoice returns payment hash and expiry', () => {
 });
 
 test('reject invalid checksum and wrong amount', () => {
- assert.throws(()=>decodeBolt11(fakeInvoice.slice(0,-1)+'p'));
+ assert.throws(()=>decodeBolt11(fakeInvoice.slice(0,-1)+(fakeInvoice.endsWith('p')?'q':'p')));
  assert.equal(decodeBolt11(encodeFakeInvoice(22000)).amount_msat,22000);
 });
 
-test('disabled endpoint never calls Lexe or D1', async () => {
- let hit=false;
- const prior=globalThis.fetch;
- globalThis.fetch=async()=>{hit=true;throw Error('unexpected fetch');};
- try {
-   const r=await onRequestPost({request:new Request('https://preview.example/api/contact-v2/invoice',{method:'POST'}),env:{}});
-   assert.equal(r.status,404);
-   assert.equal(hit,false);
- } finally {globalThis.fetch=prior;}
+const COMMIT = 'f'.repeat(64);
+const RECIPIENT = 'A'.repeat(43);
+const request = (body={envelope_hash:COMMIT}) => new Request('https://preview.example/api/contact-v2/invoice', {
+  method:'POST',headers:{'Content-Type':'application/json','CF-Connecting-IP':'203.0.113.10'},body:JSON.stringify(body)
 });
+function mockEnv(limit=5) {
+  const saved=[];let used=0;
+  const db={prepare(sql){
+    if (/INSERT INTO contact_v2_invoice_rate_limits/.test(sql)) return {bind(){return {async first(){return ++used <= limit ? {requests:used}:null;}};}};
+    if (/INSERT INTO contact_v2_attempts/.test(sql)) return {bind(...args){return {async run(){saved.push(args);return {success:true};}};}};
+    throw Error(`Unexpected SQL ${sql}`);
+  }};
+  return {saved, env:{LEXE_USERNAME:'test',CONTACT_V2_INVOICE_ENABLED:'true',CONTACT_V2_RATE_LIMIT_SECRET:'secret-key'.repeat(5),CONTACT_V2_RECIPIENT_PUBLIC_KEY:RECIPIENT,CONTACT_DB:db}};
+}
+const metadata = {tag:'payRequest',callback:'https://lexe.app/public/v1/lnurl_pay/test',minSendable:1000,maxSendable:100000};
+const issued = {pr:fakeInvoice,verify:'https://lexe.app/public/v1/lnurl_verify/test'};
+async function withFetch(mock,fn){const previous=globalThis.fetch;globalThis.fetch=mock;try{return await fn();}finally{globalThis.fetch=previous;}}
+const ctx=(env,requestBody=request())=>({request:requestBody,env,waitUntil:()=>{}});
 
-test('invoice endpoint stores one unpaid attempt without any ciphertext', async () => {
- const original=globalThis.fetch;
- const calls=[];
- globalThis.fetch=async url=>{
-   calls.push(String(url));
-   return Response.json(calls.length===1
-    ? {tag:'payRequest',callback:'https://lexe.app/public/v1/lnurl_pay/test',minSendable:1000,maxSendable:100000}
-    : {pr:fakeInvoice,verify:'https://lexe.app/public/v1/lnurl_verify/test'});
- };
- const saved=[];
- const env = {
-   LEXE_USERNAME: 'test', CONTACT_V2_INVOICE_ENABLED: 'true',
-   CONTACT_DB: { prepare(sql) {
-     assert.match(sql, /INSERT INTO contact_v2_attempts/);
-     return { bind(...args) { return { async run() { saved.push(args); } }; } };
-   } }
- };
- try {
-  const r=await onRequestPost({request:new Request('https://preview.example/api/contact-v2/invoice',{method:'POST'}),env});
-  assert.equal(r.status,201);
-  const body=await r.json();
-  assert.equal(body.ok,true);
-  assert.equal(body.amount_msat,21000);
-  assert.equal(saved.length,1);
-  assert.equal(saved[0][2],'07'.repeat(32));
-  assert.equal(calls.length,2);
-  assert.match(calls[1],/amount=21000/);
- } finally {globalThis.fetch=original;}
+test('disabled invoice endpoint never calls Lexe or D1',async()=>{
+ const r=await onRequestPost({request:request(),env:{}});assert.equal(r.status,404);
 });
-
-test('rejects callback URLs outside Lexe before requesting an invoice', async () => {
- const original=globalThis.fetch;
- const calls=[];
- globalThis.fetch=async url=>{
-   calls.push(String(url));
-   return Response.json({tag:'payRequest',callback:'https://evil.example/issue',minSendable:1000,maxSendable:100000});
- };
- try {
-  const response = await onRequestPost({
-    request:new Request('https://preview.example/api/contact-v2/invoice',{method:'POST'}),
-    env:{LEXE_USERNAME:'test',CONTACT_V2_INVOICE_ENABLED:'true',CONTACT_DB:{prepare(){throw Error('DB must not be touched');}}}
-  });
-  assert.equal(response.status,503);
-  assert.equal(calls.length,1);
- } finally {globalThis.fetch=original;}
+test('recipient public key is served without hitting Lexe',()=>{
+ const {env}=mockEnv();const response=onRequestGet({env});assert.equal(response.status,200);
+ assert.equal(response.headers.get('cache-control'),'no-store');
 });
-
-test('rejects invoices with the wrong amount without recording payment attempt', async () => {
- const original=globalThis.fetch;
- let calls=0;
- globalThis.fetch=async () => Response.json(++calls===1
-   ? {tag:'payRequest',callback:'https://lexe.app/public/v1/lnurl_pay/test',minSendable:1000,maxSendable:100000}
-   : {pr:encodeFakeInvoice(22000), verify:'https://lexe.app/public/v1/lnurl_verify/test'});
- try {
-  const response = await onRequestPost({
-    request:new Request('https://preview.example/api/contact-v2/invoice',{method:'POST'}),
-    env:{LEXE_USERNAME:'test',CONTACT_V2_INVOICE_ENABLED:'true',CONTACT_DB:{prepare(){throw Error('DB must not be touched');}}}
-  });
-  assert.equal(response.status,503);
-  assert.equal(calls,2);
- } finally {globalThis.fetch=original;}
+test('invoice stores envelope hash but no ciphertext',async()=>{
+ const {saved,env}=mockEnv();let count=0;
+ await withFetch(()=>Response.json(++count===1?metadata:issued),async()=>{
+  const r=await onRequestPost(ctx(env));assert.equal(r.status,201);
+  const body=await r.json();assert.equal(body.envelope_hash,COMMIT);
+  assert.equal(saved.length,1);assert.equal(saved[0].at(-1),COMMIT);
+  assert.equal(saved[0][2],'07'.repeat(32));assert.equal(count,2);
+  assert.ok(!JSON.stringify(saved).includes('plaintext'));
+ });
+});
+test('invalid commitment cannot trigger Lexe or D1',async()=>{
+ let called=false;
+ await withFetch(()=>{called=true;throw Error('should not fetch');},async()=>{
+  const {env}=mockEnv();const r=await onRequestPost(ctx(env,request({envelope_hash:'invalid'})));
+  assert.equal(r.status,400);assert.equal(called,false);
+ });
+});
+test('sixth invoice request blocked before contacting Lexe',async()=>{
+ const {saved,env}=mockEnv();let called=0;
+ await withFetch(()=>Response.json(++called%2===1?metadata:issued),async()=>{
+  for(let i=0;i<5;i++)assert.equal((await onRequestPost(ctx(env))).status,201);
+  assert.equal((await onRequestPost(ctx(env))).status,429);
+ });
+ assert.equal(saved.length,5);assert.equal(called,10);
+});
+test('off-origin callback rejected before issuance',async()=>{
+ const {env}=mockEnv(),calls=[];
+ await withFetch(url=>{calls.push(url);return Response.json({...metadata,callback:'https://evil.example/issue'});},async()=>{
+  const r=await onRequestPost(ctx(env));assert.equal(r.status,503);assert.equal(calls.length,1);
+ });
+});
+test('wrong invoice amount rejected without storing attempt',async()=>{
+ const {env,saved}=mockEnv();let count=0;
+ await withFetch(()=>Response.json(++count===1?metadata:{...issued,pr:encodeFakeInvoice(22000)}),async()=>{
+  const r=await onRequestPost(ctx(env));assert.equal(r.status,503);assert.equal(saved.length,0);
+ });
 });

@@ -2,7 +2,7 @@ Scalable Markdown for Agents routing update
 
 1. Do this on your existing feature branch, not directly on main.
 2. Review _routes.json in this archive, especially any existing rules you've added
-   beyond /api/contact/*. The archive contains the known project rules; don't
+   beyond /api/contact-v2/*. The archive contains the known project rules; don't
    overwrite any unrelated custom routing rules without merging them.
 3. From your repo root:
    unzip -o ~/Downloads/agent-markdown-scalable.zip -d .

@@ -1,8 +1,8 @@
-import { giftWrap } from '/contact/nostr-crypto.js';
+import { encryptEnvelope, hashEnvelope, validRecipient } from './envelope.mjs';
 import { invoiceQR } from '/contact/qrcode.js';
 import {
-  RECIPIENT_HEX, STORAGE_KEY, composeMessage, createSession,
-  loadSession, saveSession, validEvent
+  STORAGE_KEY, composeMessage, createSession,
+  loadSession, saveSession
 } from './flow.mjs';
 
 const API = '/api/contact-v2';
@@ -27,7 +27,6 @@ let session = null;
 let busy = false;
 let timer = null;
 let stopped = false;
-let currentError = null;
 
 function status(text, isError = false) {
   statusEl.textContent = text;
@@ -65,9 +64,19 @@ async function post(path, body, timeoutMs = 16000) {
     const explanation = typeof data?.error === 'string' ? data.error : `HTTP ${response.status}`;
     const err = Error(explanation);
     err.status = response.status;
+    err.retryAfter = Number(data?.retry_after || response.headers.get('Retry-After')) || 30;
     throw err;
   }
   return data;
+}
+async function loadRecipientKey() {
+  const response = await fetch(`${API}/invoice`, {cache:'no-store',credentials:'same-origin'});
+  if (!response.ok) throw Error('Recipient encryption key unavailable. No invoice was requested.');
+  const config = await response.json();
+  if (config?.ok !== true || config.version !== 1 || !validRecipient(config.recipient_public_key)) {
+    throw Error('Invalid recipient encryption key. No invoice was requested.');
+  }
+  return config.recipient_public_key;
 }
 function ensureStorage() {
   const testKey = `${STORAGE_KEY}.probe`;
@@ -123,11 +132,12 @@ async function requestPostage(event) {
     status('Encrypting your message locally…');
     // Creating ciphertext BEFORE requesting an invoice makes reload recovery
     // possible without storing plaintext. Nothing is uploaded here.
-    const encryptedEvent = await giftWrap(plaintext, RECIPIENT_HEX);
-    if (!validEvent(encryptedEvent)) throw Error('Encryption output failed validation. No invoice was requested.');
+    const recipientKey = await loadRecipientKey();
+    const envelope = await encryptEnvelope(plaintext, recipientKey);
+    const envelopeHash = await hashEnvelope(envelope);
     status('Requesting a 21-sat invoice from Lexe…');
-    const invoice = await post('invoice', {}, 25000);
-    const record = createSession(invoice, encryptedEvent);
+    const invoice = await post('invoice', {envelope_hash:envelopeHash}, 25000);
+    const record = createSession(invoice, envelope, envelopeHash);
     saveSession(localStorage, record);
     session = record;
     // Clear plaintext input once the encrypted recovery record is durable.
@@ -135,7 +145,7 @@ async function requestPostage(event) {
     replyField.value = '';
     renderPayment();
     status('Invoice ready. Pay 21 sats. We will check for settlement automatically.');
-    schedule(3000);
+    schedule(4000);
   } catch (error) {
     // If the invoice was issued but recovery failed, don't display it.
     status(`Could not prepare postage: ${error.message}. No payment is required.`, true);
@@ -147,10 +157,10 @@ async function submitEncrypted() {
   status('Payment verified. Submitting the encrypted message…');
   // Exact same event and attempt ID across *all* retries.
   const attemptId = session.attempt_id;
-  const savedEvent = session.event;
+  const savedEnvelope = session.envelope;
   try {
-    const result = await post('accept', { attempt_id: attemptId, event: savedEvent }, 18000);
-    if (result.state !== 'accepted' || result.event_id !== savedEvent.id) {
+    const result = await post('accept', { attempt_id: attemptId, envelope: savedEnvelope }, 18000);
+    if (result.state !== 'accepted' || result.message_id !== session.envelope_hash) {
       throw Error('Server returned a mismatched acceptance record.');
     }
     accepted();
@@ -190,14 +200,22 @@ async function checkPayment() {
       } else {
         abandonButton.hidden = true;
         status('Awaiting the 21-sat payment. This page checks automatically while visible.');
-        schedule(6000);
+        schedule(32000);
       }
     } else {
       throw Error('Unexpected payment state. Keep the payment attempt and do not pay twice.');
     }
   } catch (error) {
-    status(`Status check unavailable: ${error.message}. Your encrypted attempt is saved; do not pay again.`, true);
-    schedule(15000);
+    if (error.status === 410) {
+      stopped = true;
+      status('This invoice is too old to verify automatically. If you believe you paid it, preserve your saved record and contact the site operator. Do not pay it again.', true);
+    } else if (error.status === 429) {
+      status('Waiting for the next permitted payment check…');
+      schedule(Math.max(1000, error.retryAfter * 1000 + 1000));
+    } else {
+      status(`Status check unavailable: ${error.message}. Your encrypted attempt is saved; do not pay again.`, true);
+      schedule(30000);
+    }
   } finally { setBusy(false); }
 }
 
@@ -245,9 +263,16 @@ window.addEventListener('storage', event => {
 try {
   session = loadSession(localStorage);
   if (session) {
-    renderPayment();
-    status('Recovered your encrypted draft and original invoice. Checking payment status…');
-    schedule(200);
+    // Recheck the local ciphertext/commitment before attempting to redeem payment.
+    void hashEnvelope(session.envelope).then(actual => {
+      if (actual !== session.envelope_hash) throw Error('Saved encrypted message differs from its invoice commitment.');
+      renderPayment();
+      status('Recovered your encrypted draft and original invoice. Checking payment status…');
+      schedule(300);
+    }).catch(error => {
+      stopped = true; requestButton.disabled = true;
+      status(`${error.message} Preserve browser storage and investigate before making another payment.`,true);
+    });
   } else {
     renderDraft();
   }

@@ -5,6 +5,8 @@
 const AMOUNT_MSAT = 21000;
 const MAX_REQUEST_BYTES = 1024;
 const MAX_RESPONSE_BYTES = 8192;
+const VERIFY_COOLDOWN_SECONDS = 30;
+const MAX_UNVERIFIED_RECOVERY_SECONDS = 4 * 86400;
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const HEX32_PATTERN = /^[a-fA-F0-9]{64}$/;
 const NO_STORE = {
@@ -104,7 +106,7 @@ async function preimageMatchesHash(preimage, paymentHash) {
 async function loadAttempt(db, id) {
   return db.prepare(`
     SELECT id, state, invoice, payment_hash, verify_url,
-           amount_msat, invoice_expires_at, paid_at
+           amount_msat, invoice_expires_at, paid_at, next_verify_at
     FROM contact_v2_attempts WHERE id = ?
   `).bind(id).first();
 }
@@ -132,11 +134,33 @@ export async function onRequestPost({ request, env }) {
     if (attempt.state === 'paid' || attempt.state === 'accepted') {
       return json(200, { ok: true, settled: true, state: attempt.state });
     }
+    // One invoice ID must not be able to trigger Lexe traffic forever.
+    // Old 'paid' and 'accepted' attempts above are still idempotently readable.
+    if (Math.floor(Date.now()/1000) > attempt.invoice_expires_at + MAX_UNVERIFIED_RECOVERY_SECONDS) {
+      return json(410, {ok:false,error:'Unverified invoice recovery window has ended'});
+    }
     if (attempt.state !== 'invoiced' || attempt.paid_at !== null ||
         attempt.amount_msat !== AMOUNT_MSAT ||
         typeof attempt.invoice !== 'string' || attempt.invoice.length > 8192 ||
         !HEX32_PATTERN.test(attempt.payment_hash)) {
       throw Error('Inconsistent attempt record');
+    }
+    // Atomic per-attempt lease. Multiple browsers/IPs cannot cause multiple
+    // simultaneous or rapid external Lexe calls for the same unpaid invoice.
+    const now = Math.floor(Date.now() / 1000);
+    const lease = await env.CONTACT_DB.prepare(`
+      UPDATE contact_v2_attempts SET next_verify_at = ?
+      WHERE id = ? AND state = 'invoiced' AND next_verify_at <= ?
+      RETURNING id
+    `).bind(now + VERIFY_COOLDOWN_SECONDS, id, now).first();
+    if (!lease) {
+      const latest = await loadAttempt(env.CONTACT_DB, id);
+      if (latest?.state === 'paid' || latest?.state === 'accepted') {
+        return json(200, { ok: true, settled: true, state: latest.state });
+      }
+      const remaining = Math.max(1, Math.min(VERIFY_COOLDOWN_SECONDS, (latest?.next_verify_at || now + VERIFY_COOLDOWN_SECONDS) - now));
+      return Response.json({ok:false,error:'Payment verification cooling down',retry_after:remaining},
+        {status:429,headers:{...NO_STORE,'Retry-After':String(remaining)}});
     }
     const verifyUrl = validateVerifyUrl(attempt.verify_url);
     const result = await fetchLexeVerification(verifyUrl);
@@ -152,12 +176,12 @@ export async function onRequestPost({ request, env }) {
       throw Error('Lexe preimage does not match invoice payment hash');
     }
 
-    const now = Math.floor(Date.now() / 1000);
+    const settledAt = Math.floor(Date.now() / 1000);
     const write = await env.CONTACT_DB.prepare(`
       UPDATE contact_v2_attempts SET state = 'paid', paid_at = ?
       WHERE id = ? AND state = 'invoiced' AND paid_at IS NULL
         AND amount_msat = ? AND invoice = ? AND payment_hash = ?
-    `).bind(now, id, AMOUNT_MSAT, attempt.invoice, attempt.payment_hash).run();
+    `).bind(settledAt, id, AMOUNT_MSAT, attempt.invoice, attempt.payment_hash).run();
     if (write?.meta?.changes === 1) {
       return json(200, { ok: true, settled: true, state: 'paid' });
     }

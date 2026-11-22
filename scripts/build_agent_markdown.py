@@ -98,8 +98,8 @@ def main() -> None:
     excludes = routes.get("exclude", [])
     if len(includes) + len(excludes) > 100:
         raise SystemExit("Error: _routes.json exceeds Cloudflare's 100-rule limit")
-    if "/api/contact/*" not in includes:
-        raise SystemExit("Error: /api/contact/* must remain in _routes.json include")
+    if "/api/contact-v2/*" not in includes:
+        raise SystemExit("Error: /api/contact-v2/* must remain in _routes.json include")
     if any(route == "/*" or route.startswith("/posters") for route in includes):
         raise SystemExit("Error: a routing include rule may capture the excluded poster pages")
 
