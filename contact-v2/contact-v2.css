@@ -7,7 +7,7 @@
 #payment-area #invoice-details {width:100%;margin:0;}
 #payment-area #invoice-details > summary {text-align:center;}
 #payment-area #invoice {box-sizing:border-box;width:100%;border:1px solid #444;background:#000;color:#f5f5f5;padding:12px;word-break:break-all;font:13px/1.6 'Space Mono',monospace;resize:vertical;}
-/* Solid, square mechanical keys: larger hit targets with a small pressed state. */
+/* Large, solid buttons with a simple hover treatment. */
 .payment-actions {display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:26px;margin:18px 0;}
 #payment-area button, #create-invoice {
   box-sizing:border-box;
@@ -18,18 +18,17 @@
   border-radius:0;
   color:#000;
   background:#eee;
-  box-shadow:3px 3px 0 #555;
   cursor:pointer;
-  transition:transform .08s ease,box-shadow .08s ease,background-color .08s ease;
 }
-#payment-area button:hover, #create-invoice:hover {background:#fff;border-color:#fff;}
-#payment-area button:active:not(:disabled), #create-invoice:active:not(:disabled) {
-  transform:translate(2px,2px);
-  box-shadow:1px 1px 0 #555;
+/* Explicit text color overrides the old #copy-invoice:hover rule in contact.css. */
+#payment-area #copy-invoice:hover, #create-invoice:hover {
+  color:#000;
+  background:#d6d6d6;
+  border-color:#d6d6d6;
 }
 #payment-area button:focus-visible, #create-invoice:focus-visible {outline:2px solid #fff;outline-offset:4px;}
 /* Cancel stays secondary; the primary Copy and Request buttons are filled. */
-#payment-area #abandon-attempt {color:#eee;background:#000;border-color:#aaa;box-shadow:3px 3px 0 #444;}
+#payment-area #abandon-attempt {color:#eee;background:#000;border-color:#aaa;}
 #payment-area #abandon-attempt:hover {color:#fff;background:#171717;border-color:#fff;}
 /* Preserve the deliberately unfilled red empty-envelope warning. */
 #create-invoice.empty-envelope, #create-invoice.empty-envelope:hover {
@@ -39,9 +38,6 @@
 @media(max-width:520px) {
   #contact-form .contact-actions {width:100%;justify-content:center;}
   #create-invoice {width:min(100%,360px);}
-}
-@media(prefers-reduced-motion:reduce) {
-  #payment-area button, #create-invoice {transition:none;}
 }
 #status {min-height:0;margin:16px 0 0;white-space:pre-line;overflow-wrap:anywhere;line-height:1.6;}
 #status:empty {display:none;}

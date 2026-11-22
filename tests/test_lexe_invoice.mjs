@@ -40,7 +40,7 @@ const RECIPIENT = 'A'.repeat(43);
 const request = (body={envelope_hash:COMMIT}) => new Request('https://preview.example/api/contact-v2/invoice', {
   method:'POST',headers:{'Content-Type':'application/json','CF-Connecting-IP':'203.0.113.10'},body:JSON.stringify(body)
 });
-function mockEnv(limit=5) {
+function mockEnv(limit=8) {
   const saved=[];let used=0;
   const db={prepare(sql){
     if (/INSERT INTO contact_v2_invoice_rate_limits/.test(sql)) return {bind(){return {async first(){return ++used <= limit ? {requests:used}:null;}};}};
@@ -78,13 +78,13 @@ test('invalid commitment cannot trigger Lexe or D1',async()=>{
   assert.equal(r.status,400);assert.equal(called,false);
  });
 });
-test('sixth invoice request blocked before contacting Lexe',async()=>{
+test('ninth invoice request blocked before contacting Lexe',async()=>{
  const {saved,env}=mockEnv();let called=0;
  await withFetch(()=>Response.json(++called%2===1?metadata:issued),async()=>{
-  for(let i=0;i<5;i++)assert.equal((await onRequestPost(ctx(env))).status,201);
+  for(let i=0;i<8;i++)assert.equal((await onRequestPost(ctx(env))).status,201);
   assert.equal((await onRequestPost(ctx(env))).status,429);
  });
- assert.equal(saved.length,5);assert.equal(called,10);
+ assert.equal(saved.length,8);assert.equal(called,16);
 });
 test('off-origin callback rejected before issuance',async()=>{
  const {env}=mockEnv(),calls=[];

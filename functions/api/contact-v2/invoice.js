@@ -6,8 +6,8 @@ const NO_STORE = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer'
 const json = (status, data) => Response.json(data, { status, headers: NO_STORE });
 const validUsername = value => typeof value === 'string' && /^[a-zA-Z0-9_-]{1,64}$/.test(value);
 
-const INVOICE_RATE_LIMIT = 5;
-const INVOICE_WINDOW_SECONDS = 3600;
+const INVOICE_RATE_LIMIT = 8;
+const INVOICE_WINDOW_SECONDS = 1800;
 
 async function checkInvoiceRateLimit(request, env, now) {
   const ip = request.headers.get('cf-connecting-ip');
@@ -164,7 +164,7 @@ export async function onRequestPost(context) {
     if (!allowed) {
       return json(429, {
         ok: false,
-        error: 'Too many invoice requests. Try again later.'
+        error: 'Postage limit reached. Try again in up to 30 minutes.'
       });
     }
     // Opportunistically remove stale rate-limit counters.

@@ -168,7 +168,8 @@ async function requestPostage(event) {
     schedule(4000);
   } catch (error) {
     // If the invoice was issued but recovery failed, don't display it.
-    status(`Could not prepare postage: ${error.message}. No payment is required.`, true);
+    if (error.status === 429) status(error.message, true);
+    else status(`Could not prepare postage: ${error.message}. No payment is required.`, true);
   } finally { setBusy(false); }
 }
 
