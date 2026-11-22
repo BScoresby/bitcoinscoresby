@@ -176,6 +176,57 @@
   padding: 0.5rem;
 }
 
+/* Minimal always-available navigation for long outlines. No JavaScript. */
+.tether-page .outline-quick-nav {
+  position: fixed;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tether-page .outline-quick-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+}
+
+.tether-page .outline-quick-nav img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.tether-page .outline-quick-nav a:hover img {
+  opacity: 0.8;
+}
+
+.tether-page .outline-quick-nav a:focus-visible {
+  outline: 2px solid #aaa;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+.tether-page #contents {
+  scroll-margin-top: 1rem;
+}
+
+.tether-page .outline-emoji-credit {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  color: #888;
+}
+
 /* Footer */
 .tether-page footer {
   border-top: 0px solid #555;
@@ -184,6 +235,10 @@
 
 /* Mobile */
 @media (max-width: 600px) {
+  .tether-page .outline-quick-nav {
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
   .tether-page {
     font-size: 15px;
   }

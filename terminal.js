@@ -32,6 +32,7 @@ const destinations = {
   '/cyberpunk': [
     // General phrases
     'cyberpunk',
+    'cyberpunks',
     'cyberpunk books',
     'cyberpunk book reviews',
     'book reviews',
@@ -148,6 +149,11 @@ function findDestination(command) {
 
 const form = document.getElementById('command-form');
 const commandInput = document.getElementById('command');
+
+// Focus the command field on desktop, but don't summon a mobile keyboard.
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  commandInput.focus({ preventScroll: true });
+}
 
 // Escalating responses for consecutive unknown commands.
 let failedCommands = 0;
