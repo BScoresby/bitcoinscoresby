@@ -25,3 +25,11 @@ Thumbs.db
 
 
 .wrangler/
+
+# Never commit local secrets or private inbox keys
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.private-key.json
+contact-v2-x25519-key.json

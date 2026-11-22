@@ -1,0 +1,46 @@
+/* Contact v2: compact postage view, using the site's Space Mono styling. */
+.page > .intro { color:#aaa; line-height:1.7; max-width:42rem; margin-bottom:clamp(32px,6vw,52px); }
+#payment-area[hidden], #contact-form[hidden], #contact-success[hidden], #abandon-attempt[hidden] {display:none;}
+#payment-area { width:100%; max-width:42rem; margin-top:25px; }
+#payment-area #invoice-qr {margin:18px auto 24px;}
+#payment-area #invoice-qr svg {max-width:min(300px,100%);border-radius:14px;overflow:hidden;}
+#payment-area #invoice-details {width:100%;margin:0;}
+#payment-area #invoice-details > summary {text-align:center;}
+#payment-area #invoice {box-sizing:border-box;width:100%;border:1px solid #444;background:#000;color:#f5f5f5;padding:12px;word-break:break-all;font:13px/1.6 'Space Mono',monospace;resize:vertical;}
+/* Large, solid buttons with a simple hover treatment. */
+.payment-actions {display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:26px;margin:18px 0;}
+#payment-area button, #create-invoice {
+  box-sizing:border-box;
+  min-height:50px;
+  font:700 15px/1.5 'Space Mono',monospace;
+  padding:12px 22px;
+  border:2px solid #eee;
+  border-radius:0;
+  color:#000;
+  background:#eee;
+  cursor:pointer;
+}
+/* Explicit text color overrides the old #copy-invoice:hover rule in contact.css. */
+#payment-area #copy-invoice:hover, #create-invoice:hover {
+  color:#000;
+  background:#d6d6d6;
+  border-color:#d6d6d6;
+}
+#payment-area button:focus-visible, #create-invoice:focus-visible {outline:2px solid #fff;outline-offset:4px;}
+/* Cancel stays secondary; the primary Copy and Request buttons are filled. */
+#payment-area #abandon-attempt {color:#eee;background:#000;border-color:#aaa;}
+#payment-area #abandon-attempt:hover {color:#fff;background:#171717;border-color:#fff;}
+/* Preserve the deliberately unfilled red empty-envelope warning. */
+#create-invoice.empty-envelope, #create-invoice.empty-envelope:hover {
+  color:#ff8a8a;background:#000;border-color:#ff8a8a;
+}
+#payment-area button:disabled, #create-invoice:disabled {opacity:.45;cursor:wait;}
+@media(max-width:520px) {
+  #contact-form .contact-actions {width:100%;justify-content:center;}
+  #create-invoice {width:min(100%,360px);}
+}
+#status {min-height:0;margin:16px 0 0;white-space:pre-line;overflow-wrap:anywhere;line-height:1.6;}
+#status:empty {display:none;}
+#status.error {color:#ffb0b0;}
+#contact-success {margin-top:32px;}
+#contact-success p {color:#aaa;}

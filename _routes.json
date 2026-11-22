@@ -1,7 +1,7 @@
 {
   "version": 1,
   "include": [
-    "/api/contact/*",
+    "/api/contact-v2/*",
     "/archive",
     "/archive/",
     "/cryptoeconomics",
@@ -24,6 +24,8 @@
   "exclude": [
     "/contact",
     "/contact/*",
+    "/contact-v2",
+    "/contact-v2/*",
     "/posters",
     "/posters/*"
   ]
