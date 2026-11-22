@@ -14,9 +14,9 @@ const replyShell = $('#terminal-reply-input');
 const requestButton = $('#create-invoice');
 const paymentArea = $('#payment-area');
 const invoiceField = $('#invoice');
+const invoiceDetails = $('#invoice-details');
 const qrArea = $('#invoice-qr');
 const copyButton = $('#copy-invoice');
-const checkButton = $('#check-payment');
 const abandonButton = $('#abandon-attempt');
 const statusEl = $('#status');
 const successArea = $('#contact-success');
@@ -34,7 +34,6 @@ function status(text, isError = false) {
 function setBusy(value) {
   busy = value;
   requestButton.disabled = value;
-  checkButton.disabled = value;
   abandonButton.disabled = value;
 }
 function stopTimer() {
@@ -103,6 +102,8 @@ function renderPayment() {
   paymentArea.hidden = false;
   successArea.hidden = true;
   invoiceField.value = session.invoice;
+  copyButton.textContent = 'Copy';
+  invoiceDetails.open = false;
   qrArea.replaceChildren();
   // The QR module is only needed once an invoice exists. Guard its asynchronous
   // result so an abandoned invoice cannot redraw itself on the compose screen.
@@ -111,7 +112,7 @@ function renderPayment() {
     if (!session || session.attempt_id !== attemptId || paymentArea.hidden) return;
     qrArea.replaceChildren(invoiceQR(session.invoice));
   }).catch(() => {
-    if (session?.attempt_id === attemptId) status('Invoice QR unavailable; use Copy invoice.', true);
+    if (session?.attempt_id === attemptId) status('QR unavailable. Use Copy.', true);
   });
   // Allow an explicitly unpaid attempt to be discarded at any time, including
   // during verification cooldown. Never discard a confirmed paid attempt.
@@ -135,13 +136,12 @@ async function requestPostage(event) {
   try {
     ensureStorage();
     const plaintext = composeMessage(messageField.value, replyField.value);
-    status('Encrypting your message locally…');
+    status('');
     // Creating ciphertext BEFORE requesting an invoice makes reload recovery
     // possible without storing plaintext. Nothing is uploaded here.
     const recipientKey = await loadRecipientKey();
     const envelope = await encryptEnvelope(plaintext, recipientKey);
     const envelopeHash = await hashEnvelope(envelope);
-    status('Requesting a 21-sat invoice from Lexe…');
     const invoice = await post('invoice', {envelope_hash:envelopeHash}, 25000);
     const record = createSession(invoice, envelope, envelopeHash);
     saveSession(localStorage, record);
@@ -150,7 +150,7 @@ async function requestPostage(event) {
     messageField.value = '';
     replyField.value = '';
     renderPayment();
-    status('Invoice ready. Pay 21 sats. We will check for settlement automatically.');
+    status('');
     schedule(4000);
   } catch (error) {
     // If the invoice was issued but recovery failed, don't display it.
@@ -160,7 +160,7 @@ async function requestPostage(event) {
 
 async function submitEncrypted() {
   if (!session) return;
-  status('Payment verified. Submitting the encrypted message…');
+  status('');
   // Exact same event and attempt ID across *all* retries.
   const attemptId = session.attempt_id;
   const savedEnvelope = session.envelope;
@@ -187,7 +187,7 @@ async function checkPayment() {
   stopTimer();
   setBusy(true);
   try {
-    status(session.phase === 'paid' ? 'Checking message delivery…' : 'Checking payment with Lexe…');
+    status('');
     // Even after the browser has observed payment, verify server state again.
     // Server can independently recognize 'accepted' from a prior request.
     const result = await post('verify', { attempt_id: session.attempt_id }, 16000);
@@ -202,10 +202,10 @@ async function checkPayment() {
     } else if (result.settled === false && result.state === 'invoiced') {
       if (result.expired === true) {
         abandonButton.hidden = false;
-        status('This invoice has expired and Lexe currently reports it as unpaid. Do not pay it now. You can check again or explicitly abandon this attempt.', true);
+        status('Invoice expired. Select Cancel to start over.', true);
       } else {
         abandonButton.hidden = false;
-        status('Awaiting the 21-sat payment. This page checks automatically while visible.');
+        status('');
         schedule(32000);
       }
     } else {
@@ -216,7 +216,7 @@ async function checkPayment() {
       stopped = true;
       status('This invoice is too old to verify automatically. If you believe you paid it, preserve your saved record and contact the site operator. Do not pay it again.', true);
     } else if (error.status === 429) {
-      status('Waiting for the next permitted payment check…');
+      status('');
       schedule(Math.max(1000, error.retryAfter * 1000 + 1000));
     } else {
       status(`Status check unavailable: ${error.message}. Your encrypted attempt is saved; do not pay again.`, true);
@@ -228,16 +228,17 @@ async function checkPayment() {
 form.addEventListener('submit', event => { void requestPostage(event); });
 messageField.addEventListener('input', () => messageShell.classList.toggle('has-text', !!messageField.value));
 replyField.addEventListener('input', () => replyShell.classList.toggle('has-text', !!replyField.value));
-checkButton.addEventListener('click', () => { stopped = false; void checkPayment(); });
 copyButton.addEventListener('click', async () => {
   if (!session) return;
-  try { await navigator.clipboard.writeText(session.invoice); status('Invoice copied.'); }
+  try {
+    await navigator.clipboard.writeText(session.invoice);
+    copyButton.textContent = 'Copied';
+    setTimeout(() => { copyButton.textContent = 'Copy'; }, 1500);
+  }
   catch { invoiceField.focus(); invoiceField.select(); status('Invoice selected. Copy it manually.'); }
 });
 abandonButton.addEventListener('click', () => {
   if (busy || !session || session.phase !== 'invoiced') return;
-  const warning = 'Only cancel if you have NOT paid this invoice. This does not cancel the Lightning invoice itself. If payment was made or later settles, discarding this encrypted draft could permanently prevent message delivery. Delete this unpaid attempt and start over?';
-  if (!window.confirm(warning)) return;
   // No server-side cancellation: it could race with a genuine settlement.
   // Forget only the local unpaid attempt and stop future browser polling.
   try {
@@ -251,7 +252,7 @@ abandonButton.addEventListener('click', () => {
   session = null;
   stopped = false;
   renderDraft();
-  status('Unpaid invoice discarded. You can write a new message.');
+  status('');
   messageField.focus();
 });
 newMessageButton.addEventListener('click', () => {
@@ -281,7 +282,7 @@ try {
     void hashEnvelope(session.envelope).then(actual => {
       if (actual !== session.envelope_hash) throw Error('Saved encrypted message differs from its invoice commitment.');
       renderPayment();
-      status('Recovered your encrypted draft and original invoice. Checking payment status…');
+      status('');
       schedule(300);
     }).catch(error => {
       stopped = true; requestButton.disabled = true;
