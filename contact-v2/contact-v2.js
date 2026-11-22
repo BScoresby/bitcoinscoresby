@@ -12,6 +12,7 @@ const replyField = $('#reply');
 const messageShell = $('#terminal-message');
 const replyShell = $('#terminal-reply-input');
 const requestButton = $('#create-invoice');
+const requestLabel = requestButton.textContent;
 const paymentArea = $('#payment-area');
 const invoiceField = $('#invoice');
 const invoiceDetails = $('#invoice-details');
@@ -30,6 +31,17 @@ let stopped = false;
 function status(text, isError = false) {
   statusEl.textContent = text;
   statusEl.classList.toggle('error', isError);
+}
+function showEmptyMessage() {
+  requestButton.textContent = 'Your envelope is empty';
+  requestButton.classList.add('empty-envelope');
+  messageField.setAttribute('aria-invalid', 'true');
+  messageField.focus();
+}
+function clearEmptyMessage() {
+  requestButton.textContent = requestLabel;
+  requestButton.classList.remove('empty-envelope');
+  messageField.removeAttribute('aria-invalid');
 }
 function setBusy(value) {
   busy = value;
@@ -87,6 +99,7 @@ function ensureStorage() {
   }
 }
 function renderDraft() {
+  clearEmptyMessage();
   form.hidden = false;
   paymentArea.hidden = true;
   successArea.hidden = true;
@@ -132,6 +145,7 @@ function accepted() {
 async function requestPostage(event) {
   event.preventDefault();
   if (busy || session || stopped) return;
+  if (!messageField.value.trim()) { showEmptyMessage(); return; }
   setBusy(true);
   try {
     ensureStorage();
@@ -226,7 +240,10 @@ async function checkPayment() {
 }
 
 form.addEventListener('submit', event => { void requestPostage(event); });
-messageField.addEventListener('input', () => messageShell.classList.toggle('has-text', !!messageField.value));
+messageField.addEventListener('input', () => {
+  messageShell.classList.toggle('has-text', !!messageField.value);
+  if (messageField.value.trim()) clearEmptyMessage();
+});
 replyField.addEventListener('input', () => replyShell.classList.toggle('has-text', !!replyField.value));
 copyButton.addEventListener('click', async () => {
   if (!session) return;

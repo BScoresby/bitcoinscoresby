@@ -24,10 +24,10 @@
   </header>
   <h1>Contact</h1>
   <p class="intro">Send an encrypted message to Scoresby for 21 sats. Include a return address (email, Nostr, X, etc.) only if you want a reply.</p>
-  <form id="contact-form">
+  <form id="contact-form" novalidate>
     <div class="terminal-message" id="terminal-message">
       <label for="message" class="terminal-prompt">&gt;</label>
-      <textarea id="message" rows="6" maxlength="2000" required aria-label="Your message" autocomplete="off" spellcheck="false"></textarea>
+      <textarea id="message" rows="6" maxlength="2000" aria-required="true" aria-label="Your message" autocomplete="off" spellcheck="false"></textarea>
       <span class="terminal-block" aria-hidden="true"></span>
     </div>
     <div class="terminal-reply">
