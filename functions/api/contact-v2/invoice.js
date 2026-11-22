@@ -5,6 +5,66 @@ const NO_STORE = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer'
 const json = (status, data) => Response.json(data, { status, headers: NO_STORE });
 const validUsername = value => typeof value === 'string' && /^[a-zA-Z0-9_-]{1,64}$/.test(value);
 
+const INVOICE_RATE_LIMIT = 5;
+const INVOICE_WINDOW_SECONDS = 3600;
+
+async function checkInvoiceRateLimit(request, env, now) {
+  const ip = request.headers.get('cf-connecting-ip');
+  const secret = env.CONTACT_V2_RATE_LIMIT_SECRET;
+
+  if (!ip || typeof secret !== 'string' || secret.length < 32) {
+    throw Error('Invoice rate limiter not configured');
+  }
+
+  // HMAC avoids storing the visitor's raw IP address in D1.
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw',
+    encoder.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+
+  const signature = new Uint8Array(
+    await crypto.subtle.sign('HMAC', key, encoder.encode(ip))
+  );
+
+  const clientHash = Array.from(signature, byte =>
+    byte.toString(16).padStart(2, '0')
+  ).join('');
+
+  const expiredBefore = now - INVOICE_WINDOW_SECONDS;
+
+  // One atomic statement prevents concurrent requests from
+  // independently passing a read-then-write limit check.
+  const result = await env.CONTACT_DB.prepare(`
+    INSERT INTO contact_v2_invoice_rate_limits
+      (client_hash, window_start, requests)
+    VALUES (?, ?, 1)
+    ON CONFLICT(client_hash) DO UPDATE SET
+      requests = CASE
+        WHEN window_start <= ? THEN 1
+        ELSE requests + 1
+      END,
+      window_start = CASE
+        WHEN window_start <= ? THEN excluded.window_start
+        ELSE window_start
+      END
+    WHERE window_start <= ? OR requests < ?
+    RETURNING requests
+  `).bind(
+    clientHash,
+    now,
+    expiredBefore,
+    expiredBefore,
+    expiredBefore,
+    INVOICE_RATE_LIMIT
+  ).first();
+
+  return result !== null;
+}
+
 function requireLexeUrl(value, verify = false) {
   let url;
   try { url = new URL(value); } catch { throw Error('Invalid Lexe URL'); }
@@ -62,8 +122,17 @@ export async function onRequestPost({ request, env }) {
   if (Number(request.headers.get('content-length') || 0) > 1024) {
     return json(413, { ok: false, error: 'Request too large' });
   }
-  const now = Math.floor(Date.now() / 1000);
+    const now = Math.floor(Date.now() / 1000);
   try {
+    const allowed = await checkInvoiceRateLimit(request, env, now);
+
+    if (!allowed) {
+      return json(429, {
+        ok: false,
+        error: 'Too many invoice requests. Try again later.'
+      });
+    }
+
     // No caller-provided username, callback, amount, or verification URL.
     const metadataUrl = `https://lexe.app/.well-known/lnurlp/${env.LEXE_USERNAME}`;
     const metadata = await limitedJson(metadataUrl);
