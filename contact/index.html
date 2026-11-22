@@ -23,11 +23,11 @@
     </nav>
   </header>
   <h1>Contact</h1>
-  <p class="intro">Send an encrypted message for 21 sats. Include a return address only if you want a reply.</p>
-  <form id="contact-form">
+  <p class="intro">Send an encrypted message to Scoresby for 21 sats. Include a return address (email, Nostr, X, etc.) only if you want a reply.</p>
+  <form id="contact-form" novalidate>
     <div class="terminal-message" id="terminal-message">
       <label for="message" class="terminal-prompt">&gt;</label>
-      <textarea id="message" rows="6" maxlength="2000" required aria-label="Your message" autocomplete="off" spellcheck="false"></textarea>
+      <textarea id="message" rows="6" maxlength="2000" aria-required="true" aria-label="Your message" autocomplete="off" spellcheck="false"></textarea>
       <span class="terminal-block" aria-hidden="true"></span>
     </div>
     <div class="terminal-reply">
@@ -37,24 +37,19 @@
         <span class="terminal-reply-block" aria-hidden="true"></span>
       </span>
     </div>
-    <p class="field-hint reply-hint">Optional. Your message is encrypted in your browser before an invoice is requested.</p>
     <div class="contact-actions"><button type="submit" id="create-invoice">Request postage · 21 sats</button></div>
   </form>
 
   <section id="payment-area" hidden aria-label="Payment">
-    <details id="invoice-details" open>
-      <summary>Lightning invoice · 21 sats</summary>
-      <p class="invoice-instructions">Scan to pay or copy the invoice. Keep this browser's saved payment attempt until the message is accepted.</p>
-      <div id="invoice-qr" aria-live="polite"></div>
-      <label for="invoice">&gt; BOLT11 invoice</label>
-      <textarea id="invoice" rows="3" readonly spellcheck="false"></textarea>
-      <div class="payment-actions">
-        <button type="button" id="copy-invoice">Copy invoice</button>
-        <button type="button" id="check-payment">Check payment / Retry delivery</button>
-      </div>
+    <div id="invoice-qr" aria-label="Lightning invoice QR code"></div>
+    <details id="invoice-details">
+      <summary>&gt; BOLT11 invoice</summary>
+      <textarea id="invoice" rows="3" readonly spellcheck="false" aria-label="BOLT11 invoice"></textarea>
     </details>
-    <p class="field-hint">A reload restores this encrypted draft and invoice in the same browser and on the same preview hostname. Do not pay a second invoice if delivery is interrupted.</p>
-    <button type="button" id="abandon-attempt" hidden>Abandon this payment attempt</button>
+    <div class="payment-actions">
+      <button type="button" id="copy-invoice">Copy</button>
+      <button type="button" id="abandon-attempt" hidden>Cancel</button>
+    </div>
   </section>
 
   <p id="status" role="status" aria-live="polite"></p>
