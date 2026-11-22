@@ -91,7 +91,7 @@ def transform(source):
         i += 1
     return '\n'.join(output), chapters, len(seen)
 
-def build(source, title, css_path):
+def build(source, title, css_path, floating_nav=False):
     lines = source.splitlines(keepends=True)
 
     first_chapter = next(
@@ -121,6 +121,12 @@ def build(source, title, css_path):
     for number, heading in chapters:
         chapter_links.append(f'<li><a href="#chapter-{html.escape(number, quote=True)}"><span>{html.escape(number)}</span> {html.escape(heading)}</a></li>')
     toc = '<ol>\n' + '\n'.join(chapter_links) + '\n</ol>' if chapters else '<p>No numbered chapter headings were detected.</p>'
+    # Optional, CSS-only shortcuts for long outlines (enabled for /tether/).
+    floating_nav_html = ('''<nav class="outline-quick-nav" aria-label="Page shortcuts">
+      <a href="#contents" aria-label="Back to chapters" title="Chapters"><img src="/assets/twemoji-upwards-button.svg" alt="" width="24" height="24"></a>
+      <a href="/" aria-label="BitcoinScoresby home" title="Home"><img src="/assets/whale.svg" alt="" width="24" height="24"></a>
+    </nav>''' if floating_nav else '')
+    emoji_credit_html = ('<small class="outline-emoji-credit">Icons: <a href="https://github.com/jdecked/twemoji">Twemoji by Twitter and contributors</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)</small>' if floating_nav else '')
     page = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -153,12 +159,13 @@ def build(source, title, css_path):
     </header>
     <h1 class="document-title">{html.escape(title)}</h1>
     {intro_html}
-    <nav class="contents" aria-label="Chapters">
+    <nav class="contents" id="contents" aria-label="Chapters">
       <h2>CONTENTS_</h2>
       {toc}
     </nav>
     <article class="document">{article}</article>
-    <footer><a href="#top">&uarr; Back to contents</a></footer>
+    <footer><a href="#contents">&uarr; Back to contents</a>{emoji_credit_html}</footer>
+    {floating_nav_html}
   </main>
 </body>
 </html>
@@ -172,9 +179,10 @@ def main():
     parser.add_argument('output', type=Path, help='Output index.html')
     parser.add_argument('--title', default='Research Archive')
     parser.add_argument('--css', default='style.css', help='Stylesheet link relative to output page')
+    parser.add_argument('--floating-nav', action='store_true', help='Add fixed Chapters and Home links for long outlines')
     args = parser.parse_args()
     source = args.source.read_text(encoding='utf-8')
-    page, chapters, entries = build(source, args.title, args.css)
+    page, chapters, entries = build(source, args.title, args.css, args.floating_nav)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(page, encoding='utf-8')
     print(f'Wrote {args.output} ({chapters} chapters, {entries} numbered entries, {len(page):,} HTML characters)')

@@ -36,7 +36,11 @@ function showEmptyMessage() {
   requestButton.textContent = 'Your envelope is empty';
   requestButton.classList.add('empty-envelope');
   messageField.setAttribute('aria-invalid', 'true');
-  messageField.focus();
+  messageField.focus({ preventScroll: true });
+  messageField.scrollIntoView({
+    block: 'center',
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
 }
 function clearEmptyMessage() {
   requestButton.textContent = requestLabel;
