@@ -103,6 +103,12 @@ const destinations = {
     'cypherpunks write code'
   ],
 
+  '/electric-cowboy/': [
+    'the electric cowboy',
+    'electric cowboy',
+    'get zapped!'
+  ],
+
   // Generated destinations for reviews, articles, posters
   ...window.reviewDestinations,
   ...window.articleDestinations,

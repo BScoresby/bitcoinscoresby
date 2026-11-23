@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="The Electric Cowboy — catch the lightning in a minimalist pixel-art arcade game.">
+  <title>The Electric Cowboy — BitcoinScoresby</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/whale.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./nostr-zaps.js" defer></script>
+  <script src="./game.js" defer></script>
+</head>
+<body>
+  <main class="page electric-page">
+    <header class="site-header">
+      <a class="site-logo" href="/" aria-label="BitcoinScoresby home">
+        <img src="/assets/whale.svg" alt="">
+        <span class="site-name">BS</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/whitepaper" aria-label="Whitepaper"><img src="/assets/paper.svg" alt=""></a>
+        <a href="/archive" aria-label="Archive"><img src="/assets/folder.svg" alt=""></a>
+        <a href="https://stacker.news" aria-label="Stacker News"><img src="/assets/lightning.svg" alt=""></a>
+      </nav>
+    </header>
+    <h1>THE ELECTRIC COWBOY</h1>
+    <div class="game-frame">
+      <canvas id="game" width="800" height="400" aria-label="The Electric Cowboy. Move left and right to catch lightning strikes. Use Enter to start or restart. Catch ordinary lightning to survive; catch Nostr zap receipts to collect game sats. Three missed strikes end the run."></canvas>
+    </div>
+    <p class="instructions"><span>ENTER: START / RESTART</span><span>&larr; &rarr; OR A / D: MOVE</span></p>
+    <div class="touch-controls" aria-label="Touch movement controls">
+      <button class="move-button" type="button" id="move-left" aria-label="Move cowboy left">&larr;</button>
+      <button class="move-button" type="button" id="move-right" aria-label="Move cowboy right">&rarr;</button>
+    </div>
+  </main>
+</body>
+</html>

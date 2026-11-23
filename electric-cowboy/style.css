@@ -1,0 +1,56 @@
+/* The Electric Cowboy: page-specific layout. Shared header and fonts come from /styles.css. */
+.electric-page {
+  width: min(calc(100% - 44px), 860px);
+  padding: 42px 0 72px;
+}
+/* Keep the shared site header intact, while leaving more room for the game. */
+.electric-page .site-header { margin-bottom: clamp(36px, 5vw, 62px); }
+.electric-page h1 {
+  color: #f5f5f5;
+  font-size: clamp(1.15rem, 3.2vw, 1.65rem);
+  letter-spacing: .045em;
+  line-height: 1.35;
+  margin: 0 0 24px;
+}
+.electric-page .game-frame { width: 100%; overflow: hidden; }
+.electric-page #game {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  background: #000;
+  image-rendering: pixelated;
+}
+.electric-page .instructions {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 1.75rem;
+  row-gap: .25rem;
+  margin: 18px 0 0;
+  color: #bdbdbd;
+  font-family: "Space Mono", monospace;
+  font-size: clamp(.88rem, 1.9vw, 1.04rem);
+  font-weight: 700;
+  letter-spacing: .015em;
+  line-height: 1.55;
+}
+.electric-page .touch-controls { display: none; }
+.electric-page .move-button {
+  background: #000;
+  color: #f5f5f5;
+  border: 1px solid #777;
+  font: inherit;
+  font-size: 1.5rem;
+  min-height: 52px;
+  flex: 1;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+@media (max-width: 650px), (pointer: coarse) {
+  .electric-page { width: calc(100% - 36px); }
+  .electric-page .site-header { margin-bottom: 36px; }
+  .electric-page .instructions { font-size: .87rem; column-gap: 1.15rem; }
+  .electric-page .touch-controls { display: flex; gap: 16px; margin-top: 18px; }
+}
